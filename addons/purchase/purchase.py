@@ -32,6 +32,7 @@ from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 from openerp.osv.orm import browse_record, browse_null
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP
+from openerp.tools.float_utils import float_compare
 
 class purchase_order(osv.osv):
 
@@ -265,6 +266,22 @@ class purchase_order(osv.osv):
 
         return super(purchase_order, self).unlink(cr, uid, unlink_ids, context=context)
 
+    def set_order_line_status(self, cr, uid, ids, status, context=None):
+        line = self.pool.get('purchase.order.line')
+        order_line_ids = []
+        move_ids = []
+        proc_obj = self.pool.get('procurement.order')
+        for order in self.browse(cr, uid, ids, context=context):
+            order_line_ids += [po_line.id for po_line in order.order_line]
+            move_ids += [po_line.move_dest_id.id for po_line in order.order_line if po_line.move_dest_id]
+        if order_line_ids:
+            line.write(cr, uid, order_line_ids, {'state': status}, context=context)
+        if order_line_ids and status == 'cancel':
+            procs = proc_obj.search(cr, uid, [('move_id', 'in', move_ids)], context=context)
+            if procs:
+                proc_obj.write(cr, uid, procs, {'state': 'exception'}, context=context)
+        return True
+
     def button_dummy(self, cr, uid, ids, context=None):
         return True
 
@@ -388,6 +405,7 @@ class purchase_order(osv.osv):
         })
         return action
 
+
     def wkf_approve_order(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state': 'approved', 'date_approve': fields.date.context_today(self,cr,uid,context=context)})
         return True
@@ -453,6 +471,10 @@ class purchase_order(osv.osv):
         for po in self.browse(cr, uid, ids, context=context):
             if not po.order_line:
                 raise osv.except_osv(_('Error!'),_('You cannot confirm a purchase order without any purchase order line.'))
+            if po.invoice_method == 'picking' and not any([l.product_id and l.product_id.type in ('product', 'consu') for l in po.order_line]):
+                raise osv.except_osv(
+                    _('Error!'),
+                    _("You cannot confirm a purchase order with Invoice Control Method 'Based on incoming shipments' that doesn't contain any stockable item."))
             for line in po.order_line:
                 if line.state=='draft':
                     todo.append(line.id)
@@ -470,7 +492,7 @@ class purchase_order(osv.osv):
             if not acc_id:
                 acc_id = po_line.product_id.categ_id.property_account_expense_categ.id
             if not acc_id:
-                raise osv.except_osv(_('Error!'), _('Define expense account for this company: "%s" (id:%d).') % (po_line.product_id.name, po_line.product_id.id,))
+                raise osv.except_osv(_('Error!'), _('Define expense account for this product: "%s" (id:%d).') % (po_line.product_id.name, po_line.product_id.id,))
         else:
             acc_id = property_obj.get(cr, uid, 'property_account_expense_categ', 'product.category', context=context).id
         fpos = po_line.order_id.fiscal_position or False
@@ -581,6 +603,10 @@ class purchase_order(osv.osv):
                     return True
         return False
 
+    def wkf_action_cancel(self, cr, uid, ids, context=None):
+        self.write(cr, uid, ids, {'state': 'cancel'}, context=context)
+        self.set_order_line_status(cr, uid, ids, 'cancel', context=context)
+
     def action_cancel(self, cr, uid, ids, context=None):
         wf_service = netsvc.LocalService("workflow")
         for purchase in self.browse(cr, uid, ids, context=context):
@@ -600,9 +626,8 @@ class purchase_order(osv.osv):
                     wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_cancel', cr)
             self.pool['purchase.order.line'].write(cr, uid, [l.id for l in  purchase.order_line],
                     {'state': 'cancel'})
-        self.write(cr,uid,ids,{'state':'cancel'})
 
-        for (id, name) in self.name_get(cr, uid, ids):
+        for id in ids:
             wf_service.trg_validate(uid, 'purchase.order', id, 'purchase_cancel', cr)
         return True
 
@@ -643,6 +668,10 @@ class purchase_order(osv.osv):
         }
 
     def _prepare_order_line_move(self, cr, uid, order, order_line, picking_id, context=None):
+        price_unit = order_line.price_unit
+        if order.currency_id.id != order.company_id.currency_id.id:
+            #we don't round the price_unit, as we may want to store the standard price with more digits than allowed by the currency
+            price_unit = self.pool.get('res.currency').compute(cr, uid, order.currency_id.id, order.company_id.currency_id.id, price_unit, round=False, context=context)
         return {
             'name': order_line.name or '',
             'product_id': order_line.product_id.id,
@@ -661,7 +690,7 @@ class purchase_order(osv.osv):
             'type':'in',
             'purchase_line_id': order_line.id,
             'company_id': order.company_id.id,
-            'price_unit': order_line.price_unit
+            'price_unit': price_unit
         }
 
     def _create_pickings(self, cr, uid, order, order_lines, picking_id=False, context=None):
@@ -983,10 +1012,12 @@ class purchase_order_line(osv.osv):
             context_partner.update( {'lang': lang, 'partner_id': partner_id} )
         product = product_product.browse(cr, uid, product_id, context=context_partner)
         #call name_get() with partner in the context to eventually match name and description in the seller_ids field
-        dummy, name = product_product.name_get(cr, uid, product_id, context=context_partner)[0]
-        if product.description_purchase:
-            name += '\n' + product.description_purchase
-        res['value'].update({'name': name})
+        if not name or not uom_id:
+            # The 'or not uom_id' part of the above condition can be removed in master. See commit message of the rev. introducing this line.
+            dummy, name = product_product.name_get(cr, uid, product_id, context=context_partner)[0]
+            if product.description_purchase:
+                name += '\n' + product.description_purchase
+            res['value'].update({'name': name})
 
         # - set a domain on product_uom
         res['domain'] = {'product_uom': [('category_id','=',product.uom_id.category_id.id)]}
@@ -1009,13 +1040,14 @@ class purchase_order_line(osv.osv):
 
 
         supplierinfo = False
+        precision = self.pool.get('decimal.precision').precision_get(cr, uid, 'Product Unit of Measure')
         for supplier in product.seller_ids:
             if partner_id and (supplier.name.id == partner_id):
                 supplierinfo = supplier
                 if supplierinfo.product_uom.id != uom_id:
                     res['warning'] = {'title': _('Warning!'), 'message': _('The selected supplier only sells this product by %s') % supplierinfo.product_uom.name }
                 min_qty = product_uom._compute_qty(cr, uid, supplierinfo.product_uom.id, supplierinfo.min_qty, to_uom_id=uom_id)
-                if (qty or 0.0) < min_qty: # If the supplier quantity is greater than entered from user, set minimal.
+                if float_compare(min_qty , qty, precision_digits=precision) == 1: # If the supplier quantity is greater than entered from user, set minimal.
                     if qty:
                         res['warning'] = {'title': _('Warning!'), 'message': _('The selected supplier has a minimal quantity set to %s %s, you should not purchase less.') % (supplierinfo.min_qty, supplierinfo.product_uom.name)}
                     qty = min_qty
@@ -1296,10 +1328,16 @@ class account_invoice(osv.Model):
         for order in purchase_order_obj.browse(cr, uid, po_ids, context=context):
             # Signal purchase order workflow that an invoice has been validated.
             invoiced = []
+            shipped = True
+            # for invoice method manual or order, don't care about shipping state
+            # for invoices based on incoming shippment, beware of partial deliveries
+            if (order.invoice_method == 'picking' and
+                    not all(picking.invoice_state in ['invoiced'] for picking in order.picking_ids)):
+                shipped = False
             for po_line in order.order_line:
-                if any(line.invoice_id.state not in ['draft', 'cancel'] for line in po_line.invoice_lines):
+                if all(line.invoice_id.state not in ['draft', 'cancel'] for line in po_line.invoice_lines):
                     invoiced.append(po_line.id)
-            if invoiced:
+            if invoiced and shipped:
                 self.pool['purchase.order.line'].write(cr, uid, invoiced, {'invoiced': True})
             wf_service.trg_write(uid, 'purchase.order', order.id, cr)
         return res

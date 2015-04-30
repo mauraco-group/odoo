@@ -32,6 +32,7 @@ condition/math builtins.
 #  - safe_eval in tryton http://hg.tryton.org/hgwebdir.cgi/trytond/rev/bbb5f73319ad
 
 from opcode import HAVE_ARGUMENT, opmap, opname
+from psycopg2 import OperationalError
 from types import CodeType
 import logging
 
@@ -41,6 +42,9 @@ __all__ = ['test_expr', 'safe_eval', 'const_eval']
 # but some code, e.g. datetime.datetime.now() (Windows/Python 2.5.2, bug
 # lp:703841), does import time.
 _ALLOWED_MODULES = ['_strptime', 'time']
+
+_UNSAFE_ATTRIBUTES = ['f_builtins', 'f_globals', 'f_locals', 'gi_frame',
+                      'co_code', 'func_globals']
 
 _CONST_OPCODES = set(opmap[x] for x in [
     'POP_TOP', 'ROT_TWO', 'ROT_THREE', 'ROT_FOUR', 'DUP_TOP', 'DUP_TOPX',
@@ -113,7 +117,7 @@ def assert_no_dunder_name(code_obj, expr):
     .. note:: actually forbids every name containing 2 underscores
     """
     for name in code_obj.co_names:
-        if "__" in name:
+        if "__" in name or name in _UNSAFE_ATTRIBUTES:
             raise NameError('Access to forbidden name %r (%r)' % (name, expr))
 
 def assert_valid_codeobj(allowed_codes, code_obj, expr):
@@ -264,8 +268,6 @@ def safe_eval(expr, globals_dict=None, locals_dict=None, mode="eval", nocopy=Fal
                 'False': False,
                 'None': None,
                 'str': str,
-                'globals': locals,
-                'locals': locals,
                 'bool': bool,
                 'dict': dict,
                 'list': list,
@@ -284,6 +286,10 @@ def safe_eval(expr, globals_dict=None, locals_dict=None, mode="eval", nocopy=Fal
     )
     try:
         return eval(test_expr(expr, _SAFE_OPCODES, mode=mode), globals_dict, locals_dict)
+    except OperationalError:
+        # Do not hide PostgreSQL low-level exceptions, to let the auto-replay
+        # of serialized transactions work its magic
+        raise
     except Exception:
         _logger.exception('Cannot eval %r', expr)
         raise

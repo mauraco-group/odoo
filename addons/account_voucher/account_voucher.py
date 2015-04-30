@@ -70,13 +70,13 @@ class account_config_settings(osv.osv_memory):
             type='many2one',
             relation='account.account',
             string="Gain Exchange Rate Account", 
-            domain="[('type', '=', 'other')]"),
+            domain="[('type', '=', 'other'), ('company_id', '=', company_id)]"),
         'expense_currency_exchange_account_id': fields.related(
             'company_id', 'expense_currency_exchange_account_id',
             type="many2one",
             relation='account.account',
             string="Loss Exchange Rate Account",
-            domain="[('type', '=', 'other')]"),
+            domain="[('type', '=', 'other'), ('company_id', '=', company_id)]"),
     }
     def onchange_company_id(self, cr, uid, ids, company_id, context=None):
         res = super(account_config_settings, self).onchange_company_id(cr, uid, ids, company_id, context=context)
@@ -88,6 +88,23 @@ class account_config_settings(osv.osv_memory):
             res['value'].update({'income_currency_exchange_account_id': False, 
                                  'expense_currency_exchange_account_id': False})
         return res
+
+    def _check_account_gain(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            if obj.income_currency_exchange_account_id.company_id and obj.company_id != obj.income_currency_exchange_account_id.company_id:
+                return False
+        return True
+
+    def _check_account_loss(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            if obj.expense_currency_exchange_account_id.company_id and obj.company_id != obj.expense_currency_exchange_account_id.company_id:
+                return False
+        return True
+
+    _constraints = [
+        (_check_account_gain, 'The company of the gain exchange rate account must be the same than the company selected.', ['income_currency_exchange_account_id']),
+        (_check_account_loss, 'The company of the loss exchange rate account must be the same than the company selected.', ['expense_currency_exchange_account_id']),
+    ]
 
 class account_voucher(osv.osv):
     def _check_paid(self, cr, uid, ids, name, args, context=None):
@@ -367,7 +384,7 @@ class account_voucher(osv.osv):
                         \n* The \'Posted\' status is used when user create voucher,a voucher number is generated and voucher entries are created in account \
                         \n* The \'Cancelled\' status is used when user cancel voucher.'),
         'amount': fields.float('Total', digits_compute=dp.get_precision('Account'), required=True, readonly=True, states={'draft':[('readonly',False)]}),
-        'tax_amount':fields.float('Tax Amount', digits_compute=dp.get_precision('Account'), readonly=True, states={'draft':[('readonly',False)]}),
+        'tax_amount':fields.float('Tax Amount', digits_compute=dp.get_precision('Account'), readonly=True),
         'reference': fields.char('Ref #', size=64, readonly=True, states={'draft':[('readonly',False)]}, help="Transaction reference number."),
         'number': fields.char('Number', size=32, readonly=True,),
         'move_id':fields.many2one('account.move', 'Account Entry'),
@@ -918,7 +935,7 @@ class account_voucher(osv.osv):
             currency_id = journal.currency.id
         else:
             currency_id = journal.company_id.currency_id.id
-        vals['value'].update({'currency_id': currency_id})
+        vals['value'].update({'currency_id': currency_id, 'payment_rate_currency_id': currency_id})
         #in case we want to register the payment directly from an invoice, it's confusing to allow to switch the journal 
         #without seeing that the amount is expressed in the journal currency, and not in the invoice currency. So to avoid
         #this common mistake, we simply reset the amount to 0 if the currency is not the invoice currency.
@@ -1337,10 +1354,14 @@ class account_voucher(osv.osv):
             if voucher.payment_option == 'with_writeoff':
                 account_id = voucher.writeoff_acc_id.id
                 write_off_name = voucher.comment
-            elif voucher.type in ('sale', 'receipt'):
-                account_id = voucher.partner_id.property_account_receivable.id
+            elif voucher.partner_id:
+                if voucher.type in ('sale', 'receipt'):
+                    account_id = voucher.partner_id.property_account_receivable.id
+                else:
+                    account_id = voucher.partner_id.property_account_payable.id
             else:
-                account_id = voucher.partner_id.property_account_payable.id
+                # fallback on account of voucher
+                account_id = voucher.account_id.id
             sign = voucher.type == 'payment' and -1 or 1
             move_line = {
                 'name': write_off_name or name,
