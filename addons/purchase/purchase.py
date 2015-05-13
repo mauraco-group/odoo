@@ -1284,7 +1284,8 @@ class mail_mail(osv.Model):
     _inherit = 'mail.mail'
 
     def _postprocess_sent_message(self, cr, uid, mail, context=None):
-        if mail.model == 'purchase.order':
+        obj_brw = self.pool[mail.model].browse(cr, uid, mail.res_id, context=context)
+        if mail.model == 'purchase.order' and obj_brw.state == 'draft':
             wf_service = netsvc.LocalService("workflow")
             wf_service.trg_validate(uid, 'purchase.order', mail.res_id, 'send_rfq', cr)
         return super(mail_mail, self)._postprocess_sent_message(cr, uid, mail=mail, context=context)
