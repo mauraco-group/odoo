@@ -6,6 +6,7 @@ SPHINXOPTS    = -q -t solutions
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+TRAVISDIR     = ../out
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -38,6 +39,24 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  deploy     Compile html and deploy to gh-pages/master on an github project.
+
+prepare-deploy:
+	rm -rf $(TRAVISDIR) || exit 0;
+	@echo
+	mkdir $(TRAVISDIR);
+	@echo
+	$(SPHINXBUILD) -D language='es' -q -t solutions . $(TRAVISDIR)
+	@echo
+	touch $(TRAVISDIR)/.nojekyll;
+	git config user.email "cowardvassalwrite@vauxoo.com"
+	git config user.name "Vasall Robot Coward, Push and Run."
+	@echo
+	(cd $(TRAVISDIR); git init; git add .; git config user.email "cowardvassalwrite@vauxoo.com"; git config user.name "Vasall Robot Coward, Push and Run."; git commit -q -m "Deploy to GitHub Pages")
+	@echo 'Commited ready to deploy'
+
+deploy:
+	(cd $(TRAVISDIR);  git push --force --quiet "https://$(GH_TOKEN)@$(GH_REF)" master:gh-pages > /dev/null 2>&1)
 
 html-es:
 	make -e SPHINXOPTS="-D language='es'" html
