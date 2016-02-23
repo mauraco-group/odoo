@@ -5,6 +5,7 @@ _build/
 .*
 !.gitignore
 !.mailmap
+!.travis\.yml
 # compiled python files
 *.py[co]
 __pycache__/
@@ -38,3 +39,4 @@ setup/win32/static/postgresql*.exe
 /man/
 /share/
 /src/
+*.mo
