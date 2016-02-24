@@ -199,6 +199,9 @@ msgid ""
 "cmdline/server>` has a subcommand :ref:`scaffold <reference/cmdline/scaffold>` "
 "to create an empty module:"
 msgstr ""
+"Odoo ofrece un mecanismo para ayudar a comenzar un nuevo módulo :ref:`odoo.py "
+"<reference/cmdline/server>` es un subcomando :ref:`scaffold <reference/cmdline/"
+"scaffold>`  para crear un módulo vacío:"
 
 #: ../../howtos/backend.rst:101
 msgid ""
@@ -240,6 +243,9 @@ msgid ""
 "This layer avoids having to write most :abbr:`SQL (Structured Query Language)` "
 "by hand and provides extensibility and security services\\ [#rawsql]_."
 msgstr ""
+"Un componente clave de Odoo el ORM :abbr:`ORM (Object-Relational Mapping). Esta "
+"capa evita tener que escribir más :abbr:`SQL (Structured Query Language)` "
+"manualmente y proporciona extensibilidad y seguridad services\\ [#rawsql]_."
 
 #: ../../howtos/backend.rst:125
 msgid ""
@@ -334,12 +340,18 @@ msgid ""
 "values stored directly in the model's table and \"relational\" fields linking "
 "records (of the same model or of different models)."
 msgstr ""
+"hay dos categorías de tipos de campos: Los campos *“Simples”* los cuales "
+"simples valores atómicos directamente grabados en en la tabla correspondiente "
+"al modelo y los campos *“Relacionales”* los cuales enlazan registros (registros "
+"del mismo modelo o de diferentes modelos)."
 
 #: ../../howtos/backend.rst:179
 msgid ""
 "Example of simple fields are :class:`~openerp.fields.Boolean`, :class:`~openerp."
 "fields.Date`, :class:`~openerp.fields.Char`."
 msgstr ""
+"Ejemplo de campo simple son los :class:`~openerp.fields.Boolean`, :class:"
+"`~openerp.fields.Date`, :class:`~openerp.fields.Char`."
 
 #: ../../howtos/backend.rst:183
 msgid "Reserved fields"
@@ -351,10 +363,13 @@ msgid ""
 "managed by the system and shouldn't be written to. They can be read if useful "
 "or necessary:"
 msgstr ""
+"Odoo crea algunos campos en todos los modelos\\ [#autofields]_. Estos campos "
+"son manejados por el sistema y no deberían ser escritos. Ellos pueden ser "
+"leídos si representan alguna utilidad o son necesarios:"
 
 #: ../../howtos/backend.rst:189
 msgid ":attr:`~openerp.fields.Model.id` (:class:`~openerp.fields.Id`)"
-msgstr ""
+msgstr ":attr:`~openerp.fields.Model.id` (:class:`~openerp.fields.Id`)"
 
 #: ../../howtos/backend.rst:190
 msgid "the unique identifier for a record in its model"
@@ -482,6 +497,10 @@ msgid ""
 "declared in the ``'data'`` list (always loaded) or in the ``'demo'`` list (only "
 "loaded in demonstration mode)."
 msgstr ""
+"Los archivos de datos tienen que ser declarados en el archivo manifiesto para "
+"que puedan cargarse, ellos pueden ser declarados en la lista ``’data’``(la cual "
+"siempre se carga) o en la lista ``’demo’`` (que se cargará solo cuando *modo "
+"demostración* esté habilitado)."
 
 #: ../../howtos/backend.rst:251
 msgid "Define demonstration data"
