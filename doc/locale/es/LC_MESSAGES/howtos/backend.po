@@ -40,7 +40,7 @@ msgid ""
 "accessing the Odoo server via RPC."
 msgstr ""
 "Odoo utiliza una arquitectura cliente/servidor en el que los clientes son los "
-"navegadores acceso a server Odoo vía RPC."
+"navegadores que acceden a server Odoo vía RPC."
 
 #: ../../howtos/backend.rst:19
 msgid ""
@@ -264,59 +264,69 @@ msgid ""
 "Fields are used to define what the model can store and where. Fields are "
 "defined as attributes on the model class::"
 msgstr ""
+"Los campos se utilizan para definir lo que puede almacenar el modelo y donde. "
+"Los campos se definen como atributos en la clase de modelo::"
 
 #: ../../howtos/backend.rst:153
 msgid "Common Attributes"
-msgstr ""
+msgstr "Atributos comunes"
 
 #: ../../howtos/backend.rst:155
 msgid ""
 "Much like the model itself, its fields can be configured, by passing "
 "configuration attributes as parameters::"
 msgstr ""
+"Mucho,  como el modelo de sí mismo, sus campos se pueden configurar, pasando "
+"los atributos de configuración como parámetros::"
 
 #: ../../howtos/backend.rst:160
 msgid ""
 "Some attributes are available on all fields, here are the most common ones:"
 msgstr ""
+"Algunos atributos están disponibles en todos los campos, aquí están los más "
+"comunes:"
 
 #: ../../howtos/backend.rst:162
 msgid ":attr:`~openerp.fields.Field.string` (``unicode``, default: field's name)"
-msgstr ""
+msgstr ":attr:`~openerp.fields.Field.string` (``unicode``, default: field's name)"
 
 #: ../../howtos/backend.rst:163
 msgid "The label of the field in UI (visible by users)."
 msgstr ""
+"La etiqueta del campo en la interfaz del usuario (lo que el usuario leerá)."
 
 #: ../../howtos/backend.rst:165
 msgid ":attr:`~openerp.fields.Field.required` (``bool``, default: ``False``)"
-msgstr ""
+msgstr ":attr:`~openerp.fields.Field.required` (``bool``, default: ``False``)"
 
 #: ../../howtos/backend.rst:165
 msgid ""
 "If ``True``, the field can not be empty, it must either have a default value or "
 "always be given a value when creating a record."
 msgstr ""
+"Si es ``Verdadero``, el campo no puede estar vacío, deberá tener un valor "
+"predeterminado o siempre tendrás que asignar un valor al crear un registro."
 
 #: ../../howtos/backend.rst:167
 msgid ":attr:`~openerp.fields.Field.help` (``unicode``, default: ``''``)"
-msgstr ""
+msgstr ":attr:`~openerp.fields.Field.help` (``unicode``, default: ``''``)"
 
 #: ../../howtos/backend.rst:168
 msgid "Long-form, provides a help tooltip to users in the UI."
 msgstr ""
+"Formato largo, proporciona una información de ayuda en la interfaz de usuario."
 
 #: ../../howtos/backend.rst:170
 msgid ":attr:`~openerp.fields.Field.index` (``bool``, default: ``False``)"
-msgstr ""
+msgstr ":attr:`~openerp.fields.Field.index` (``bool``, default: ``False``)"
 
 #: ../../howtos/backend.rst:170
 msgid "Requests that Odoo create a `database index`_ on the column"
-msgstr ""
+msgstr "Solicita la creación de un índice `database index`_ en la columna"
 
 #: ../../howtos/backend.rst:173
 msgid "Simple fields"
-msgstr ""
+msgstr "Campos Simples"
 
 #: ../../howtos/backend.rst:175
 msgid ""
@@ -333,7 +343,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:183
 msgid "Reserved fields"
-msgstr ""
+msgstr "Campos reservados"
 
 #: ../../howtos/backend.rst:185
 msgid ""
@@ -348,47 +358,51 @@ msgstr ""
 
 #: ../../howtos/backend.rst:190
 msgid "the unique identifier for a record in its model"
-msgstr ""
+msgstr "Identificador único para un registro en su modelo"
 
 #: ../../howtos/backend.rst:191
 msgid ""
 ":attr:`~openerp.fields.Model.create_date` (:class:`~openerp.fields.Datetime`)"
 msgstr ""
+":attr:`~openerp.fields.Model.create_date` (:class:`~openerp.fields.Datetime`)"
 
 #: ../../howtos/backend.rst:192
 msgid "creation date of the record"
-msgstr ""
+msgstr "fecha de creación del registro"
 
 #: ../../howtos/backend.rst:193
 msgid ""
 ":attr:`~openerp.fields.Model.create_uid` (:class:`~openerp.fields.Many2one`)"
 msgstr ""
+":attr:`~openerp.fields.Model.create_uid` (:class:`~openerp.fields.Many2one`)"
 
 #: ../../howtos/backend.rst:194
 msgid "user who created the record"
-msgstr ""
+msgstr "usuario que creó el registro"
 
 #: ../../howtos/backend.rst:195
 msgid ""
 ":attr:`~openerp.fields.Model.write_date` (:class:`~openerp.fields.Datetime`)"
 msgstr ""
+":attr:`~openerp.fields.Model.write_date` (:class:`~openerp.fields.Datetime`)"
 
 #: ../../howtos/backend.rst:196
 msgid "last modification date of the record"
-msgstr ""
+msgstr "Fecha de la última modificación del registro."
 
 #: ../../howtos/backend.rst:198
 msgid ""
 ":attr:`~openerp.fields.Model.write_uid` (:class:`~openerp.fields.Many2one`)"
 msgstr ""
+":attr:`~openerp.fields.Model.write_uid` (:class:`~openerp.fields.Many2one`)"
 
 #: ../../howtos/backend.rst:198
 msgid "user who last modified the record"
-msgstr ""
+msgstr "Último usuario que modificó el registro"
 
 #: ../../howtos/backend.rst:201
 msgid "Special fields"
-msgstr ""
+msgstr "Campos Especiales"
 
 #: ../../howtos/backend.rst:203
 msgid ""
@@ -396,30 +410,41 @@ msgid ""
 "display and search behaviors. The field used for these purposes can be "
 "overridden by setting :attr:`~openerp.models.Model._rec_name`."
 msgstr ""
+"Por defecto, Odoo también requiere un campo ``name``  en todos los modelos para "
+"varios comportamientos de búsqueda y visualización. El campo utilizado para "
+"estos fines se puede reemplazar estableciendo :attr:`~openerp.models.Model."
+"_rec_name`."
 
 #: ../../howtos/backend.rst:207
 msgid "Define a model"
-msgstr ""
+msgstr "Define un modelo"
 
 #: ../../howtos/backend.rst:209
 msgid ""
 "Define a new data model *Course* in the *openacademy* module. A course has a "
 "title and a description. Courses must have a title."
 msgstr ""
+"Definir un nuevo modelo de datos *curso* en el módulo *openacademy*. Un curso "
+"tiene un título y una descripción. Los cursos *deben* tener un título."
 
 #: ../../howtos/backend.rst:214
 msgid "Edit the file ``openacademy/models.py`` to include a *Course* class."
 msgstr ""
+"Edita el archivo ``openacademy/models.py`` incluyendo una clase *Course* "
+"(intenta nombrar todo en inglés)."
 
 #: ../../howtos/backend.rst:221
 msgid ""
 "Odoo is a highly data driven system. Although behavior is customized using "
 "Python_ code part of a module's value is in the data it sets up when loaded."
 msgstr ""
+"Odoo es un sistema altamente dirigido por datos. Aunque el comportamiento "
+"personalizado utiliza una parte de código Python_ el valor de un módulo está en "
+"los datos que éste establece cuando se carga."
 
 #: ../../howtos/backend.rst:224
 msgid "some modules exist solely to add data into Odoo"
-msgstr ""
+msgstr "algunos módulos existen únicamente para agregar datos a Odoo"
 
 #: ../../howtos/backend.rst:227
 msgid ""
@@ -427,22 +452,29 @@ msgid ""
 "``<record>`` elements. Each ``<record>`` element creates or updates a database "
 "record."
 msgstr ""
+"Los datos del módulo son declarados vía :ref:`Archivos de Datos <reference/"
+"data>`, archivos XML con elementos ``<record>``. Cada elemento ``<record>`` "
+"crea o actualiza datos en la base de datos."
 
 #: ../../howtos/backend.rst:241
 msgid "``model`` is the name of the Odoo model for the record"
-msgstr ""
+msgstr "``model`` es el dentificador único (Nombre) para un registro en el modelo"
 
 #: ../../howtos/backend.rst:242
 msgid ""
 "``id`` is an :term:`external identifier`, it allows referring to the record "
 "(without having to know its in-database identifier)"
 msgstr ""
+"``id`` es un :term: `Identificador externo`, que permite referirse al registro "
+"(sin tener que conocer su identificador de base de datos)"
 
 #: ../../howtos/backend.rst:244
 msgid ""
 "``<field>`` elements have a ``name`` which is the name of the field in the "
 "model (e.g. ``description``). Their body is the field's value."
 msgstr ""
+"``<field>`` los elementos tienen un ``nombre`` que es el nombre del campo en el "
+"modelo (por ejemplo,  ``description``). Su cuerpo es el valor de campo."
 
 #: ../../howtos/backend.rst:247
 msgid ""
@@ -453,39 +485,44 @@ msgstr ""
 
 #: ../../howtos/backend.rst:251
 msgid "Define demonstration data"
-msgstr ""
+msgstr "Definir los datos de demostración"
 
 #: ../../howtos/backend.rst:253
 msgid ""
 "Create demonstration data filling the *Courses* model with a few demonstration "
 "courses."
 msgstr ""
+"Crear los datos de demostración llenando el model *Courses* con algunos pocos "
+"cursos."
 
 #: ../../howtos/backend.rst:258
 msgid "Edit the file ``openacademy/demo.xml`` to include some data."
-msgstr ""
+msgstr "Edite el archivo ``openacademy/demo.xml`` para incluir algunos datos."
 
 #: ../../howtos/backend.rst:263
 msgid "Actions and Menus"
-msgstr ""
+msgstr "Acciones y menús"
 
 #: ../../howtos/backend.rst:265
 msgid ""
 "Actions and menus are regular records in database, usually declared through "
 "data files. Actions can be triggered in three ways:"
 msgstr ""
+"Acciones y menús son registros regulares en la base de datos, usualmente a "
+"través de archivos de datos. Las acciones pueden ser disparadas en tres formas:"
 
 #: ../../howtos/backend.rst:268
 msgid "by clicking on menu items (linked to specific actions)"
-msgstr ""
+msgstr "haciendo click en los menús (enlazados a una acción específica)"
 
 #: ../../howtos/backend.rst:269
 msgid "by clicking on buttons in views (if these are connected to actions)"
 msgstr ""
+"haciendo click en botones en las vistas (si éstos están conectados a acciones)"
 
 #: ../../howtos/backend.rst:270
 msgid "as contextual actions on object"
-msgstr ""
+msgstr "como acciones contextuales en el objeto"
 
 #: ../../howtos/backend.rst:272
 msgid ""
@@ -493,48 +530,59 @@ msgid ""
 "shortcut to declare an ``ir.ui.menu`` and connect it to the corresponding "
 "action more easily."
 msgstr ""
+"Ya que los menús son algo complejos para declarar que hay un acceso directo "
+"``<menuitem>`` para declarar un ``ir.ui.menu`` y así enlazarlo de forma más a "
+"la acción correspondiente."
 
 #: ../../howtos/backend.rst:289
 msgid "The action must be declared before its corresponding menu in the XML file."
 msgstr ""
+"La acción debe declararse antes de declarar el menú correspondiente en el "
+"archivo XML."
 
 #: ../../howtos/backend.rst:291
 msgid ""
 "Data files are executed sequentially, the action's ``id`` must be present in "
 "the database before the menu can be created."
 msgstr ""
+"Los archivos de datos se ejecutan secuencialmente, el ``id`` de la acción debe "
+"estar presente en la base de datos antes de que se puede crear el menú."
 
 #: ../../howtos/backend.rst:294
 msgid "Define new menu entries"
-msgstr ""
+msgstr "Definir nuevas entradas de menú"
 
 #: ../../howtos/backend.rst:296
 msgid ""
 "Define new menu entries to access courses and sessions under the OpenAcademy "
 "menu entry. A user should be able to"
 msgstr ""
+"Definir nuevas entradas de menú para acceder a cursos y sesiones en la entrada "
+"del menú OpenAcademy. Un usuario debe ser capaz de"
 
 #: ../../howtos/backend.rst:299
 msgid "display a list of all the courses"
-msgstr ""
+msgstr "ver una lista de todos los cursos"
 
 #: ../../howtos/backend.rst:300
 msgid "create/modify courses"
-msgstr ""
+msgstr "crear o modificar cursos"
 
 #: ../../howtos/backend.rst:304
 msgid ""
 "Create ``openacademy/views/openacademy.xml`` with an action and the menus "
 "triggering the action"
 msgstr ""
+"Crear ``openacademy/views/openacademy.xml`` con una acción y los menús para "
+"activar la acción"
 
 #: ../../howtos/backend.rst:306
 msgid "Add it to the ``data`` list of ``openacademy/__openerp__.py``"
-msgstr ""
+msgstr "Añadir a la lista ``data`` en el archivo ``openacademy/__openerp__.py``"
 
 #: ../../howtos/backend.rst:311
 msgid "Basic views"
-msgstr ""
+msgstr "Básicas vistas"
 
 #: ../../howtos/backend.rst:313
 msgid ""
@@ -545,54 +593,72 @@ msgid ""
 "view with the correct type and the lowest priority will be used (so the lowest-"
 "priority view of each type is the default view for that type)."
 msgstr ""
+"Las vistas definen el modo que se muestran los registros de un modelo. Cada "
+"tipo de vista representa un modo de visualización (una lista de registros, un "
+"gráfico,…). Las vistas o bien se pueden solicitar genéricamente a través de su "
+"tipo (por ejemplo, *una lista de la clientes*) o específicamente mediante su "
+"id. Para solicitudes genéricas, se utilizará la vista con el tipo y la "
+"prioridad más baja (por lo que la vista de la prioridad más baja de cada tipo "
+"es la vista predeterminada para ese tipo)."
 
 #: ../../howtos/backend.rst:321
 msgid ""
 ":ref:`View inheritance <reference/views/inheritance>` allows altering views "
 "declared elsewhere (adding or removing content)."
 msgstr ""
+":ref:`La herencia de Vistas <reference/views/inheritance>` permite modificar "
+"vistas declaradas en otros lugares (agregar o quitar contenido)."
 
 #: ../../howtos/backend.rst:325
 msgid "Generic view declaration"
-msgstr ""
+msgstr "Declaración de vista genérica"
 
 #: ../../howtos/backend.rst:327
 msgid ""
 "A view is declared as a record of the model ``ir.ui.view``. The view type is "
 "implied by the root element of the ``arch`` field:"
 msgstr ""
+"Una vista es declarada como un registro de la modelo ``ir.ui.view``. El tipo de "
+"vista es implícita en el elemento raíz del campo ``arch``:"
 
 #: ../../howtos/backend.rst:341
 msgid "The view's content is XML."
-msgstr ""
+msgstr "El contenido de la vista es XML."
 
 #: ../../howtos/backend.rst:344
 msgid ""
 "The ``arch`` field must thus be declared as ``type=\"xml\"`` to be parsed "
 "correctly."
 msgstr ""
+"El campo ``arch`` debe ser declarado como ``type =“xml”`` para que sea "
+"analizado correctamente."
 
 #: ../../howtos/backend.rst:348 ../../howtos/backend.rst:980
 msgid "Tree views"
-msgstr ""
+msgstr "Vistas de árbol"
 
 #: ../../howtos/backend.rst:350
 msgid "Tree views, also called list views, display records in a tabular form."
 msgstr ""
+"Vistas de árbol, también llamados vistas de lista, mostrarán registros en un "
+"forma de tabla."
 
 #: ../../howtos/backend.rst:352
 msgid ""
 "Their root element is ``<tree>``. The simplest form of the tree view simply "
 "lists all the fields to display in the table (each field as a column):"
 msgstr ""
+"Su elemento raíz es ``<tree>``. La forma más simple de la vista de árbol "
+"simplemente lista todos los campos a mostrar en la tabla (cada campo como una "
+"columna):"
 
 #: ../../howtos/backend.rst:363
 msgid "Form views"
-msgstr ""
+msgstr "Vistas de formulario"
 
 #: ../../howtos/backend.rst:365
 msgid "Forms are used to create and edit single records."
-msgstr ""
+msgstr "Formularios se utilizan para crear y editar registros individuales."
 
 #: ../../howtos/backend.rst:368
 msgid ""
@@ -602,36 +668,43 @@ msgstr ""
 
 #: ../../howtos/backend.rst:397
 msgid "Customise form view using XML"
-msgstr ""
+msgstr "Personalizar vista de formulario usando XML"
 
 #: ../../howtos/backend.rst:399
 msgid ""
 "Create your own form view for the Course object. Data displayed should be: the "
 "name and the description of the course."
 msgstr ""
+"Crear una vista formulario propia para el objeto ``Course``. Los datos "
+"mostrados deben ser: el nombre y la descripción del curso."
 
 #: ../../howtos/backend.rst:406
 msgid "Notebooks"
-msgstr ""
+msgstr "Notebooks"
 
 #: ../../howtos/backend.rst:408
 msgid ""
 "In the Course form view, put the description field under a tab, such that it "
 "will be easier to add other tabs later, containing additional information."
 msgstr ""
+"En la vista formulario de un curso, poner el campo ``description`` en una "
+"pestaña, que será más fácil añadir más tarde, otras pestaña contiene la "
+"información adicional."
 
 #: ../../howtos/backend.rst:414
 msgid "Modify the Course form view as follows:"
-msgstr ""
+msgstr "Modificar la vista de formulario de curso como sigue:"
 
 #: ../../howtos/backend.rst:418
 msgid "Form views can also use plain HTML for more flexible layouts:"
 msgstr ""
+"Vistas de formulario también pueden utilizar HTML plano para diseños más "
+"flexibles:"
 
 #: ../../howtos/backend.rst:445 ../../howtos/backend.rst:1071
 #: ../../howtos/backend.rst:1113
 msgid "Search views"
-msgstr ""
+msgstr "Vistas de búsqueda"
 
 #: ../../howtos/backend.rst:447
 msgid ""
@@ -639,24 +712,29 @@ msgid ""
 "other aggregated views). Their root element is ``<search>`` and they're "
 "composed of fields defining which fields can be searched on:"
 msgstr ""
+"Vistas de búsqueda personaliza los campos de búsqueda asociado con la vista de "
+"lista (y otras vistas agregadas). Su elemento raíz es ``<search>`` y están "
+"compuesto por campos que definen los campos por los que se pueden buscar:"
 
 #: ../../howtos/backend.rst:458
 msgid ""
 "If no search view exists for the model, Odoo generates one which only allows "
 "searching on the ``name`` field."
 msgstr ""
+"Si no existe ninguna vista de búsqueda para el modelo, Odoo genera que "
+"automáticamente permite la búsqueda en el campo ``name``."
 
 #: ../../howtos/backend.rst:461
 msgid "Search courses"
-msgstr ""
+msgstr "Buscar Cursos"
 
 #: ../../howtos/backend.rst:463
 msgid "Allow searching for courses based on their title or their description."
-msgstr ""
+msgstr "Permite buscar cursos basados por el título o la descripción."
 
 #: ../../howtos/backend.rst:470
 msgid "Relations between models"
-msgstr ""
+msgstr "Relaciones entre modelos"
 
 #: ../../howtos/backend.rst:472
 msgid ""
@@ -664,16 +742,22 @@ msgid ""
 "instance, a sale order record is related to a client record that contains the "
 "client data; it is also related to its sale order line records."
 msgstr ""
+"Un registro de un modelo puede estar relacionada con un registro de otro "
+"modelo. Por ejemplo, un registro de orden de venta se relaciona con un registro "
+"de cliente que contiene los datos del cliente; también está relacionado con los "
+"registros de línea de orden de venta."
 
 #: ../../howtos/backend.rst:476
 msgid "Create a session model"
-msgstr ""
+msgstr "Crear un modelo ``Session``"
 
 #: ../../howtos/backend.rst:478
 msgid ""
 "For the module Open Academy, we consider a model for *sessions*: a session is "
 "an occurrence of a course taught at a given time for a given audience."
 msgstr ""
+"Para el módulo Open Academy, consideramos un modelo *sessions*: una sesión es "
+"la cuando un curso es impartido en un momento dado para un público determinado."
 
 #: ../../howtos/backend.rst:481
 msgid ""
@@ -681,14 +765,18 @@ msgid ""
 "and a number of seats. Add an action and a menu item to display them. Make the "
 "new model visible via a menu item."
 msgstr ""
+"Crear un modelo para *sessions*. Una sesión tiene un nombre, una fecha de "
+"inicio, una duración y un número de asientos. Agregue una acción y un elemento "
+"de menú a los mismos. Visibilizar el nuevo modelo a través de un menú."
 
 #: ../../howtos/backend.rst:487
 msgid "Create the class *Session* in ``openacademy/models.py``."
-msgstr ""
+msgstr "Crear la clase *Session* en ``openacademy/models.py``."
 
 #: ../../howtos/backend.rst:488
 msgid "Add access to the session object in ``openacademy/view/openacademy.xml``."
 msgstr ""
+"Añadir el acceso al objeto *session* en ``openacademy/view/openacademy.xml``."
 
 #: ../../howtos/backend.rst:492
 msgid ""
@@ -696,38 +784,46 @@ msgid ""
 "number of digits, while 2 is the number of digits after the comma. Note that it "
 "results in the number digits before the comma is a maximum 4"
 msgstr ""
+"``digits=(6, 2)`` especifica la precisión de un número flotante: 6 es el número "
+"total de dígitos, mientras que 2 es el número de dígitos después de la coma. "
+"Tenga en cuenta que da el resultado es que los dígitos antes de la coma es un "
+"máximo de 4"
 
 #: ../../howtos/backend.rst:498
 msgid "Relational fields"
-msgstr ""
+msgstr "Campos Relacionales"
 
 #: ../../howtos/backend.rst:500
 msgid ""
 "Relational fields link records, either of the same model (hierarchies) or "
 "between different models."
 msgstr ""
+"Los campos relacionales vinculan registros, ya sea del mismo modelo "
+"(jerarquías) o entre diferentes modelos."
 
 #: ../../howtos/backend.rst:503
 msgid "Relational field types are:"
-msgstr ""
+msgstr "Los tipos de campos relacionales son:"
 
 #: ../../howtos/backend.rst:510
 msgid ""
 ":class:`Many2one(other_model, ondelete='set null') <openerp.fields.Many2one>`"
 msgstr ""
+":class:`Many2one(other_model, ondelete='set null') <openerp.fields.Many2one>`"
 
 #: ../../howtos/backend.rst:506
 msgid "A simple link to an other object::"
-msgstr ""
+msgstr "Un simple enlace a otro objeto::"
 
 #: ../../howtos/backend.rst:510
 msgid ""
 "`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
 msgstr ""
+"`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
 
 #: ../../howtos/backend.rst:524
 msgid ":class:`One2many(other_model, related_field) <openerp.fields.One2many>`"
-msgstr ""
+msgstr ":class:`One2many(other_model, related_field) <openerp.fields.One2many>`"
 
 #: ../../howtos/backend.rst:513
 msgid ""
@@ -735,6 +831,9 @@ msgid ""
 "class:`~openerp.fields.One2many` behaves as a container of records, accessing "
 "it results in a (possibly empty) set of records::"
 msgstr ""
+"Una relación virtual, inverso a un :class:`~openerp.fields.Many2one`. Un :class:"
+"`~openerp.fields.One2many` se comporta como contenedor de los registros, el "
+"acceso se traduce en un conjunto (posiblemente vacío) de los registros::"
 
 #: ../../howtos/backend.rst:522
 msgid ""
@@ -753,68 +852,82 @@ msgid ""
 "any number of records on the other side. Behaves as a container of records, "
 "accessing it also results in a possibly empty set of records::"
 msgstr ""
+"Relación bidireccional múltiple, cualquier registro en un lado puede estar "
+"relacionada con cualquier número de registros en el otro lado. Se comporta como "
+"un contenedor de registros, al acceder a él también se puede traducir en una "
+"lista vacía de registros::"
 
 #: ../../howtos/backend.rst:534
 msgid "Many2one relations"
-msgstr ""
+msgstr "Relaciones Many2one"
 
 #: ../../howtos/backend.rst:536
 msgid ""
 "Using a many2one, modify the *Course* and *Session* models to reflect their "
 "relation with other models:"
 msgstr ""
+"Usando un many2one, modificar los modelos *Course* y *Session*  para reflejar "
+"su relación con otros modelos:"
 
 #: ../../howtos/backend.rst:539
 msgid ""
 "A course has a *responsible* user; the value of that field is a record of the "
 "built-in model ``res.users``."
 msgstr ""
+"Un curso tiene un usuario *responsible*; el valor de ese campo es un registro "
+"del modelo integrado ``res.users``."
 
 #: ../../howtos/backend.rst:541
 msgid ""
 "A session has an *instructor*; the value of that field is a record of the built-"
 "in model ``res.partner``."
 msgstr ""
+"Una sesión tiene un *instructor*; el valor de ese campo es un registro del "
+"modelo integrado ``res.partner``."
 
 #: ../../howtos/backend.rst:543
 msgid ""
 "A session is related to a *course*; the value of that field is a record of the "
 "model ``openacademy.course`` and is required."
 msgstr ""
+"Una sesión se refiere a un *course*; el valor de ese campo es un registro del "
+"modelo ``openacademy.course`` y es requerido."
 
 #: ../../howtos/backend.rst:545
 msgid "Adapt the views."
-msgstr ""
+msgstr "Adaptar las vistas."
 
 #: ../../howtos/backend.rst:549
 msgid "Add the relevant ``Many2one`` fields to the models, and"
-msgstr ""
+msgstr "Añadir los campos ``Many2one`` correspondientes a los modelos, y"
 
 #: ../../howtos/backend.rst:550
 msgid "add them in the views."
-msgstr ""
+msgstr "añadirlos las vistas."
 
 #: ../../howtos/backend.rst:554
 msgid "Inverse one2many relations"
-msgstr ""
+msgstr "Relaciones One2Many inversas"
 
 #: ../../howtos/backend.rst:556
 msgid ""
 "Using the inverse relational field one2many, modify the models to reflect the "
 "relation between courses and sessions."
 msgstr ""
+"Utilizando el campo relacional inverso one2many, modificar los modelos para "
+"reflejar la relación entre los cursos y sesiones."
 
 #: ../../howtos/backend.rst:561
 msgid "Modify the ``Course`` class, and"
-msgstr ""
+msgstr "Modificar la clase ``Course``, y"
 
 #: ../../howtos/backend.rst:562
 msgid "add the field in the course form view."
-msgstr ""
+msgstr "agregar el campo en la vista de formulario del curso."
 
 #: ../../howtos/backend.rst:566
 msgid "Multiple many2many relations"
-msgstr ""
+msgstr "Relaciones Many2Many múltiples"
 
 #: ../../howtos/backend.rst:568
 msgid ""
@@ -823,54 +936,62 @@ msgid ""
 "records, so we will relate to the built-in model ``res.partner``. Adapt the "
 "views accordingly."
 msgstr ""
+"Utilizando el campo relacional Many2Many, modificar el modelo de *Session* "
+"relacionar cada sesión a un conjunto de *attendees*. Los asistentes estarán "
+"representados por los registros *partners*, por lo que se relacionan con el "
+"modelo ``res.partner``. Adaptar las vistas en consecuencia."
 
 #: ../../howtos/backend.rst:575
 msgid "Modify the ``Session`` class, and"
-msgstr ""
+msgstr "Modificar la clase `` Session``, y"
 
 #: ../../howtos/backend.rst:576
 msgid "add the field in the form view."
-msgstr ""
+msgstr "agregar el campo en la vista de formulario del curso."
 
 #: ../../howtos/backend.rst:581
 msgid "Inheritance"
-msgstr ""
+msgstr "Herencia"
 
 #: ../../howtos/backend.rst:584
 msgid "Model inheritance"
-msgstr ""
+msgstr "Herencia de modelos"
 
 #: ../../howtos/backend.rst:586
 msgid ""
 "Odoo provides two *inheritance* mechanisms to extend an existing model in a "
 "modular way."
 msgstr ""
+"Odoo proporciona dos mecanismos de *herencia* para extender un modelo existente "
+"de forma modular."
 
 #: ../../howtos/backend.rst:589
 msgid ""
 "The first inheritance mechanism allows a module to modify the behavior of a "
 "model defined in another module:"
 msgstr ""
+"El primer mecanismo de herencia permite a un módulo modificar el comportamiento "
+"de un modelo definido en otro módulo:"
 
 #: ../../howtos/backend.rst:592
 msgid "add fields to a model,"
-msgstr ""
+msgstr "agregar campos a un modelo,"
 
 #: ../../howtos/backend.rst:593
 msgid "override the definition of fields on a model,"
-msgstr ""
+msgstr "sobre escribir la definición de campos en un modelo,"
 
 #: ../../howtos/backend.rst:594
 msgid "add constraints to a model,"
-msgstr ""
+msgstr "añadir restricciones a un modelo,"
 
 #: ../../howtos/backend.rst:595
 msgid "add methods to a model,"
-msgstr ""
+msgstr "añadir métodos a un modelo,"
 
 #: ../../howtos/backend.rst:596
 msgid "override existing methods on a model."
-msgstr ""
+msgstr "reemplazar los métodos existentes en un modelo."
 
 #: ../../howtos/backend.rst:598
 msgid ""
@@ -878,18 +999,21 @@ msgid ""
 "model to a record in a parent model, and provides transparent access to the "
 "fields of the parent record."
 msgstr ""
+"El segundo mecanismo de herencia (delegación) permite vincular cada registro de "
+"un modelo para un registro en un modelo de matriz, y proporciona un acceso "
+"transparente a los campos del registro padre."
 
 #: ../../howtos/backend.rst:607
 msgid ":attr:`~openerp.models.Model._inherit`"
-msgstr ""
+msgstr ":attr:`~openerp.models.Model._inherit`"
 
 #: ../../howtos/backend.rst:608
 msgid ":attr:`~openerp.models.Model._inherits`"
-msgstr ""
+msgstr ":attr:`~openerp.models.Model._inherits`"
 
 #: ../../howtos/backend.rst:611
 msgid "View inheritance"
-msgstr ""
+msgstr "Herencia de vistas"
 
 #: ../../howtos/backend.rst:613
 msgid ""
@@ -897,83 +1021,101 @@ msgid ""
 "provides view inheritance where children \"extension\" views are applied on top "
 "of root views, and can add or remove content from their parent."
 msgstr ""
+"En lugar de modificar las vistas existentes en el lugar (sobre escribiéndolos), "
+"Odoo proporciona herencia de vistas, donde las vistas hijas ``extensión`` se "
+"aplican en la parte superior de la vista de la raíz, y se pueden añadir o "
+"eliminar contenido de sus padres."
 
+# Colocar link a lo que es xpath en la w3c
 #: ../../howtos/backend.rst:617
 msgid ""
 "An extension view references its parent using the ``inherit_id`` field, and "
 "instead of a single view its ``arch`` field is composed of any number of "
 "``xpath`` elements selecting and altering the content of their parent view:"
 msgstr ""
+"Una vista de extensión hace referencia a su padre con el campo ``inherit_id``, "
+"y en lugar de una vista el campo ``arch`` se compone de cualquier número de "
+"``xpath``, elementos que seleccionan y modifican el contenido de su vista padre:"
 
 #: ../../howtos/backend.rst:638
 msgid "``expr``"
-msgstr ""
+msgstr "``expr``"
 
 #: ../../howtos/backend.rst:638
 msgid ""
 "An XPath_ expression selecting a single element in the parent view. Raises an "
 "error if it matches no element or more than one"
 msgstr ""
+"Una expresión XPath_ es la selección de un solo elemento en la vista padre. "
+"Genera un error si no coincide con ningún elemento o más de uno"
 
 #: ../../howtos/backend.rst:653
 msgid "``position``"
-msgstr ""
+msgstr "``position``"
 
 #: ../../howtos/backend.rst:641
 msgid "Operation to apply to the matched element:"
-msgstr ""
+msgstr "Operación de aplicar al elemento coincidente:"
 
 #: ../../howtos/backend.rst:643
 msgid "``inside``"
-msgstr ""
+msgstr "``inside``"
 
 #: ../../howtos/backend.rst:644
 msgid "appends ``xpath``'s body at the end of the matched element"
-msgstr ""
+msgstr "anexa ``cuerpo de xpath`` en el extremo del elemento emparejado"
 
 #: ../../howtos/backend.rst:645
 msgid "``replace``"
-msgstr ""
+msgstr "``replace``"
 
 #: ../../howtos/backend.rst:646
 msgid "replaces the matched element by the ``xpath``'s body"
-msgstr ""
+msgstr "sustituye el elemento emparejado por el cuerpo de ``xpath``"
 
 #: ../../howtos/backend.rst:647
 msgid "``before``"
-msgstr ""
+msgstr "``before``"
 
 #: ../../howtos/backend.rst:648
 msgid "inserts the ``xpath``'s body as a sibling before the matched element"
 msgstr ""
+"inserta el cuerpo del ``xpath`` como un hermano antes del elemento emparejado"
 
 #: ../../howtos/backend.rst:649
 msgid "``after``"
-msgstr ""
+msgstr "``after``"
 
 #: ../../howtos/backend.rst:650
 msgid "inserts the ``xpaths``'s body as a sibling after the matched element"
 msgstr ""
+"inserta el cuerpo de ``xpaths`` como un hermano después de que el elemento "
+"emparejado"
 
 #: ../../howtos/backend.rst:653
 msgid "``attributes``"
-msgstr ""
+msgstr "``attributes``"
 
 #: ../../howtos/backend.rst:652
 msgid ""
 "alters the attributes of the matched element using special ``attribute`` "
 "elements in the ``xpath``'s body"
 msgstr ""
+"altera los atributos del elemento coincidente utilizando elementos "
+"``attribute`` especiales en el cuerpo de ``xpath``"
 
 #: ../../howtos/backend.rst:657
 msgid ""
 "When matching a single element, the ``position`` attribute can be set directly "
 "on the element to be found. Both inheritances below will give the same result."
 msgstr ""
+"En la concordancia de un solo elemento, el atributo ``position`` se puede "
+"establecer directamente sobre el elemento que se encuentra. Ambas herencias a "
+"continuación le dará el mismo resultado."
 
 #: ../../howtos/backend.rst:671
 msgid "Alter existing content"
-msgstr ""
+msgstr "Alterar el contenido existente"
 
 #: ../../howtos/backend.rst:673
 msgid ""
