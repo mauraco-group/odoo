@@ -36,7 +36,7 @@
     <link rel="next" title="QWeb Reports" href="reports.html" />
     <link rel="prev" title="Javascript" href="javascript.html" /> 
   </head>
-  <body><header class="">
+  <body role="document"><header class="">
     <figure class="card top">
       <span class="card-img" style="background-image: url('../_static/banners/translate.jpg');"></span>
     </figure>
@@ -92,8 +92,8 @@
   <section id="translating-modules"><i id="reference-translations"></i></section><section id="exporting-translatable-term"><h2 >Exporting translatable term</h2><p >A number of terms in your modules are &quot;implicitly translatable&quot; as a result,
 even if you haven't done any specific work towards translation you can export
 your module's translatable terms and may find content to work with.</p><p >Translations export is performed via the administration interface by logging into
-the backend interface and opening <em class="menuselection">Settings ‣ Translations
-‣ Import / Export ‣ Export Translations</em></p><ul ><li >leave the language to the default (new language/empty template)</li><li >select the <a href="http://en.wikipedia.org/wiki/Gettext#Translating" class="external reference">PO File</a> format</li><li >select your module</li><li >click <em class="guilabel">Export</em> and download the file</li></ul><a href="../_images/po-export.png" class="internal reference"><img src="../_images/po-export.png" class="img-responsive center-block"></a><p >This gives you a file called <code class="file"><em >yourmodule</em>.pot</code> which should be moved to
+the backend interface and opening <span class="menuselection">Settings ‣ Translations
+‣ Import / Export ‣ Export Translations</span></p><ul ><li >leave the language to the default (new language/empty template)</li><li >select the <a href="http://en.wikipedia.org/wiki/Gettext#Translating" class="external reference">PO File</a> format</li><li >select your module</li><li >click <span class="guilabel">Export</span> and download the file</li></ul><a href="../_images/po-export.png" class="internal reference"><img src="../_images/po-export.png" class="img-responsive center-block"></a><p >This gives you a file called <code class="file"><em >yourmodule</em>.pot</code> which should be moved to
 the <code class="file"><em >yourmodule</em>/i18n/</code> directory. The file is a <em >PO Template</em> which
 simply lists translatable strings and from which actual translations (PO files)
 can be created. PO files can be created using <a href="http://www.gnu.org/software/gettext/manual/gettext.html#Creating" class="external reference">msginit</a>, with a dedicated
@@ -101,7 +101,7 @@ translation tool like <a href="http://poedit.net/" class="external reference">PO
 called <code class="file"><em >language</em>.po</code>. Translation files should be put in
 <code class="file"><em >yourmodule</em>/i18n/</code>, next to <code class="file"><em >yourmodule</em>.pot</code>, and will be
 automatically loaded by Odoo when the corresponding language is installed (via
-<em class="menuselection">Settings ‣ Translations ‣ Load a Translation</em>)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >translations for all loaded languages are also installed or updated
+<span class="menuselection">Settings ‣ Translations ‣ Load a Translation</span>)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >translations for all loaded languages are also installed or updated
 when installing or updating a module</p></div></section><section id="implicit-exports"><h2 >Implicit exports</h2><p >Odoo automatically exports translatable strings from &quot;data&quot;-type content:</p><ul ><li >in non-QWeb views, all text nodes are exported as well as the content of
 the <code >string</code>, <code >help</code>, <code >sum</code>, <code >confirm</code> and <code >placeholder</code>
 attributes</li><li >QWeb templates (both server-side and client-side), all text nodes are

@@ -36,7 +36,7 @@
     <link rel="next" title="Deploying with Content Delivery Networks" href="cdn.html" />
     <link rel="prev" title="Installing Odoo" href="install.html" /> 
   </head>
-  <body><header class="">
+  <body role="document"><header class="">
     <figure class="card top">
       <span class="card-img" style="background-image: url('../_static/banners/deploying_odoo.jpg');"></span>
     </figure>
@@ -90,7 +90,7 @@
         
         
   <section id="deploying-odoo"><p >This document describes basic steps to set up Odoo in production. It follows
-<a href="install.html#setup-install" class="internal reference"><em >installation</em></a>, but should not be used for development
+<a href="install.html#setup-install" class="internal reference"><span >installation</span></a>, but should not be used for development
 systems.</p></section><section id="dbfilter"><h2 >dbfilter</h2><p >Odoo is a multi-tenant system: a single Odoo system may run and serve a number
 of database instances. It is also highly customizable, with customizations
 (starting from the modules being loaded) depending on the &quot;current database&quot;.</p><p >This is not an issue when working with the backend (web client) as a logged-in
@@ -114,13 +114,13 @@ machine on which Odoo runs and the one on which PostgreSQL runs, then
 configure Odoo to connect to its end of the tunnel</li><li >accept connections to the machine on which Odoo is installed, possibly
 over ssl (see <a href="http://www.postgresql.org/docs/9.3/static/runtime-config-connection.html" class="external reference">PostgreSQL connection settings</a> for details), then configure
 Odoo to connect over the network</li></ul></section><section id="configuring-odoo"><i id="setup-deploy-odoo"></i><h3 >Configuring Odoo</h3><p >Out of the box, Odoo connects to a local postgres over UNIX socket via port
-5432. This can be overridden using <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><em >the database options</em></a> when your Postgres deployment is not
-local and/or does not use the installation defaults.</p><p >The <a href="install.html#setup-install-packaged" class="internal reference"><em >packaged installers</em></a> will automatically
+5432. This can be overridden using <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span >the database options</span></a> when your Postgres deployment is not
+local and/or does not use the installation defaults.</p><p >The <a href="install.html#setup-install-packaged" class="internal reference"><span >packaged installers</span></a> will automatically
 create a new user (<code >odoo</code>) and set it as the database user.</p><ul ><li >The database management screens are protected by the <code >admin_passwd</code>
 setting. This setting can only be set using configuration files, and is
 simply checked before performing database alterations. It should be set to
 a randomly generated value to ensure third parties can not use this
-interface.</li><li >all database operations use the <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><em >database options</em></a>, including the database management
+interface.</li><li >all database operations use the <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span >database options</span></a>, including the database management
 screen. For the database management screen to work requires that the user
 have <code >createdb</code> right.</li><li ><p >users can always drop databases they own. For the database management screen
 to be completely non-functional, the user needs to be created with
@@ -165,7 +165,7 @@ with <code >/longpolling/</code> to
 modules. This may not be ideal when it comes to performances, and static
 files should generally be served by a static HTTP server.</p><p >Odoo static files live in each module's <code >static/</code> folder, so static files
 can be served by intercepting all requests to <code class="samp">/<em >MODULE</em>/static/<em >FILE</em></code>,
-and looking up the right module (and file) in the various addons paths.</p></section><section id="security"><h2 >Security</h2></section><section id="super-admin-password"><h3 >&quot;Super-admin&quot; password</h3><p ><a href="#setup-deploy-odoo" class="internal reference"><em >Configuring Odoo</em></a> mentioned <code >admin_passwd</code> in passing.</p><p >This setting is used on all database management screens (to create, delete,
+and looking up the right module (and file) in the various addons paths.</p></section><section id="security"><h2 >Security</h2></section><section id="super-admin-password"><h3 >&quot;Super-admin&quot; password</h3><p ><a href="#setup-deploy-odoo" class="internal reference"><span >Configuring Odoo</span></a> mentioned <code >admin_passwd</code> in passing.</p><p >This setting is used on all database management screens (to create, delete,
 dump or restore databases).</p><p >If the management screens must not be accessible, or must only be accessible
 from a selected set of machines, use the proxy server's features to block
 access to all routes starting with <code >/web/database</code> except (maybe)

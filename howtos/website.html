@@ -36,7 +36,7 @@
     <link rel="next" title="Construcción de un módulo" href="backend.html" />
     <link rel="prev" title="Theme Tutorial" href="themes.html" /> 
   </head>
-  <body><header class="">
+  <body role="document"><header class="">
     <figure class="card top">
       <span class="card-img" style="background-image: url('../_static/banners/build_a_website.jpg');"></span>
     </figure>
@@ -89,9 +89,9 @@
       <article class="doc-body ">
         
         
-  <section id="building-a-website"><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li >This guide assumes <a href="http://docs.python.org/2/tutorial/" class="external reference alert-link">basic knowledge of Python</a></li><li >This guide assumes <a href="../setup/install.html#setup-install" class="internal alert-link reference"><em >an installed Odoo</em></a></li></ul></div></section><section id="creating-a-basic-module"><h2 >Creating a basic module</h2><p >In Odoo, tasks are performed by creating modules.</p><p >Modules customize the behavior of an Odoo installation, either by adding new
+  <section id="building-a-website"><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li >This guide assumes <a href="http://docs.python.org/2/tutorial/" class="external reference alert-link">basic knowledge of Python</a></li><li >This guide assumes <a href="../setup/install.html#setup-install" class="internal alert-link reference"><span >an installed Odoo</span></a></li></ul></div></section><section id="creating-a-basic-module"><h2 >Creating a basic module</h2><p >In Odoo, tasks are performed by creating modules.</p><p >Modules customize the behavior of an Odoo installation, either by adding new
 behaviors or by altering existing ones (including behaviors added by other
-modules).</p><p ><a href="../reference/cmdline.html#reference-cmdline-scaffold" class="internal reference"><em >Odoo's scaffolding</em></a> can setup a basic
+modules).</p><p ><a href="../reference/cmdline.html#reference-cmdline-scaffold" class="internal reference"><span >Odoo's scaffolding</span></a> can setup a basic
 module. To quickly get started simply invoke:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo.py scaffold Academy my-modules
 </pre></div>
 </div>
@@ -100,8 +100,8 @@ module. To quickly get started simply invoke:</p><div class="highlight-console">
 if you want, but the module name must be unique within the directory.</p></section><section id="a-demonstration-module"><h2 >A demonstration module</h2><p >We have a &quot;complete&quot; module ready for installation.</p><p >Although it does absolutely nothing we can install it:</p><ul ><li ><p >start the Odoo server</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo.py --addons-path addons,my-modules
 </pre></div>
 </div>
-</li><li >go to <a href="http://localhost:8069" class="external reference">http://localhost:8069</a></li><li >create a new database including demonstration data</li><li >to go <em class="menuselection">Settings ‣ Modules ‣ Modules</em></li><li >in the top-right corner remove the <em >Installed</em> filter and search for
-<em >academy</em></li><li >click the <em class="guilabel">Install</em> button for the <em >Academy</em> module</li></ul></section><section id="to-the-browser"><h2 >To the browser</h2><p ><a href="../reference/http.html#reference-http-controllers" class="internal reference"><em >Controllers</em></a> interpret browser requests and
+</li><li >go to <a href="http://localhost:8069" class="external reference">http://localhost:8069</a></li><li >create a new database including demonstration data</li><li >to go <span class="menuselection">Settings ‣ Modules ‣ Modules</span></li><li >in the top-right corner remove the <em >Installed</em> filter and search for
+<em >academy</em></li><li >click the <span class="guilabel">Install</span> button for the <em >Academy</em> module</li></ul></section><section id="to-the-browser"><h2 >To the browser</h2><p ><a href="../reference/http.html#reference-http-controllers" class="internal reference"><span >Controllers</span></a> interpret browser requests and
 send data back.</p><p >Add a simple controller and ensure it is imported by <code >__init__.py</code> (so
 Odoo can find it):</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">http</span>
@@ -121,7 +121,7 @@ Odoo can find it):</p><div class="pq-patch"><em >academy/controllers.py</em><div
 <p >and open a page to <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a>, you should see your
 &quot;page&quot; appear:</p><div ><img src="../_images/helloworld.png" class="img-responsive"></div></section><section id="templates"><h2 >Templates</h2><p >Generating HTML in Python isn't very pleasant.</p><p >The usual solution is <a href="http://en.wikipedia.org/wiki/Web_template" class="external reference">templates</a>, pseudo-documents with placeholders and
 display logic. Odoo allows any Python templating system, but provides its
-own <a href="../reference/qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> templating system which integrates with other
+own <a href="../reference/qweb.html#reference-qweb" class="internal reference"><span >QWeb</span></a> templating system which integrates with other
 features.</p><p >Create a template and ensure the template file is registered in the
 <code >__openerp__.py</code> manifest, and alter the controller to use our template:</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
     <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
@@ -149,27 +149,29 @@ features.</p><p >Create a template and ensure the template file is registered in
 </div>
 </div></div><p >The templates iterates (<code >t-foreach</code>) on all the teachers (passed through the
 <em >template context</em>), and prints each teacher in its own paragraph.</p><p >Finally restart Odoo and update the module's data (to install the template)
-by going to <em class="menuselection">Settings ‣ Modules ‣ Modules ‣
-Academy</em> and clicking <em class="guilabel">Upgrade</em>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p >Alternatively, Odoo can be restarted <a href="../reference/cmdline.html#cmdoption-odoo.py-u" class="internal alert-link reference"><code class="std xref std-option">and update modules at
+by going to <span class="menuselection">Settings ‣ Modules ‣ Modules ‣
+Academy</span> and clicking <span class="guilabel">Upgrade</span>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p >Alternatively, Odoo can be restarted <a href="../reference/cmdline.html#cmdoption-odoo.py-u" class="internal alert-link reference"><code class="std xref std-option">and update modules at
 the same time</code></a>:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo.py --addons-path addons,my-modules -d academy -u academy
 </pre></div>
 </div>
-</div><p >Going to <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> should now result in:</p><img src="../_images/basic-list.png" class="img-responsive"></section><section id="storing-data-in-odoo"><h2 >Storing data in Odoo</h2><p ><a href="../reference/orm.html#reference-orm-model" class="internal reference"><em >Odoo models</em></a> map to database tables.</p><p >In the previous section we just displayed a list of string entered statically
+</div><p >Going to <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> should now result in:</p><img src="../_images/basic-list.png" class="img-responsive"></section><section id="storing-data-in-odoo"><h2 >Storing data in Odoo</h2><p ><a href="../reference/orm.html#reference-orm-model" class="internal reference"><span >Odoo models</span></a> map to database tables.</p><p >In the previous section we just displayed a list of string entered statically
 in the Python code. This doesn't allow modifications or persistent storage
 so we'll now move our data to the database.</p></section><section id="defining-the-data-model"><h3 >Defining the data model</h3><p >Define a teacher model, and ensure it is imported from <code >__init__.py</code> so it
-is correctly loaded:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
-
-<span class="hll"><span class="k">class</span> <span class="nc">Teachers</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-</span><span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.teachers&#39;</span>
-</span>
-<span class="hll">    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
-</span></pre></div>
+is correctly loaded:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
+<span class="hll">
+</span><span class="hll"><span class="k">class</span> <span class="nc">Teachers</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span>    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.teachers&#39;</span>
+<span class="hll">
+</span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+</pre></div>
 </div>
-</div></div><p >Then setup <a href="../reference/security.html#reference-security-acl" class="internal reference"><em >basic access control</em></a> for the model
-and add them to the manifest:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="c1"># always loaded</span>
-    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
-<span class="hll">        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
-</span>        <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
+</div></div><p >Then setup <a href="../reference/security.html#reference-security-acl" class="internal reference"><span >basic access control</span></a> for the model
+and add them to the manifest:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>
+    <span class="c1"># always loaded</span>
+<span class="hll">    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+</span>        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="c1"># only loaded in demonstration mode</span>
 </pre></div>
@@ -179,12 +181,12 @@ and add them to the manifest:</p><div class="pq-patch"><em >academy/__openerp__.
 </span></pre></div>
 </div>
 </div></div><p >this simply gives read access (<code >perm_read</code>) to all users (<code >group_id:id</code>
-left empty).</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Data files</em></a> (XML or CSV) must be added to the
+left empty).</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><span >Data files</span></a> (XML or CSV) must be added to the
 module manifest, Python files (models or controllers) don't but have to
 be imported from <code >__init__.py</code> (directly or indirectly)</p></div><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >the administrator user bypasses access control, they have access to all
 models even if not given access</p></div></section><section id="demonstration-data"><h3 >Demonstration data</h3><p >The second step is to add some demonstration data to the system so it's
 possible to test it easily. This is done by adding a <code >demo</code>
-<a href="../reference/data.html#reference-data" class="internal reference"><em >data file</em></a>, which must be linked from the manifest:</p><div class="pq-patch"><em >academy/demo.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;openerp&gt;</span>
+<a href="../reference/data.html#reference-data" class="internal reference"><span >data file</span></a>, which must be linked from the manifest:</p><div class="pq-patch"><em >academy/demo.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;openerp&gt;</span>
     <span class="nt">&lt;data&gt;</span>
 <span class="hll">        <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;padilla&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Diana Padilla<span class="nt">&lt;/field&gt;</span>
@@ -199,7 +201,7 @@ possible to test it easily. This is done by adding a <code >demo</code>
 <span class="nt">&lt;/openerp&gt;</span>
 </pre></div>
 </div>
-</div></div><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Data files</em></a> can be used for demo and non-demo data.
+</div></div><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><span >Data files</span></a> can be used for demo and non-demo data.
 Demo data are only loaded in &quot;demonstration mode&quot; and can be used for flow
 testing and demonstration, non-demo data are always loaded and used as
 initial system setup.</p><p >In this case we're using demonstration data because an actual user of the
@@ -233,7 +235,7 @@ different: names should simply be prefixed by a number (the database
 identifier for the teacher).</p></section><section id="website-support"><h2 >Website support</h2><p >Odoo bundles a module dedicated to building websites.</p><p >So far we've used controllers fairly directly, but Odoo 8 added deeper
 integration and a few other services (e.g. default styling, theming) via the
 <code >website</code> module.</p><ol ><li >first, add <code >website</code> as a dependency to <code >academy</code></li><li >then add the <code >website=True</code> flag on the controller, this sets up a few
-new variables on <a href="../reference/http.html#reference-http-request" class="internal reference"><em >the request object</em></a> and
+new variables on <a href="../reference/http.html#reference-http-request" class="internal reference"><span >the request object</span></a> and
 allows using the website layout in our template</li><li >use the website layout in the template</li></ol><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
 
     <span class="c1"># any module necessary for this one to work correctly</span>
@@ -273,11 +275,11 @@ allows using the website layout in our template</li><li >use the website layout 
 manifest and template) access <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> should
 yield a nicer looking page with branding and a number of built-in page
 elements (top-level menu, footer, …)</p><img src="../_images/layout.png" class="img-responsive"><p >The website layout also provides support for edition tools: click
-<em class="guilabel">Sign In</em> (in the top-right), fill the credentials in (<code >admin</code> /
-<code >admin</code> by default) then click <em class="guilabel">Log In</em>.</p><p >You're now in Odoo &quot;proper&quot;: the administrative interface. For now click on
-the <em class="guilabel">Website</em> menu item (top-left corner.</p><p >We're back in the website but as an administrator, with access to advanced
-edition features provided by the <em >website</em> support:</p><ul ><li >a template code editor (<em class="menuselection">Customize ‣ HTML Editor</em>) where
-you can see and edit all templates used for the current page</li><li >the <em class="guilabel">Edit</em> button in the top-left switches to &quot;edition mode&quot; where
+<span class="guilabel">Sign In</span> (in the top-right), fill the credentials in (<code >admin</code> /
+<code >admin</code> by default) then click <span class="guilabel">Log In</span>.</p><p >You're now in Odoo &quot;proper&quot;: the administrative interface. For now click on
+the <span class="guilabel">Website</span> menu item (top-left corner.</p><p >We're back in the website but as an administrator, with access to advanced
+edition features provided by the <em >website</em> support:</p><ul ><li >a template code editor (<span class="menuselection">Customize ‣ HTML Editor</span>) where
+you can see and edit all templates used for the current page</li><li >the <span class="guilabel">Edit</span> button in the top-left switches to &quot;edition mode&quot; where
 blocks (snippets) and rich text edition are available</li><li >a number of other features such as mobile preview or <abbr title="Search Engine Optimization">SEO</abbr></li></ul></section><section id="urls-and-routing"><h2 >URLs and routing</h2><p >Controller methods are associated with <em >routes</em> via the
 <a href="../reference/http.html#openerp.http.route" class="internal reference" title="openerp.http.route"><code class="py xref py-func">route()</code></a> decorator which takes a routing string and a
 number of attributes to customise its behavior or security.</p><p >We've seen a &quot;literal&quot; routing string, which matches a URL section exactly,
@@ -404,7 +406,7 @@ interfaces. Change the <em >person</em> template to use <code >t-field</code>:</
 </pre></div>
 </div>
 </div></div><p >Restart Odoo and upgrade the module, there is now a placeholder under the
-teacher's name and a new zone for blocks in <em class="guilabel">Edit</em> mode. Content
+teacher's name and a new zone for blocks in <span class="guilabel">Edit</span> mode. Content
 dropped there is stored in the corresponding teacher's <code >biography</code> field, and
 thus specific to that teacher.</p><p >The teacher's name is also editable, and when saved the change is visible on
 the index page.</p><p ><code >t-field</code> can also take formatting options which depend on the exact field.
@@ -437,8 +439,8 @@ ask for a human-readable version:</p><div class="pq-patch"><em >academy/template
 </pre></div>
 </div>
 </div></div></section><section id="administration-and-erp-integration"><h2 >Administration and ERP integration</h2></section><section id="a-brief-and-incomplete-introduction-to-the-odoo-administration"><h3 >A brief and incomplete introduction to the Odoo administration</h3><p >The Odoo administration was briefly seen during the <a href="#website-support" class="internal reference">website support</a> section.
-We can go back to it using <em class="menuselection">Administrator ‣ Administrator</em> in
-the menu (or <em class="guilabel">Sign In</em> if you're signed out).</p><p >The conceptual structure of the Odoo backend is simple:</p><ol ><li >first are menus, a tree (menus can have sub-menus) of records. Menus
+We can go back to it using <span class="menuselection">Administrator ‣ Administrator</span> in
+the menu (or <span class="guilabel">Sign In</span> if you're signed out).</p><p >The conceptual structure of the Odoo backend is simple:</p><ol ><li >first are menus, a tree (menus can have sub-menus) of records. Menus
 without children map to…</li><li >actions. Actions have various types: links, reports, code which Odoo should
 execute or data display. Data display actions are called <em >window actions</em>,
 and tell Odoo to display a given <em >model</em> according to a set of views…</li><li >a view has a type, a broad category to which it corresponds (a list,
@@ -470,11 +472,11 @@ reachable, generally through a menu.</p><p >Let's create a menu for our model:</
 </span></pre></div>
 </div>
 </div></div><p >then accessing <a href="http://localhost:8069/web/" class="external reference">http://localhost:8069/web/</a> in the top left should be a menu
-<em class="guilabel">Academy</em>, which is selected by default, as it is the first menu,
+<span class="guilabel">Academy</span>, which is selected by default, as it is the first menu,
 and having opened a listing of teachers. From the listing it is possible to
-<em class="guilabel">Create</em> new teacher records, and to switch to the &quot;form&quot; by-record
+<span class="guilabel">Create</span> new teacher records, and to switch to the &quot;form&quot; by-record
 view.</p><p >If there is no definition of how to present records (a
-<a href="../reference/views.html#reference-views" class="internal reference"><em >view</em></a>) Odoo will automatically create a basic one
+<a href="../reference/views.html#reference-views" class="internal reference"><span >view</span></a>) Odoo will automatically create a basic one
 on-the-fly. In our case it works for the &quot;list&quot; view for now (only displays
 the teacher's name) but in the &quot;form&quot; view the HTML <code >biography</code> field is
 displayed side-by-side with the <code >name</code> field and not given enough space.
@@ -502,19 +504,20 @@ a better experience:</p><div class="pq-patch"><em >academy/views.xml</em><div cl
 </pre></div>
 </div>
 </div></div></section><section id="relations-between-models"><h3 >Relations between models</h3><p >We have seen a pair of &quot;basic&quot; fields stored directly in the record. There are
-<a href="../reference/orm.html#reference-orm-fields-basic" class="internal reference"><em >a number of basic fields</em></a>. The second
-broad categories of fields are <a href="../reference/orm.html#reference-orm-fields-relational" class="internal reference"><em >relational</em></a> and used to link records to one another
+<a href="../reference/orm.html#reference-orm-fields-basic" class="internal reference"><span >a number of basic fields</span></a>. The second
+broad categories of fields are <a href="../reference/orm.html#reference-orm-fields-relational" class="internal reference"><span >relational</span></a> and used to link records to one another
 (within a model or across models).</p><p >For demonstration, let's create a <em >courses</em> model. Each course should have a
 <code >teacher</code> field, linking to a single teacher record, but each teacher can
-teach many courses:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
-    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
-<span class="hll">
+teach many courses:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+<span class="hll">    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
+</span><span class="hll">
 </span><span class="hll"><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 </span><span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.courses&#39;</span>
 </span><span class="hll">
 </span><span class="hll">    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
-</span><span class="hll">    <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Teacher&quot;</span><span class="p">)</span>
-</span></pre></div>
+</span>    <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Teacher&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div><em >academy/security/ir.model.access.csv</em><div class="pq-section"><div class="highlight-guess"><div class="highlight"><pre><span></span>id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
@@ -577,12 +580,13 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
 </div></div><p >It should also be possible to create new courses directly from a teacher's
 page, or to see all the courses they teach, so add
 <a href="../reference/orm.html#openerp.fields.One2many" class="internal reference" title="openerp.fields.One2many"><code class="py xref py-class">the inverse relationship</code></a> to the <em >teachers</em>
-model:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+model:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
     <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
-
-<span class="hll">    <span class="n">course_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s1">&#39;academy.courses&#39;</span><span class="p">,</span> <span class="s1">&#39;teacher_id&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Courses&quot;</span><span class="p">)</span>
-</span><span class="hll">
-</span><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="hll">
+</span><span class="hll">    <span class="n">course_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s1">&#39;academy.courses&#39;</span><span class="p">,</span> <span class="s1">&#39;teacher_id&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Courses&quot;</span><span class="p">)</span>
+</span>
+<span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.courses&#39;</span>
 </pre></div>
 </div>
@@ -610,10 +614,11 @@ system, which can add notifications and discussion threads to any model.
 The model simply has to <a href="../reference/orm.html#openerp.models.Model._inherit" class="internal reference" title="openerp.models.Model._inherit"><code class="py xref py-attr">_inherit</code></a>
 <code >mail.thread</code>, and add the <code >message_ids</code> field to its form view to display
 the discussion thread. Discussion threads are per-record.</p><p >For our academy, it makes sense to allow discussing courses to handle e.g.
-scheduling changes or discussions between teachers and assistants:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.courses&#39;</span>
-<span class="hll">    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;mail.thread&#39;</span>
-</span>
+scheduling changes or discussions between teachers and assistants:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>
+<span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.courses&#39;</span>
+</span>    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;mail.thread&#39;</span>
+
     <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
     <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Teacher&quot;</span><span class="p">)</span>
 </pre></div>
@@ -648,7 +653,7 @@ products (via <code >sale</code>) and the ecommerce interface:</p><div class="pq
     <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
 </pre></div>
 </div>
-</div></div><p >restart Odoo, update your module, there is now a <em class="guilabel">Shop</em> section in
+</div></div><p >restart Odoo, update your module, there is now a <span class="guilabel">Shop</span> section in
 the website, listing a number of pre-filled (via demonstration data) products.</p><p >The second step is to replace the <em >courses</em> model by <code >product.template</code>,
 and add a new category of product for courses:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
         <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
@@ -725,18 +730,18 @@ and add a new category of product for courses:</p><div class="pq-patch"><em >aca
             <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
 </pre></div>
 </div>
-</div></div><p >With this installed, a few courses are now available in the <em class="guilabel">Shop</em>,
+</div></div><p >With this installed, a few courses are now available in the <span class="guilabel">Shop</span>,
 though they may have to be looked for.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><ul ><li >to extend a model in-place, it's <a href="../reference/orm.html#openerp.models.Model._inherit" class="internal alert-link reference" title="openerp.models.Model._inherit"><code class="py xref py-attr">inherited</code></a> without giving it a new
 <a href="../reference/orm.html#openerp.models.Model._name" class="internal alert-link reference" title="openerp.models.Model._name"><code class="py xref py-attr">_name</code></a></li><li ><code >product.template</code> already uses the discussions system, so we can
 remove it from our extension model</li><li >we're creating our courses as <em >published</em> by default so they can be
 seen without having to log in</li></ul></div></section><section id="altering-existing-views"><h3 >Altering existing views</h3><p >So far, we have briefly seen:</p><ul ><li >the creation of new models</li><li >the creation of new views</li><li >the creation of new records</li><li >the alteration of existing models</li></ul><p >We're left with the alteration of existing records and the alteration of
-existing views. We'll do both on the <em class="guilabel">Shop</em> pages.</p><p >View alteration is done by creating <em >extension</em> views, which are applied on
+existing views. We'll do both on the <span class="guilabel">Shop</span> pages.</p><p >View alteration is done by creating <em >extension</em> views, which are applied on
 top of the original view and alter it. These alteration views can be added or
 removed without modifying the original, making it easier to try things out and
 roll changes back.</p><p >Since our courses are free, there is no reason to display their price on the
 shop page, so we're going to alter the view and hide the price if it's 0. The
 first task is finding out which view displays the price, this can be done via
-<em class="menuselection">Customize ‣ HTML Editor</em> which lets us read the various
+<span class="menuselection">Customize ‣ HTML Editor</span> which lets us read the various
 templates involved in rendering a page. Going through a few of them, &quot;Product
 item&quot; looks a likely culprit.</p><p >Altering view architectures is done in 3 steps:</p><ol ><li >Create a new view</li><li >Extend the view to modify by setting the new view's <code >inherit_id</code> to the
 modified view's external id</li><li >In the architecture, use the <code >xpath</code> tag to select and alter elements
@@ -756,11 +761,11 @@ from the modified view</li></ol><div class="pq-patch"><em >academy/templates.xml
 </pre></div>
 </div>
 </div></div><p >The second thing we will change is making the product categories sidebar
-visible by default: <em class="menuselection">Customize ‣ Product Categories</em> lets
+visible by default: <span class="menuselection">Customize ‣ Product Categories</span> lets
 you toggle a tree of product categories (used to filter the main display) on
 and off.</p><p >This is done via the <code >customize_show</code> and <code >active</code> fields of extension
 templates: an extension template (such as the one we've just created) can be
-<em >customize_show=True</em>. This choice will display the view in the <em class="guilabel">Customize</em>
+<em >customize_show=True</em>. This choice will display the view in the <span class="guilabel">Customize</span>
 menu with a check box, allowing administrators to activate or disable them
 (and easily customize their website pages).</p><p >We simply need to modify the <em >Product Categories</em> record and set its default
 to <em >active=&quot;True&quot;</em>:</p><div class="pq-patch"><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml+django"><div class="highlight"><pre><span></span>            <span class="nt">&lt;/xpath&gt;</span>
