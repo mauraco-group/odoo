@@ -181,7 +181,7 @@ reboot afterwards to ensure the <code class="std std-envvar xref">PATH</code> is
 versions are less convenient and 3.x versions are not compatible
 with Odoo</p></div></li></ul></li><li ><p >PostgreSQL, to use a local database</p><p >After installation you will need to create a postgres user: by default the
 only user is <code >postgres</code>, and Odoo forbids connecting as <code >postgres</code>.</p><ul ><li ><p >on Linux, use your distribution's package, then create a postgres user
-named like your login:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo su - postgres -c <span class="s2">&quot;createuser -s </span>$<span class="s2">USER&quot;</span>
+named like your login:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo su - postgres -c <span class="s2">&quot;createuser -s </span><span class="nv">$USER</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <p >Because the role login is the same as your unix login unix sockets can be
