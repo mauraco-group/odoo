@@ -29,7 +29,7 @@ cp -a *raspbian*.img posbox.img
 
 CLONE_DIR="${OVERWRITE_FILES_BEFORE_INIT_DIR}/home/pi/odoo"
 mkdir "${CLONE_DIR}"
-git clone -b 8.0 --no-checkout --depth 1 https://github.com/odoo/odoo.git "${CLONE_DIR}"
+git clone -b 8.0 --no-checkout --depth 1 https://github.com/Vauxoo/odoo.git "${CLONE_DIR}"
 cd "${CLONE_DIR}"
 git config core.sparsecheckout true
 echo "addons/web
