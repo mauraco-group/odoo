@@ -82,7 +82,7 @@
         <field name="refund_account_id" ref="cuenta216_10"/>
         <field name="tag_ids" eval="[(6,0,[ref('tax_tag_04')])]"/>
         <field name="use_cash_basis" eval="True"/>
-        <field name="cash_basis_account" ref="cuenta216_10"/>
+        <field name="cash_basis_account" ref="cuenta216_13"/>
     </record>
 
     <record id="tax2" model="account.tax.template">
@@ -96,7 +96,7 @@
         <field name="refund_account_id" ref="cuenta216_10"/>
         <field name="tag_ids" eval="[(6,0,[ref('tax_tag_05')])]"/>
         <field name="use_cash_basis" eval="True"/>
-        <field name="cash_basis_account" ref="cuenta216_10"/>
+        <field name="cash_basis_account" ref="cuenta216_13"/>
     </record>
 
     <record id="tax3" model="account.tax.template">
@@ -134,7 +134,7 @@
         <field name="refund_account_id" ref="cuenta216_10"/>
         <field name="tag_ids" eval="[(6,0,[ref('tax_tag_08')])]"/>
         <field name="use_cash_basis" eval="True"/>
-        <field name="cash_basis_account" ref="cuenta216_10"/>
+        <field name="cash_basis_account" ref="cuenta216_13"/>
     </record>
 
     <record id="tax8" model="account.tax.template">
@@ -148,7 +148,7 @@
         <field name="refund_account_id" ref="cuenta216_10"/>
         <field name="tag_ids" eval="[(6,0,[ref('tax_tag_09')])]"/>
         <field name="use_cash_basis" eval="True"/>
-        <field name="cash_basis_account" ref="cuenta216_10"/>
+        <field name="cash_basis_account" ref="cuenta216_13"/>
     </record>
 
     <record id="tax13" model="account.tax.template">

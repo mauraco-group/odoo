@@ -2015,6 +2015,13 @@ Cuentas del plan
             <field name="user_type_id" ref="account_type_other"/>
             <field name="tag_ids" eval="[(6,0,[ref('account_tag_216')])]"/>
         </record>
+        <record id='cuenta216_13' model='account.account.template'>
+            <field name='name'>Impuestos retenidos de iva efectivamente pagados</field>
+            <field name='code'>216.13</field>
+            <field name="chart_template_id" ref="vauxoo_mx_chart_template"/>
+            <field name="user_type_id" ref="account_type_other"/>
+            <field name="tag_ids" eval="[(6,0,[ref('account_tag_216')])]"/>
+        </record>
         <record id='cuenta217_01' model='account.account.template'>
             <field name='name'>Pagos realizados por cuenta de terceros</field>
             <field name='code'>217.01</field>
