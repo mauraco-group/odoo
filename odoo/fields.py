@@ -301,7 +301,7 @@ class Field(object):
         'args': EMPTY_DICT,             # the parameters given to __init__()
         '_attrs': EMPTY_DICT,           # the field's non-slot attributes
         '_module': None,                # the field's module name
-        'setup_full_done': False,       # whether the field has been fully setup
+        '_setup_done': None,            # the field's setup state: None, 'base' or 'full'
 
         'automatic': False,             # whether the field is automatically created ("magic" field)
         'inherited': False,             # whether the field is inherited (_inherits)
@@ -345,7 +345,7 @@ class Field(object):
         kwargs['string'] = string
         args = {key: val for key, val in kwargs.iteritems() if val is not Default}
         self.args = args or EMPTY_DICT
-        self.setup_full_done = False
+        self._setup_done = None
 
     def new(self, **kwargs):
         """ Return a field of the same type as ``self``, with its own parameters. """
@@ -397,14 +397,15 @@ class Field(object):
 
     def setup_base(self, model, name):
         """ Base setup: things that do not depend on other models/fields. """
-        if self.setup_full_done and not self.related:
+        if self._setup_done and not self.related:
             # optimization for regular fields: keep the base setup
-            self.setup_full_done = False
+            self._setup_done = 'base'
         else:
             # do the base setup from scratch
             self._setup_attrs(model, name)
             if not self.related:
                 self._setup_regular_base(model)
+            self._setup_done = 'base'
 
     #
     # Setup field parameter attributes
@@ -455,13 +456,13 @@ class Field(object):
             if not attrs.get('readonly'):
                 attrs['inverse'] = self._inverse_sparse
 
+        self.set_all_attrs(attrs)
+
         # check for renamed attributes (conversion errors)
         for key1, key2 in RENAMED_ATTRS:
             if key1 in attrs:
                 _logger.warning("Field %s: parameter %r is no longer supported; use %r instead.",
                                 self, key1, key2)
-
-        self.set_all_attrs(attrs)
 
         # prefetch only stored, column, non-manual and non-deprecated fields
         if not (self.store and self.column_type) or self.manual or self.deprecated:
@@ -483,12 +484,12 @@ class Field(object):
 
     def setup_full(self, model):
         """ Full setup: everything else, except recomputation triggers. """
-        if not self.setup_full_done:
+        if self._setup_done != 'full':
             if not self.related:
                 self._setup_regular_full(model)
             else:
                 self._setup_related_full(model)
-            self.setup_full_done = True
+            self._setup_done = 'full'
 
     #
     # Setup of non-related fields
@@ -1242,6 +1243,13 @@ class Monetary(Field):
                 return float_precision(value, currency.decimal_places)
         return float(value or 0.0)
 
+    def convert_to_read(self, value, record, use_name_get=True):
+        # float_precision values are not supported in pure XMLRPC
+        return float(value)
+
+    def convert_to_write(self, value, record):
+        return value
+
 
 class _String(Field):
     """ Abstract class for string fields. """
@@ -1881,7 +1889,8 @@ class Many2one(_Relational):
                 return process(value._ids)
             raise ValueError("Wrong value for %s: %r" % (self, value))
         elif isinstance(value, tuple):
-            return process((value[0],))
+            # value is either a pair (id, name), or a tuple of ids
+            return process(value[:1])
         elif isinstance(value, dict):
             return process(record.env[self.comodel_name].new(value)._ids)
         else:
@@ -1955,8 +1964,8 @@ class _RelationalMulti(_Relational):
         if isinstance(value, BaseModel):
             if not validate or (value._name == self.comodel_name):
                 return process(value._ids)
-        elif isinstance(value, list):
-            # value is a list of record ids or commands
+        elif isinstance(value, (list, tuple)):
+            # value is a list/tuple of commands, dicts or record ids
             comodel = record.env[self.comodel_name]
             # determine the value ids; by convention empty on new records
             ids = OrderedSet(record[self.name].ids if record.id else ())
