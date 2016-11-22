@@ -473,11 +473,14 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<span class=\"fa fa-thumbs-o-down\"/> <strong> Bad practices</strong>"
 msgstr ""
+"<span class=\"fa fa-thumbs-o-down\"/> <strong> Pratiche "
+"sconsigliate</strong>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "<span class=\"fa fa-thumbs-o-up\"/> <strong> Good practices</strong>"
 msgstr ""
+"<span class=\"fa fa-thumbs-o-up\"/> <strong> Pratiche consigliate</strong>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -487,6 +490,10 @@ msgid ""
 "                                        <strong>Machine translation</strong><br/>Free, but quality may vary\n"
 "                                    </span>"
 msgstr ""
+"<span class=\"panel-title\">\n"
+"                                        <span class=\"fa fa-cogs\"/>\n"
+"                                        <strong>Traduzione automatica</strong><br/>Gratis, ma con possibili imprecisioni\n"
+"                                    </span>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -496,6 +503,10 @@ msgid ""
 "                                        <strong>Human translation</strong><br/>Pay for professionnal quality\n"
 "                                    </span>"
 msgstr ""
+"<span class=\"panel-title\">\n"
+"                                        <span class=\"fa fa-user\"/>\n"
+"                                        <strong>Traduzione manuale</strong><br/>Paga per una traduzione di qualità\n"
+"                                    </span>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1026,7 +1037,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Amount of text on the page (short vs. long)."
-msgstr ""
+msgstr "Quantità di testo nella pagina (poco o tanto)."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.500
@@ -1354,7 +1365,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Contact a Domain Manager in your country to buy it"
-msgstr ""
+msgstr "Contatta un Rivenditore di Domini nel tuo paese per acquistarlo"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.contactus
@@ -1478,7 +1489,7 @@ msgstr "Bacheca"
 #: model:ir.model.fields,field_description:website.field_website_config_settings_default_lang_id
 #: model:ir.model.fields,field_description:website.field_website_default_lang_id
 msgid "Default Language"
-msgstr ""
+msgstr "Lingua di default"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_default_lang_code
@@ -1743,7 +1754,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Example of Good Homepage"
-msgstr ""
+msgstr "Esempio di una Buona Homepage"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_comparisons
@@ -1976,7 +1987,7 @@ msgstr "Chiave Google Analytics"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Google Analytics."
-msgstr ""
+msgstr "Google Analytics."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2185,7 +2196,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Install new languages"
-msgstr ""
+msgstr "Installa nuove lingue"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
@@ -2448,7 +2459,7 @@ msgstr "Il mio Sito Web"
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
 msgid "New Language"
-msgstr ""
+msgstr "Nuova Lingua"
 
 #. module: website
 #. openerp-web
@@ -4295,7 +4306,7 @@ msgstr "nome"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "online help"
-msgstr ""
+msgstr "help online"
 
 #. module: website
 #. openerp-web
@@ -4342,7 +4353,7 @@ msgstr "la classica interfaccia di Odoo"
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
 msgid "the instructions"
-msgstr ""
+msgstr "le istruzioni"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -4352,7 +4363,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
 msgid "to create your key."
-msgstr ""
+msgstr "per creare la tua chiave."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
