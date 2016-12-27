@@ -306,6 +306,8 @@ class product_pricelist(osv.osv):
                                 ptype_src, pricelist.currency_id.id,
                                 price_tmp, round=False,
                                 context=context)
+                        if price == 0:
+                            continue
                 elif rule.base == -2:
                     seller = False
                     for seller_id in product.seller_ids:
