@@ -64,7 +64,7 @@ msgid ""
 "</p>\n"
 msgstr ""
 "\n"
-"<p>Dear ${object.partner_id.name}\n"
+"<p>Sayın ${object.partner_id.name}\n"
 "% set access_action = object.get_access_action()\n"
 "% set doc_name = 'Fiyat Teklifi' if object.state in ('Taslak', 'Gönderilmiş') else 'Sipariş Onayı'\n"
 "% set is_online = access_action and access_action['type'] == 'ir.actions.act_url'\n"
@@ -76,12 +76,12 @@ msgstr ""
 "% endif\n"
 ",</p>\n"
 "<p>\n"
-"Here is your ${doc_name} <strong>${object.name}</strong>\n"
+"Senin ${doc_name} <strong>${object.name}</strong>\n"
 "% if object.origin:\n"
-"(with reference: ${object.origin} )\n"
+"(Referansla: ${object.origin} )\n"
 "% endif\n"
-"amounting in <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong>\n"
-"from ${object.company_id.name}.\n"
+"Tutarı <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong>\n"
+"dan ${object.company_id.name}.\n"
 "</p>\n"
 "\n"
 "    <br/><br/>\n"
@@ -766,7 +766,7 @@ msgstr "Teslim Edilen Miktar"
 #. module: sale
 #: selection:product.template,invoice_policy:0
 msgid "Delivered quantities"
-msgstr "Teslim edilen miktar"
+msgstr "Teslim edilen miktardan"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_account_invoice_partner_shipping_id
@@ -858,7 +858,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_display_name
 #: model:ir.model.fields,field_description:sale.field_sale_report_display_name
 msgid "Display Name"
-msgstr "Adı Göster"
+msgstr "Ad Görünümü"
 
 #. module: sale
 #: model:res.groups,name:sale.group_display_incoterm
@@ -1510,7 +1510,7 @@ msgstr "Satış siparişinin veriliş tarihi"
 #. module: sale
 #: selection:product.template,invoice_policy:0
 msgid "Ordered quantities"
-msgstr "Siparişin miktarı"
+msgstr "Siparişin miktarından"
 
 #. module: sale
 #: model:ir.actions.act_window,name:sale.action_orders_upselling
@@ -2394,7 +2394,7 @@ msgstr "Vergili Toplam"
 #: model:ir.model.fields,field_description:sale.field_product_product_track_service
 #: model:ir.model.fields,field_description:sale.field_product_template_track_service
 msgid "Track Service"
-msgstr "İzleme Hizmeti"
+msgstr "Servis Rotası  "
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_price_unit
