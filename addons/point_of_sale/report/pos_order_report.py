@@ -24,9 +24,7 @@ class pos_order_report(osv.osv):
         'location_id':fields.many2one('stock.location', 'Location', readonly=True),
         'company_id':fields.many2one('res.company', 'Company', readonly=True),
         'nbr':fields.integer('# of Lines', readonly=True),  # TDE FIXME master: rename into nbr_lines
-        'product_qty_wo_conversion':fields.float('Qty in Transaction UoM', readonly=True),
-        'product_uom_id':fields.many2one('product.uom', 'Unit of Measure', readonly=True),
-        'product_qty':fields.float('Qty in Default UoM', readonly=True),
+        'product_qty':fields.integer('Product Quantity', readonly=True),
         'journal_id': fields.many2one('account.journal', 'Journal'),
         'delay_validation': fields.integer('Delay Validation'),
         'product_categ_id': fields.many2one('product.category', 'Product Category', readonly=True),
@@ -47,8 +45,6 @@ class pos_order_report(osv.osv):
                     count(*) as nbr,
                     s.date_order as date,
                     sum(l.qty * u.factor) as product_qty,
-                    sum(l.qty) as product_qty_wo_conversion,
-                    pt.uom_id as product_uom_id,
                     sum(l.qty * l.price_unit) as price_sub_total,
                     sum((l.qty * l.price_unit) * (100 - l.discount) / 100) as price_total,
                     sum((l.qty * l.price_unit) * (l.discount / 100)) as total_discount,
@@ -77,7 +73,6 @@ class pos_order_report(osv.osv):
                     left join pos_config pc on (ps.config_id=pc.id)
                 group by
                     s.date_order, s.partner_id,s.state, pt.categ_id,
-                    pt.uom_id,
                     s.user_id,s.location_id,s.company_id,s.sale_journal,s.pricelist_id,s.invoice_id,l.product_id,s.create_date,pt.categ_id,pt.pos_categ_id,p.product_tmpl_id,ps.config_id,pc.stock_location_id
                 having
                     sum(l.qty * u.factor) != 0)""")
