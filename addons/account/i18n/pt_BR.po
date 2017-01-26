@@ -3,12 +3,14 @@
 # * account
 # 
 # Translators:
+# Chico Venancio <chicocvenancio@gmail.com>, 2016
 # Clemilton Clementino <clemylton@hotmail.com>, 2015
 # danimaribeiro <danimaribeiro@gmail.com>, 2015
 # danimaribeiro <danimaribeiro@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
 # francisco alexandre bezerra da silva <falexandresilva@gmail.com>, 2015
-# grazziano <g.negocios@outlook.com.br>, 2016
+# grazziano <gra.negocia@gmail.com>, 2016
+# grazziano <gra.negocia@gmail.com>, 2016
 # Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2015
 # Mateus Lopes <mateus1@gmail.com>, 2015
 # Rodrigo Macedo <rodrigomacedo@rmsolucoeseminformatica.com>, 2015
@@ -17,8 +19,8 @@ msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 06:40+0000\n"
-"PO-Revision-Date: 2016-07-09 17:24+0000\n"
-"Last-Translator: grazziano <g.negocios@outlook.com.br>\n"
+"PO-Revision-Date: 2016-11-17 01:09+0000\n"
+"Last-Translator: grazziano <gra.negocia@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/odoo/odoo-8/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +97,7 @@ msgid ""
 "    </div>\n"
 "</div>\n"
 "            "
-msgstr "\n\n<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n\n<p>Olá ${object.partner_id.name},</p>\n\n<p>A nova fatura está disponível para você: </p>\n\n<p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n&nbsp;&nbsp;<strong>Referências</strong><br />\n&nbsp;&nbsp;Número da fatura: <strong>${object.number}</strong><br />\n&nbsp;&nbsp;Itotal de nvoice: <strong>${object.amount_total} ${object.currency_id.name}</strong><br />\n&nbsp;&nbsp;Data da fatura: ${object.date_invoice}<br />\n% if object.origin:\n&nbsp;&nbsp;Código de encomenda: ${object.origin}<br />\n% endif\n% if object.user_id:\n&nbsp;&nbsp;Seu contato: <a href=\"mailto:${object.user_id.e-mail or ''}?subject=Invoice%20${object.number}\">${object.user_id.name}</a>\n% endif\n</p> \n\n% if object.paypal_url:\n<br/>\n<p>Também é possível pagar diretamente com Paypal:</p>\n<a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n<img class=\"oe_edi_paypal_button\" src=\"/account/static/src/img/btn_paynowcc_lg.gif\"/>\n</a>\n% endif\n\n<br/>\n<p>Se você tem alguma dúvida, não hesite em contactar-nos.</p>\n<p>obrigado por escolher ${object.company_id.name or 'us'}!</p>\n<br/>\n<br/>\n<div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n<h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n<strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n</div>\n<div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n<span style=\"color: #222; margin-bottom: 5px; display: block; \">\n% if object.company_id.street:\n${object.company_id.street}<br/>\n% endif\n% if object.company_id.street2:\n${object.company_id.street2}<br/>\n% endif\n% if object.company_id.city or object.company_id.zip:\n${object.company_id.zip} ${object.company_id.city}<br/>\n% endif\n% if object.company_id.country_id:\n${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>\n% endif\n</span>\n% if object.company_id.phone:\n<div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\nTelefone:&nbsp; ${object.company_id.phone}\n</div>\n% endif\n% if object.company_id.website:\n<div>\nWeb :&nbsp;<a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n</div>\n%endif\n<p></p>\n</div>\n</div>\n            "
+msgstr "\n\n<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n\n<p>Olá ${object.partner_id.name},</p>\n\n<p>A nova fatura está disponível para você: </p>\n\n<p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n&nbsp;&nbsp;<strong>Referências</strong><br />\n&nbsp;&nbsp;Número da fatura: <strong>${object.number}</strong><br />\n&nbsp;&nbsp;Itotal de nvoice: <strong>${object.amount_total} ${object.currency_id.name}</strong><br />\n&nbsp;&nbsp;Data da fatura: ${object.date_invoice}<br />\n% if object.origin:\n&nbsp;&nbsp;Código de encomenda: ${object.origin}<br />\n% endif\n% if object.user_id:\n&nbsp;&nbsp;Seu contato: <a href=\"mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}\">${object.user_id.name}</a>\n% endif\n</p> \n\n% if object.paypal_url:\n<br/>\n<p>Também é possível pagar diretamente com Paypal:</p>\n<a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n<img class=\"oe_edi_paypal_button\" src=\"/account/static/src/img/btn_paynowcc_lg.gif\"/>\n</a>\n% endif\n\n<br/>\n<p>Se você tem alguma dúvida, não hesite em contactar-nos.</p>\n<p>obrigado por escolher ${object.company_id.name or 'us'}!</p>\n<br/>\n<br/>\n<div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n<h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n<strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n</div>\n<div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n<span style=\"color: #222; margin-bottom: 5px; display: block; \">\n% if object.company_id.street:\n${object.company_id.street}<br/>\n% endif\n% if object.company_id.street2:\n${object.company_id.street2}<br/>\n% endif\n% if object.company_id.city or object.company_id.zip:\n${object.company_id.zip} ${object.company_id.city}<br/>\n% endif\n% if object.company_id.country_id:\n${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>\n% endif\n</span>\n% if object.company_id.phone:\n<div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\nTelefone:&nbsp; ${object.company_id.phone}\n</div>\n% endif\n% if object.company_id.website:\n<div>\nWeb :&nbsp;<a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n</div>\n%endif\n<p></p>\n</div>\n</div>\n            "
 
 #. module: account
 #: help:account.invoice,state:0
@@ -130,7 +132,7 @@ msgstr "# Entradas"
 #: field:account.config.settings,code_digits:0
 #: field:wizard.multi.charts.accounts,code_digits:0
 msgid "# of Digits"
-msgstr "# de dígitos"
+msgstr "# de Dígitos"
 
 #. module: account
 #: view:account.entries.report:account.view_account_entries_report_tree
@@ -150,12 +152,12 @@ msgstr "# de Itens"
 #. module: account
 #: view:account.entries.report:account.view_account_entries_report_tree
 msgid "# of Products Qty"
-msgstr "# Qtde de Produtos"
+msgstr "# de Qtde de Produtos"
 
 #. module: account
 #: field:account.move.line.reconcile,trans_nbr:0
 msgid "# of Transaction"
-msgstr "# da Transação"
+msgstr "# de Transação"
 
 #. module: account
 #: model:email.template,subject:account.email_template_edi_invoice
@@ -219,7 +221,7 @@ msgstr "(atualizar)"
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
 msgid "+ Transactions"
-msgstr "+Transações"
+msgstr "+ Transações"
 
 #. module: account
 #: model:account.payment.term,name:account.account_payment_term_15days
@@ -271,7 +273,7 @@ msgid ""
 "                usually corresponds to the periods of the tax declaration.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Click para adicionar um período fiscal.\n              </p><p>\n                Um período fiscal geralmente é de um mês ou de um trimestre. Correspondendo a data de pagamento dos impostos\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClick para adicionar um período fiscal.\n</p><p>\nUm período fiscal geralmente é de um mês ou de um trimestre. Correspondendo a data de pagamento dos impostos\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_journal_form
@@ -287,7 +289,7 @@ msgid ""
 "                and one for miscellaneous information.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para adicionar um diário.\n              </p><p>\n                Um diário é usado para registrar as transações de todos os dados\n                contábeis relacionados ao dia-a-dia da empresa.\n              </p><p>\n                Uma empresa pode criar um diário por meio de pagamento (dinheiro,\n                 contas bancárias, cheques), um diário de compras, um diário de vendas\n                 e um para informações diversas.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para adicionar um diário.\n</p><p>\nUm diário é usado para registrar as transações de todos os dados\ncontábeis relacionados ao dia-a-dia da empresa.\n</p><p>\nUma empresa pode criar um diário por meio de pagamento (dinheiro,\ncontas bancárias, cheques), um diário de compras, um diário de vendas\ne um para informações diversas.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_form
@@ -303,7 +305,7 @@ msgid ""
 "                to disclose a certain amount of information.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\nClique para adicionar uma conta.\n</p><p>\nUma conta é parte de um livro que permite a sua empresa\nregistrar todos os tipos de transações de débito e crédito.\nEmpresas apresentam as suas contas anuais em duas partes principais: o\nbalanço patrimonial e demonstração do resultado do exercício (DRE).\nAs contas anuais de uma empresa são obrigadas por lei\na revelar uma determinada quantidade de informação.\n</p>            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para adicionar uma conta.\n</p><p>\nUma conta é parte de um livro que permite a sua empresa\nregistrar todos os tipos de transações de débito e crédito.\nEmpresas apresentam as suas contas anuais em duas partes principais: o\nbalanço e a demonstração do resultado do exercício (DRE).\nAs contas anuais de uma empresa são obrigadas por lei\na revelar uma determinada quantidade de informação.\n</p>            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_gain_loss
@@ -318,7 +320,7 @@ msgid ""
 "                secondary currency set.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para adicionar uma conta.\n              </p><p>\n                Ao fazer transações em várias moedas, você pode perder ou ganhar algum valor \ndevido à taxa de câmbio. Este menu fornece uma previsão do Lucro ou Perda se as transações\nfossem realizadas hoje. Apenas para contas que possuem uma segunda moeda definida.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para adicionar uma conta.\n</p><p>\nAo fazer transações em várias moedas, você pode perder ou ganhar algum valor \ndevido à taxa de câmbio. Este menu fornece uma previsão do Lucro ou Perda se as transações\nfossem realizadas hoje. Apenas para contas que possuem uma segunda moeda definida.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree1
@@ -350,7 +352,7 @@ msgid ""
 "                can generate it directly from the related customer invoice.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para criar um reembolso ao cliente.\n              </p><p>\n                A restituição é um documento que credita uma fatura completamente ou\n                parcialmente.\n              </p><p>\n                Em vez de criar manualmente um reembolso ao cliente, você\n                pode gerá-lo diretamente a partir da fatura de cliente relacionado.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para criar um reembolso ao cliente.\n</p><p>\nA restituição é um documento que credita uma fatura completamente ou\nparcialmente.\n</p><p>\nEm vez de criar manualmente um reembolso ao cliente, você\npode gerá-lo diretamente a partir da fatura de cliente relacionado.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_move_journal_line
@@ -367,7 +369,7 @@ msgid ""
 "                for miscellaneous operations.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para criar um lançamento de diário.\n              </p><p>\n                Um lançamento de diário consiste em diversos itens de diário, cada um associado a uma transação de débito ou crédito.\n              </p><p>\n                O Odoo cria automaticamente uma entrada de diário por documento contábil: faturas, reembolsos, pagamento a fornecedor, demonstrativos bancários,  etc. Então você deve registrar as entradas de diário manualmente  apenas / principalmente para operações diversas.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para criar um lançamento de diário.\n</p><p>\nUm lançamento de diário consiste em diversos itens de diário, cada um associado a uma transação de débito ou crédito.\n</p><p>\nO Odoo cria automaticamente uma entrada de diário por documento contábil: faturas, reembolsos, pagamento a fornecedor, demonstrativos bancários,  etc. Então você deve registrar as entradas de diário manualmente  apenas/principalmente para operações diversas.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_view_bank_statement_tree
@@ -382,7 +384,7 @@ msgid ""
 "                goes out of the cash box.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n               Clique para criar um novo registro de caixa.\n              </p><p>\n                Uma Caixa Registradora te permite gerenciar as entradas nos diários de caixa.\nEste recurso fornece uma maneira fácil de acompanhar pagamentos em dinheiro\n                 diariamente. Você pode inserir as moedas que estão em seu caixa, e em seguida,\nfazer os lançamentos quando o dinheiro entra ou sai do caixa.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para criar um novo registro de caixa.\n</p><p>\nUma Caixa Registradora te permite gerenciar as entradas nos diários de caixa.\nEste recurso fornece uma maneira fácil de acompanhar pagamentos em dinheiro\ndiariamente. Você pode inserir as moedas que estão em seu caixa, e em seguida,\nfazer os lançamentos quando o dinheiro entra ou sai do caixa.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_statement_operation_template
@@ -409,7 +411,7 @@ msgid ""
 "                (profit/loss or balance sheet).\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para definir um novo tipo de conta.\n              </p><p>\n                Um tipo de conta é usado para determinar como uma conta deve ser usada\n                em cada diário. O método de diferimento de um tipo de conta determina o \n                processo para o fechamento anual. Relatórios como o Balanço Patrimonial\n               e o Relatório de Perdas e Lucros usa a categoria (perdas/lucros ou balanço patrimonial).\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para definir um novo tipo de conta.\n</p><p>\nUm tipo de conta é usado para determinar como uma conta deve ser usada\nem cada diário. O método de diferimento de um tipo de conta determina o \nprocesso para o fechamento anual. Relatórios como o Balanço\ne o Relatório de Perdas e Lucros usam a categoria (perdas/lucros ou balanço patrimonial).\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_subscription_form
@@ -423,7 +425,7 @@ msgid ""
 "                entries to automate the postings in the system.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para definir uma nova entrada recorrente.\n              </p><p>\n                 Lançamentos recorrentes ocorre com base em uma data específica\n                 ou seja, data que corresponde à assinatura de um contrato ou um\n                 acordo com um cliente ou de um fornecedor. Você pode criar tal\n                 entradas para automatizar os lançamentos no sistema.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para definir uma nova entrada recorrente.\n</p><p>\nLançamentos recorrentes ocorrem com base em uma data específica\nou seja, data que corresponde à assinatura de um contrato ou um\nacordo com um cliente ou de um fornecedor. Você pode criar tal\nentradas para automatizar os lançamentos no sistema.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_tax_code_list
@@ -437,7 +439,7 @@ msgid ""
 "                one or several tax code.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para definir um novo código de imposto.\n              </p><p>\n                Dependendo do país, um código de imposto é geralmente uma célula para preencher\n                 em sua declaração de imposto legal. Odoo permite que você defina o\n                 estrutura tributária e cada cálculo do imposto será registrado no\n                 um ou vários código de imposto.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para definir um novo código de imposto.\n</p><p>\nDependendo do país, um código de imposto é geralmente uma célula para preencher\nem sua declaração de imposto legal. Odoo permite que você defina a\nestrutura tributária e cada cálculo do imposto será registrado em\num ou vários código de imposto.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree2
@@ -466,7 +468,7 @@ msgid ""
 "                the related sale or puchase invoices.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para registrar um extrato bancário.\n              </p><p>\n                Um extrato bancário é um resumo de todas as transações financeiras\n                 que ocorre ao longo de um determinado período de tempo em uma conta bancária. você\n                 deve receber este periodicamente do seu banco.\n              </p><p>\n                Odoo permite conciliar uma linha comunicado diretamente com\n                 a venda ou notas fiscais relacionadas compra.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para registrar um extrato bancário.\n</p><p>\nUm extrato bancário é um resumo de todas as transações financeiras\nque ocorrem ao longo de um determinado período de tempo em uma conta bancária. você\ndeve recebê-la periodicamente do seu banco.\n</p><p>\nOdoo permite conciliar uma linha de extrato diretamente com\na venda ou notas fiscais relacionadas com a compra.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree4
@@ -478,7 +480,7 @@ msgid ""
 "                refunds and reconcile them directly from the related supplier invoice.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para registrar um reembolso que você recebeu de um fornecedor.\n              </p><p>\n                Em vez de criar o reembolso do fornecedor manualmente, você pode gerar\n                 reembolsos e reconciliar-los diretamente na fatura do fornecedor relacionada.\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para registrar um reembolso que você recebeu de um fornecedor.\n</p><p>\nEm vez de criar o reembolso do fornecedor manualmente, você pode gerar\nreembolsos e reconciliar-los diretamente na fatura do fornecedor relacionada.\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_fiscalyear
@@ -495,7 +497,7 @@ msgid ""
 "                would be referred to as FY 2011.\n"
 "              </p>\n"
 "            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n                Clique para iniciar um novo ano fiscal.\n              </p><p>\n                 Defina ano financeiro de sua empresa de acordo com suas necessidades.\n                 Um exercício é um período no final do qual as contas de uma empresa\n                 compostos (geralmente 12 meses). O exercício é normalmente referido\n                 pela data em que termina. Por exemplo, a se o ano financeiro de uma empresa\n                 termina 30 de novembro de 2011, em seguida, tudo entre 1 de dezembro de 2010\n                 e 30 novembro de 2011 seria conhecido como o ano fiscal de 2011.                .\n              </p>\n            "
+msgstr "<p class=\"oe_view_nocontent_create\">\nClique para iniciar um novo ano fiscal.\n</p><p>\nDefina ano financeiro de sua empresa de acordo com suas necessidades.\nUm exercício é um período no final do qual as contas de uma empresa\ncompostos (geralmente 12 meses). O exercício é normalmente referido\npela data em que termina. Por exemplo, a se o ano financeiro de uma empresa\ntermina 30 de novembro de 2011, em seguida, tudo entre 1 de dezembro de 2010\ne 30 novembro de 2011 seria conhecido como o ano fiscal de 2011.                .\n</p>\n            "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_account_moves_all_a
@@ -1413,12 +1415,12 @@ msgstr "Uma posição fiscal contábil pode ser definida apenas uma vez sobre as
 #. module: account
 #: field:account.aged.trial.balance,direction_selection:0
 msgid "Analysis Direction"
-msgstr "Direção analítica"
+msgstr "Direção da Análise"
 
 #. module: account
 #: view:website:account.report_agedpartnerbalance
 msgid "Analysis Direction:"
-msgstr "Direção da análise:"
+msgstr "Direção da Análise:"
 
 #. module: account
 #: view:account.move:account.view_move_form
@@ -1689,12 +1691,12 @@ msgstr "Patrimônio"
 #. module: account
 #: model:account.account.type,name:account.account_type_asset_view1
 msgid "Asset View"
-msgstr "Visualizar Patrimônio"
+msgstr "Vista de Patrimônio"
 
 #. module: account
 #: model:account.financial.report,name:account.account_financial_report_assets0
 msgid "Assets"
-msgstr "Patrimônio"
+msgstr "Patrimônios"
 
 #. module: account
 #: field:account.config.settings,module_account_asset:0
@@ -1818,21 +1820,21 @@ msgstr "Saldo :"
 #: model:ir.actions.act_window,name:account.action_account_report_bs
 #: model:ir.ui.menu,name:account.menu_account_report_bs
 msgid "Balance Sheet"
-msgstr "Balanço Patrimonial"
+msgstr "Balanço"
 
 #. module: account
 #: selection:account.account.type,report_type:0
 #: code:addons/account/account.py:208
 #, python-format
 msgid "Balance Sheet (Asset account)"
-msgstr "Balanço Patrimonial (Conta de Ativos)"
+msgstr "Balanço (Conta de Ativos)"
 
 #. module: account
 #: selection:account.account.type,report_type:0
 #: code:addons/account/account.py:209
 #, python-format
 msgid "Balance Sheet (Liability account)"
-msgstr "Balanço Patrimonial (conta do passivo)"
+msgstr "Balanço (conta do passivo)"
 
 #. module: account
 #: help:account.bank.statement,balance_end:0
@@ -1888,7 +1890,7 @@ msgstr "Contas Bancárias"
 #. module: account
 #: view:res.partner:account.view_partner_property_form
 msgid "Bank Details"
-msgstr "Detalhes Bancário"
+msgstr "Detalhes Bancários"
 
 #. module: account
 #: view:account.statement.operation.template:account.view_account_statement_operation_template_tree
@@ -1967,17 +1969,17 @@ msgstr "Base"
 #: field:account.invoice.tax,base_code_id:0
 #: field:account.tax.template,base_code_id:0
 msgid "Base Code"
-msgstr "Código base"
+msgstr "Código Base"
 
 #. module: account
 #: field:account.invoice.tax,base_amount:0
 msgid "Base Code Amount"
-msgstr "Valor do código básico"
+msgstr "Valor do Código Básico"
 
 #. module: account
 #: field:account.tax,base_sign:0 field:account.tax.template,base_sign:0
 msgid "Base Code Sign"
-msgstr "Sinal de código básico"
+msgstr "Sinal de Código Básico"
 
 #. module: account
 #: view:website:account.report_vat
@@ -2107,7 +2109,7 @@ msgstr "Cancelar Caixa Registradora"
 #: model:ir.actions.act_window,name:account.action_account_open_closed_fiscalyear
 #: model:ir.ui.menu,name:account.menu_wizard_account_open_closed_fiscalyear
 msgid "Cancel Closing Entries"
-msgstr "Cancelar lançamentos de Fechamento"
+msgstr "Cancelar Lançamentos de Fechamento"
 
 #. module: account
 #: view:account.move:account.view_move_form
@@ -2123,7 +2125,7 @@ msgstr "Cancelar Entradas de Fechamento de Ano Fiscal"
 #: view:account.invoice:account.invoice_form
 #: view:account.invoice:account.invoice_supplier_form
 msgid "Cancel Invoice"
-msgstr "Cancelar fatura"
+msgstr "Cancelar Fatura"
 
 #. module: account
 #: view:account.invoice.cancel:account.account_invoice_cancel_view
@@ -2239,7 +2241,7 @@ msgstr "Não é possível gerar um código de diário não utilizado."
 #. module: account
 #: field:account.tax.code,code:0 field:account.tax.code.template,code:0
 msgid "Case Code"
-msgstr "Codigo do caso"
+msgstr "Código do Caso"
 
 #. module: account
 #: model:account.account.type,name:account.data_account_type_cash
@@ -2262,7 +2264,7 @@ msgstr "Controle de Caixa"
 #: model:ir.actions.act_window,name:account.action_view_bank_statement_tree
 #: model:ir.ui.menu,name:account.journal_cash_move_lines
 msgid "Cash Registers"
-msgstr "Caixa Registradoras"
+msgstr "Caixas"
 
 #. module: account
 #: view:account.bank.statement:account.view_bank_statement_form2
@@ -2454,7 +2456,7 @@ msgstr "Planos"
 #: model:account.account.type,name:account.conf_account_type_chk
 #: selection:account.bank.accounts.wizard,account_type:0
 msgid "Check"
-msgstr "Verificar"
+msgstr "Cheque"
 
 #. module: account
 #: field:account.journal,allow_date:0
@@ -3682,7 +3684,7 @@ msgstr "Definir Lançamentos Recorrentes"
 #. module: account
 #: view:cash.box.out:account.cash_box_out_form
 msgid "Describe why you take money from the cash register:"
-msgstr "Descreva por que você está tirando dinheiro do caixa:"
+msgstr "Descreva por que você está retirando dinheiro do caixa:"
 
 #. module: account
 #. openerp-web
@@ -4303,7 +4305,7 @@ msgstr "Conta da categoria de despesas"
 #. module: account
 #: model:account.account.type,name:account.account_type_expense_view1
 msgid "Expense View"
-msgstr "Visualizar Despesa"
+msgstr "Vista de Despesa"
 
 #. module: account
 #: view:account.entries.report:account.view_account_entries_report_search
@@ -4331,7 +4333,7 @@ msgstr "Fevereiro"
 #. module: account
 #: view:cash.box.in:account.cash_box_in_form
 msgid "Fill in this form if you put money in the cash register:"
-msgstr "Preencha o formulário, se você colocar dinheiro na caixa registradora:"
+msgstr "Preencha este formulário, para colocar dinheiro no caixa:"
 
 #. module: account
 #. openerp-web
@@ -4618,7 +4620,7 @@ msgid ""
 "reconciliation functionality, Odoo makes its own search for entries to "
 "reconcile in a series of accounts. It finds entries for each partner where "
 "the amounts correspond."
-msgstr "Para uma fatura a ser considerada como pago, as entradas de fatura deve ser conciliado com suas contrapartidas, geralmente pagamentos. Com a funcionalidade de reconciliação automática, Odoo faz a sua própria busca de entradas para conciliar em uma série de contas. Ele encontra entradas para cada um dos parceiros, onde os valores correspondem."
+msgstr "Para uma fatura a ser considerada como paga, as entradas de fatura devem ser conciliadas com suas contrapartidas, geralmente pagamentos. Com a funcionalidade de reconciliação automática, Odoo faz a sua própria busca de entradas para conciliar em uma série de contas. Ele encontra entradas para cada um dos parceiros, onde os valores correspondem."
 
 #. module: account
 #: help:account.journal,with_last_closing_balance:0
@@ -5275,7 +5277,7 @@ msgstr "Conta da Categoria de Receita"
 #. module: account
 #: model:account.account.type,name:account.account_type_income_view1
 msgid "Income View"
-msgstr "Visualização de Recebíveis"
+msgstr "Vista de Receita"
 
 #. module: account
 #: help:account.tax,include_base_amount:0
@@ -5365,7 +5367,7 @@ msgstr "Conta de Transferência Interna"
 #: view:account.account.template:account.view_account_template_search
 #: field:account.account.template,type:0 field:account.entries.report,type:0
 msgid "Internal Type"
-msgstr "Tipo interno"
+msgstr "Tipo Interno"
 
 #. module: account
 #: view:account.account.template:account.view_account_template_form
@@ -6823,7 +6825,7 @@ msgid ""
 "                        to modify them. The invoices will receive a unique\n"
 "                        number and journal items will be created in your chart\n"
 "                        of accounts."
-msgstr "Uma vez que as faturas provisórias são confirmados, você não será capaz de\n                         modificá-las. A fatura receberá um número exclusivo e itens de\n                         diário serão criados em seu plano de contas."
+msgstr "Uma vez que as faturas provisórias são confirmadas, você não será capaz de\nmodificá-las. A fatura receberá um número exclusivo e itens de\ndiário serão criados em seu plano de contas."
 
 #. module: account
 #: field:account.partner.ledger,page_split:0
@@ -7869,7 +7871,7 @@ msgstr "Compras"
 #: view:cash.box.in:account.cash_box_in_form
 #: model:ir.actions.act_window,name:account.action_cash_box_in
 msgid "Put Money In"
-msgstr "Colocar dinheiro em"
+msgstr "Colocar Dinheiro"
 
 #. module: account
 #: field:account.tax,python_compute:0 selection:account.tax,type:0
@@ -7928,7 +7930,7 @@ msgstr "Motivo"
 #: model:account.account.type,name:account.data_account_type_receivable
 #: selection:account.entries.report,type:0
 msgid "Receivable"
-msgstr "Recebimento"
+msgstr "A Receber"
 
 #. module: account
 #: view:account.chart.template:account.view_account_chart_template_seacrh
@@ -8071,7 +8073,7 @@ msgstr "Número da Reconciliação"
 #: model:ir.actions.client,name:account.action_bank_reconcile_bank_statements
 #: model:ir.ui.menu,name:account.menu_bank_reconcile_bank_statements
 msgid "Reconciliation on Bank Statements"
-msgstr "Reconciliaçã em Demonstrativos Bancários"
+msgstr "Reconciliação em Demonstrativos Bancários"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_account_partner_reconcile
@@ -8345,7 +8347,7 @@ msgstr "Código tributário raiz"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_view
 msgid "Root/View"
-msgstr "Origem/Visualização"
+msgstr "Raiz/Vista"
 
 #. module: account
 #: selection:res.company,tax_calculation_rounding_method:0
@@ -9088,7 +9090,7 @@ msgstr "Inscrição"
 #: view:account.subscription.generate:account.view_account_subscription_generate
 #: model:ir.model,name:account.model_account_subscription_generate
 msgid "Subscription Compute"
-msgstr "Calcular inscrição"
+msgstr "Calcular Inscrição"
 
 #. module: account
 #: view:account.subscription:account.view_subscription_form
@@ -9199,7 +9201,7 @@ msgstr "TIN:"
 #: view:cash.box.out:account.cash_box_out_form
 #: model:ir.actions.act_window,name:account.action_cash_box_out
 msgid "Take Money Out"
-msgstr "Efetuar um Saque"
+msgstr "Retirar Dinheiro"
 
 #. module: account
 #. openerp-web
@@ -9559,7 +9561,7 @@ msgid ""
 "can have children accounts for multi-company consolidations, "
 "payable/receivable are for partners accounts (for debit/credit "
 "computations), closed for depreciated accounts."
-msgstr "O 'Tipo Interno' é usado para recursos disponíveis em diferentes tipo de contas: visualizações não podem conter itens de diário, consolidações são contas que possuem contas filhas de consolidações multi-empresas, pagáveis/recebíveis são para contas de parceiros (para cálculo de débito/crédito), fechado para contas de depreciação."
+msgstr "O 'Tipo Interno' é usado para recursos disponíveis em diferentes tipo de contas: vista não pode conter itens de diário, consolidações são contas que possuem contas filhas de consolidações multi-empresas, a pagar/a receber são para contas de parceiros (para cálculo de débito/crédito), fechado para contas de depreciação."
 
 #. module: account
 #: help:account.move.line,tax_code_id:0
@@ -10097,7 +10099,7 @@ msgid ""
 "This allows you to manage the assets owned by a company or a person.\n"
 "It keeps track of the depreciation occurred on those assets, and creates account move for those depreciation lines.\n"
 "-This installs the module account_asset. If you do not check this box, you will be able to do invoicing & payments, but not accounting (Journal Items, Chart of Accounts, ...)"
-msgstr "Isto permite-lhe gerir os ativos de propriedade de uma empresa ou uma pessoa.\nEle mantém o controle da depreciação nesses ativos, e cria movimentos de conta para essas linhas de depreciação.\n-Isto Instala o módulo account_asset. Se você não marcar esta caixa, você será capaz de fazer a faturamento e pagamentos, mas não contabilidade (Itens de diário, plano de contas, ...)"
+msgstr "Isto permite-lhe gerir os patrimônios de propriedade de uma empresa ou uma pessoa.\nEle mantém o controle da depreciação nesses patrimônios, e cria movimentos de conta para essas linhas de depreciação.\n-Isto Instala o módulo account_asset. Se você não marcar esta caixa, você será capaz de fazer a faturamento e pagamentos, mas não contabilidade (Itens de diário, plano de contas, ...)"
 
 #. module: account
 #: help:account.chart.template,complete_tax_set:0
@@ -10167,7 +10169,7 @@ msgstr "Este campo é usado para lançamentos de pagamento e recebimento em diá
 msgid ""
 "This field is used to generate legal reports: profit and loss, balance "
 "sheet."
-msgstr "Este campo é usado para gerar relatórios legais: de lucros e perdas, balanço patrimonial."
+msgstr "Este campo é usado para gerar relatórios legais: de lucros e perdas, balanço."
 
 #. module: account
 #: help:account.bank.statement.line,partner_name:0
@@ -10918,14 +10920,14 @@ msgstr "Valores"
 #. module: account
 #: field:account.invoice,check_total:0
 msgid "Verification Total"
-msgstr "Verificação total"
+msgstr "Verificação Total"
 
 #. module: account
 #: selection:account.account,type:0 selection:account.account.template,type:0
 #: selection:account.entries.report,type:0
 #: selection:account.financial.report,type:0
 msgid "View"
-msgstr "Visualizar"
+msgstr "Vista"
 
 #. module: account
 #: view:project.account.analytic.line:account.view_project_account_analytic_line_form
