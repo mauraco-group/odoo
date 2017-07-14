@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-    <title>Servicios Web (API) &mdash; documentación de odoo - 9.0</title>
+    <title>Servicios Web (API) &mdash; documentación de odoo - 10.0</title>
     
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '9.0',
+        VERSION:     '10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,63 +31,216 @@
     <script type="text/javascript" src="_static/bootstrap.js"></script>
     <script type="text/javascript" src="_static/doc.js"></script>
     <script type="text/javascript" src="_static/jquery.noconflict.js"></script>
-    <link rel="top" title="documentación de odoo - 9.0" href="index.html" />
+    <link rel="top" title="documentación de odoo - 10.0" href="index.html" />
     <link rel="next" title="Setting Up" href="setup.html" />
     <link rel="prev" title="Extendiendo la Interfaz" href="howtos/web.html" /> 
   </head>
-  <body><header class="has_code_col">
-    <figure class="card top">
-      <span class="card-img" style="background-image: url('_static/banners/web_service_api.jpg');"></span>
-    </figure>
-  </header>
-  <nav id="main_navbar" class="navbar has_code_col">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-main">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <nav class="nav navbar-nav navbar-left">
-          <li id="main-back"><a href="index.html" class="mdi-navigation-arrow-back"></a></li>
-          <li>
-            <h1 id="main_title">Servicios Web (API)</h1>
-          </li>
-        </nav>
+  <body><header class="o_main_header o_has_sub_nav o_inverted has_code_col">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
       </div>
-
-      <nav class="collapse navbar-collapse navbar-main navbar-right" role="navigation">
-        
-        <ul class="current navbar-nav navbar-right nav"><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="tutorials.html" class="dropdown-toggle internal reference">Tutoriales</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="howtos/themes.html" class="internal reference">Haciendo un Tema</a></li><li class="toctree-l2"><a href="howtos/website.html" class="internal reference">Construyendo un Website</a></li><li class="toctree-l2"><a href="howtos/backend.html" class="internal reference">Construyendo un módulo</a></li><li class="toctree-l2"><a href="howtos/web.html" class="internal reference">Extendiendo la Interfaz</a></li></ul></li><li class="toctree-l1 current"><a href="" class="current internal reference">Servicios Web (API)</a><ul ></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="setup.html" class="dropdown-toggle internal reference">Setting Up</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="setup/install.html" class="internal reference">Installing Odoo</a></li><li class="toctree-l2"><a href="setup/deploy.html" class="internal reference">Deploying Odoo</a></li><li class="toctree-l2"><a href="setup/cdn.html" class="internal reference">Deploying with Content Delivery Networks</a></li><li class="toctree-l2"><a href="setup/enterprise.html" class="internal reference">From Community to Enterprise</a></li></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="reference.html" class="dropdown-toggle internal reference">Referencia</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="reference/orm.html" class="internal reference">ORM API</a></li><li class="toctree-l2"><a href="reference/data.html" class="internal reference">Data Files</a></li><li class="toctree-l2"><a href="reference/actions.html" class="internal reference">Acciones</a></li><li class="toctree-l2"><a href="reference/views.html" class="internal reference">Views</a></li><li class="toctree-l2"><a href="reference/module.html" class="internal reference">Modules</a></li><li class="toctree-l2"><a href="reference/cmdline.html" class="internal reference">Command-line interface: odoo.py</a></li><li class="toctree-l2"><a href="reference/security.html" class="internal reference">Security in Odoo</a></li><li class="toctree-l2"><a href="reference/testing.html" class="internal reference">Testing Modules</a></li><li class="toctree-l2"><a href="reference/http.html" class="internal reference">Web Controllers</a></li><li class="toctree-l2"><a href="reference/qweb.html" class="internal reference">QWeb</a></li><li class="toctree-l2"><a href="reference/javascript.html" class="internal reference">Javascript</a></li><li class="toctree-l2"><a href="reference/translations.html" class="internal reference">Translating Modules</a></li><li class="toctree-l2"><a href="reference/reports.html" class="internal reference">QWeb Reports</a></li><li class="toctree-l2"><a href="reference/workflows.html" class="internal reference">Workflows</a></li><li class="toctree-l2"><a href="reference/guidelines.html" class="internal reference">Odoo Guidelines</a></li><li class="toctree-l2"><a href="reference/upgrade_api.html" class="internal reference">Upgrade API</a></li></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="business.html" class="dropdown-toggle internal reference">Mementos de Negocio.</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/accounting.html" class="external reference">Accounting Memento (US GAAP)</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/double-entry.html" class="external reference">Double-Entry Inventory</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/valuation.html" class="external reference">Inventory Valuations</a></li></ul></li></ul>
-      </nav>
-    </div>
-  </nav>
-    
-  
-  <main class="container-fluid has_code_col">
-    
-    <div class="row">
-      
-      <aside>
-        <div class="navbar-aside text-center">
-          <div class="logo_box">
-            <span class="logo"></span>
-            Documentation
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
           </div>
-          <ul class="list-group text-left nav"><li class="list-group-item"><a href="#connection" class="ripple internal reference">Connection</a><ul ><li class="list-group-item"><a href="#configuration" class="ripple internal reference">Configuration</a><ul ><li class="list-group-item"><a href="#demo" class="ripple internal reference">demo</a></li></ul></li><li class="list-group-item"><a href="#logging-in" class="ripple internal reference">Logging in</a></li></ul></li><li class="list-group-item"><a href="#calling-methods" class="ripple internal reference">Calling methods</a><ul ><li class="list-group-item"><a href="#list-records" class="ripple internal reference">List records</a><ul ><li class="list-group-item"><a href="#pagination" class="ripple internal reference">Pagination</a></li></ul></li><li class="list-group-item"><a href="#count-records" class="ripple internal reference">Count records</a></li><li class="list-group-item"><a href="#read-records" class="ripple internal reference">Read records</a></li><li class="list-group-item"><a href="#listing-record-fields" class="ripple internal reference">Listing record fields</a></li><li class="list-group-item"><a href="#search-and-read" class="ripple internal reference">Search and read</a></li><li class="list-group-item"><a href="#create-records" class="ripple internal reference">Create records</a></li><li class="list-group-item"><a href="#update-records" class="ripple internal reference">Update records</a></li><li class="list-group-item"><a href="#delete-records" class="ripple internal reference">Delete records</a></li><li class="list-group-item"><a href="#inspection-and-introspection" class="ripple internal reference">Inspection and introspection</a><ul ><li class="list-group-item"><a href="#ir-model" class="ripple internal reference"><code >ir.model</code></a></li><li class="list-group-item"><a href="#ir-model-fields" class="ripple internal reference"><code >ir.model.fields</code></a></li></ul></li><li class="list-group-item"><a href="#workflow-manipulations" class="ripple internal reference">Workflow manipulations</a></li><li class="list-group-item"><a href="#report-printing" class="ripple internal reference">Report printing</a></li></ul></li></ul>
-          
-          <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/9.0/doc/api_integration.rst" class="gith-link">
-              Edit on GitHub
-          </a></p>
-          
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
         </div>
-      </aside>
-      
-      <article class="doc-body ">
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+    <li class="active"><a href="#">Servicios Web (API)</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="has_code_col">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('_static/banners/web_service_api.jpg');"></span>
+      <div class="container text-center">
+        <h1> Servicios Web (API) </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container-fluid has_code_col">
+      <main class="container-fluid has_code_col">
         
-        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#connection" class="ripple internal reference">Connection</a><ul ><li class="list-group-item"><a href="#configuration" class="ripple internal reference">Configuration</a><ul ><li class="list-group-item"><a href="#demo" class="ripple internal reference">demo</a></li></ul></li><li class="list-group-item"><a href="#logging-in" class="ripple internal reference">Logging in</a></li></ul></li><li class="list-group-item"><a href="#calling-methods" class="ripple internal reference">Calling methods</a><ul ><li class="list-group-item"><a href="#list-records" class="ripple internal reference">List records</a><ul ><li class="list-group-item"><a href="#pagination" class="ripple internal reference">Pagination</a></li></ul></li><li class="list-group-item"><a href="#count-records" class="ripple internal reference">Count records</a></li><li class="list-group-item"><a href="#read-records" class="ripple internal reference">Read records</a></li><li class="list-group-item"><a href="#listing-record-fields" class="ripple internal reference">Listing record fields</a></li><li class="list-group-item"><a href="#search-and-read" class="ripple internal reference">Search and read</a></li><li class="list-group-item"><a href="#create-records" class="ripple internal reference">Create records</a></li><li class="list-group-item"><a href="#update-records" class="ripple internal reference">Update records</a></li><li class="list-group-item"><a href="#delete-records" class="ripple internal reference">Delete records</a></li><li class="list-group-item"><a href="#inspection-and-introspection" class="ripple internal reference">Inspection and introspection</a><ul ><li class="list-group-item"><a href="#ir-model" class="ripple internal reference"><code >ir.model</code></a></li><li class="list-group-item"><a href="#ir-model-fields" class="ripple internal reference"><code >ir.model.fields</code></a></li></ul></li><li class="list-group-item"><a href="#report-printing" class="ripple internal reference">Report printing</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/api_integration.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
   <section id="web-service-api"><p >Odoo is usually extended internally via modules, but many of its features and
 all of its data are also available from the outside for external analysis or
 integration with various tools. Part of the <a href="reference/orm.html#reference-orm-model" class="internal reference"><em >Model Reference</em></a> API is
@@ -299,7 +452,7 @@ rather than true/error):</p><div class="content-switcher setup"><ul ><li >Python
 </div></div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="kc">true</span>
 </pre></div>
 </div>
-</div></section><section id="list-records"><h3 >List records</h3><p >Records can be listed and filtered via <a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a>.</p><p ><a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a> takes a mandatory
+</div></section><section id="list-records"><h3 >List records</h3><p >Records can be listed and filtered via <a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>.</p><p ><a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> takes a mandatory
 <a href="reference/orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a> filter (possibly empty), and returns the
 database identifiers of all records matching the filter. To list customer
 companies for instance:</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
@@ -365,10 +518,10 @@ available to only retrieve a subset of all matched records.</p><div class="doc-a
 </pre></div>
 </div>
 </div></section><section id="count-records"><h3 >Count records</h3><p >Rather than retrieve a possibly gigantic list of records and count them,
-<a href="reference/orm.html#openerp.models.Model.search_count" class="internal reference" title="openerp.models.Model.search_count"><code class="py py-meth xref">search_count()</code></a> can be used to retrieve
+<a href="reference/orm.html#odoo.models.Model.search_count" class="internal reference" title="odoo.models.Model.search_count"><code class="py py-meth xref">search_count()</code></a> can be used to retrieve
 only the number of records matching the query. It takes the same
 <a href="reference/orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a> filter as
-<a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a> and no other parameter.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
+<a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> and no other parameter.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_count&#39;</span><span class="p">,</span>
     <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]])</span>
 </pre></div>
@@ -398,9 +551,9 @@ only the number of records matching the query. It takes the same
 </div>
 </div><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >calling <code >search</code> then <code >search_count</code> (or the other way around) may not
 yield coherent results if other users are using the server: stored data
-could have changed between the calls</p></div></section><section id="read-records"><h3 >Read records</h3><p >Record data is accessible via the <a href="reference/orm.html#openerp.models.Model.read" class="internal reference" title="openerp.models.Model.read"><code class="py py-meth xref">read()</code></a> method,
+could have changed between the calls</p></div></section><section id="read-records"><h3 >Read records</h3><p >Record data is accessible via the <a href="reference/orm.html#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a> method,
 which takes a list of ids (as returned by
-<a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a>) and optionally a list of fields to
+<a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>) and optionally a list of fields to
 fetch. By default, it will fetch all the fields the current user can read,
 which tends to be a huge amount.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
@@ -484,7 +637,7 @@ which tends to be a huge amount.</p><div class="doc-aside"><div class="content-s
 </div></div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span><span class="p">],</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agrolait&quot;</span><span class="p">}]</span>
 </pre></div>
 </div>
-</div><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >even if the <code >id</code> field is not requested, it is always returned</p></div></section><section id="listing-record-fields"><h3 >Listing record fields</h3><p ><a href="reference/orm.html#openerp.models.Model.fields_get" class="internal reference" title="openerp.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> can be used to inspect
+</div><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >even if the <code >id</code> field is not requested, it is always returned</p></div></section><section id="listing-record-fields"><h3 >Listing record fields</h3><p ><a href="reference/orm.html#odoo.models.Model.fields_get" class="internal reference" title="odoo.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> can be used to inspect
 a model's fields and check which ones seem to be of interest.</p><p >Because it returns a large amount of meta-information (it is also used by client
 programs) it should be filtered before printing, the most interesting items
 for a human user are <code >string</code> (the field's label), <code >help</code> (a help text if
@@ -553,11 +706,11 @@ updating a record):</p><div class="doc-aside"><div class="content-switcher"><ul 
 </pre></div>
 </div>
 </div></section><section id="search-and-read"><h3 >Search and read</h3><p >Because it is a very common task, Odoo provides a
-<code class="py py-meth xref">search_read()</code> shortcut which as its name notes is
-equivalent to a <a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a> followed by a
-<a href="reference/orm.html#openerp.models.Model.read" class="internal reference" title="openerp.models.Model.read"><code class="py py-meth xref">read()</code></a>, but avoids having to perform two requests
-and keep ids around.</p><p >Its arguments are similar to <a href="reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a>'s, but it
-can also take a list of <code >fields</code> (like <a href="reference/orm.html#openerp.models.Model.read" class="internal reference" title="openerp.models.Model.read"><code class="py py-meth xref">read()</code></a>,
+<code class="py py-meth xref">search_read()</code> shortcut which as its name suggests is
+equivalent to a <a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> followed by a
+<a href="reference/orm.html#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a>, but avoids having to perform two requests
+and keep ids around.</p><p >Its arguments are similar to <a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>'s, but it
+can also take a list of <code >fields</code> (like <a href="reference/orm.html#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a>,
 if that list is not provided it will fetch all fields of matched records):</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
     <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]],</span>
@@ -624,8 +777,8 @@ if that list is not provided it will fetch all fields of matched records):</p><d
 <span class="p">]</span>
 </pre></div>
 </div>
-</div></section><section id="create-records"><h3 >Create records</h3><p >Records of a model are created using <a href="reference/orm.html#openerp.models.Model.create" class="internal reference" title="openerp.models.Model.create"><code class="py py-meth xref">create()</code></a>. The
-method will create a single record and return its database identifier.</p><p ><a href="reference/orm.html#openerp.models.Model.create" class="internal reference" title="openerp.models.Model.create"><code class="py py-meth xref">create()</code></a> takes a mapping of fields to values, used
+</div></section><section id="create-records"><h3 >Create records</h3><p >Records of a model are created using <a href="reference/orm.html#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>. The
+method will create a single record and return its database identifier.</p><p ><a href="reference/orm.html#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a> takes a mapping of fields to values, used
 to initialize the record. For any field which has a default value and is not
 set through the mapping argument, the default value will be used.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;New Partner&quot;</span><span class="p">,</span>
@@ -653,13 +806,13 @@ set through the mapping argument, the default value will be used.</p><div class=
 </pre></div>
 </div>
 </div><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >while most value types are what would be expected (integer for
-<a href="reference/orm.html#openerp.fields.Integer" class="internal alert-link reference" title="openerp.fields.Integer"><code class="py xref py-class">Integer</code></a>, string for <a href="reference/orm.html#openerp.fields.Char" class="internal alert-link reference" title="openerp.fields.Char"><code class="py xref py-class">Char</code></a>
-or <a href="reference/orm.html#openerp.fields.Text" class="internal alert-link reference" title="openerp.fields.Text"><code class="py xref py-class">Text</code></a>),</p><ul ><li ><a href="reference/orm.html#openerp.fields.Date" class="internal alert-link reference" title="openerp.fields.Date"><code class="py xref py-class">Date</code></a>, <a href="reference/orm.html#openerp.fields.Datetime" class="internal alert-link reference" title="openerp.fields.Datetime"><code class="py xref py-class">Datetime</code></a> and
-<code class="py xref py-class">Binary</code> fields use string values</li><li ><a href="reference/orm.html#openerp.fields.One2many" class="internal alert-link reference" title="openerp.fields.One2many"><code class="py xref py-class">One2many</code></a> and <a href="reference/orm.html#openerp.fields.Many2many" class="internal alert-link reference" title="openerp.fields.Many2many"><code class="py xref py-class">Many2many</code></a>
-use a special command protocol detailed in <a href="reference/orm.html#openerp.models.Model.write" class="internal alert-link reference" title="openerp.models.Model.write"><code class="py py-meth xref">the documentation to
-the write method</code></a>.</li></ul></div></section><section id="update-records"><h3 >Update records</h3><p >Records can be updated using <a href="reference/orm.html#openerp.models.Model.write" class="internal reference" title="openerp.models.Model.write"><code class="py py-meth xref">write()</code></a>, it takes
+<a href="reference/orm.html#odoo.fields.Integer" class="internal alert-link reference" title="odoo.fields.Integer"><code class="py xref py-class">Integer</code></a>, string for <a href="reference/orm.html#odoo.fields.Char" class="internal alert-link reference" title="odoo.fields.Char"><code class="py xref py-class">Char</code></a>
+or <a href="reference/orm.html#odoo.fields.Text" class="internal alert-link reference" title="odoo.fields.Text"><code class="py xref py-class">Text</code></a>),</p><ul ><li ><a href="reference/orm.html#odoo.fields.Date" class="internal alert-link reference" title="odoo.fields.Date"><code class="py xref py-class">Date</code></a>, <a href="reference/orm.html#odoo.fields.Datetime" class="internal alert-link reference" title="odoo.fields.Datetime"><code class="py xref py-class">Datetime</code></a> and
+<code class="py xref py-class">Binary</code> fields use string values</li><li ><a href="reference/orm.html#odoo.fields.One2many" class="internal alert-link reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> and <a href="reference/orm.html#odoo.fields.Many2many" class="internal alert-link reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a>
+use a special command protocol detailed in <a href="reference/orm.html#odoo.models.Model.write" class="internal alert-link reference" title="odoo.models.Model.write"><code class="py py-meth xref">the documentation to
+the write method</code></a>.</li></ul></div></section><section id="update-records"><h3 >Update records</h3><p >Records can be updated using <a href="reference/orm.html#odoo.models.Model.write" class="internal reference" title="odoo.models.Model.write"><code class="py py-meth xref">write()</code></a>, it takes
 a list of records to update and a mapping of updated fields to values similar
-to <a href="reference/orm.html#openerp.models.Model.create" class="internal reference" title="openerp.models.Model.create"><code class="py py-meth xref">create()</code></a>.</p><p >Multiple records can be updated simultanously, but they will all get the same
+to <a href="reference/orm.html#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>.</p><p >Multiple records can be updated simultanously, but they will all get the same
 values for the fields being set. It is not currently possible to perform
 &quot;computed&quot; updates (where the value being set depends on an existing value of
 a record).</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">],</span> <span class="p">{</span>
@@ -703,7 +856,7 @@ a record).</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Pyt
 </pre></div>
 </div>
 </div></section><section id="delete-records"><h3 >Delete records</h3><p >Records can be deleted in bulk by providing their ids to
-<a href="reference/orm.html#openerp.models.Model.unlink" class="internal reference" title="openerp.models.Model.unlink"><code class="py py-meth xref">unlink()</code></a>.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;unlink&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">]])</span>
+<a href="reference/orm.html#odoo.models.Model.unlink" class="internal reference" title="odoo.models.Model.unlink"><code class="py py-meth xref">unlink()</code></a>.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;unlink&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nb">id</span><span class="p">]])</span>
 <span class="c1"># check if the deleted record is still in the database</span>
 <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="p">[[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">]]])</span>
@@ -739,14 +892,14 @@ a record).</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Pyt
 </div></div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[]</span>
 </pre></div>
 </div>
-</div></section><section id="inspection-and-introspection"><h3 >Inspection and introspection</h3><p >While we previously used <a href="reference/orm.html#openerp.models.Model.fields_get" class="internal reference" title="openerp.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> to query a
+</div></section><section id="inspection-and-introspection"><h3 >Inspection and introspection</h3><p >While we previously used <a href="reference/orm.html#odoo.models.Model.fields_get" class="internal reference" title="odoo.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a> to query a
 model and have been using an arbitrary model from the start, Odoo stores
 most model metadata inside a few meta-models which allow both querying the
 system and altering models and fields (with some limitations) on the fly over
 XML-RPC.</p></section><section id="ir-model"><i id="reference-webservice-inspection-models"></i><h4 ><code >ir.model</code></h4><p >Provides information about Odoo models via its various fields</p><dl ><dt ><code >name</code></dt><dd >a human-readable description of the model</dd><dt ><code >model</code></dt><dd >the name of each model in the system</dd><dt ><code >state</code></dt><dd >whether the model was generated in Python code (<code >base</code>) or by creating
-an <code >ir.model</code> record (<code >manual</code>)</dd><dt ><code >field_id</code></dt><dd >list of the model's fields through a <a href="reference/orm.html#openerp.fields.One2many" class="internal reference" title="openerp.fields.One2many"><code class="py xref py-class">One2many</code></a> to
-<a href="#reference-webservice-inspection-fields" class="internal reference"><em >ir.model.fields</em></a></dd><dt ><code >view_ids</code></dt><dd ><a href="reference/orm.html#openerp.fields.One2many" class="internal reference" title="openerp.fields.One2many"><code class="py xref py-class">One2many</code></a> to the <a href="reference/views.html#reference-views" class="internal reference"><em >Views</em></a> defined
-for the model</dd><dt ><code >access_ids</code></dt><dd ><a href="reference/orm.html#openerp.fields.One2many" class="internal reference" title="openerp.fields.One2many"><code class="py xref py-class">One2many</code></a> relation to the
+an <code >ir.model</code> record (<code >manual</code>)</dd><dt ><code >field_id</code></dt><dd >list of the model's fields through a <a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to
+<a href="#reference-webservice-inspection-fields" class="internal reference"><em >ir.model.fields</em></a></dd><dt ><code >view_ids</code></dt><dd ><a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to the <a href="reference/views.html#reference-views" class="internal reference"><em >Views</em></a> defined
+for the model</dd><dt ><code >access_ids</code></dt><dd ><a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> relation to the
 <a href="reference/security.html#reference-security-acl" class="internal reference"><em >Access Control</em></a> set on the model</dd></dl><p ><code >ir.model</code> can be used to</p><ul ><li >query the system for installed models (as a precondition to operations
 on the model or to explore the system's content)</li><li >get information about a specific model (generally by listing the fields
 associated with it)</li><li >create new models dynamically over RPC</li></ul><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li >&quot;custom&quot; model names must start with <code >x_</code></li><li >the <code >state</code> must be provided and <code >manual</code>, otherwise the model will
@@ -846,10 +999,10 @@ on all models:</p><div class="content-switcher"><ul ><li >Python</li><li >PHP</l
 </pre></div>
 </div>
 </div></section><section id="ir-model-fields"><i id="reference-webservice-inspection-fields"></i><h4 ><code >ir.model.fields</code></h4><p >Provides information about the fields of Odoo models and allows adding
-custom fields without using Python code</p><dl ><dt ><code >model_id</code></dt><dd ><a href="reference/orm.html#openerp.fields.Many2one" class="internal reference" title="openerp.fields.Many2one"><code class="py xref py-class">Many2one</code></a> to
+custom fields without using Python code</p><dl ><dt ><code >model_id</code></dt><dd ><a href="reference/orm.html#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> to
 <a href="#reference-webservice-inspection-models" class="internal reference"><em >ir.model</em></a> to which the field belongs</dd><dt ><code >name</code></dt><dd >the field's technical name (used in <code >read</code> or <code >write</code>)</dd><dt ><code >field_description</code></dt><dd >the field's user-readable label (e.g. <code >string</code> in <code >fields_get</code>)</dd><dt ><code >ttype</code></dt><dd >the <a href="reference/orm.html#reference-orm-fields" class="internal reference"><em >type</em></a> of field to create</dd><dt ><code >state</code></dt><dd >whether the field was created via Python code (<code >base</code>) or via
 <code >ir.model.fields</code> (<code >manual</code>)</dd><dt ><code >required</code>, <code >readonly</code>, <code >translate</code></dt><dd >enables the corresponding flag on the field</dd><dt ><code >groups</code></dt><dd ><a href="reference/security.html#reference-security-fields" class="internal reference"><em >field-level access control</em></a>, a
-<a href="reference/orm.html#openerp.fields.Many2many" class="internal reference" title="openerp.fields.Many2many"><code class="py xref py-class">Many2many</code></a> to <code >res.groups</code></dd><dt ><code >selection</code>, <code >size</code>, <code >on_delete</code>, <code >relation</code>, <code >relation_field</code>, <code >domain</code></dt><dd >type-specific properties and customizations, see <a href="reference/orm.html#reference-orm-fields" class="internal reference"><em >the fields
+<a href="reference/orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> to <code >res.groups</code></dd><dt ><code >selection</code>, <code >size</code>, <code >on_delete</code>, <code >relation</code>, <code >relation_field</code>, <code >domain</code></dt><dd >type-specific properties and customizations, see <a href="reference/orm.html#reference-orm-fields" class="internal reference"><em >the fields
 documentation</em></a> for details</dd></dl><p >Like custom models, only new fields created with <code >state=&quot;manual&quot;</code> are
 activated as actual fields on the model.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >computed fields can not be added via <code >ir.model.fields</code>, some
 field meta-information (defaults, onchange) can not be set either</p></div><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
@@ -983,112 +1136,7 @@ field meta-information (defaults, onchange) can not be set either</p></div><div 
 <span class="p">]</span>
 </pre></div>
 </div>
-</div></section><section id="workflow-manipulations"><h3 >Workflow manipulations</h3><p ><a href="reference/workflows.html#reference-workflows" class="internal reference"><em >Workflows</em></a> can be moved along by sending them <em >signals</em>.
-Instead of using the top-level <code >execute_kw</code>, signals are sent using
-<code >exec_workflow</code>.</p><p >Signals are sent to a specific record, and possibly trigger a transition on
-the workflow instance associated with the record.</p><div class="doc-aside"><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >this example needs <code >account</code> module installed</p></div><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
-    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
-    <span class="p">[[(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)]],</span>
-    <span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;property_payment_term_id&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;property_account_position_id&#39;</span><span class="p">]</span>
-    <span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">invoice_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
-    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
-        <span class="s1">&#39;partner_id&#39;</span><span class="p">:</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;account_id&#39;</span><span class="p">:</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-        <span class="s1">&#39;invoice_line_ids&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;AAA&quot;</span><span class="p">})]</span>
-    <span class="p">}])</span>
-
-<span class="n">models</span><span class="o">.</span><span class="n">exec_workflow</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span> <span class="n">invoice_id</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
-    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
-    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
-    <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">))),</span>
-    <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;limit&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;fields&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-            <span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;property_payment_term_id&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;property_account_position_id&#39;</span>
-        <span class="p">)))[</span><span class="mi">0</span><span class="p">];</span>
-<span class="nv">$invoice_id</span> <span class="o">=</span> <span class="nv">$models</span><span class="o">-&gt;</span><span class="na">execute_kw</span><span class="p">(</span>
-    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
-    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;partner_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;account_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client</span><span class="p">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-        <span class="s1">&#39;invoice_line_ids&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;AAA&quot;</span><span class="p">)))</span>
-    <span class="p">)));</span>
-
-<span class="nv">$models</span><span class="o">-&gt;</span><span class="na">exec_workflow</span><span class="p">(</span>
-    <span class="nv">$db</span><span class="p">,</span> <span class="nv">$uid</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span>
-    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span>
-     <span class="nv">$invoice_id</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
-    <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_read&#39;</span><span class="p">,</span>
-    <span class="o">[[[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kp">true</span><span class="o">]]]</span><span class="p">,</span>
-    <span class="p">{</span><span class="ss">limit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">fields</span><span class="p">:</span> <span class="sx">%w(property_account_receivable_id property_payment_term_id property_account_position_id)</span><span class="p">}</span>
-<span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="n">invoice_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
-    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="o">[</span><span class="p">{</span>
-        <span class="ss">partner_id</span><span class="p">:</span> <span class="n">client</span><span class="o">[</span><span class="s1">&#39;id&#39;</span><span class="o">]</span><span class="p">,</span>
-        <span class="ss">account_id</span><span class="p">:</span> <span class="n">client</span><span class="o">[</span><span class="s1">&#39;property_account_receivable_id&#39;</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
-        <span class="ss">invoice_line_ids</span><span class="p">:</span> <span class="o">[[</span><span class="mi">0</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;AAA&quot;</span><span class="p">}</span><span class="o">]]</span>
-    <span class="p">}</span><span class="o">]</span><span class="p">)</span>
-
-<span class="n">models</span><span class="o">.</span><span class="n">exec_workflow</span><span class="p">(</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
-    <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;invoice_open&#39;</span><span class="p">,</span> <span class="n">invoice_id</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;)</span>
-    <span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
-            <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
-            <span class="s">&quot;res.partner&quot;</span><span class="o">,</span> <span class="s">&quot;search_read&quot;</span><span class="o">,</span>
-            <span class="n">asList</span><span class="o">(</span>
-                <span class="n">asList</span><span class="o">(</span>
-                    <span class="n">asList</span><span class="o">(</span><span class="s">&quot;customer&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">))),</span>
-            <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
-                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;fields&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
-                        <span class="s">&quot;property_account_receivable_id&quot;</span><span class="o">,</span>
-                        <span class="s">&quot;property_payment_term_id&quot;</span><span class="o">,</span>
-                        <span class="s">&quot;property_account_position_id&quot;</span>
-                    <span class="o">));</span>
-                <span class="o">}}</span>
-    <span class="o">)))[</span><span class="mi">0</span><span class="o">];</span>
-<span class="kd">final</span> <span class="n">Integer</span> <span class="n">invoice_id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
-    <span class="s">&quot;execute_kw&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
-        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
-        <span class="s">&quot;account.invoice&quot;</span><span class="o">,</span> <span class="s">&quot;create&quot;</span><span class="o">,</span>
-        <span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
-            <span class="n">put</span><span class="o">(</span><span class="s">&quot;partner_id&quot;</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">));</span>
-            <span class="n">put</span><span class="o">(</span><span class="s">&quot;account_id&quot;</span><span class="o">,</span> <span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">c</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;property_account_receivable_id&quot;</span><span class="o">))[</span><span class="mi">0</span><span class="o">]);</span>
-            <span class="n">put</span><span class="o">(</span><span class="s">&quot;invoice_line_ids&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
-                <span class="n">asList</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{{</span>
-                    <span class="n">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;AAA&quot;</span><span class="o">);</span>
-                <span class="o">}})</span>
-            <span class="o">));</span>
-        <span class="o">}})</span>
-<span class="o">));</span>
-
-<span class="n">models</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
-    <span class="s">&quot;exec_workflow&quot;</span><span class="o">,</span> <span class="n">asList</span><span class="o">(</span>
-        <span class="n">db</span><span class="o">,</span> <span class="n">uid</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span>
-        <span class="s">&quot;account.invoice&quot;</span><span class="o">,</span> <span class="s">&quot;invoice_open&quot;</span><span class="o">,</span> <span class="n">invoice_id</span><span class="o">));</span>
-</pre></div>
-</div>
-</div></div></div></section><section id="report-printing"><h3 >Report printing</h3><p >Available reports can be listed by searching the <code >ir.actions.report.xml</code>
+</div></section><section id="report-printing"><h3 >Report printing</h3><p >Available reports can be listed by searching the <code >ir.actions.report</code>
 model, fields of interest being</p><dl ><dt ><code >model</code></dt><dd >the model on which the report applies, can be used to look for available
 reports on a specific model</dd><dt ><code >name</code></dt><dd >human-readable report name</dd><dt ><code >report_name</code></dt><dd >the technical name of the report, used to print it</dd></dl><p >Reports can be printed over RPC with the following information:</p><ul ><li >the name of the report (<code >report_name</code>)</li><li >the ids of the records to include in the report</li></ul><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">invoice_ids</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span>
     <span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;account.invoice&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
@@ -1146,11 +1194,13 @@ reports on a specific model</dd><dt ><code >name</code></dt><dd >human-readable 
 </div></div><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >the report is sent as PDF binary data encoded in <a href="http://en.wikipedia.org/wiki/Base64" class="external reference alert-link">base64</a>, it must be
 decoded and may need to be saved to disk before use</p></div></div></section>
 
-      </article>
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
     </div>
-    
-    <div id="mask"></div>
-  </main>
+  </div>
 
   <div class="floating_action_container">
     <a id="floating_action" class="ripple" href="#">
@@ -1167,5 +1217,77 @@ decoded and may need to be saved to disk before use</p></div></div></section>
       </ul>
     </div>
   </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

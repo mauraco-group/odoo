@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-    <title>Construyendo un Website &mdash; documentación de odoo - 9.0</title>
+    <title>Construyendo un Website &mdash; documentación de odoo - 10.0</title>
     
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '9.0',
+        VERSION:     '10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,72 +31,229 @@
     <script type="text/javascript" src="../_static/bootstrap.js"></script>
     <script type="text/javascript" src="../_static/doc.js"></script>
     <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
-    <link rel="top" title="documentación de odoo - 9.0" href="../index.html" />
+    <link rel="top" title="documentación de odoo - 10.0" href="../index.html" />
     <link rel="up" title="Tutoriales" href="../tutorials.html" />
     <link rel="next" title="Construyendo un módulo" href="backend.html" />
     <link rel="prev" title="Haciendo un Tema" href="themes.html" /> 
   </head>
-  <body><header class="">
-    <figure class="card top">
-      <span class="card-img" style="background-image: url('../_static/banners/build_a_website.jpg');"></span>
-    </figure>
-  </header>
-  <nav id="main_navbar" class="navbar ">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-main">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <nav class="nav navbar-nav navbar-left">
-          <li id="main-back"><a href="../index.html" class="mdi-navigation-arrow-back"></a></li>
-          <li>
-            <h1 id="main_title">Construyendo un Website</h1>
-          </li>
-        </nav>
+  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
       </div>
-
-      <nav class="collapse navbar-collapse navbar-main navbar-right" role="navigation">
-        
-        <ul class="current navbar-nav navbar-right nav"><li class="toctree-l1 current dropdown"><a data-toggle="dropdown" href="../tutorials.html" class="dropdown-toggle internal reference">Tutoriales</a><ul class="current dropdown-menu"><li class="toctree-l2"><a href="themes.html" class="internal reference">Haciendo un Tema</a></li><li class="current toctree-l2"><a href="" class="current internal reference">Construyendo un Website</a></li><li class="toctree-l2"><a href="backend.html" class="internal reference">Construyendo un módulo</a></li><li class="toctree-l2"><a href="web.html" class="internal reference">Extendiendo la Interfaz</a></li></ul></li><li class="toctree-l1"><a href="../api_integration.html" class="internal reference">Servicios Web (API)</a><ul ></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../setup.html" class="dropdown-toggle internal reference">Setting Up</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="../setup/install.html" class="internal reference">Installing Odoo</a></li><li class="toctree-l2"><a href="../setup/deploy.html" class="internal reference">Deploying Odoo</a></li><li class="toctree-l2"><a href="../setup/cdn.html" class="internal reference">Deploying with Content Delivery Networks</a></li><li class="toctree-l2"><a href="../setup/enterprise.html" class="internal reference">From Community to Enterprise</a></li></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../reference.html" class="dropdown-toggle internal reference">Referencia</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="../reference/orm.html" class="internal reference">ORM API</a></li><li class="toctree-l2"><a href="../reference/data.html" class="internal reference">Data Files</a></li><li class="toctree-l2"><a href="../reference/actions.html" class="internal reference">Acciones</a></li><li class="toctree-l2"><a href="../reference/views.html" class="internal reference">Views</a></li><li class="toctree-l2"><a href="../reference/module.html" class="internal reference">Modules</a></li><li class="toctree-l2"><a href="../reference/cmdline.html" class="internal reference">Command-line interface: odoo.py</a></li><li class="toctree-l2"><a href="../reference/security.html" class="internal reference">Security in Odoo</a></li><li class="toctree-l2"><a href="../reference/testing.html" class="internal reference">Testing Modules</a></li><li class="toctree-l2"><a href="../reference/http.html" class="internal reference">Web Controllers</a></li><li class="toctree-l2"><a href="../reference/qweb.html" class="internal reference">QWeb</a></li><li class="toctree-l2"><a href="../reference/javascript.html" class="internal reference">Javascript</a></li><li class="toctree-l2"><a href="../reference/translations.html" class="internal reference">Translating Modules</a></li><li class="toctree-l2"><a href="../reference/reports.html" class="internal reference">QWeb Reports</a></li><li class="toctree-l2"><a href="../reference/workflows.html" class="internal reference">Workflows</a></li><li class="toctree-l2"><a href="../reference/guidelines.html" class="internal reference">Odoo Guidelines</a></li><li class="toctree-l2"><a href="../reference/upgrade_api.html" class="internal reference">Upgrade API</a></li></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../business.html" class="dropdown-toggle internal reference">Mementos de Negocio.</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/accounting.html" class="external reference">Accounting Memento (US GAAP)</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/double-entry.html" class="external reference">Double-Entry Inventory</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/valuation.html" class="external reference">Inventory Valuations</a></li></ul></li></ul>
-      </nav>
-    </div>
-  </nav>
-    
-  
-  <main class="container ">
-    
-    <div class="row">
-      
-      <aside>
-        <div class="navbar-aside text-center">
-          <div class="logo_box">
-            <span class="logo"></span>
-            Documentation
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
           </div>
-          <ul class="list-group text-left nav"><li class="list-group-item"><a href="#creating-a-basic-module" class="ripple internal reference">Creación de un módulo básico</a></li><li class="list-group-item"><a href="#a-demonstration-module" class="ripple internal reference">Un módulo para demostración</a></li><li class="list-group-item"><a href="#to-the-browser" class="ripple internal reference">En el explorador</a></li><li class="list-group-item"><a href="#templates" class="ripple internal reference">Plantillas</a></li><li class="list-group-item"><a href="#storing-data-in-odoo" class="ripple internal reference">Almacenamiento de datos en Odoo</a><ul ><li class="list-group-item"><a href="#defining-the-data-model" class="ripple internal reference">Definir el modelo de datos</a></li><li class="list-group-item"><a href="#demonstration-data" class="ripple internal reference">Datos de demostración</a></li><li class="list-group-item"><a href="#accessing-the-data" class="ripple internal reference">Acceder a los datos</a></li></ul></li><li class="list-group-item"><a href="#website-support" class="ripple internal reference">Soporte de sitio web</a></li><li class="list-group-item"><a href="#urls-and-routing" class="ripple internal reference">URLs y enrutamiento</a></li><li class="list-group-item"><a href="#field-edition" class="ripple internal reference">Edición de campos</a></li><li class="list-group-item"><a href="#administration-and-erp-integration" class="ripple internal reference">administración e Integración con el ERP</a><ul ><li class="list-group-item"><a href="#a-brief-and-incomplete-introduction-to-the-odoo-administration" class="ripple internal reference">Una introducción breve e incompleta a la administración de Odoo</a></li><li class="list-group-item"><a href="#editing-in-the-odoo-administration" class="ripple internal reference">Editar en la interfaz de administración</a></li><li class="list-group-item"><a href="#relations-between-models" class="ripple internal reference">Relaciones entre modelos</a></li><li class="list-group-item"><a href="#discussions-and-notifications" class="ripple internal reference">Discusiones y notificaciones</a></li><li class="list-group-item"><a href="#selling-courses" class="ripple internal reference">Venta de cursos</a></li><li class="list-group-item"><a href="#altering-existing-views" class="ripple internal reference">Modificar vistas existentes</a></li></ul></li></ul>
-          
-          <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/9.0/doc/howtos/website.rst" class="gith-link">
-              Edit on GitHub
-          </a></p>
-          
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
         </div>
-      </aside>
-      
-      <article class="doc-body ">
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
         
+            <li><a href="../index.html">Developer Doc</a></li>
         
-  <section id="building-a-website"><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li ><p >Esta guía asume <a href="http://docs.python.org/2/tutorial/" class="external reference alert-link">conocimientos básicos de Python</a></p></li><li ><p >Esta guía asume <a href="../setup/install.html#setup-install" class="internal alert-link reference"><em >que tienes Odoo instalado</em></a></p></li></ul></div></section><section id="creating-a-basic-module"><h2 >Creación de un módulo básico</h2><p >En Odoo, las tareas se realizan mediante la creación de módulos.</p><p >Los módulos personalizan el comportamiento de una instalación de Odoo, añadiendo nuevos comportamientos o modificando los existentes (incluyendo nuevas características o modificando las de otros módulos).</p><p ><a href="../reference/cmdline.html#reference-cmdline-scaffold" class="internal reference"><em >Odoo's scaffolding</em></a> puede configurar un módulo básico. Para rápidamente comenzar con simplemente invocar:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo.py scaffold Academy my-modules
+    
+    <li class="active"><a href="#">Construyendo un Website</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/build_a_website.jpg');"></span>
+      <div class="container text-center">
+        <h1> Construyendo un Website </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#creating-a-basic-module" class="ripple internal reference">Creación de un módulo básico</a></li><li class="list-group-item"><a href="#a-demonstration-module" class="ripple internal reference">Un módulo para demostración</a></li><li class="list-group-item"><a href="#to-the-browser" class="ripple internal reference">En el explorador</a></li><li class="list-group-item"><a href="#templates" class="ripple internal reference">Plantillas</a></li><li class="list-group-item"><a href="#storing-data-in-odoo" class="ripple internal reference">Almacenamiento de datos en Odoo</a><ul ><li class="list-group-item"><a href="#defining-the-data-model" class="ripple internal reference">Definir el modelo de datos</a></li><li class="list-group-item"><a href="#demonstration-data" class="ripple internal reference">Datos de demostración</a></li><li class="list-group-item"><a href="#accessing-the-data" class="ripple internal reference">Acceder a los datos</a></li></ul></li><li class="list-group-item"><a href="#website-support" class="ripple internal reference">Soporte de sitio web</a></li><li class="list-group-item"><a href="#urls-and-routing" class="ripple internal reference">URLs y enrutamiento</a></li><li class="list-group-item"><a href="#field-edition" class="ripple internal reference">Edición de campos</a></li><li class="list-group-item"><a href="#administration-and-erp-integration" class="ripple internal reference">administración e Integración con el ERP</a><ul ><li class="list-group-item"><a href="#a-brief-and-incomplete-introduction-to-the-odoo-administration" class="ripple internal reference">Una introducción breve e incompleta a la administración de Odoo</a></li><li class="list-group-item"><a href="#editing-in-the-odoo-administration" class="ripple internal reference">Editar en la interfaz de administración</a></li><li class="list-group-item"><a href="#relations-between-models" class="ripple internal reference">Relaciones entre modelos</a></li><li class="list-group-item"><a href="#discussions-and-notifications" class="ripple internal reference">Discusiones y notificaciones</a></li><li class="list-group-item"><a href="#selling-courses" class="ripple internal reference">Venta de cursos</a></li><li class="list-group-item"><a href="#altering-existing-views" class="ripple internal reference">Modificar vistas existentes</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/howtos/website.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="building-a-website"><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li ><p >Esta guía asume <a href="http://docs.python.org/2/tutorial/" class="external reference alert-link">conocimientos básicos de Python</a></p></li><li ><p >Esta guía asume <a href="../setup/install.html#setup-install" class="internal alert-link reference"><em >que tienes Odoo instalado</em></a></p></li></ul></div></section><section id="creating-a-basic-module"><h2 >Creación de un módulo básico</h2><p >En Odoo, las tareas se realizan mediante la creación de módulos.</p><p >Los módulos personalizan el comportamiento de una instalación de Odoo, añadiendo nuevos comportamientos o modificando los existentes (incluyendo nuevas características o modificando las de otros módulos).</p><p ><a href="../reference/cmdline.html#reference-cmdline-scaffold" class="internal reference"><em >Odoo's scaffolding</em></a> puede configurar un módulo básico. Para rápidamente comenzar con simplemente invocar:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin scaffold Academy my-modules
 </pre></div>
 </div>
-<p >Esto creará automáticamente un <em >directorio de módulo</em> ( <code >my-modules</code>) con un módulo de la <code >academy</code> dentro. El directorio puede ser un directorio de módulos existente si quieres, pero el nombre del módulo debe ser único dentro del directorio.</p></section><section id="a-demonstration-module"><h2 >Un módulo para demostración</h2><p >Contamos con un módulo “completo” listo para su instalación.</p><p >Aunque no hace absolutamente nada lo podemos instalar:</p><ul ><li ><p >Inicia el servidor de Odoo</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo.py --addons-path addons,my-modules
+<p >Esto creará automáticamente un <em >directorio de módulo</em> ( <code >my-modules</code>) con un módulo de la <code >academy</code> dentro. El directorio puede ser un directorio de módulos existente si quieres, pero el nombre del módulo debe ser único dentro del directorio.</p></section><section id="a-demonstration-module"><h2 >Un módulo para demostración</h2><p >Contamos con un módulo “completo” listo para su instalación.</p><p >Aunque no hace absolutamente nada lo podemos instalar:</p><ul ><li ><p >Inicia el servidor de Odoo</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin --addons-path addons,my-modules
 </pre></div>
 </div>
 </li><li ><p >Abre un navegador con la dirección <a href="http://localhost:8069" class="external reference">http://localhost:8069</a></p></li><li ><p >Crear una nueva base de datos incluyendo datos de demostración</p></li><li ><p >Luego ir <em class="menuselection">Settings ‣ Modules ‣ Modules</em></p></li><li ><p >En la esquina superior derecha, quite el filtro <em >Installed</em> y busca <em >academy</em></p></li><li ><p >Haga clic en <em class="guilabel">Install</em> para el módulo <em >Academy</em></p></li></ul></section><section id="to-the-browser"><h2 >En el explorador</h2><p >Los <a href="../reference/http.html#reference-http-controllers" class="internal reference"><em >Controllers</em></a> interpretan las peticiones del navegador y envía datos de regreso.</p><p >Agregar un controlador simple y asegura que es importado en el  <code >__init__.py</code> (de tal modo que Odoo pueda encontrarlo):</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">http</span>
+<span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">http</span>
 
 <span class="hll"><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
 </span><span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
@@ -107,10 +264,11 @@
 <span class="c1">#     def list(self, **kw):</span>
 </pre></div>
 </div>
-</div></div><p >Mata el servidor (<code class="kbd">^C</code>) y luego reinicialo:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo.py --addons-path addons,my-modules
+</div></div><p >Mata el servidor (<code class="kbd">^C</code>) y luego reinicialo:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin --addons-path addons,my-modules
 </pre></div>
 </div>
-<p >Abre una página en tu navegador en <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a>, debería aparecer tu “página”:</p><div ><img src="../_images/helloworld.png" class="img-responsive"></div></section><section id="templates"><h2 >Plantillas</h2><p >Generar HTML en Python no es muy agradable.</p><p >La solución habitual es usar algo llamado “Plantillas” (<a href="http://en.wikipedia.org/wiki/Web_template" class="external reference">templates</a> en inglés), son pseudo-documentos con marcadores de posición y con la lógica de la vista. Odoo permite usar cualquier sistema de plantillas de Python, pero ofrece su propio sistema de plantillas llamado <a href="../reference/qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> que está integrado con otras funciones.</p><p >Crear una plantilla y el archivo de plantilla, registralo en el manifiesto <code >__openerp__.py</code> y modifica el controlador para usar dicha plantilla:</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<p >Abre una página en tu navegador en <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a>, debería aparecer tu “página”:</p><div ><img src="../_images/helloworld.png" class="img-responsive"></div></section><section id="templates"><h2 >Plantillas</h2><p >Generar HTML en Python no es muy agradable.</p><p >La solución habitual es usar algo llamado “Plantillas” (<a href="http://en.wikipedia.org/wiki/Web_template" class="external reference">templates</a> en inglés), son pseudo-documentos con marcadores de posición y con la lógica de la vista. Odoo permite usar cualquier sistema de plantillas de Python, pero ofrece su propio sistema de plantillas llamado <a href="../reference/qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> que está integrado con otras funciones.</p><p >Create a template and ensure the template file is registered in the
+<code >__manifest__.py</code> manifest, and alter the controller to use our template:</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
     <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
 <span class="hll">        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -121,8 +279,8 @@
 <span class="c1">#     def list(self, **kw):</span>
 </pre></div>
 </div>
-</div><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;openerp&gt;</span>
-    <span class="nt">&lt;data&gt;</span>
+</div><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;odoo&gt;</span>
+
 <span class="hll">        <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;index&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;title&gt;</span>Academy<span class="nt">&lt;/title&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;teachers&quot;</span> <span class="na">t-as=</span><span class="s">&quot;teacher&quot;</span><span class="nt">&gt;</span>
@@ -134,10 +292,11 @@
         <span class="c">&lt;!--   &lt;dl&gt; --&gt;</span>
 </pre></div>
 </div>
-</div></div><p >La plantilla itera (<code >t-foreach</code>) en todos los profesores (pasados a través del <strong >Contexto del template</strong>   (<em >template context</em> en inglés)), e imprime cada docente en su propio párrafo.</p><p >Para terminar reinicia Odoo y actualiza los datos del módulo (para instalar la plantilla) esto lo haces yendo a <em class="menuselection">Settings ‣ Modules ‣ Modules ‣ Academy</em>  y haciendo clic en <em class="guilabel">Upgrade</em>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p >Alternativamente, se puede reiniciar Odoo  <a href="../reference/cmdline.html#cmdoption-odoo.py-u" class="internal alert-link reference"><code class="std xref std-option">y actualizar el módulo al mismo tiempo</code></a>:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo.py --addons-path addons,my-modules -d academy -u academy
+</div></div><p >La plantilla itera (<code >t-foreach</code>) en todos los profesores (pasados a través del <strong >Contexto del template</strong>   (<em >template context</em> en inglés)), e imprime cada docente en su propio párrafo.</p><p >Para terminar reinicia Odoo y actualiza los datos del módulo (para instalar la plantilla) esto lo haces yendo a <em class="menuselection">Settings ‣ Modules ‣ Modules ‣ Academy</em>  y haciendo clic en <em class="guilabel">Upgrade</em>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p >Alternatively, Odoo can be restarted <a href="../reference/cmdline.html#cmdoption-odoo-bin-u" class="internal alert-link reference"><code class="std xref std-option">and update modules at
+the same time</code></a>:</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo-bin --addons-path addons,my-modules -d academy -u academy
 </pre></div>
 </div>
-</div><p >Ve a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> y ahora debe aparecer:</p><img src="../_images/basic-list.png" class="img-responsive"></section><section id="storing-data-in-odoo"><h2 >Almacenamiento de datos en Odoo</h2><p ><a href="../reference/orm.html#reference-orm-model" class="internal reference"><em >Los modelos de Odoo</em></a> mapean elementos tablas en la base de datos.</p><p >En la sección anterior sólo nos muestra una lista de cadenas estáticamente escritas en código Python. Esto no permite modificaciones o almacenamiento persistente así que ahora grabaremos nuestros datos a la base de datos.</p></section><section id="defining-the-data-model"><h3 >Definir el modelo de datos</h3><p >Definir un modelo que represente a un profesor y asegurate que se importa en el  <code >__init__.py</code> así es cargado correctamente por odoo:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
+</div><p >Ve a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> y ahora debe aparecer:</p><img src="../_images/basic-list.png" class="img-responsive"></section><section id="storing-data-in-odoo"><h2 >Almacenamiento de datos en Odoo</h2><p ><a href="../reference/orm.html#reference-orm-model" class="internal reference"><em >Los modelos de Odoo</em></a> mapean elementos tablas en la base de datos.</p><p >En la sección anterior sólo nos muestra una lista de cadenas estáticamente escritas en código Python. Esto no permite modificaciones o almacenamiento persistente así que ahora grabaremos nuestros datos a la base de datos.</p></section><section id="defining-the-data-model"><h3 >Definir el modelo de datos</h3><p >Definir un modelo que represente a un profesor y asegurate que se importa en el  <code >__init__.py</code> así es cargado correctamente por odoo:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
 
 <span class="hll"><span class="k">class</span> <span class="nc">Teachers</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 </span><span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.teachers&#39;</span>
@@ -145,7 +304,7 @@
 <span class="hll">    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
 </span></pre></div>
 </div>
-</div></div><p >Luego crea <a href="../reference/security.html#reference-security-acl" class="internal reference"><em >los controles de acceso básicos</em></a> para el modelo y declara los archivos en el manifiesto:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="c1"># always loaded</span>
+</div></div><p >Luego crea <a href="../reference/security.html#reference-security-acl" class="internal reference"><em >los controles de acceso básicos</em></a> para el modelo y declara los archivos en el manifiesto:</p><div class="pq-patch"><em >academy/__manifest__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="c1"># always loaded</span>
     <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
 <span class="hll">        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
 </span>        <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
@@ -157,8 +316,8 @@
 <span class="hll">access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
 </span></pre></div>
 </div>
-</div></div><p >Simplemente da acceso de lectura (<code >perm_read</code>) a todos los usuarios (eso significa deja <code >group_id:id</code> vacío)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Los archivos de datos</em></a> (XML o CSV) debe ser agregados al manifiesto del módulo, pero no es así con los archivos de Python (modelos o controladores), sino que tienen que ser importados en el archivo <code >__init__.py</code> (directa o relativamente aunque es recomendable cómo buena práctica hacer la importación relativa)</p></div><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >El usuario administrador ignora el control de acceso y tiene acceso a todos los modelos aunque no tenga permisos definidos de forma explícita</p></div></section><section id="demonstration-data"><h3 >Datos de demostración</h3><p >El segundo paso es añadir algunos datos de demostración del sistema para que sea posible probar fácilmente. Esto se hace agregando un <a href="../reference/data.html#reference-data" class="internal reference"><em >Archivo de datos</em></a>  <code >demo</code>, que debe estar declarado en el manifiesto:</p><div class="pq-patch"><em >academy/demo.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;openerp&gt;</span>
-    <span class="nt">&lt;data&gt;</span>
+</div></div><p >Simplemente da acceso de lectura (<code >perm_read</code>) a todos los usuarios (eso significa deja <code >group_id:id</code> vacío)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Los archivos de datos</em></a> (XML o CSV) debe ser agregados al manifiesto del módulo, pero no es así con los archivos de Python (modelos o controladores), sino que tienen que ser importados en el archivo <code >__init__.py</code> (directa o relativamente aunque es recomendable cómo buena práctica hacer la importación relativa)</p></div><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >El usuario administrador ignora el control de acceso y tiene acceso a todos los modelos aunque no tenga permisos definidos de forma explícita</p></div></section><section id="demonstration-data"><h3 >Datos de demostración</h3><p >El segundo paso es añadir algunos datos de demostración del sistema para que sea posible probar fácilmente. Esto se hace agregando un <a href="../reference/data.html#reference-data" class="internal reference"><em >Archivo de datos</em></a>  <code >demo</code>, que debe estar declarado en el manifiesto:</p><div class="pq-patch"><em >academy/demo.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;odoo&gt;</span>
+
 <span class="hll">        <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;padilla&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Diana Padilla<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">        <span class="nt">&lt;/record&gt;</span>
@@ -168,11 +327,13 @@
 </span><span class="hll">        <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;vaughn&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Lester Vaughn<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">        <span class="nt">&lt;/record&gt;</span>
-</span>    <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+</span>
+<span class="nt">&lt;/odoo&gt;</span>
 </pre></div>
 </div>
-</div></div><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Los archivos de datos</em></a> pueden ser utilizados para datos de demostración y datos no-demostración. los datos demo sólo se cargan en &quot;demonstration mode&quot; y pueden utilizarse para demostración y pruebas de flujo, los datos no-demo son siempre cargados y utilizados como configuración inicial del sistema.</p><p >En este caso estamos utilizando datos de demostración ya que un usuario real del sistema le gustaría con solo instalar tener una lista de profesores o importar su propia lista, esta lista sólo es útil para probar.</p></div></section><section id="accessing-the-data"><h3 >Acceder a los datos</h3><p >El último paso es modificar el modelo y la plantilla a utilizar nuestros datos de demostración:</p><ol ><li ><p >Buscar los registros de la base de datos en lugar de tener una lista estática</p></li><li ><p >Ya que <a href="../reference/orm.html#openerp.models.Model.search" class="internal reference" title="openerp.models.Model.search"><code class="py py-meth xref">search()</code></a> devuelve un conjunto de registros que coinciden con el filtro (“todos los registros” aquí), vamos a modificar la plantilla para imprimir el <code >name</code> de cada maestro</p></li></ol><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+</div></div><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><p ><a href="../reference/data.html#reference-data" class="internal alert-link reference"><em >Los archivos de datos</em></a> pueden ser utilizados para datos de demostración y datos no-demostración. los datos demo sólo se cargan en &quot;demonstration mode&quot; y pueden utilizarse para demostración y pruebas de flujo, los datos no-demo son siempre cargados y utilizados como configuración inicial del sistema.</p><p >En este caso estamos utilizando datos de demostración ya que un usuario real del sistema le gustaría con solo instalar tener una lista de profesores o importar su propia lista, esta lista sólo es útil para probar.</p></div></section><section id="accessing-the-data"><h3 >Acceder a los datos</h3><p >El último paso es modificar el modelo y la plantilla a utilizar nuestros datos de demostración:</p><ol ><li ><p >Buscar los registros de la base de datos en lugar de tener una lista estática</p></li><li >Because <a href="../reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> returns a set of records
+matching the filter (&quot;all records&quot; here), alter the template to print each
+teacher's <code >name</code></li></ol><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
     <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
 <span class="hll">        <span class="n">Teachers</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;academy.teachers&#39;</span><span class="p">]</span>
@@ -192,7 +353,7 @@
         <span class="c">&lt;!-- &lt;template id=&quot;object&quot;&gt; --&gt;</span>
 </pre></div>
 </div>
-</div></div><p >Reinicia el servidor y actualiza el módulo (con el fin de actualizar el manifiesto así cómo las plantillas y cargar también el archivo de demostración) ve a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a>. La página debe parecer levemente diferente: nombres simplemente deben ser prefijados por un número (el identificador de base de datos para el profesor).</p></section><section id="website-support"><h2 >Soporte de sitio web</h2><p >Odoo tiene un módulo dedicado a la construcción de sitios Web.</p><p >Hasta ahora hemos utilizado controladores directamente, pero Odoo 8 agrega una integración más profunda y algunos otros servicios (por ejemplo estilos por defecto, manejo de temas) a través del módulo <code >website</code>.</p><ol ><li ><p >En primer lugar, añadir <code >website</code> como una dependencia del módulo <code >Academy</code></p></li><li ><p >luego agregar la bandera <code >website=True</code> al controlador, esta establece nuevas variables en <a href="../reference/http.html#reference-http-request" class="internal reference"><em >el objeto *request*</em></a> y le permite utilizar una el esquema de disposición de los elementos del sitio (<em >layout</em> en inglés) en nuestra plantilla</p></li><li ><p >Utilizar el <em >layout</em> en nuestra plantilla.</p></li></ol><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+</div></div><p >Reinicia el servidor y actualiza el módulo (con el fin de actualizar el manifiesto así cómo las plantillas y cargar también el archivo de demostración) ve a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a>. La página debe parecer levemente diferente: nombres simplemente deben ser prefijados por un número (el identificador de base de datos para el profesor).</p></section><section id="website-support"><h2 >Soporte de sitio web</h2><p >Odoo tiene un módulo dedicado a la construcción de sitios Web.</p><p >Hasta ahora hemos utilizado controladores directamente, pero Odoo 8 agrega una integración más profunda y algunos otros servicios (por ejemplo estilos por defecto, manejo de temas) a través del módulo <code >website</code>.</p><ol ><li ><p >En primer lugar, añadir <code >website</code> como una dependencia del módulo <code >Academy</code></p></li><li ><p >luego agregar la bandera <code >website=True</code> al controlador, esta establece nuevas variables en <a href="../reference/http.html#reference-http-request" class="internal reference"><em >el objeto *request*</em></a> y le permite utilizar una el esquema de disposición de los elementos del sitio (<em >layout</em> en inglés) en nuestra plantilla</p></li><li ><p >Utilizar el <em >layout</em> en nuestra plantilla.</p></li></ol><div class="pq-patch"><em >academy/__manifest__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
 
     <span class="c1"># any module necessary for this one to work correctly</span>
 <span class="hll">    <span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;website&#39;</span><span class="p">],</span>
@@ -201,7 +362,7 @@
     <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
 </pre></div>
 </div>
-</div><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">http</span>
+</div><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">http</span>
 
 <span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
 <span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -210,8 +371,8 @@
         <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
 </pre></div>
 </div>
-</div><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;openerp&gt;</span>
-    <span class="nt">&lt;data&gt;</span>
+</div><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;odoo&gt;</span>
+
         <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;index&quot;</span><span class="nt">&gt;</span>
 <span class="hll">            <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">                <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Academy<span class="nt">&lt;/t&gt;</span>
@@ -227,7 +388,9 @@
         <span class="c">&lt;!-- &lt;template id=&quot;object&quot;&gt; --&gt;</span>
 </pre></div>
 </div>
-</div></div><p >Después de reiniciar el servidor al actualizar el módulo (para actualizar el manifiesto y la plantilla) entramos a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> debería mostrar una página más agradable con un esquema de imagen y otros elementos en la página incorporados (menú de primer nivel, pie de página,…)</p><img src="../_images/layout.png" class="img-responsive"><p >El <em >layout</em> del módulo <code >website</code> también proporciona soporte para herramientas de edición: haga clic en:  <em class="guilabel">Sign In</em>  (en la parte superior derecha), coloca las credenciales (<code >admin</code> / <code >admin</code> por defecto) haga clic en:  <em class="guilabel">Log In</em>.</p><p >Estás ahora en Odoo: la interfaz administrativa. Por ahora haga clic en el botón <em class="guilabel">Website</em> (esquina superior izquierda).</p><p >Estamos ahora en el website pero como administrador, con acceso a funciones de edición avanzadas dichas opciones son provistas por el módulo <em >website</em>:</p><ul ><li ><p >Un editor de código para la plantilla (<em class="menuselection">Customize ‣ HTML Editor</em>) donde puedes ver y editar todas las plantillas utilizadas actualmente</p></li><li ><p >El botón <em class="guilabel">Edit</em> en la parte superior izquierda cambia al &quot;modo edición&quot; donde hay bloques (fragmentos) y edición de texto</p></li><li ><p >Un número de otras características tales como vista previa móvil y <abbr title="Search Engine Optimization">SEO</abbr></p></li></ul></section><section id="urls-and-routing"><h2 >URLs y enrutamiento</h2><p >Los métodos de control <em >controllers</em> están asociados con <em >rutas</em> a través de la función decoradora <a href="../reference/http.html#openerp.http.route" class="internal reference" title="openerp.http.route"><code class="py xref py-func">route()</code></a> que toma una cadena de distribución (<em >routing</em>) y un número de atributos para personalizar su comportamiento o la seguridad.</p><p >Hemos visto una cadena enrutamiento “literal”, que corresponde exactamente a una sección de URL, pero las cadenas de enrutamiento también pueden usar <a href="http://werkzeug.pocoo.org/docs/routing/#rule-format" class="external reference">patrones convertidores</a> que coincide con los bits de direcciones URL y los pone disponibles como variables locales. Por ejemplo podemos crear un nuevo método de control <em >controller</em> que toma una parte del URL y lo imprime:</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>            <span class="s1">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([])</span>
+</div></div><p >Después de reiniciar el servidor al actualizar el módulo (para actualizar el manifiesto y la plantilla) entramos a <a href="http://localhost:8069/academy/academy/" class="external reference">http://localhost:8069/academy/academy/</a> debería mostrar una página más agradable con un esquema de imagen y otros elementos en la página incorporados (menú de primer nivel, pie de página,…)</p><img src="../_images/layout.png" class="img-responsive"><p >El <em >layout</em> del módulo <code >website</code> también proporciona soporte para herramientas de edición: haga clic en:  <em class="guilabel">Sign In</em>  (en la parte superior derecha), coloca las credenciales (<code >admin</code> / <code >admin</code> por defecto) haga clic en:  <em class="guilabel">Log In</em>.</p><p >Estás ahora en Odoo: la interfaz administrativa. Por ahora haga clic en el botón <em class="guilabel">Website</em> (esquina superior izquierda).</p><p >Estamos ahora en el website pero como administrador, con acceso a funciones de edición avanzadas dichas opciones son provistas por el módulo <em >website</em>:</p><ul ><li ><p >Un editor de código para la plantilla (<em class="menuselection">Customize ‣ HTML Editor</em>) donde puedes ver y editar todas las plantillas utilizadas actualmente</p></li><li ><p >El botón <em class="guilabel">Edit</em> en la parte superior izquierda cambia al &quot;modo edición&quot; donde hay bloques (fragmentos) y edición de texto</p></li><li ><p >Un número de otras características tales como vista previa móvil y <abbr title="Search Engine Optimization">SEO</abbr></p></li></ul></section><section id="urls-and-routing"><h2 >URLs y enrutamiento</h2><p >Controller methods are associated with <em >routes</em> via the
+<a href="../reference/http.html#odoo.http.route" class="internal reference" title="odoo.http.route"><code class="py xref py-func">route()</code></a> decorator which takes a routing string and a
+number of attributes to customise its behavior or security.</p><p >Hemos visto una cadena enrutamiento “literal”, que corresponde exactamente a una sección de URL, pero las cadenas de enrutamiento también pueden usar <a href="http://werkzeug.pocoo.org/docs/routing/#rule-format" class="external reference">patrones convertidores</a> que coincide con los bits de direcciones URL y los pone disponibles como variables locales. Por ejemplo podemos crear un nuevo método de control <em >controller</em> que toma una parte del URL y lo imprime:</p><div class="pq-patch"><em >academy/controllers.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>            <span class="s1">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([])</span>
         <span class="p">})</span>
 
 <span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/&lt;name&gt;/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -245,7 +408,7 @@
 
 <span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s1">&#39;/academy/&lt;int:id&gt;/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </span><span class="hll">    <span class="k">def</span> <span class="nf">teacher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-</span><span class="hll">        <span class="k">return</span> <span class="s1">&#39;&lt;h1&gt;{} ({})&lt;/h1&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+</span><span class="hll">        <span class="k">return</span> <span class="s1">&#39;&lt;h1&gt;{} ({})&lt;/h1&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </span>
 
 <span class="c1">#     @http.route(&#39;/academy/academy/objects/&#39;, auth=&#39;public&#39;)</span>
@@ -341,7 +504,7 @@
 </div></div><p >es mostrado de una manera muy “computista” y difícil de leer, pero podríamos hacer una versión legible:</p><div class="pq-patch"><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml+django"><div class="highlight"><pre><span></span>                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
                         <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
-<span class="hll">                        <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-field-options=</span><span class="s">&#39;{&quot;format&quot;: &quot;long&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="hll">                        <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-options=</span><span class="s">&#39;{&quot;format&quot;: &quot;long&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
 </span>                        <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
                     <span class="nt">&lt;/div&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
@@ -350,13 +513,13 @@
 </div></div><p >o un despliegue relativo:</p><div class="pq-patch"><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml+django"><div class="highlight"><pre><span></span>                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
                         <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
-<span class="hll">                        <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-field-options=</span><span class="s">&#39;{&quot;widget&quot;: &quot;relative&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="hll">                        <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-options=</span><span class="s">&#39;{&quot;widget&quot;: &quot;relative&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
 </span>                        <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
                     <span class="nt">&lt;/div&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 </div>
-</div></div></section><section id="administration-and-erp-integration"><h2 >administración e Integración con el ERP</h2></section><section id="a-brief-and-incomplete-introduction-to-the-odoo-administration"><h3 >Una introducción breve e incompleta a la administración de Odoo</h3><p >La administración de Odoo fue vista brevemente durante la sección  [UNKNOWN NODE problematic]. Podemos volver a hacerlo usando <em class="menuselection">Administrator ‣ Administrator</em> en el menú (o <em class="guilabel">Sign In</em> si no estás autenticado).</p><p >La estructura conceptual del backend Odoo es simple:</p><ol ><li ><p >en primer lugar son menús, un árbol (menús pueden tener submenús) de registros. Los menús sin hijos apuntan a…</p></li><li ><p >acciones. Las acciones tienen varios tipos: enlaces, informes, datos y código que debe ejecutar Odoo o Mostrar. Las acciones de visualización de datos son llamadas <em >Acciones de ventana</em>, y le dicen a Odoo como mostrar un determinado <em >modelo</em> según un conjunto de vistas…</p></li><li ><p >una vista tiene un tipo, una categoría a la que ésta corresponde (una lista, un gráfico, un calendario) y una <em >arquitectura</em> la cual personaliza la manera en que el modelo se muestra en la vista.</p></li></ol></section><section id="editing-in-the-odoo-administration"><h3 >Editar en la interfaz de administración</h3><p >De forma predeterminada, un modelo de Odoo es esencialmente invisible a un usuario. Para que sea visible debe estar disponible a través de una acción, la cuál en sí mismo debe ser accesible, generalmente esto se hace a través de un menú.</p><p >Vamos a crear un menú para nuestro modelo:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+</div></div></section><section id="administration-and-erp-integration"><h2 >administración e Integración con el ERP</h2></section><section id="a-brief-and-incomplete-introduction-to-the-odoo-administration"><h3 >Una introducción breve e incompleta a la administración de Odoo</h3><p >La administración de Odoo fue vista brevemente durante la sección  [UNKNOWN NODE problematic]. Podemos volver a hacerlo usando <em class="menuselection">Administrator ‣ Administrator</em> en el menú (o <em class="guilabel">Sign In</em> si no estás autenticado).</p><p >La estructura conceptual del backend Odoo es simple:</p><ol ><li ><p >en primer lugar son menús, un árbol (menús pueden tener submenús) de registros. Los menús sin hijos apuntan a…</p></li><li ><p >acciones. Las acciones tienen varios tipos: enlaces, informes, datos y código que debe ejecutar Odoo o Mostrar. Las acciones de visualización de datos son llamadas <em >Acciones de ventana</em>, y le dicen a Odoo como mostrar un determinado <em >modelo</em> según un conjunto de vistas…</p></li><li ><p >una vista tiene un tipo, una categoría a la que ésta corresponde (una lista, un gráfico, un calendario) y una <em >arquitectura</em> la cual personaliza la manera en que el modelo se muestra en la vista.</p></li></ol></section><section id="editing-in-the-odoo-administration"><h3 >Editar en la interfaz de administración</h3><p >De forma predeterminada, un modelo de Odoo es esencialmente invisible a un usuario. Para que sea visible debe estar disponible a través de una acción, la cuál en sí mismo debe ser accesible, generalmente esto se hace a través de un menú.</p><p >Vamos a crear un menú para nuestro modelo:</p><div class="pq-patch"><em >academy/__manifest__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
         <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
 <span class="hll">        <span class="s1">&#39;views.xml&#39;</span><span class="p">,</span>
@@ -365,8 +528,8 @@
     <span class="s1">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
 </pre></div>
 </div>
-</div><em >academy/views.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="hll"><span class="nt">&lt;openerp&gt;</span>
-</span><span class="hll"> <span class="nt">&lt;data&gt;</span>
+</div><em >academy/views.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="hll"><span class="nt">&lt;odoo&gt;</span>
+</span><span class="hll">
 </span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;action_academy_teachers&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy teachers<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>academy.teachers<span class="nt">&lt;/field&gt;</span>
@@ -470,7 +633,10 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
             <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
 </pre></div>
 </div>
-</div></div><p >También debe ser posible crear nuevos cursos directamente desde la página de un profesor así como ver todos los cursos que enseña, así que agregamos <a href="../reference/orm.html#openerp.fields.One2many" class="internal reference" title="openerp.fields.One2many"><code class="py xref py-class">la relación inversa</code></a> al  <em >teachers</em>:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+</div></div><p >It should also be possible to create new courses directly from a teacher's
+page, or to see all the courses they teach, so add
+<a href="../reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">the inverse relationship</code></a> to the <em >teachers</em>
+model:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
     <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
 
 <span class="hll">    <span class="n">course_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s1">&#39;academy.courses&#39;</span><span class="p">,</span> <span class="s1">&#39;teacher_id&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">&quot;Courses&quot;</span><span class="p">)</span>
@@ -496,7 +662,11 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
       <span class="nt">&lt;/form&gt;</span>
 </pre></div>
 </div>
-</div></div></section><section id="discussions-and-notifications"><h3 >Discusiones y notificaciones</h3><p >Odoo ofrece modelos técnicos, que no satisfacen directamente las necesidades del negocio pero que agrega capacidades a objetos de negocio sin tener que construirlas a mano.</p><p >Uno de ellos es el sistema <em >Chatter</em>, parte del correo electrónico y sistema de mensajería de Odoo, éste puede agregar notificaciones y discusiones a cualquier modelo en Odoo. El modelo simplemente tiene que <a href="../reference/orm.html#openerp.models.Model._inherit" class="internal reference" title="openerp.models.Model._inherit"><code class="py xref py-attr">_inherit</code></a> <code >mail.thread`, y agregue el campo de ``message_ids</code> a la vista formulario para mostrar el hilo de discusión. Las discusiones son por registro.</p><p >Para nuestra Academia, tiene sentido permitir intercambio de mensajes en los cursos para manejar, por ejemplo, la programación cambios o discusiones entre profesores y asistentes:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</div></div></section><section id="discussions-and-notifications"><h3 >Discusiones y notificaciones</h3><p >Odoo ofrece modelos técnicos, que no satisfacen directamente las necesidades del negocio pero que agrega capacidades a objetos de negocio sin tener que construirlas a mano.</p><p >One of these is the <em >Chatter</em> system, part of Odoo's email and messaging
+system, which can add notifications and discussion threads to any model.
+The model simply has to <a href="../reference/orm.html#odoo.models.Model._inherit" class="internal reference" title="odoo.models.Model._inherit"><code class="py xref py-attr">_inherit</code></a>
+<code >mail.thread</code>, and add the <code >message_ids</code> field to its form view to display
+the discussion thread. Discussion threads are per-record.</p><p >Para nuestra Academia, tiene sentido permitir intercambio de mensajes en los cursos para manejar, por ejemplo, la programación cambios o discusiones entre profesores y asistentes:</p><div class="pq-patch"><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;academy.courses&#39;</span>
 <span class="hll">    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;mail.thread&#39;</span>
 </span>
@@ -516,7 +686,7 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
     <span class="nt">&lt;/field&gt;</span>
 </pre></div>
 </div>
-</div></div><p >En la parte inferior de cada formulario de curso, ahora hay un hilo de discusión y la posibilidad para los usuarios del sistema dejar mensajes y seguir o dejar de seguir cursos vinculados a ciertos debates.</p></section><section id="selling-courses"><h3 >Venta de cursos</h3><p >Odoo ofrece también modelos de negocio que permiten utilizar más directamente en las necesidades del negocio. Por ejemplo con el módulo <code >website_sale</code> es posible configurar un sitio de comercio electrónico basado en los productos en Odoo. Con éste podemos hacer la subscripción a los cursos vendibles usando un tipo de producto específico</p><p >En lugar de usar una herencia clásica anterior, esto significa cambiar nuestro modelo <em >course</em> por el modelo <em >product</em>  y extender los productos en-sitio (para agregar cualquier cosa que necesitemos de él).</p><p >En primer lugar tenemos que agregar una dependencia en <code >website_sale</code>, con lo que obtenemos productos (a través de  <code >sale</code>) y la interfaz de comercio electrónico:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+</div></div><p >En la parte inferior de cada formulario de curso, ahora hay un hilo de discusión y la posibilidad para los usuarios del sistema dejar mensajes y seguir o dejar de seguir cursos vinculados a ciertos debates.</p></section><section id="selling-courses"><h3 >Venta de cursos</h3><p >Odoo ofrece también modelos de negocio que permiten utilizar más directamente en las necesidades del negocio. Por ejemplo con el módulo <code >website_sale</code> es posible configurar un sitio de comercio electrónico basado en los productos en Odoo. Con éste podemos hacer la subscripción a los cursos vendibles usando un tipo de producto específico</p><p >En lugar de usar una herencia clásica anterior, esto significa cambiar nuestro modelo <em >course</em> por el modelo <em >product</em>  y extender los productos en-sitio (para agregar cualquier cosa que necesitemos de él).</p><p >En primer lugar tenemos que agregar una dependencia en <code >website_sale</code>, con lo que obtenemos productos (a través de  <code >sale</code>) y la interfaz de comercio electrónico:</p><div class="pq-patch"><em >academy/__manifest__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
 
     <span class="c1"># any module necessary for this one to work correctly</span>
 <span class="hll">    <span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;website_sale&#39;</span><span class="p">],</span>
@@ -525,7 +695,7 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
     <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
 </pre></div>
 </div>
-</div></div><p >reinicia Odoo, actualice su módulo, ahora hay un menú <em class="guilabel">Shop</em>, listando un número de productos existentes (se crearon como datos de demostración) de la tienda.</p><p >El segundo paso es sustituir el modelo <em >courses</em> por <code >product.template</code> y añadir una nueva categoría de producto para ser usada como cursos:</p><div class="pq-patch"><em >academy/__openerp__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
+</div></div><p >reinicia Odoo, actualice su módulo, ahora hay un menú <em class="guilabel">Shop</em>, listando un número de productos existentes (se crearon como datos de demostración) de la tienda.</p><p >El segundo paso es sustituir el modelo <em >courses</em> por <code >product.template</code> y añadir una nueva categoría de producto para ser usada como cursos:</p><div class="pq-patch"><em >academy/__manifest__.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>        <span class="s1">&#39;security/ir.model.access.csv&#39;</span><span class="p">,</span>
         <span class="s1">&#39;templates.xml&#39;</span><span class="p">,</span>
         <span class="s1">&#39;views.xml&#39;</span><span class="p">,</span>
 <span class="hll">        <span class="s1">&#39;data.xml&#39;</span><span class="p">,</span>    
@@ -534,12 +704,12 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
     <span class="s1">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
 </pre></div>
 </div>
-</div><em >academy/data.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="hll"><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+</div><em >academy/data.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="hll"><span class="nt">&lt;odoo&gt;</span>
 </span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;product.public.category&quot;</span> <span class="na">id=</span><span class="s">&quot;category_courses&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Courses<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;parent_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;website_sale.categ_others&quot;</span><span class="nt">/&gt;</span>
 </span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
-</span><span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span><span class="hll"><span class="nt">&lt;/odoo&gt;</span>
 </span></pre></div>
 </div>
 </div><em >academy/demo.xml</em><div class="pq-section"><div class="highlight-xml"><div class="highlight"><pre><span></span>        <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;vaughn&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
@@ -570,8 +740,8 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
 </span><span class="hll">            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;list_price&quot;</span> <span class="na">type=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>service<span class="nt">&lt;/field&gt;</span>
 </span><span class="hll">        <span class="nt">&lt;/record&gt;</span>
-</span>    <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+</span>
+<span class="nt">&lt;/odoo&gt;</span>
 </pre></div>
 </div>
 </div><em >academy/models.py</em><div class="pq-section"><div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
@@ -600,7 +770,8 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
             <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
 </pre></div>
 </div>
-</div></div><p >Con esto instalado, algunos cursos ya están disponibles en el <em class="guilabel">Shop</em>, puede que tengas que buscarlo.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><ul ><li ><p >para extender un modelo en-sitio, es <a href="../reference/orm.html#openerp.models.Model._inherit" class="internal alert-link reference" title="openerp.models.Model._inherit"><code class="py xref py-attr">heredado</code></a> sin dar un nuevo atributo <a href="../reference/orm.html#openerp.models.Model._name" class="internal alert-link reference" title="openerp.models.Model._name"><code class="py xref py-attr">_name</code></a></p></li><li ><p ><code >product.template</code> ya utiliza el sistema de mensajes, por lo que podemos eliminar de nuestro modelo esa herencia</p></li><li ><p >Estamos creando nuestros cursos como <em >published</em> por defecto por lo que se puede ver sin tener que iniciar sesión</p></li></ul></div></section><section id="altering-existing-views"><h3 >Modificar vistas existentes</h3><p >Hasta ahora, hemos visto brevemente:</p><ul ><li ><p >la creación de nuevos modelos</p></li><li ><p >la creación de nuevos puntos de vista</p></li><li ><p >la creación de nuevos registros</p></li><li ><p >la alteración de los modelos existentes</p></li></ul><p >Estamos a trabajando con la alteración de los registros existentes y la alteraciónvistas existente. Lo vamos a hacer tanto en la <em class="guilabel">Shop</em> como en las vistas regulares.</p><p >Alterar las vista se realiza mediante la creación de vistas <em >extension</em>, que se aplican por encima la vista original y ls modifican. Estas modificaciones de la vista se pueden añadir o quitar sin modificar el original, haciéndolo más sencillo probar cosas y deshacer cambios.</p><p >Ya que nuestros cursos son gratis, no hay ninguna razón para mostrar su precio en la página de la tienda, así que vamos a modificar la vista y ocultar el precio si es 0. La primera tarea es averiguar que vista muestra el precio, esto puede hacerse a través de <em class="menuselection">Customize ‣ HTML Editor</em> el cual nos permite leer las plantillas involucradas en el despliegue de la página. Pasando por algunos de ellos, la vista llamada “Product Item” pareciera ser la probable culpable.</p><p >La modificación de la arquitectura de una vista se realiza en 3 pasos:</p><ol ><li ><p >Crear una nueva vista</p></li><li ><p >Ampliar la vista para modificar estableciendo la de nueva vista colocando en el campo  <code >inherit_id</code> la identificación externa (xml_id) de la vista modificada</p></li><li ><p >En la arquitectura (campo arch), utilice la etiqueta de <code >xpath</code> para seleccionar y modificar elementos de la vista modificada</p></li></ol><div class="pq-patch"><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml+django"><div class="highlight"><pre><span></span>                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</div></div><p >Con esto instalado, algunos cursos ya están disponibles en el <em class="guilabel">Shop</em>, puede que tengas que buscarlo.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><ul ><li >to extend a model in-place, it's <a href="../reference/orm.html#odoo.models.Model._inherit" class="internal alert-link reference" title="odoo.models.Model._inherit"><code class="py xref py-attr">inherited</code></a> without giving it a new
+<a href="../reference/orm.html#odoo.models.Model._name" class="internal alert-link reference" title="odoo.models.Model._name"><code class="py xref py-attr">_name</code></a></li><li ><p ><code >product.template</code> ya utiliza el sistema de mensajes, por lo que podemos eliminar de nuestro modelo esa herencia</p></li><li ><p >Estamos creando nuestros cursos como <em >published</em> por defecto por lo que se puede ver sin tener que iniciar sesión</p></li></ul></div></section><section id="altering-existing-views"><h3 >Modificar vistas existentes</h3><p >Hasta ahora, hemos visto brevemente:</p><ul ><li ><p >la creación de nuevos modelos</p></li><li ><p >la creación de nuevos puntos de vista</p></li><li ><p >la creación de nuevos registros</p></li><li ><p >la alteración de los modelos existentes</p></li></ul><p >Estamos a trabajando con la alteración de los registros existentes y la alteraciónvistas existente. Lo vamos a hacer tanto en la <em class="guilabel">Shop</em> como en las vistas regulares.</p><p >Alterar las vista se realiza mediante la creación de vistas <em >extension</em>, que se aplican por encima la vista original y ls modifican. Estas modificaciones de la vista se pueden añadir o quitar sin modificar el original, haciéndolo más sencillo probar cosas y deshacer cambios.</p><p >Ya que nuestros cursos son gratis, no hay ninguna razón para mostrar su precio en la página de la tienda, así que vamos a modificar la vista y ocultar el precio si es 0. La primera tarea es averiguar que vista muestra el precio, esto puede hacerse a través de <em class="menuselection">Customize ‣ HTML Editor</em> el cual nos permite leer las plantillas involucradas en el despliegue de la página. Pasando por algunos de ellos, la vista llamada “Product Item” pareciera ser la probable culpable.</p><p >La modificación de la arquitectura de una vista se realiza en 3 pasos:</p><ol ><li ><p >Crear una nueva vista</p></li><li ><p >Ampliar la vista para modificar estableciendo la de nueva vista colocando en el campo  <code >inherit_id</code> la identificación externa (xml_id) de la vista modificada</p></li><li ><p >En la arquitectura (campo arch), utilice la etiqueta de <code >xpath</code> para seleccionar y modificar elementos de la vista modificada</p></li></ol><div class="pq-patch"><em >academy/templates.xml</em><div class="pq-section"><div class="highlight-xml+django"><div class="highlight"><pre><span></span>                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;/t&gt;</span>
         <span class="nt">&lt;/template&gt;</span>
 <span class="hll">
@@ -629,11 +800,13 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
 </div>
 </div></div><p >Con esto, la cara lateral sidebar <em >Product Categories</em> automáticamente será activado cuando el módulo <em >Academia</em> sea instalado.</p></section>
 
-      </article>
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
     </div>
-    
-    <div id="mask"></div>
-  </main>
+  </div>
 
   <div class="floating_action_container">
     <a id="floating_action" class="ripple" href="#">
@@ -650,5 +823,77 @@ access_academy_teachers,access_academy_teachers,model_academy_teachers,,1,0,0,0
       </ul>
     </div>
   </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

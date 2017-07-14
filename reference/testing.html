@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-    <title>Testing Modules &mdash; documentación de odoo - 9.0</title>
+    <title>Testing Modules &mdash; documentación de odoo - 10.0</title>
     
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '9.0',
+        VERSION:     '10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,64 +31,221 @@
     <script type="text/javascript" src="../_static/bootstrap.js"></script>
     <script type="text/javascript" src="../_static/doc.js"></script>
     <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
-    <link rel="top" title="documentación de odoo - 9.0" href="../index.html" />
+    <link rel="top" title="documentación de odoo - 10.0" href="../index.html" />
     <link rel="up" title="Referencia" href="../reference.html" />
     <link rel="next" title="Web Controllers" href="http.html" />
     <link rel="prev" title="Security in Odoo" href="security.html" /> 
   </head>
-  <body><header class="">
-    <figure class="card top">
-      <span class="card-img" style="background-image: url('../_static/banners/testing_modules.jpg');"></span>
-    </figure>
-  </header>
-  <nav id="main_navbar" class="navbar ">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-main">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <nav class="nav navbar-nav navbar-left">
-          <li id="main-back"><a href="../index.html" class="mdi-navigation-arrow-back"></a></li>
-          <li>
-            <h1 id="main_title">Testing Modules</h1>
-          </li>
-        </nav>
+  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
       </div>
-
-      <nav class="collapse navbar-collapse navbar-main navbar-right" role="navigation">
-        
-        <ul class="current navbar-nav navbar-right nav"><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../tutorials.html" class="dropdown-toggle internal reference">Tutoriales</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="../howtos/themes.html" class="internal reference">Haciendo un Tema</a></li><li class="toctree-l2"><a href="../howtos/website.html" class="internal reference">Construyendo un Website</a></li><li class="toctree-l2"><a href="../howtos/backend.html" class="internal reference">Construyendo un módulo</a></li><li class="toctree-l2"><a href="../howtos/web.html" class="internal reference">Extendiendo la Interfaz</a></li></ul></li><li class="toctree-l1"><a href="../api_integration.html" class="internal reference">Servicios Web (API)</a><ul ></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../setup.html" class="dropdown-toggle internal reference">Setting Up</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="../setup/install.html" class="internal reference">Installing Odoo</a></li><li class="toctree-l2"><a href="../setup/deploy.html" class="internal reference">Deploying Odoo</a></li><li class="toctree-l2"><a href="../setup/cdn.html" class="internal reference">Deploying with Content Delivery Networks</a></li><li class="toctree-l2"><a href="../setup/enterprise.html" class="internal reference">From Community to Enterprise</a></li></ul></li><li class="toctree-l1 current dropdown"><a data-toggle="dropdown" href="../reference.html" class="dropdown-toggle internal reference">Referencia</a><ul class="current dropdown-menu"><li class="toctree-l2"><a href="orm.html" class="internal reference">ORM API</a></li><li class="toctree-l2"><a href="data.html" class="internal reference">Data Files</a></li><li class="toctree-l2"><a href="actions.html" class="internal reference">Acciones</a></li><li class="toctree-l2"><a href="views.html" class="internal reference">Views</a></li><li class="toctree-l2"><a href="module.html" class="internal reference">Modules</a></li><li class="toctree-l2"><a href="cmdline.html" class="internal reference">Command-line interface: odoo.py</a></li><li class="toctree-l2"><a href="security.html" class="internal reference">Security in Odoo</a></li><li class="current toctree-l2"><a href="" class="current internal reference">Testing Modules</a></li><li class="toctree-l2"><a href="http.html" class="internal reference">Web Controllers</a></li><li class="toctree-l2"><a href="qweb.html" class="internal reference">QWeb</a></li><li class="toctree-l2"><a href="javascript.html" class="internal reference">Javascript</a></li><li class="toctree-l2"><a href="translations.html" class="internal reference">Translating Modules</a></li><li class="toctree-l2"><a href="reports.html" class="internal reference">QWeb Reports</a></li><li class="toctree-l2"><a href="workflows.html" class="internal reference">Workflows</a></li><li class="toctree-l2"><a href="guidelines.html" class="internal reference">Odoo Guidelines</a></li><li class="toctree-l2"><a href="upgrade_api.html" class="internal reference">Upgrade API</a></li></ul></li><li class="toctree-l1 dropdown"><a data-toggle="dropdown" href="../business.html" class="dropdown-toggle internal reference">Mementos de Negocio.</a><ul class="dropdown-menu"><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/accounting.html" class="external reference">Accounting Memento (US GAAP)</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/double-entry.html" class="external reference">Double-Entry Inventory</a></li><li class="toctree-l2"><a href="https://odoo.com/documentation/functional/valuation.html" class="external reference">Inventory Valuations</a></li></ul></li></ul>
-      </nav>
-    </div>
-  </nav>
-    
-  
-  <main class="container ">
-    
-    <div class="row">
-      
-      <aside>
-        <div class="navbar-aside text-center">
-          <div class="logo_box">
-            <span class="logo"></span>
-            Documentation
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting/">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management/">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
           </div>
-          <ul class="list-group text-left nav"><li class="list-group-item"><a href="#running-tests" class="ripple internal reference">Running tests</a></li></ul>
-          
-          <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/9.0/doc/reference/testing.rst" class="gith-link">
-              Edit on GitHub
-          </a></p>
-          
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
         </div>
-      </aside>
-      
-      <article class="doc-body ">
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
         
+            <li><a href="../index.html">Developer Doc</a></li>
         
+    
+    <li class="active"><a href="#">Testing Modules</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="http://www.odoo.com/documentation/user/10.0/index.html">User</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/index.html">Developer</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/api_integration.html">API</a></li>
+<li><a href="http://www.odoo.com/documentation/10.0/setup/install.html">Installation</a></li>
+<li><a href="http://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="http://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/testing_modules.jpg');"></span>
+      <div class="container text-center">
+        <h1> Testing Modules </h1>
+      </div>
+    </figure>
+    
+    
+    
+    <div class="container ">
+      <main class="container-fluid ">
+        
+        <div class="row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="list-group text-left nav"><li class="list-group-item"><a href="#running-tests" class="ripple internal reference">Running tests</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/10.0/doc/reference/testing.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
   <section id="testing-modules"><i id="reference-testing"></i><p >Odoo provides support for testing modules using unittest.</p><p >To write tests, simply define a <code >tests</code> sub-package in your module, it will
 be automatically inspected for test modules. Test modules should have a name
 starting with <code >test_</code> and should be imported from <code >tests/__init__.py</code>,
@@ -108,28 +265,28 @@ run</p></div><div class="versionchanged"><p ><span class="versionmodified">Disti
 <code >fast_suite</code> and <code >checks</code> in <code >tests/__init__.py</code>. In 8.0 it will
 run all imported modules</p></div><p >The test runner will simply run any test case, as described in the official
 <a href="https://docs.python.org/2/library/unittest.html" class="external reference">unittest documentation</a>, but Odoo provides a number of utilities and helpers
-related to testing Odoo content (modules, mainly):</p><section class="code-class"><h6 id="openerp.tests.common.TransactionCase"><code><em >class </em>openerp.tests.common.TransactionCase(<em>methodName='runTest'</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L135" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >TestCase in which each test method is run in its own transaction,
+related to testing Odoo content (modules, mainly):</p><section class="code-class"><h6 id="odoo.tests.common.TransactionCase"><code><em >class </em>odoo.tests.common.TransactionCase(<em>methodName='runTest'</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L168" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >TestCase in which each test method is run in its own transaction,
 and with its own cursor. The transaction is rolled back and the cursor
-is closed after each test.</p><section class="code-method"><h6 id="openerp.tests.common.TransactionCase.browse_ref"><code>browse_ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L107" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns a record object for the provided
+is closed after each test.</p><section class="code-method"><h6 id="odoo.tests.common.TransactionCase.browse_ref"><code>browse_ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L133" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns a record object for the provided
 <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a></p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parámetros</div><div class="code-field-body"><strong >xid</strong> -- fully-qualified <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>, in the form
-<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body"><code class="py xref py-class">BaseModel</code></div></div></div></section><section class="code-method"><h6 id="openerp.tests.common.TransactionCase.ref"><code>ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L93" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns database ID for the provided <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>,
+<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body"><code class="py xref py-class">BaseModel</code></div></div></div></section><section class="code-method"><h6 id="odoo.tests.common.TransactionCase.ref"><code>ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L122" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns database ID for the provided <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>,
 shortcut for <code >get_object_reference</code></p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parámetros</div><div class="code-field-body"><strong >xid</strong> -- fully-qualified <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>, in the form
-<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">registered id</div></div></div></section></section><section class="code-class"><h6 id="openerp.tests.common.SingleTransactionCase"><code><em >class </em>openerp.tests.common.SingleTransactionCase(<em>methodName='runTest'</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L170" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >TestCase in which all test methods are run in the same transaction,
+<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">registered id</div></div></div></section></section><section class="code-class"><h6 id="odoo.tests.common.SingleTransactionCase"><code><em >class </em>odoo.tests.common.SingleTransactionCase(<em>methodName='runTest'</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L202" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >TestCase in which all test methods are run in the same transaction,
 the transaction is started with the first test method and rolled back at
-the end of the last.</p><section class="code-method"><h6 id="openerp.tests.common.SingleTransactionCase.browse_ref"><code>browse_ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L107" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns a record object for the provided
+the end of the last.</p><section class="code-method"><h6 id="odoo.tests.common.SingleTransactionCase.browse_ref"><code>browse_ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L133" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns a record object for the provided
 <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a></p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parámetros</div><div class="code-field-body"><strong >xid</strong> -- fully-qualified <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>, in the form
-<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body"><code class="py xref py-class">BaseModel</code></div></div></div></section><section class="code-method"><h6 id="openerp.tests.common.SingleTransactionCase.ref"><code>ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L93" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns database ID for the provided <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>,
+<code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body"><code class="py xref py-class">BaseModel</code></div></div></div></section><section class="code-method"><h6 id="odoo.tests.common.SingleTransactionCase.ref"><code>ref(<em>xid</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L122" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Returns database ID for the provided <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>,
 shortcut for <code >get_object_reference</code></p><div class="code-fields"><div class="code-field"><div class="code-field-name">Parámetros</div><div class="code-field-body"><strong >xid</strong> -- fully-qualified <a href="../glossary.html#term-external-identifier" class="internal alert-link reference"><em class="std std-term xref">external identifier</em></a>, in the form
 <code class="samp"><em >module</em>.<em >identifier</em></code></div></div><div class="code-field"><div class="code-field-name">Raise</div><div class="code-field-body">ValueError if not found</div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">registered id</div></div></div></section></section><p >By default, tests are run once right after the corresponding module has been
 installed. Test cases can also be configured to run after all modules have
-been installed, and not run right after the module installation:</p><section class="code-function"><h6 id="openerp.tests.common.at_install"><code>openerp.tests.common.at_install(<em>flag</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L56" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Sets the at-install state of a test, the flag is a boolean specifying
+been installed, and not run right after the module installation:</p><section class="code-function"><h6 id="odoo.tests.common.at_install"><code>odoo.tests.common.at_install(<em>flag</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L66" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Sets the at-install state of a test, the flag is a boolean specifying
 whether the test should (<code >True</code>) or should not (<code >False</code>) run during
 module installation.</p><p >By default, tests are run right after installing the module, before
-starting the installation of the next module.</p></section><section class="code-function"><h6 id="openerp.tests.common.post_install"><code>openerp.tests.common.post_install(<em>flag</em>)<a href="https://github.com/odoo/odoo/blob/9.0/openerp/tests/common.py#L69" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Sets the post-install state of a test. The flag is a boolean
+starting the installation of the next module.</p></section><section class="code-function"><h6 id="odoo.tests.common.post_install"><code>odoo.tests.common.post_install(<em>flag</em>)<a href="https://github.com/odoo/odoo/blob/10.0/odoo/tests/common.py#L79" class="external reference alert-link"><span class="viewcode-link">[fuente]</span></a></code></h6><p >Sets the post-install state of a test. The flag is a boolean
 specifying whether the test should or should not run after a set of
 module installations.</p><p >By default, tests are <em >not</em> run after installation of all modules in the
 current installation set.</p></section><p >The most common situation is to use
-<a href="#openerp.tests.common.TransactionCase" class="internal reference" title="openerp.tests.common.TransactionCase"><code class="py xref py-class">TransactionCase</code></a> and test a property of a model
+<a href="#odoo.tests.common.TransactionCase" class="internal reference" title="odoo.tests.common.TransactionCase"><code class="py xref py-class">TransactionCase</code></a> and test a property of a model
 in each method:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestModelA</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">TransactionCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">test_some_action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">record</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;model.a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
@@ -142,15 +299,17 @@ in each method:</p><div class="highlight-python"><div class="highlight"><pre><sp
 </pre></div>
 </div>
 </section><section id="running-tests"><h2 >Running tests</h2><p >Tests are automatically run when installing or updating modules if
-<a href="cmdline.html#cmdoption-odoo.py--test-enable" class="internal reference"><code class="std xref std-option">--test-enable</code></a> was enabled when starting the
+<a href="cmdline.html#cmdoption-odoo-bin--test-enable" class="internal reference"><code class="std xref std-option">--test-enable</code></a> was enabled when starting the
 Odoo server.</p><p >As of Odoo 8, running tests outside of the install/update cycle is not
 supported.</p></section>
 
-      </article>
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
     </div>
-    
-    <div id="mask"></div>
-  </main>
+  </div>
 
   <div class="floating_action_container">
     <a id="floating_action" class="ripple" href="#">
@@ -167,5 +326,77 @@ supported.</p></section>
       </ul>
     </div>
   </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="http://www.odoo.com/pricing">Editions</a></li>
+                <li><a href="http://www.odoo.com/pricing-online">Cloud Pricing</a></li>
+                <li><a href="http://www.odoo.com/page/upgrade">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog/">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
