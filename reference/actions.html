@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Views" href="views.html" />
     <link rel="prev" title="Data Files" href="data.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -249,10 +249,10 @@
   <section id="actions"><i id="reference-actions"></i><p >Las acciones definen el comportamiento del sistema en respuesta a las acciones del usuario: entrada, botón de acción, la selección de una factura, …</p><p >Actions can be stored in the database or returned directly as dictionaries in
 e.g. button methods. All actions share two mandatory attributes:</p><dl ><dt ><code >type</code></dt><dd >the category of the current action, determines which fields may be
 used and how the action is interpreted</dd><dt ><code >name</code></dt><dd >short user-readable description of the action, may be displayed in the
-client's interface</dd></dl><p >A client can get actions in 4 forms:</p><dl ><dt ><code >False</code></dt><dd >if any action dialog is currently open, close it</dd><dt >A string</dt><dd >if a <a href="#reference-actions-client" class="internal reference"><em >client action</em></a> matches, interpret as
+client's interface</dd></dl><p >A client can get actions in 4 forms:</p><dl ><dt ><code >False</code></dt><dd >if any action dialog is currently open, close it</dd><dt >A string</dt><dd >if a <a href="#reference-actions-client" class="internal reference"><span class="std std-ref">client action</span></a> matches, interpret as
 a client action's tag, otherwise treat as a number</dd><dt >A number</dt><dd >read the corresponding action record from the database, may be a database
-identifier or an <a href="../glossary.html#term-external-id" class="internal reference"><em class="std std-term xref">external id</em></a></dd><dt >A dictionary</dt><dd >treat as a client action descriptor and execute</dd></dl></section><section id="window-actions-ir-actions-act-window"><i id="reference-actions-window"></i><h2 >Window Actions (<code >ir.actions.act_window</code>)</h2><p >The most common action type, used to present visualisations of a model through
-<a href="views.html#reference-views" class="internal reference"><em >views</em></a>: a window action defines a set of view types
+identifier or an <a href="../glossary.html#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a></dd><dt >A dictionary</dt><dd >treat as a client action descriptor and execute</dd></dl></section><section id="window-actions-ir-actions-act-window"><i id="reference-actions-window"></i><h2 >Window Actions (<code >ir.actions.act_window</code>)</h2><p >The most common action type, used to present visualisations of a model through
+<a href="views.html#reference-views" class="internal reference"><span class="std std-ref">views</span></a>: a window action defines a set of view types
 (and possibly specific views) for a model (and possibly specific record of the
 model).</p><p >Its fields are:</p><dl ><dt ><code >res_model</code></dt><dd >model to present views for</dd><dt ><code >views</code></dt><dd >a list of <code >(view_id, view_type)</code> pairs. The second element of each pair
 is the category of the view (tree, form, graph, ...) and the first is
@@ -270,19 +270,19 @@ in full screen mode (<code >fullscreen</code>) or in a dialog/popup (<code >new<
 <code >current</code>.</dd><dt ><code >context</code> (optional)</dt><dd >additional context data to pass to the views</dd><dt ><code >domain</code> (optional)</dt><dd >filtering domain to implicitly add to all view search queries</dd><dt ><code >limit</code> (optional)</dt><dd >number of records to display in lists by default. Defaults to 80 in the
 web client</dd><dt ><code >auto_search</code> (optional)</dt><dd >whether a search should be performed immediately after loading the default
 view. Defaults to <code >True</code></dd></dl><p >For instance, to open customers (partner with the <code >customer</code> flag set) with
-list and form views:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+list and form views:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_window&quot;</span><span class="p">,</span>
     <span class="s2">&quot;res_model&quot;</span><span class="p">:</span> <span class="s2">&quot;res.partner&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;tree&quot;</span><span class="p">],</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
+    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;tree&quot;</span><span class="p">],</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
     <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;customer&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">]],</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p >Or to open the form view of a specific product (obtained separately) in a new
-dialog:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+dialog:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_window&quot;</span><span class="p">,</span>
     <span class="s2">&quot;res_model&quot;</span><span class="p">:</span> <span class="s2">&quot;product.product&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
+    <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;form&quot;</span><span class="p">]],</span>
     <span class="s2">&quot;res_id&quot;</span><span class="p">:</span> <span class="n">a_product_id</span><span class="p">,</span>
     <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;new&quot;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -293,7 +293,7 @@ by clients, mostly to use in composing the <code >views</code> list:</p><dl ><dt
 present in the generated <code >views</code> list (with at least a <code >False</code> view_id)</dd><dt ><code >view_ids</code></dt><dd >M2M<a href="#notquitem2m" class="footnote-ref" id="id1">1</a> to view objects, defines the initial content of
 <code >views</code></dd><dt ><code >view_id</code></dt><dd >specific view added to the <code >views</code> list in case its type is part of the
 <code >view_mode</code> list and not already filled by one of the views in
-<code >view_ids</code></dd></dl><p >These are mostly used when defining actions from <a href="data.html#reference-data" class="internal reference"><em >Data Files</em></a>:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span> <span class="na">id=</span><span class="s">&quot;test_action&quot;</span><span class="nt">&gt;</span>
+<code >view_ids</code></dd></dl><p >These are mostly used when defining actions from <a href="data.html#reference-data" class="internal reference"><span class="std std-ref">Data Files</span></a>:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span> <span class="na">id=</span><span class="s">&quot;test_action&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>A Test Action<span class="nt">&lt;/field&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>some.model<span class="nt">&lt;/field&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;view_mode&quot;</span><span class="nt">&gt;</span>graph<span class="nt">&lt;/field&gt;</span>
@@ -305,7 +305,7 @@ present in the generated <code >views</code> list (with at least a <code >False<
 the model.</p><p >The server-side composition of the <code >views</code> sequence is the following:</p><ul ><li >get each <code >(id, type)</code> from <code >view_ids</code> (ordered by <code >sequence</code>)</li><li >if <code >view_id</code> is defined and its type isn't already filled, append its
 <code >(id, type)</code></li><li >for each unfilled type in <code >view_mode</code>, append <code >(False, type)</code></li></ul></section><section id="url-actions-ir-actions-act-url"><i id="reference-actions-url"></i><h2 >URL Actions (<code >ir.actions.act_url</code>)</h2><p >Allow opening a URL (website/web page) via an Odoo action. Can be customized
 via two fields:</p><dl ><dt ><code >url</code></dt><dd >the address to open when activating the action</dd><dt ><code >target</code></dt><dd >opens the address in a new window/page if <code >new</code>, replaces
-the current content with the page if <code >self</code>. Defaults to <code >new</code></dd></dl><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+the current content with the page if <code >self</code>. Defaults to <code >new</code></dd></dl><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.act_url&quot;</span><span class="p">,</span>
     <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://odoo.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
@@ -316,10 +316,10 @@ the current content with the page if <code >self</code>. Defaults to <code >new<
 two fields are relevant to clients:</p><dl ><dt ><code >id</code></dt><dd >the in-database identifier of the server action to run</dd><dt ><code >context</code> (optional)</dt><dd >context data to use when running the server action</dd></dl><p >In-database records are significantly richer and can perform a number of
 specific or generic actions based on their <code >state</code>. Some fields (and
 corresponding behaviors) are shared between states:</p><dl ><dt ><code >model_id</code></dt><dd >Odoo model linked to the action, made available in
-<a href="#reference-actions-server-context" class="internal reference"><em >evaluation contexts</em></a></dd><dt ><code >condition</code> (optional)</dt><dd >evaluated as Python code using the server action's
-<a href="#reference-actions-server-context" class="internal reference"><em >evaluation context</em></a>. If
+<a href="#reference-actions-server-context" class="internal reference"><span class="std std-ref">evaluation contexts</span></a></dd><dt ><code >condition</code> (optional)</dt><dd >evaluated as Python code using the server action's
+<a href="#reference-actions-server-context" class="internal reference"><span class="std std-ref">evaluation context</span></a>. If
 <code >False</code>, prevents the action from running. Default: <code >True</code></dd></dl><p >Valid action types (<code >state</code> field) are extensible, the default types are:</p></section><section id="code"><h3 ><code >code</code></h3><p >The default and most flexible server action type, executes arbitrary Python
-code with the action's <a href="#reference-actions-server-context" class="internal reference"><em >evaluation context</em></a>. Only uses one specific type-specific
+code with the action's <a href="#reference-actions-server-context" class="internal reference"><span class="std std-ref">evaluation context</span></a>. Only uses one specific type-specific
 field:</p><dl ><dt ><code >code</code></dt><dd >a piece of Python code to execute when the action is called</dd></dl><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;ir.actions.server&quot;</span> <span class="na">id=</span><span class="s">&quot;print_instance&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Res Partner Server Action<span class="nt">&lt;/field&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;model_res_partner&quot;</span><span class="nt">/&gt;</span>
@@ -346,9 +346,9 @@ returned to the client as the next action to execute:</p><div class="highlight-x
 </pre></div>
 </div>
 <p >will ask the client to open a form for the record if it fulfills some
-condition</p></div><p >This tends to be the only action type created from <a href="data.html#reference-data" class="internal reference"><em >data files</em></a>, other types aside from
-<a href="#reference-actions-server-multi" class="internal reference"><em >multi</em></a> are simpler than Python code to define
-from the UI, but not from <a href="data.html#reference-data" class="internal reference"><em >data files</em></a>.</p></section><section id="object-create"><i id="reference-actions-server-object-create"></i><h3 ><code >object_create</code></h3><p >Creates a new record, from scratch (via <a href="orm.html#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>)
+condition</p></div><p >This tends to be the only action type created from <a href="data.html#reference-data" class="internal reference"><span class="std std-ref">data files</span></a>, other types aside from
+<a href="#reference-actions-server-multi" class="internal reference"><span class="std std-ref">multi</span></a> are simpler than Python code to define
+from the UI, but not from <a href="data.html#reference-data" class="internal reference"><span class="std std-ref">data files</span></a>.</p></section><section id="object-create"><i id="reference-actions-server-object-create"></i><h3 ><code >object_create</code></h3><p >Creates a new record, from scratch (via <a href="orm.html#odoo.models.Model.create" class="internal reference" title="odoo.models.Model.create"><code class="py py-meth xref">create()</code></a>)
 or by copying an existing record (via <a href="orm.html#odoo.models.Model.copy" class="internal reference" title="odoo.models.Model.copy"><code class="py py-meth xref">copy()</code></a>)</p><dl ><dt ><code >use_create</code></dt><dd ><p >the creation policy, one of:</p><dl ><dt ><code >new</code></dt><dd >creates a record in the model specified by <code >model_id</code></dd><dt ><code >new_other</code></dt><dd >creates a record in the model specified by <code >crud_model_id</code></dd><dt ><code >copy_current</code></dt><dd >copies the record on which the action was invoked</dd><dt ><code >copy_other</code></dt><dd >copies an other record, obtained via <code >ref_object</code></dd></dl></dd><dt ><code >fields_lines</code></dt><dd ><p >fields to override when creating or copying the record.
 <a href="orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> with the fields:</p><dl ><dt ><code >col1</code></dt><dd ><code >ir.model.fields</code> to set in the model implied by <code >use_create</code></dd><dt ><code >value</code></dt><dd >value for the field, interpreted via <code >type</code></dd><dt ><code >type</code></dt><dd >If <code >value</code>, the <code >value</code> field is interpreted as a literal value
 (possibly converted), if <code >equation</code> the <code >value</code> field is
@@ -356,12 +356,12 @@ interpreted as a Python expression and evaluated</dd></dl></dd><dt ><code >crud_
 <code >new_other</code></dd><dt ><code >ref_object</code></dt><dd ><a href="orm.html#odoo.fields.Reference" class="internal reference" title="odoo.fields.Reference"><code class="py xref py-class">Reference</code></a> to an arbitrary record to copy, used if
 <code >use_create</code> is set to <code >copy_other</code></dd><dt ><code >link_new_record</code></dt><dd >boolean flag linking the newly created record to the current one via a
 many2one field specified through <code >link_field_id</code>, defaults to <code >False</code></dd><dt ><code >link_field_id</code></dt><dd >many2one to <code >ir.model.fields</code>, specifies the current record's m2o field
-on which the newly created record should be set (models should match)</dd></dl></section><section id="object-write"><h3 ><code >object_write</code></h3><p >Similar to <a href="#reference-actions-server-object-create" class="internal reference"><em >object_create</em></a> but alters an
+on which the newly created record should be set (models should match)</dd></dl></section><section id="object-write"><h3 ><code >object_write</code></h3><p >Similar to <a href="#reference-actions-server-object-create" class="internal reference"><span class="std std-ref">object_create</span></a> but alters an
 existing records instead of creating one</p><dl ><dt ><code >use_write</code></dt><dd ><p >write policy, one of:</p><dl ><dt ><code >current</code></dt><dd >write to the current record</dd><dt ><code >other</code></dt><dd >write to an other record selected via <code >crud_model_id</code> and
 <code >ref_object</code></dd><dt ><code >expression</code></dt><dd >write to an other record whose model is selected via <code >crud_model_id</code>
 and whose id is selected by evaluating <code >write_expression</code></dd></dl></dd><dt ><code >write_expression</code></dt><dd >Python expression returning a record or an object id, used when
 <code >use_write</code> is set to <code >expression</code> in order to decide which record
-should be modified</dd><dt ><code >fields_lines</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><em >object_create</em></a></dd><dt ><code >crud_model_id</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><em >object_create</em></a></dd><dt ><code >ref_object</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><em >object_create</em></a></dd></dl></section><section id="multi"><i id="reference-actions-server-multi"></i><h3 ><code >multi</code></h3><p >Executes multiple actions one after the other. Actions to execute are defined
+should be modified</dd><dt ><code >fields_lines</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span class="std std-ref">object_create</span></a></dd><dt ><code >crud_model_id</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span class="std std-ref">object_create</span></a></dd><dt ><code >ref_object</code></dt><dd >see <a href="#reference-actions-server-object-create" class="internal reference"><span class="std std-ref">object_create</span></a></dd></dl></section><section id="multi"><i id="reference-actions-server-multi"></i><h3 ><code >multi</code></h3><p >Executes multiple actions one after the other. Actions to execute are defined
 via the <code >child_ids</code> m2m. If sub-actions themselves return actions, the last
 one will be returned to the client as the multi's own next action</p></section><section id="client-action"><h3 ><code >client_action</code></h3><p >Indirection for directly returning an other action defined using
 <code >action_id</code>. Simply returns that action to the client for execution.</p></section><section id="evaluation-context"><i id="reference-actions-server-context"></i><h3 >Evaluation context</h3><p >A number of keys are available in the evaluation context of or surrounding
@@ -378,7 +378,7 @@ the client should know how to react to</dd><dt ><code >params</code> (optional)<
 the client action tag</dd><dt ><code >target</code> (optional)</dt><dd >whether the client action should be open in the main content area
 (<code >current</code>), in full screen mode (<code >fullscreen</code>) or in a dialog/popup
 (<code >new</code>). Use <code >main</code> instead of <code >current</code> to clear the breadcrumbs.
-Defaults to <code >current</code>.</dd></dl><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+Defaults to <code >current</code>.</dd></dl><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ir.actions.client&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;pos.ui&quot;</span>
 <span class="p">}</span>

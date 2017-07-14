@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="_static/jquery.noconflict.js"></script>
     <link rel="top" title="documentación de odoo - 10.0" href="index.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -252,13 +252,13 @@ standard Odoo distribution in order to show how to evolve such code such
 that it works on both Python 2 and Python 3.</p></div><p >References/useful documents:</p><ul ><li ><a href="https://docs.python.org/3.0/whatsnew/3.0.html" class="external reference">What's new in Python 3?</a>
 covers many of the changes between Python 2 and Python 3, though it is
 missing a number of changes which <a href="https://docs.python.org/2.7/whatsnew/2.7.html#python-3-1-features" class="external reference">were backported to Python 2.7</a>
-as well as <a href="#p3support" class="internal reference"><em >some feature reintroductions</em></a> of later Python 3
+as well as <a href="#p3support" class="internal reference"><span class="std std-ref">some feature reintroductions</span></a> of later Python 3
 revisions</li><li ><a href="https://eev.ee/blog/2016/07/31/python-faq-how-do-i-port-to-python-3/" class="external reference">How do I port to Python 3?</a></li><li ><a href="http://python-future.org/index.html" class="external reference">Python-Future</a></li><li ><a href="https://docs.python.org/3/howto/pyporting.html" class="external reference">Porting Python 2 code to Python 3</a></li><li ><a href="http://lucumr.pocoo.org/2010/2/11/porting-to-python-3-a-guide/" class="external reference">Porting to Python 3: A Guide</a> (a bit outdated but useful for the extensive comments on strings and IO)</li></ul></section><section id="versions-support"><i id="p3support"></i><h2 >Versions Support</h2><p >A cross compatible Odoo would only support Python 2.7 and Python 3.5 and
 above: Python 2.7 backported some Python 3 features, and Python 2 features
 were reintroduced in various Python 3 in order to make conversion easier.
 Python 3.6 adds great features (f-strings, ...) and performance improvements
 (ordered compact dicts) but does not seem to reintroduce compatibility
-features whereas:</p><ul ><li >Python 3.5 reintroduced <code >%</code> for bytes/bytestrings (<a href="http://www.python.org/dev/peps/pep-0461" class="pep external reference"><strong >PEP 461</strong></a>)</li><li >Python 3.4 has no specific compatibility improvement but is the lowest P3
+features whereas:</p><ul ><li >Python 3.5 reintroduced <code >%</code> for bytes/bytestrings (<a href="https://www.python.org/dev/peps/pep-0461" class="pep external reference"><strong >PEP 461</strong></a>)</li><li >Python 3.4 has no specific compatibility improvement but is the lowest P3
 version for PyLint</li><li >Python 3.3 reintroduced the &quot;u&quot; prefix for proper (unicode) strings</li><li >Python 3.2 made <code >range</code> views more list-like (backported to 2.7)and
 reintroduced <code >callable</code></li></ul><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >While Python 3 adds plenty of great features (keyword-only parameters,
 generator delegation, pathlib, ...), you must <em >not</em> use them in Odoo
@@ -285,7 +285,7 @@ of Python 3's <code >urllib.parse</code>.</p><div role="alert" class="alert-warn
 <code class="py xref py-func">odoo.tools.misc.html_encode()</code>.</li><li >Most of <code >types</code>'s content has been stripped out in Python 3: only
 &quot;internal&quot; interpreter types (e.g. CodeType, FrameType, ...) have been left
 in, other types can be obtained directly from the corresponding builtin or
-by getting the <code >type()</code> of a literal value.</li></ul></section><section id="absolute-imports-pep-328"><h3 >Absolute Imports (<a href="http://www.python.org/dev/peps/pep-0328" class="pep external reference"><strong >PEP 328</strong></a>)</h3><div role="alert" class="alert-warning alert"><p class="alert-title">Importante</p><p >In Python 3, <code >import foo</code> can only import from a &quot;top-level&quot; library
+by getting the <code >type()</code> of a literal value.</li></ul></section><section id="absolute-imports-pep-328"><h3 >Absolute Imports (<a href="https://www.python.org/dev/peps/pep-0328" class="pep external reference"><strong >PEP 328</strong></a>)</h3><div role="alert" class="alert-warning alert"><p class="alert-title">Importante</p><p >In Python 3, <code >import foo</code> can only import from a &quot;top-level&quot; library
 (absolute path). If trying to import a sibling or sub-module you <em >must</em>
 use an explicitly <em >relative import</em> e.g. <code >from . import foo</code> or
 <code >from .foo import bar</code>.</p></div><p >In Python 2 <code >import</code> statements are ambiguous: if a file <code >a.py</code> contains
@@ -298,26 +298,26 @@ multiple leading <code >.</code>.</p><div role="alert" class="alert-info alert">
 be used everywhere.</p><p >You can ensure you are not using any implicitly relative import by adding
 <code >from __future__ import absolute_import</code> at the top of your files, or by
 running the <code >relative-import</code> PyLint.</p></div></section><section id="exception-handlers"><h3 >Exception Handlers</h3><div role="alert" class="alert-warning alert"><p class="alert-title">Importante</p><p >All exception handlers must be converted to <code >except ... as ..</code>. Valid
-forms are:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except Exception:
-except (Exception1, ...):
-except Exception as name:
-except (Exception1, ...) as name:
+forms are:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
 </pre></div>
 </div>
-</div><p >In Python 2, <code >except</code> statements are of the form:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except Exception[, name]:
+</div><p >In Python 2, <code >except</code> statements are of the form:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">[,</span> <span class="n">name</span><span class="p">]:</span>
 </pre></div>
 </div>
-<p >or:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except (Exception1, Exception2)[, name]:
+<p >or:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="n">Exception2</span><span class="p">)[,</span> <span class="n">name</span><span class="p">]:</span>
 </pre></div>
 </div>
 <p >But because the name is optional, this gets confusing and people can stumble
-into the first form when trying for the second and write:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except Exception1, Exception:
+into the first form when trying for the second and write:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="n">Exception1</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">:</span>
 </pre></div>
 </div>
-<p >which will <em >not</em> yield the expected result.</p><p >Python 3 changes this syntax to:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except Exception[ as name]:
+<p >which will <em >not</em> yield the expected result.</p><p >Python 3 changes this syntax to:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">[</span> <span class="k">as</span> <span class="n">name</span><span class="p">]:</span>
 </pre></div>
 </div>
-<p >or:</p><div class="highlight-python"><div class="highlight"><pre><span></span>except (Exception1, Exception2)[ as name]:
+<p >or:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="n">Exception2</span><span class="p">)[</span> <span class="k">as</span> <span class="n">name</span><span class="p">]:</span>
 </pre></div>
 </div>
 <p >This form was implemented in Python 2.5 and is thus compatible across the
@@ -326,9 +326,9 @@ explicit call to the <code >repr()</code> builtin</p></div><div role="alert" cla
 Python 3 removed them from the language.</p><div role="alert" class="alert-warning alert" id="changed-exec"><p class="alert-title">Importante</p><p ><code >exec</code> is now a builtin</p></div><p >In Python 2, <code >exec</code> is a statement/keyword. Much like <code >print</code>, it's been
 converted to a builtin function in Python 3. However because the Python 2
 version can take a tuple parameter it is easy to convert the odd <code >exec</code>
-statement to the following cross-language forms:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-<span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">)</span>
-<span class="k">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">,</span> <span class="nb">locals</span><span class="p">)</span>
+statement to the following cross-language forms:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">,</span> <span class="nb">locals</span><span class="p">)</span>
 </pre></div>
 </div>
 </section><section id="list-iteration-builtins-and-methods"><h3 >List/iteration builtins and methods</h3><p >In Python 3, a number of builtins and methods formerly returning <em >lists</em> were
@@ -350,13 +350,13 @@ usually be replaced by a key function.</li><li >Other uses found were obtaining 
 can be replicated using the standard library's <code >math.copysign</code> e.g.
 <code >math.copysign(1, item)</code> will return <code >1.0</code> if <code >item</code> is positive and
 <code >-1.0</code> if <code >item</code> is negative.</li></ul></section><section id="execfile"><h4 ><code >execfile</code></h4><p ><code >execfile(path)</code> has been removed completely from Python 3 but it is
-trivially replaceable in all cases by:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">())</span>
+trivially replaceable in all cases by:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">())</span>
 </pre></div>
 </div>
-<p >of a variant thereof (see <a href="#changed-exec" class="internal reference"><em >exec changes</em></a> for details)</p></section><section id="file"><h4 ><code >file</code></h4><p >The <code >file</code> builtin has been removed in Python 3. Generally, it can just
+<p >of a variant thereof (see <a href="#changed-exec" class="internal reference"><span class="std std-ref">exec changes</span></a> for details)</p></section><section id="file"><h4 ><code >file</code></h4><p >The <code >file</code> builtin has been removed in Python 3. Generally, it can just
 be replaced by the <code >open</code> builtin, although you may want to use <code >io.open</code>
 which is more flexible and better handles the binary/text dichotomy,
-<em class="std xref std-ref">a big issue in cross-version Python</em>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >In Python 3, the <code >open</code> builtin is actually an alias for <code >io.open</code>.</p></div></section><section id="long"><h4 ><code >long</code></h4><p >In Python 2, integers can be either <code >int</code> or <code >long</code>. Python 3 unifies this
+<span class="std xref std-ref">a big issue in cross-version Python</span>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >In Python 3, the <code >open</code> builtin is actually an alias for <code >io.open</code>.</p></div></section><section id="long"><h4 ><code >long</code></h4><p >In Python 2, integers can be either <code >int</code> or <code >long</code>. Python 3 unifies this
 under the single <code >int</code> type.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Importante</p><ul ><li >the <code >L</code> suffix for integer literals must be removed</li><li >calls to <code >long</code> must be replaced by calls to <code >int</code></li><li ><code >(int, long)</code> for type-checking purposes must be replaced by
 <code class="py xref py-data">odoo.tools.pycompat.integer_types</code></li></ul></div><ul ><li >the <code >L</code> suffix on numbers is unsupported in Python 3, and unnecessary in
 Python 2 as &quot;overflowing&quot; integer literals will implicitly instantiate long.</li><li >in Python 2, a call to <code >int()</code> will implicitly create a <code >long</code> object if
@@ -379,7 +379,7 @@ the entire Sequence protocol and thus behaves very much like a regular
 list or tuple.</p></section><section id="removed-renamed-methods"><h3 >Removed/renamed methods</h3><div role="alert" class="alert-warning alert"><p class="alert-title">Importante</p><ul ><li >the <code >has_key</code> method on dicts must be replaced by use of the <code >in</code>
 operator e.g. <code >foo.has_key(bar)</code> becomes <code >bar in foo</code>.</li></ul></div><p ><code >in</code> for dicts was introduced in Python 2.3, leading to <code >has_key</code> being
 redundant, and removed in Python 3.</p></section><section id="minor-syntax-changes"><h3 >Minor syntax changes</h3><ul ><li ><p >the ability to unpack a parameter (in the parameter declaration list) has
-been removed in Python 3 e.g.:</p><div class="highlight-python"><div class="highlight"><pre><span></span>def foo((bar, baz), qux):
+been removed in Python 3 e.g.:</p><div class="highlight-default"><div class="highlight"><pre><span></span>def foo((bar, baz), qux):
     …
 </pre></div>
 </div>

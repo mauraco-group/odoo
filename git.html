@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="_static/jquery.noconflict.js"></script>
     <link rel="top" title="documentación de odoo - 10.0" href="index.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -228,7 +228,7 @@
           <article class="doc-body index-category">
             
             
-  <section id="bazaar-to-git"></section><section id="initializing-a-working-copy"><h2 >Initializing a working copy</h2><p >Use the easy-setup shell script:</p><div class="highlight-python"><div class="highlight"><pre><span></span>curl -O https://raw.githubusercontent.com/odoo/odoo/10.0/setup/setup_dev.py | python2
+  <section id="bazaar-to-git"></section><section id="initializing-a-working-copy"><h2 >Initializing a working copy</h2><p >Use the easy-setup shell script:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">odoo</span><span class="o">/</span><span class="n">odoo</span><span class="o">/</span><span class="mf">10.0</span><span class="o">/</span><span class="n">setup</span><span class="o">/</span><span class="n">setup_dev</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">python2</span>
 </pre></div>
 </div>
 <p >it will will ask a few questions and create a local copy.</p></section><section id="git-concepts"><h2 >Git concepts</h2></section><section id="remotes"><h3 >Remotes</h3><p >Remotes are &quot;remote repositories&quot; which can be fetched from and pushed
@@ -261,7 +261,7 @@ hash, tag, branch or other) it will list the specified commit <em >and all of
 its ancestors</em>. To see a single commit, use <code >git show</code>.</li><li ><p ><code >git log</code>'s second positional argument is a path (file or
 directory). Because both are optional, if both a revision and a file match
 the revision will be selected. It is recommended to use <code >--</code> before a file
-path:</p><div class="highlight-python"><div class="highlight"><pre><span></span>git log -- filepath
+path:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span> <span class="n">filepath</span>
 </pre></div>
 </div>
 </li><li ><code >git log</code> will actually work if given a directory, instead of pegging the

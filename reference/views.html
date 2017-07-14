@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Modules" href="module.html" />
     <link rel="prev" title="Acciones" href="actions.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -251,10 +251,10 @@ otherwise.</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >only useful as a
 a list of some sort</dd><dt ><code >model</code></dt><dd >the model linked to the view, if applicable (it doesn't for QWeb views)</dd><dt ><code >priority</code></dt><dd ><p >client programs can request views by <code >id</code>, or by <code >(model, type)</code>. For
 the latter, all the views for the right type and model will be searched,
 and the one with the lowest <code >priority</code> number will be returned (it is
-the &quot;default view&quot;).</p><p ><code >priority</code> also defines the order of application during <a href="#reference-views-inheritance" class="internal reference"><em >view
-inheritance</em></a></p></dd><dt ><code >arch</code></dt><dd >the description of the view's layout</dd><dt ><code >groups_id</code></dt><dd ><a href="orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> field to the groups allowed to view/use
-the current view</dd><dt ><code >inherit_id</code></dt><dd >the current view's parent view, see <a href="#reference-views-inheritance" class="internal reference"><em >Inheritance</em></a>,
-unset by default</dd><dt ><code >mode</code></dt><dd >inheritance mode, see <a href="#reference-views-inheritance" class="internal reference"><em >Inheritance</em></a>. If
+the &quot;default view&quot;).</p><p ><code >priority</code> also defines the order of application during <a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">view
+inheritance</span></a></p></dd><dt ><code >arch</code></dt><dd >the description of the view's layout</dd><dt ><code >groups_id</code></dt><dd ><a href="orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> field to the groups allowed to view/use
+the current view</dd><dt ><code >inherit_id</code></dt><dd >the current view's parent view, see <a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">Inheritance</span></a>,
+unset by default</dd><dt ><code >mode</code></dt><dd >inheritance mode, see <a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">Inheritance</span></a>. If
 <code >inherit_id</code> is unset the <code >mode</code> can only be <code >primary</code>. If
 <code >inherit_id</code> is set, <code >extension</code> by default but can be explicitly set
 to <code >primary</code></dd><dt ><code >application</code></dt><dd >website feature defining togglable views. By default, views are always
@@ -283,10 +283,10 @@ after its <code >name</code> is created on the matched node with the
 its <code >name</code> is removed from the matched node. If no such attribute
 exists, an error is raised</li></ul></dd></dl><p >A view's specs are applied sequentially.</p></section><section id="lists"><i id="reference-views-list"></i><h2 >Lists</h2><p >The root element of list views is <code >&lt;tree&gt;</code><a href="#treehistory" class="footnote-ref" id="id2">3</a>. The list view's
 root can have the following attributes:</p><dl ><dt ><code >editable</code></dt><dd ><p >by default, selecting a list view's row opens the corresponding
-<a href="#reference-views-form" class="internal reference"><em >form view</em></a>. The <code >editable</code> attributes makes
+<a href="#reference-views-form" class="internal reference"><span class="std std-ref">form view</span></a>. The <code >editable</code> attributes makes
 the list view itself editable in-place.</p><p >Valid values are <code >top</code> and <code >bottom</code>, making <em >new</em> records appear
-respectively at the top or bottom of the list.</p><p >The architecture for the inline <a href="#reference-views-form" class="internal reference"><em >form view</em></a> is
-derived from the list view. Most attributes valid on a <a href="#reference-views-form" class="internal reference"><em >form view</em></a>'s fields and buttons are thus accepted by list
+respectively at the top or bottom of the list.</p><p >The architecture for the inline <a href="#reference-views-form" class="internal reference"><span class="std std-ref">form view</span></a> is
+derived from the list view. Most attributes valid on a <a href="#reference-views-form" class="internal reference"><span class="std std-ref">form view</span></a>'s fields and buttons are thus accepted by list
 views although they may not have any meaning if the list view is
 non-editable</p></dd><dt ><code >default_order</code></dt><dd ><p >overrides the ordering of the view, replacing the model's default order.
 The value is a comma-separated list of fields, postfixed by <code >desc</code> to
@@ -332,7 +332,7 @@ aggregation operation must match the corresponding field's
 <code >group_operator</code></dd><dt ><code >attrs</code></dt><dd >dynamic attributes based on record values. Only effects the current
 field, so e.g. <code >invisible</code> will hide the field but leave the same
 field of other records visible, it will not hide the column itself</dd></dl><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >if the list view is <code >editable</code>, any field attribute from the
-<a href="#reference-views-form" class="internal alert-link reference"><em >form view</em></a> is also valid and will
+<a href="#reference-views-form" class="internal alert-link reference"><span class="std std-ref">form view</span></a> is also valid and will
 be used when setting up the inline form view</p></div></dd></dl></section><section id="forms"><i id="reference-views-form"></i><h2 >Forms</h2><p >Form views are used to display the data from a single record. Their root
 element is <code >&lt;form&gt;</code>. They are composed of regular <a href="http://en.wikipedia.org/wiki/HTML" class="external reference">HTML</a> with additional
 structural and semantic components.</p></section><section id="structural-components"><h3 >Structural components</h3><p >Structural components provide structure or &quot;visual&quot; features with little
@@ -350,7 +350,7 @@ beforehand)</dd><dt ><code >separator</code></dt><dd >small horizontal spacing, 
 title</dd><dt ><code >sheet</code></dt><dd >can be used as a direct child to <code >form</code> for a narrower and more responsive
 form layout</dd><dt ><code >header</code></dt><dd >combined with <code >sheet</code>, provides a full-width location above the sheet
 itself, generally used to display workflow buttons and status widgets</dd></dl></section><section id="semantic-components"><h3 >Semantic components</h3><p >Semantic components tie into and allow interaction with the Odoo
-system. Available semantic components are:</p><dl ><dt ><code >button</code></dt><dd ><p >call into the Odoo system, similar to <a href="#reference-views-list-button" class="internal reference"><em >list view buttons</em></a>. In addition, the following attribute can be
+system. Available semantic components are:</p><dl ><dt ><code >button</code></dt><dd ><p >call into the Odoo system, similar to <a href="#reference-views-list-button" class="internal reference"><span class="std std-ref">list view buttons</span></a>. In addition, the following attribute can be
 specified:</p><dl ><dt ><code >special</code></dt><dd >for form views opened in dialogs: <code >save</code> to save the record and close the
 dialog, <code >cancel</code> to close the dialog without saving.</dd></dl></dd><dt ><code >field</code></dt><dd ><p >renders (and allow edition of, possibly) a single field of the current
 record. Possible attributes are:</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >the name of the field to render</dd><dt ><code >widget</code></dt><dd >fields have a default rendering based on their type
@@ -382,8 +382,8 @@ are: Opportunities, Products, Partners, Tasks, Projects, etc.</p><img src="../_i
 the action buttons.</p><img src="../_images/status.png" class="img-responsive"></section><section id="the-buttons"><h5 >The Buttons</h5><p >The order of buttons follows the business flow. For instance, in a sale order,
 the logical steps are:</p><ol ><li >Send the quotation</li><li >Confirm the quotation</li><li >Create the final invoice</li><li >Send the goods</li></ol><p >Highlighted buttons (in red by default) emphasize the logical next step, to
 help the user. It is usually the first active button. On the other hand,
-<em class="guilabel">cancel</em> buttons <em >must</em> remain grey (normal).  For instance, in
-Invoice the button <em class="guilabel">Refund</em> must never be red.</p><p >Technically, buttons are highlighted by adding the class &quot;oe_highlight&quot;:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;oe_highlight&quot;</span> <span class="na">name=</span><span class="s">&quot;...&quot;</span> <span class="na">type=</span><span class="s">&quot;...&quot;</span> <span class="na">states=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+<span class="guilabel">cancel</span> buttons <em >must</em> remain grey (normal).  For instance, in
+Invoice the button <span class="guilabel">Refund</span> must never be red.</p><p >Technically, buttons are highlighted by adding the class &quot;oe_highlight&quot;:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;oe_highlight&quot;</span> <span class="na">name=</span><span class="s">&quot;...&quot;</span> <span class="na">type=</span><span class="s">&quot;...&quot;</span> <span class="na">states=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </section><section id="the-status"><h5 >The Status</h5><p >Uses the <code >statusbar</code> widget, and shows the current state in red. States
@@ -441,7 +441,7 @@ optional title.</p><img src="../_images/screenshot-03.png" class="img-responsive
 </div>
 <p >It is recommended to have two columns of fields on the form. For this, simply
 put the <code >&lt;group&gt;</code> elements that contain the fields inside a top-level
-<code >&lt;group&gt;</code> element.</p><p >To make <a href="#reference-views-inheritance" class="internal reference"><em >view extension</em></a> simpler, it is
+<code >&lt;group&gt;</code> element.</p><p >To make <a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">view extension</span></a> simpler, it is
 recommended to put a <code >name</code> attribute on <code >&lt;group&gt;</code> elements, so new fields
 can easily be added at the right place.</p></section><section id="special-case-subtotals"><h6 >Special Case: Subtotals</h6><p >Some classes are defined to render subtotals like in invoice forms:</p><img src="../_images/screenshot-00.png" class="img-responsive"><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;group</span> <span class="na">class=</span><span class="s">&quot;oe_subtotal_footer&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;amount_untaxed&quot;</span><span class="nt">/&gt;</span>
@@ -498,8 +498,8 @@ own row.</dd><dt ><code >col</code></dt><dd >only used by pivot tables, creates 
 specific datetime (fixed second resolution) or date (fixed day resolution).</dd></dl><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >graph view aggregations are performed on database content, non-stored
 function fields can not be used in graph views</p></div></section><section id="pivots"><h3 >Pivots</h3><p >The pivot view is used to visualize aggregations as a <a href="http://en.wikipedia.org/wiki/Pivot_table" class="external reference">pivot table</a>. Its root
 element is <code >&lt;pivot&gt;</code> which can take the following attributes:</p><dl ><dt ><code >disable_linking</code></dt><dd >Set to <code >True</code> to remove table cell's links to list view.</dd><dt ><code >display_quantity</code></dt><dd >Set to <code >true</code> to display the Quantity column by default.</dd></dl><p >The elements allowed within a pivot view are the same as for the graph view.</p></section><section id="kanban"><i id="reference-views-kanban"></i><h2 >Kanban</h2><p >The kanban view is a <a href="http://en.wikipedia.org/wiki/Kanban_board" class="external reference">kanban board</a> visualisation: it displays records as
-&quot;cards&quot;, halfway between a <a href="#reference-views-list" class="internal reference"><em >list view</em></a> and a
-non-editable <a href="#reference-views-form" class="internal reference"><em >form view</em></a>. Records may be grouped
+&quot;cards&quot;, halfway between a <a href="#reference-views-list" class="internal reference"><span class="std std-ref">list view</span></a> and a
+non-editable <a href="#reference-views-form" class="internal reference"><span class="std std-ref">form view</span></a>. Records may be grouped
 in columns for use in workflow visualisation or manipulation (e.g. tasks or
 work-progress management), or ungrouped (used simply to visualize records).</p><p >The root element of the Kanban view is <code >&lt;kanban&gt;</code>, it can use the following
 attributes:</p><dl ><dt ><code >default_group_by</code></dt><dd >whether the kanban view should be grouped if no grouping is specified via
@@ -510,25 +510,25 @@ form view. By default, <code >quick_create</code> is enabled when the Kanban vie
 grouped, and disabled when not.</p><p >Set to <code >true</code> to always enable it, and to <code >false</code> to always disable it.</p></dd></dl><p >Possible children of the view element are:</p><dl ><dt ><code >field</code></dt><dd ><p >declares fields to aggregate or to use in kanban <em >logic</em>. If the field is
 simply displayed in the kanban view, it does not need to be pre-declared.</p><p >Possible attributes are:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of the field to fetch</dd><dt ><code >sum</code>, <code >avg</code>, <code >min</code>, <code >max</code>, <code >count</code></dt><dd >displays the corresponding aggregation at the top of a kanban column, the
 field's value is the label of the aggregation (a string). Only one
-aggregate operation per field is supported.</dd></dl></dd><dt ><code >templates</code></dt><dd ><p >defines a list of <a href="qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> templates. Cards definition may be
+aggregate operation per field is supported.</dd></dl></dd><dt ><code >templates</code></dt><dd ><p >defines a list of <a href="qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a> templates. Cards definition may be
 split into multiple templates for clarity, but kanban views <em >must</em> define at
 least one root template <code >kanban-box</code>, which will be rendered once for each
-record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="internal reference"><em >javascript qweb</em></a> and provides the following context variables:</p><dl ><dt ><code >instance</code></dt><dd >the current <a href="javascript.html#reference-javascript-client" class="internal reference"><em >Web Client</em></a> instance</dd><dt ><code >widget</code></dt><dd >the current <a href="#KanbanRecord" class="internal reference" title="KanbanRecord"><code class="js-class xref js">KanbanRecord()</code></a>, can be used to fetch some
+record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="internal reference"><span class="std std-ref">javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >instance</code></dt><dd >the current <a href="javascript.html#reference-javascript-client" class="internal reference"><span class="std std-ref">Web Client</span></a> instance</dd><dt ><code >widget</code></dt><dd >the current <a href="#KanbanRecord" class="internal reference" title="KanbanRecord"><code class="js-class xref js">KanbanRecord()</code></a>, can be used to fetch some
 meta-information. These methods are also available directly in the
 template context and don't need to be accessed via <code >widget</code></dd><dt ><code >record</code></dt><dd >an object with all the requested fields as its attributes. Each field has
 two attributes <code >value</code> and <code >raw_value</code>, the former is formatted
 according to current user parameters, the latter is the direct value from
 a <a href="orm.html#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a> (except for date and datetime fields
-that are <a href="https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102" class="external reference">formatted according to user's locale</a>)</dd><dt ><code >formats</code></dt><dd >the <code class="js-class xref js">web.formats()</code> module to manipulate and convert values</dd><dt ><code >read_only_mode</code></dt><dd ><p >self-explanatory</p><h3 >buttons and fields</h3><p >While most of the Kanban templates are standard <a href="qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a>, the
+that are <a href="https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102" class="external reference">formatted according to user's locale</a>)</dd><dt ><code >formats</code></dt><dd >the <code class="js-class xref js">web.formats()</code> module to manipulate and convert values</dd><dt ><code >read_only_mode</code></dt><dd ><p >self-explanatory</p><h3 >buttons and fields</h3><p >While most of the Kanban templates are standard <a href="qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a>, the
 Kanban view processes <code >field</code>, <code >button</code> and <code >a</code> elements specially:</p><ul ><li >by default fields are replaced by their formatted value, unless they
 match specific kanban view widgets</li><li ><p >buttons and links with a <code >type</code> attribute become perform Odoo-related
-operations rather than their standard HTML function. Possible types are:</p><dl ><dt ><code >action</code>, <code >object</code></dt><dd >standard behavior for <a href="#reference-views-list-button" class="internal reference"><em >Odoo buttons</em></a>, most attributes relevant to standard
+operations rather than their standard HTML function. Possible types are:</p><dl ><dt ><code >action</code>, <code >object</code></dt><dd >standard behavior for <a href="#reference-views-list-button" class="internal reference"><span class="std std-ref">Odoo buttons</span></a>, most attributes relevant to standard
 Odoo buttons can be used.</dd><dt ><code >open</code></dt><dd >opens the card's record in the form view in read-only mode</dd><dt ><code >edit</code></dt><dd >opens the card's record in the form view in editable mode</dd><dt ><code >delete</code></dt><dd >deletes the card's record and removes the card</dd></dl></li></ul></dd></dl></dd></dl></section><section id="javascript-api"><h3 >Javascript API</h3><section class="code-class"><h6 id="KanbanRecord"><code><em >class </em>KanbanRecord()</code></h6><p ><a href="javascript.html#Widget" class="internal alert-link reference" title="Widget"><code class="js-class xref js">Widget()</code></a> handling the rendering of a single record to a
 card. Available within its own rendering as <code >widget</code> in the template
 context.</p><section class="code-function"><h6 id="kanban_color"><code>kanban_color(<em>raw_value</em>)</code></h6><p >Converts a color segmentation value to a kanban color class
 <code class="samp">oe_kanban_color_<em >color_index</em></code>. The built-in CSS provides classes
 up to a <code >color_index</code> of 9.</p></section><section class="code-function"><h6 id="kanban_getcolor"><code>kanban_getcolor(<em>raw_value</em>)</code></h6><p >Converts a color segmentation value to a color index (between 0 and 9 by
-default). Color segmentation values can be either numbers or strings.</p></section><section class="code-function"><h6 id="kanban_image"><code>kanban_image(<em>model, field, id[, cache][, options]</em>)</code></h6><p >Generates the URL to the specified field as an image access.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >model</strong> (<em >String</em>) -- model hosting the image</li><li ><strong >field</strong> (<em >String</em>) -- name of the field holding the image data</li><li ><strong >id</strong> -- identifier of the record contaning the image to display</li><li ><strong >cache</strong> (<em >Number</em>) -- caching duration (in seconds) of the browser
+default). Color segmentation values can be either numbers or strings.</p></section><section class="code-function"><h6 id="kanban_image"><code>kanban_image(<em>model, field, id[, cache][, options]</em>)</code></h6><p >Generates the URL to the specified field as an image access.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >model</strong> (<code >String</code>) -- model hosting the image</li><li ><strong >field</strong> (<code >String</code>) -- name of the field holding the image data</li><li ><strong >id</strong> -- identifier of the record contaning the image to display</li><li ><strong >cache</strong> (<code >Number</code>) -- caching duration (in seconds) of the browser
 default should be overridden. <code >0</code> disables
 caching entirely</li></ul></div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">an image URL</div></div></div></section><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p ><code >kanban_text_ellipsis</code> has been removed in Odoo 9. CSS <code >text-overflow</code> should be used instead.</p></div></section></section><section id="calendar"><i id="reference-views-calendar"></i><h2 >Calendar</h2><p >Calendar views display records as events in a daily, weekly or monthly
 calendar. Their root element is <code >&lt;calendar&gt;</code>. Available attributes on the
@@ -547,9 +547,9 @@ event is flagged as day-long (and duration is irrelevant)</dd><dt ><code >mode</
 Possible attributes are: <code >day</code>, <code >week</code>, <code >month</code></dd><dt ><code >&lt;field&gt;</code></dt><dd ><p >declares fields to aggregate or to use in kanban <em >logic</em>. If the field is
 simply displayed in the calendar cards.</p><p >Fields can have additional attributes:</p><blockquote ><dl ><dt ><code >invisible</code></dt><dd >use &quot;True&quot; to hide the value in the cards</dd><dt ><code >avatar_field</code></dt><dd >only for x2many field, to display the avatar instead the display_name
 in the cards</dd><dt ><code >write_model</code> and <code >write_field</code></dt><dd >you can add a filter and save the result in the defined model, the
-filter is added in the sidebar</dd></dl></blockquote></dd><dt ><code >templates</code></dt><dd ><p >defines the <a href="qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> template <code >calendar-box</code>. Cards definition
+filter is added in the sidebar</dd></dl></blockquote></dd><dt ><code >templates</code></dt><dd ><p >defines the <a href="qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a> template <code >calendar-box</code>. Cards definition
 may be split into multiple templates for clarity which will be rendered once
-for each record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="internal reference"><em >javascript qweb</em></a> and provides the following context variables:</p><dl ><dt ><code >instance</code></dt><dd >the current <a href="javascript.html#reference-javascript-client" class="internal reference"><em >Web Client</em></a> instance</dd><dt ><code >widget</code></dt><dd >the current <a href="#KanbanRecord" class="internal reference" title="KanbanRecord"><code class="js-class xref js">KanbanRecord()</code></a>, can be used to fetch some
+for each record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="internal reference"><span class="std std-ref">javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >instance</code></dt><dd >the current <a href="javascript.html#reference-javascript-client" class="internal reference"><span class="std std-ref">Web Client</span></a> instance</dd><dt ><code >widget</code></dt><dd >the current <a href="#KanbanRecord" class="internal reference" title="KanbanRecord"><code class="js-class xref js">KanbanRecord()</code></a>, can be used to fetch some
 meta-information. These methods are also available directly in the
 template context and don't need to be accessed via <code >widget</code>
 <code >getColor</code> to convert in a color integer
@@ -567,8 +567,8 @@ value that can be reached before displaying the cell in red
 (e.g. <code >{&quot;user_id&quot;: 100}</code>)</p><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >The dictionnary definition must use double-quotes, <code >{'user_id': 100}</code> is
 not a valid value</p></div></dd><dt ><code >string</code></dt><dd >string to display next to the consolidation value, if not specified, the label
 of the consolidation field will be used</dd><dt ><code >fold_last_level</code></dt><dd >If a value is set, the last grouping level is folded</dd><dt ><code >round_dnd_dates</code></dt><dd >enables rounding the task's start and end dates to the nearest scale marks</dd><dt ><code >drag_resize</code></dt><dd >resizing of the tasks, default is <code >true</code></dd></dl></section><section id="diagram"><i id="reference-views-diagram"></i><h2 >Diagram</h2><p >The diagram view can be used to display directed graphs of records. The root
-element is <code >&lt;diagram&gt;</code> and takes no attributes.</p><p >Possible children of the diagram view are:</p><dl ><dt ><code >node</code> (required, 1)</dt><dd ><p >Defines the nodes of the graph. Its attributes are:</p><dl ><dt ><code >object</code></dt><dd >the node's Odoo model</dd><dt ><code >shape</code></dt><dd >conditional shape mapping similar to colors and fonts in <a href="#reference-views-list" class="internal reference"><em >the list
-view</em></a>. The only valid shape is <code >rectangle</code> (the
+element is <code >&lt;diagram&gt;</code> and takes no attributes.</p><p >Possible children of the diagram view are:</p><dl ><dt ><code >node</code> (required, 1)</dt><dd ><p >Defines the nodes of the graph. Its attributes are:</p><dl ><dt ><code >object</code></dt><dd >the node's Odoo model</dd><dt ><code >shape</code></dt><dd >conditional shape mapping similar to colors and fonts in <a href="#reference-views-list" class="internal reference"><span class="std std-ref">the list
+view</span></a>. The only valid shape is <code >rectangle</code> (the
 default shape is an ellipsis)</dd><dt ><code >bgcolor</code></dt><dd >same as <code >shape</code>, but conditionally maps a background color for
 nodes. The default background color is white, the only valid alternative
 is <code >grey</code>.</dd></dl></dd><dt ><code >arrow</code> (required, 1)</dt><dd ><p >Defines the directed edges of the graph. Its attributes are:</p><dl ><dt ><code >object</code> (required)</dt><dd >the edge's Odoo model</dd><dt ><code >source</code> (required)</dt><dd ><a href="orm.html#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> field of the edge's model pointing to
@@ -580,7 +580,7 @@ note's content. Each <code >label</code> is output as a paragraph in the diagram
 header, easily visible but without any special emphasis.</dd></dl></section><section id="search"><i id="reference-views-search"></i><h2 >Search</h2><p >Search views are a break from previous view types in that they don't display
 <em >content</em>: although they apply to a specific model, they are used to filter
 other view's content (generally aggregated views
-e.g. <a href="#reference-views-list" class="internal reference"><em >Lists</em></a> or <a href="#reference-views-graph" class="internal reference"><em >Graphs</em></a>). Beyond that
+e.g. <a href="#reference-views-list" class="internal reference"><span class="std std-ref">Lists</span></a> or <a href="#reference-views-graph" class="internal reference"><span class="std std-ref">Graphs</span></a>). Beyond that
 difference in use case, they are defined the same way.</p><p >The root element of search views is <code >&lt;search&gt;</code>. It takes no attributes.</p><p >Possible children elements of the search view are:</p><dl ><dt ><code >field</code></dt><dd ><p >fields define domains or contexts with user-provided values. When search
 domains are generated, field domains are composed with one another and
 with filters using <strong >AND</strong>.</p><p >Fields can have the following attributes:</p><dl ><dt ><code >name</code></dt><dd >the name of the field to filter on</dd><dt ><code >string</code></dt><dd >the field's label</dd><dt ><code >operator</code></dt><dd ><p >by default, fields generate domains of the form <code class="samp">[(<em >name</em>,
@@ -605,10 +605,10 @@ standard Odoo 8.0 is a <code >selection</code> widget for
 completion results.</dd></dl></dd><dt ><code >filter</code></dt><dd ><p >a filter is a predefined toggle in the search view, it can only be enabled
 or disabled. Its main purposes are to add data to the search context (the
 context passed to the data view for searching/filtering), or to append new
-sections to the search filter.</p><p >Filters can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the label of the filter</dd><dt ><code >domain</code></dt><dd >an Odoo <a href="orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a>, will be appended to the
+sections to the search filter.</p><p >Filters can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the label of the filter</dd><dt ><code >domain</code></dt><dd >an Odoo <a href="orm.html#reference-orm-domains" class="internal reference"><span class="std std-ref">domain</span></a>, will be appended to the
 action's domain as part of the search domain</dd><dt ><code >context</code></dt><dd >a Python dictionary, merged into the action's domain to generate the
-search domain</dd><dt ><code >name</code></dt><dd >logical name for the filter, can be used to <a href="#reference-views-search-defaults" class="internal reference"><em >enable it by default</em></a>, can also be used as
-<a href="#reference-views-inheritance" class="internal reference"><em >inheritance hook</em></a></dd><dt ><code >help</code></dt><dd >a longer explanatory text for the filter, may be displayed as a
+search domain</dd><dt ><code >name</code></dt><dd >logical name for the filter, can be used to <a href="#reference-views-search-defaults" class="internal reference"><span class="std std-ref">enable it by default</span></a>, can also be used as
+<a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">inheritance hook</span></a></dd><dt ><code >help</code></dt><dd >a longer explanatory text for the filter, may be displayed as a
 tooltip</dd><dt ><code >groups</code></dt><dd >makes a filter only available to specific users</dd></dl><div role="alert" class="alert-info alert"><p class="alert-title">Truco</p><div class="versionadded"><p ><span class="versionmodified">Nuevo en la versión 7.0.</span></p></div><p >Sequences of filters (without non-filters separating them) are treated
 as inclusively composited: they will be composed with <code >OR</code> rather
 than the usual <code >AND</code>, e.g.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;draft&#39;)]&quot;</span><span class="nt">/&gt;</span>
@@ -633,15 +633,15 @@ assuming <code >foo</code> is a field and <code >bar</code> is a filter an actio
 </pre></div>
 </div>
 <p >will automatically enable the <code >bar</code> filter and search the <code >foo</code> field for
-<em >acro</em>.</p></section><section id="qweb"><i id="reference-views-qweb"></i><h2 >QWeb</h2><p >QWeb views are standard <a href="qweb.html#reference-qweb" class="internal reference"><em >QWeb</em></a> templates inside a view's
+<em >acro</em>.</p></section><section id="qweb"><i id="reference-views-qweb"></i><h2 >QWeb</h2><p >QWeb views are standard <a href="qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a> templates inside a view's
 <code >arch</code>. They don't have a specific root element.</p><p >A QWeb view can only contain a single template<a href="#template-inherit" class="footnote-ref" id="id4">4</a>, and the
 template's name <em >must</em> match the view's complete (including module name)
-<a href="../glossary.html#term-external-id" class="internal reference"><em class="std std-term xref">external id</em></a>.</p><p ><a href="data.html#reference-data-template" class="internal reference"><em >template</em></a> should be used as a shortcut to define QWeb
+<a href="../glossary.html#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a>.</p><p ><a href="data.html#reference-data-template" class="internal reference"><span class="std std-ref">template</span></a> should be used as a shortcut to define QWeb
 views.</p><div class="footnote" id="backwards-compatibility"><span class="footnote-label"><a class="footnote-backref" href="#id3">[1]</a></span> for backwards compatibility reasons</div><div class="footnote" id="hasclass"><span class="footnote-label"><a class="footnote-backref" href="#id1">[2]</a></span> an extension function is added for simpler matching in QWeb
 views: <code >hasclass(*classes)</code> matches if the context node has
 all the specified classes</div><div class="footnote" id="treehistory"><span class="footnote-label"><a class="footnote-backref" href="#id2">[3]</a></span> for historical reasons, it has its origin in tree-type views
-later repurposed to a more table/list-type display</div><div class="footnote" id="template-inherit"><span class="footnote-label"><a class="footnote-backref" href="#id4">[4]</a></span> or no template if it's an inherited view, then <a href="#reference-views-inheritance" class="internal reference"><em >it
-should only contain xpath elements</em></a></div></section>
+later repurposed to a more table/list-type display</div><div class="footnote" id="template-inherit"><span class="footnote-label"><a class="footnote-backref" href="#id4">[4]</a></span> or no template if it's an inherited view, then <a href="#reference-views-inheritance" class="internal reference"><span class="std std-ref">it
+should only contain xpath elements</span></a></div></section>
 
           </article>
         </div>

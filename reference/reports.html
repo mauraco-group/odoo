@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Mixins and Useful Classes" href="mixins.html" />
     <link rel="prev" title="Translating Modules" href="translations.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -247,16 +247,16 @@
             
             
   <section id="qweb-reports"><p >Reports are written in HTML/QWeb, like all regular views in Odoo. You can use
-the usual <a href="qweb.html#reference-qweb" class="internal reference"><em >QWeb control flow tools</em></a>. The PDF rendering
+the usual <a href="qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb control flow tools</span></a>. The PDF rendering
 itself is performed by <a href="http://wkhtmltopdf.org" class="external reference">wkhtmltopdf</a>.</p><p >If you want to create a report on a certain model, you will need to define
-this <a href="#reference-reports-report" class="internal reference"><em >Report</em></a> and the
-<a href="#reference-reports-templates" class="internal reference"><em >Report template</em></a> it will use. If you wish, you can also
-specify a specific <a href="#reference-reports-paper-formats" class="internal reference"><em >Paper Format</em></a> for this
+this <a href="#reference-reports-report" class="internal reference"><span class="std std-ref">Report</span></a> and the
+<a href="#reference-reports-templates" class="internal reference"><span class="std std-ref">Report template</span></a> it will use. If you wish, you can also
+specify a specific <a href="#reference-reports-paper-formats" class="internal reference"><span class="std std-ref">Paper Format</span></a> for this
 report. Finally, if you need access to more than your model, you can define a
-<a href="#reference-reports-custom-reports" class="internal reference"><em >Custom Reports</em></a> class that gives you access to more
-models and records in the template.</p></section><section id="report"><i id="reference-reports-report"></i><h2 >Report</h2><p >Every report must be declared by a <a href="actions.html#reference-actions-report" class="internal reference"><em >report action</em></a>.</p><p >For simplicity, a shortcut <code >&lt;report&gt;</code> element is available to define a
-report, rather than have to set up <a href="actions.html#reference-actions-report" class="internal reference"><em >the action</em></a> and its surroundings manually. That <code >&lt;report&gt;</code>
-can take the following attributes:</p><dl ><dt ><code >id</code></dt><dd >the generated record's <a href="../glossary.html#term-external-id" class="internal reference"><em class="std std-term xref">external id</em></a></dd><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the report when looking for one
+<a href="#reference-reports-custom-reports" class="internal reference"><span class="std std-ref">Custom Reports</span></a> class that gives you access to more
+models and records in the template.</p></section><section id="report"><i id="reference-reports-report"></i><h2 >Report</h2><p >Every report must be declared by a <a href="actions.html#reference-actions-report" class="internal reference"><span class="std std-ref">report action</span></a>.</p><p >For simplicity, a shortcut <code >&lt;report&gt;</code> element is available to define a
+report, rather than have to set up <a href="actions.html#reference-actions-report" class="internal reference"><span class="std std-ref">the action</span></a> and its surroundings manually. That <code >&lt;report&gt;</code>
+can take the following attributes:</p><dl ><dt ><code >id</code></dt><dd >the generated record's <a href="../glossary.html#term-external-id" class="internal reference"><span class="std std-term xref">external id</span></a></dd><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the report when looking for one
 in a list of some sort</dd><dt ><code >model</code> (mandatory)</dt><dd >the model your report will be about</dd><dt ><code >report_type</code> (mandatory)</dt><dd >either <code >qweb-pdf</code> for PDF reports or <code >qweb-html</code> for HTML</dd><dt ><code >report_name</code></dt><dd >the name of your report (which will be the name of the PDF output)</dd><dt ><code >groups</code></dt><dd ><a href="orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> field to the groups allowed to view/use
 the current report</dd><dt ><code >attachment_use</code></dt><dd >if set to True, the report will be stored as an attachment of the record
 using the name generated by the <code >attachment</code> expression; you can use
@@ -296,7 +296,7 @@ class=&quot;page&quot;&gt;</code>. The template's <code >id</code> must be the n
 report declaration; for example <code >account.report_invoice</code> for the above
 report. Since this is a QWeb template, you can access all the fields of the
 <code >docs</code> objects received by the template.</p><p >There are some specific variables accessible in reports, mainly:</p><dl ><dt ><code >docs</code></dt><dd >records for the current report</dd><dt ><code >doc_ids</code></dt><dd >list of ids for the <code >docs</code> records</dd><dt ><code >doc_model</code></dt><dd >model for the <code >docs</code> records</dd><dt ><code >time</code></dt><dd >a reference to <a href="https://docs.python.org/2/library/time.html#module-time" class="external reference" title="(en Python versión 2.7)"><code >time</code></a> from the Python standard library</dd><dt ><code >user</code></dt><dd ><code >res.user</code> record for the user printing the report</dd><dt ><code >res_company</code></dt><dd >record for the current <code >user</code>'s company</dd></dl><p >If you wish to access other records/models in the template, you will need
-<a href="#reference-reports-custom-reports" class="internal reference"><em >a custom report</em></a>.</p></section><section id="translatable-templates"><h3 >Translatable Templates</h3><p >If you wish to translate reports (to the language of a partner, for example),
+<a href="#reference-reports-custom-reports" class="internal reference"><span class="std std-ref">a custom report</span></a>.</p></section><section id="translatable-templates"><h3 >Translatable Templates</h3><p >If you wish to translate reports (to the language of a partner, for example),
 you need to define two templates:</p><ul ><li >The main report template</li><li >The translatable document</li></ul><p >You can then call the translatable document from your main template with the attribute
 <code >t-lang</code> set to a language code (for example <code >fr</code> or <code >en_US</code>) or to a record field.
 You will also need to re-browse the related records with the proper context if you use
@@ -362,7 +362,7 @@ template and inserting your CSS:</p><div class="highlight-xml"><div class="highl
 </pre></div>
 </div>
 </li><li >If it appears that your PDF report is missing the styles, please check
-<a href="../howtos/backend.html#reference-backend-reporting-printed-reports-pdf-without-styles" class="internal reference"><em >these instructions</em></a>.</li></ul></section><section id="paper-format"><i id="reference-reports-paper-formats"></i><h2 >Paper Format</h2><p >Paper formats are records of <code >report.paperformat</code> and can contain the
+<a href="../howtos/backend.html#reference-backend-reporting-printed-reports-pdf-without-styles" class="internal reference"><span class="std std-ref">these instructions</span></a>.</li></ul></section><section id="paper-format"><i id="reference-reports-paper-formats"></i><h2 >Paper Format</h2><p >Paper formats are records of <code >report.paperformat</code> and can contain the
 following attributes:</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the report when looking for one
 in a list of some sort</dd><dt ><code >description</code></dt><dd >a small description of your format</dd><dt ><code >format</code></dt><dd >either a predefined format (A0 to A9, B0 to B10, Legal, Letter,
 Tabloid,...) or <code >custom</code>; A4 by default. You cannot use a non-custom

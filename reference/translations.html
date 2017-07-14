@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="QWeb Reports" href="reports.html" />
     <link rel="prev" title="Javascript" href="javascript.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -249,8 +249,8 @@
   <section id="translating-modules"><i id="reference-translations"></i></section><section id="exporting-translatable-term"><h2 >Exporting translatable term</h2><p >A number of terms in your modules are &quot;implicitly translatable&quot; as a result,
 even if you haven't done any specific work towards translation you can export
 your module's translatable terms and may find content to work with.</p><p >Translations export is performed via the administration interface by logging into
-the backend interface and opening <em class="menuselection">Settings ‣ Translations
-‣ Import / Export ‣ Export Translations</em></p><ul ><li >leave the language to the default (new language/empty template)</li><li >select the <a href="http://en.wikipedia.org/wiki/Gettext#Translating" class="external reference">PO File</a> format</li><li >select your module</li><li >click <em class="guilabel">Export</em> and download the file</li></ul><a href="../_images/po-export.png" class="internal reference"><img src="../_images/po-export.png" class="img-responsive center-block"></a><p >This gives you a file called <code class="file"><em >yourmodule</em>.pot</code> which should be moved to
+the backend interface and opening <span class="menuselection">Settings ‣ Translations
+‣ Import / Export ‣ Export Translations</span></p><ul ><li >leave the language to the default (new language/empty template)</li><li >select the <a href="http://en.wikipedia.org/wiki/Gettext#Translating" class="external reference">PO File</a> format</li><li >select your module</li><li >click <span class="guilabel">Export</span> and download the file</li></ul><a href="../_images/po-export.png" class="internal reference"><img src="../_images/po-export.png" class="img-responsive center-block"></a><p >This gives you a file called <code class="file"><em >yourmodule</em>.pot</code> which should be moved to
 the <code class="file"><em >yourmodule</em>/i18n/</code> directory. The file is a <em >PO Template</em> which
 simply lists translatable strings and from which actual translations (PO files)
 can be created. PO files can be created using <a href="http://www.gnu.org/software/gettext/manual/gettext.html#Creating" class="external reference">msginit</a>, with a dedicated
@@ -258,7 +258,7 @@ translation tool like <a href="http://poedit.net/" class="external reference">PO
 called <code class="file"><em >language</em>.po</code>. Translation files should be put in
 <code class="file"><em >yourmodule</em>/i18n/</code>, next to <code class="file"><em >yourmodule</em>.pot</code>, and will be
 automatically loaded by Odoo when the corresponding language is installed (via
-<em class="menuselection">Settings ‣ Translations ‣ Load a Translation</em>)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >translations for all loaded languages are also installed or updated
+<span class="menuselection">Settings ‣ Translations ‣ Load a Translation</span>)</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >translations for all loaded languages are also installed or updated
 when installing or updating a module</p></div></section><section id="implicit-exports"><h2 >Implicit exports</h2><p >Odoo automatically exports translatable strings from &quot;data&quot;-type content:</p><ul ><li >in non-QWeb views, all text nodes are exported as well as the content of
 the <code >string</code>, <code >help</code>, <code >sum</code>, <code >confirm</code> and <code >placeholder</code>
 attributes</li><li >QWeb templates (both server-side and client-side), all text nodes are
@@ -270,7 +270,7 @@ values (across all records) are exported</li></ul></li><li >help/error messages 
 <a href="orm.html#odoo.models.Model._sql_constraints" class="internal reference" title="odoo.models.Model._sql_constraints"><code class="py xref py-attr">_sql_constraints</code></a> are exported</li></ul></section><section id="explicit-exports"><h2 >Explicit exports</h2><p >When it comes to more &quot;imperative&quot; situations in Python code or Javascript
 code, Odoo cannot automatically export translatable terms so they
 must be marked explicitly for export. This is done by wrapping a literal
-string in a function call.</p><p >In Python, the wrapping function is <code class="py xref py-func">odoo._()</code>:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
+string in a function call.</p><p >In Python, the wrapping function is <code class="py xref py-func">odoo._()</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p >In JavaScript, the wrapping function is generally <code class="js-func xref js">odoo.web._t()</code>:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">title</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
@@ -278,7 +278,7 @@ string in a function call.</p><p >In Python, the wrapping function is <code clas
 </div>
 <div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >Only literal strings can be marked for exports, not expressions or
 variables. For situations where strings are formatted, this means the
-format string must be marked, not the formatted string:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># bad, the extract may work but it will not translate the text correctly</span>
+format string must be marked, not the formatted string:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bad, the extract may work but it will not translate the text correctly</span>
 <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Scheduled meeting with </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">invitee</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
 <span class="c1"># good</span>

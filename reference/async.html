@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
     <link rel="top" title="documentación de odoo - 10.0" href="../index.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -253,7 +253,7 @@ will return a <a href="#Deferred" class="internal reference" title="Deferred"><c
 value or (most commonly) nothing.</p><p >This object can then be used to track the end of the asynchronous
 operation by adding callbacks onto it, either success callbacks or
 error callbacks.</p><p >A great advantage of deferreds over simply passing callback functions
-directly to asynchronous methods is the ability to <a href="#reference-async-composition" class="internal reference"><em >compose them</em></a>.</p></section><section id="using-deferreds"><h3 >Using deferreds</h3><p >Deferreds's most important method is <a href="#Deferred.then" class="internal reference" title="Deferred.then"><code class="js-func xref js">Deferred.then()</code></a>. It is
+directly to asynchronous methods is the ability to <a href="#reference-async-composition" class="internal reference"><span class="std std-ref">compose them</span></a>.</p></section><section id="using-deferreds"><h3 >Using deferreds</h3><p >Deferreds's most important method is <a href="#Deferred.then" class="internal reference" title="Deferred.then"><code class="js-func xref js">Deferred.then()</code></a>. It is
 used to attach new callbacks to the deferred object.</p><ul ><li >the first parameter attaches a success callback, called when the
 deferred object is successfully resolved and provided with the
 resolved value(s) for the asynchronous operation.</li><li >the second parameter attaches a failure callback, called when the
@@ -366,10 +366,10 @@ chain.</p><div class="code-fields"><div class="code-field"><div class="code-fiel
 <code >deferred.then(doneCallback)</code>.</p><div role="alert" class="alert-info alert"><p class="alert-title">Nota</p><p >a difference is the result of <a href="#Deferred.done" class="internal alert-link reference" title="Deferred.done"><code class="js-func xref js">Deferred.done()</code></a>'s
 is ignored rather than forwarded through the chain</p></div><p >This is a jQuery extension to <a href="http://wiki.commonjs.org/wiki/Promises/A" class="external reference alert-link">CommonJS Promises/A</a> providing
 little value over calling <a href="#Deferred.then" class="internal alert-link reference" title="Deferred.then"><code class="js-func xref js">then()</code></a> directly,
-it should be avoided.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >doneCallback</strong> (<em >Function</em>) -- function called when the deferred is resolved</li></ul></div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">the deferred object on which it was called</div></div><div class="code-field"><div class="code-field-name">Tipo del valor devuelto</div><div class="code-field-body"><a href="#Deferred" class="internal alert-link reference" title="Deferred"><code class="js-class xref js">Deferred()</code></a></div></div></div></section><section class="code-function"><h6 id="Deferred.fail"><code>Deferred.fail(<em>failCallback</em>)</code></h6><p >Attaches a new failure callback to the deferred, shortcut for
+it should be avoided.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >doneCallback</strong> (<code >Function</code>) -- function called when the deferred is resolved</li></ul></div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">the deferred object on which it was called</div></div><div class="code-field"><div class="code-field-name">Tipo del valor devuelto</div><div class="code-field-body"><a href="#Deferred" class="internal alert-link reference" title="Deferred"><code class="js-class xref js">Deferred()</code></a></div></div></div></section><section class="code-function"><h6 id="Deferred.fail"><code>Deferred.fail(<em>failCallback</em>)</code></h6><p >Attaches a new failure callback to the deferred, shortcut for
 <code >deferred.then(null, failCallback)</code>.</p><p >A second jQuery extension to <a href="CommonJSPromises/A" class="external reference alert-link">Promises/A</a>. Although it provides more value than
 <a href="#Deferred.done" class="internal alert-link reference" title="Deferred.done"><code class="js-func xref js">done()</code></a>, it still is not much and should be
-avoided as well.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >failCallback</strong> (<em >Function</em>) -- function called when the deferred is rejected</li></ul></div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">the deferred object on which it was called</div></div><div class="code-field"><div class="code-field-name">Tipo del valor devuelto</div><div class="code-field-body"><a href="#Deferred" class="internal alert-link reference" title="Deferred"><code class="js-class xref js">Deferred()</code></a></div></div></div></section><section class="code-function"><h6 id="Deferred.promise"><code>Deferred.promise()</code></h6><p >Returns a read-only view of the deferred object, with all
+avoided as well.</p><div class="code-fields"><div class="code-field"><div class="code-field-name">Argumentos</div><div class="code-field-body"><ul ><li ><strong >failCallback</strong> (<code >Function</code>) -- function called when the deferred is rejected</li></ul></div></div><div class="code-field"><div class="code-field-name">Devuelve</div><div class="code-field-body">the deferred object on which it was called</div></div><div class="code-field"><div class="code-field-name">Tipo del valor devuelto</div><div class="code-field-body"><a href="#Deferred" class="internal alert-link reference" title="Deferred"><code class="js-class xref js">Deferred()</code></a></div></div></div></section><section class="code-function"><h6 id="Deferred.promise"><code>Deferred.promise()</code></h6><p >Returns a read-only view of the deferred object, with all
 mutators (resolve and reject) methods removed.</p></section><section class="code-function"><h6 id="Deferred.resolve"><code>Deferred.resolve(<em>value…</em>)</code></h6><p >Called to resolve a deferred, any value provided will be
 passed onto the success handlers of the deferred object.</p><p >Resolving a deferred which has already been resolved or
 rejected has no effect.</p></section><section class="code-function"><h6 id="Deferred.reject"><code>Deferred.reject(<em>value…</em>)</code></h6><p >Called to reject (fail) a deferred, any value provided will be

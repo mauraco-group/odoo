@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Testing Modules" href="testing.html" />
     <link rel="prev" title="Command-line interface: odoo-bin" href="cmdline.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -260,7 +260,7 @@ existing records (<code >perm_unlink</code>)</p></section><section id="record-ru
 (create, read, update or delete) to be allowed. It is applied record-by-record
 after access control has been applied.</p><p >A record rule has:</p><ul ><li >a model on which it applies</li><li >a set of permissions to which it applies (e.g. if <code >perm_read</code> is set, the
 rule will only be checked when reading a record)</li><li >a set of user groups to which the rule applies, if no group is specified
-the rule is <em >global</em></li><li >a <a href="orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a> used to check whether a given record
+the rule is <em >global</em></li><li >a <a href="orm.html#reference-orm-domains" class="internal reference"><span class="std std-ref">domain</span></a> used to check whether a given record
 matches the rule (and is accessible) or does not (and is not accessible).
 The domain is evaluated with two variables in context: <code >user</code> is the
 current user's record and <code >time</code> is the <a href="https://docs.python.org/2/library/time.html" class="external reference">time module</a></li></ul><p >Global rules and group rules (rules restricted to specific groups versus
@@ -270,7 +270,7 @@ match) then the record is accessible</li></ul><p >This means the first <em >grou
 <em >group rule</em> expands it, while <em >global rules</em> can only ever restrict access
 (or have no effect).</p><div role="alert" class="aphorism alert-warning alert"><p class="alert-title">Advertencia</p><p >record rules do not apply to the Administrator user</p><p >although access rules do</p></div></section><section id="field-access"><i id="reference-security-fields"></i><h2 >Field Access</h2><div class="versionadded"><p ><span class="versionmodified">Nuevo en la versión 7.0.</span></p></div><p >An ORM <a href="orm.html#odoo.fields.Field" class="internal reference" title="odoo.fields.Field"><code class="py xref py-class">Field</code></a> can have a <code >groups</code> attribute
 providing a list of groups (as a comma-separated string of
-<a href="../glossary.html#term-external-identifiers" class="internal reference"><em class="std std-term xref">external identifiers</em></a>).</p><p >If the current user is not in one of the listed groups, he will not have
+<a href="../glossary.html#term-external-identifiers" class="internal reference"><span class="std std-term xref">external identifiers</span></a>).</p><p >If the current user is not in one of the listed groups, he will not have
 access to the field:</p><ul ><li >restricted fields are automatically removed from requested views</li><li >restricted fields are removed from <a href="orm.html#odoo.models.Model.fields_get" class="internal reference" title="odoo.models.Model.fields_get"><code class="py py-meth xref">fields_get()</code></a>
 responses</li><li >attempts to (explicitly) read from or write to restricted fields results in
 an access error</li></ul></section>

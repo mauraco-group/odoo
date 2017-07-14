@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Deploying with Content Delivery Networks" href="cdn.html" />
     <link rel="prev" title="Installing Odoo" href="install.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -247,9 +247,9 @@
             
             
   <section id="deploying-odoo"><p >This document describes basic steps to set up Odoo in production or on an
-internet-facing server. It follows <a href="install.html#setup-install" class="internal reference"><em >installation</em></a>, and is
+internet-facing server. It follows <a href="install.html#setup-install" class="internal reference"><span class="std std-ref">installation</span></a>, and is
 not generally necessary for a development systems that is not exposed on the
-internet.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >If you are setting up a public server, be sure to check our <a href="#security" class="internal alert-link reference"><em >Security</em></a> recommandations!</p></div></section><section id="dbfilter"><i id="db-filter"></i><h2 >dbfilter</h2><p >Odoo is a multi-tenant system: a single Odoo system may run and serve a number
+internet.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >If you are setting up a public server, be sure to check our <a href="#security" class="internal alert-link reference"><span class="std std-ref">Security</span></a> recommandations!</p></div></section><section id="dbfilter"><i id="db-filter"></i><h2 >dbfilter</h2><p >Odoo is a multi-tenant system: a single Odoo system may run and serve a number
 of database instances. It is also highly customizable, with customizations
 (starting from the modules being loaded) depending on the &quot;current database&quot;.</p><p >This is not an issue when working with the backend (web client) as a logged-in
 company user: the database can be selected when logging in, and customizations
@@ -299,13 +299,13 @@ max_connections = 80
 </pre></div>
 </div>
 </section><section id="configuring-odoo"><i id="setup-deploy-odoo"></i><h3 >Configuring Odoo</h3><p >Out of the box, Odoo connects to a local postgres over UNIX socket via port
-5432. This can be overridden using <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><em >the database options</em></a> when your Postgres deployment is not
-local and/or does not use the installation defaults.</p><p >The <a href="install.html#setup-install-packaged" class="internal reference"><em >packaged installers</em></a> will automatically
+5432. This can be overridden using <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span class="std std-ref">the database options</span></a> when your Postgres deployment is not
+local and/or does not use the installation defaults.</p><p >The <a href="install.html#setup-install-packaged" class="internal reference"><span class="std std-ref">packaged installers</span></a> will automatically
 create a new user (<code >odoo</code>) and set it as the database user.</p><ul ><li >The database management screens are protected by the <code >admin_passwd</code>
 setting. This setting can only be set using configuration files, and is
 simply checked before performing database alterations. It should be set to
 a randomly generated value to ensure third parties can not use this
-interface.</li><li >all database operations use the <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><em >database options</em></a>, including the database management
+interface.</li><li >all database operations use the <a href="../reference/cmdline.html#reference-cmdline-server-database" class="internal reference"><span class="std std-ref">database options</span></a>, including the database management
 screen. For the database management screen to work requires that the PostgreSQL user
 have <code >createdb</code> right.</li><li ><p >users can always drop databases they own. For the database management screen
 to be completely non-functional, the PostgreSQL user needs to be created with
@@ -437,30 +437,30 @@ you should be sure to include in your security action plan. The rest will come
 from best security practices for your operating system and distribution,
 best practices in terms of users, passwords, and access control management, etc.</p><p >When deploying an internet-facing server, please be sure to consider the following
 security-related topics:</p><ul ><li >Always set a strong super-admin admin password, and restrict access to the database
-management pages as soon as the system is set up. See <a href="#db-manager-security" class="internal reference"><em >Database Manager Security</em></a>.</li><li >Choose unique logins and strong passwords for all administrator accounts on all databases.
+management pages as soon as the system is set up. See <a href="#db-manager-security" class="internal reference"><span class="std std-ref">Database Manager Security</span></a>.</li><li >Choose unique logins and strong passwords for all administrator accounts on all databases.
 Do not use 'admin' as the login. Do not use those logins for day-to-day operations,
 only for controlling/managing the installation.
 <em >Never</em> use any default passwords like admin/admin, even for test/staging databases.</li><li >Use appropriate database filters ( <a href="../reference/cmdline.html#cmdoption-odoo-bin--db-filter" class="internal reference"><code class="std xref std-option">--db-filter</code></a>)
 to restrict the visibility of your databases according to the hostname.
-See <a href="#db-filter" class="internal reference"><em >dbfilter</em></a>.</li><li >Once your <code >db_filter</code> is configured and only matches a single database per hostname,
+See <a href="#db-filter" class="internal reference"><span class="std std-ref">dbfilter</span></a>.</li><li >Once your <code >db_filter</code> is configured and only matches a single database per hostname,
 you should set <code >list_db</code> configuration option to <code >False</code>, to prevent listing databases
 entirely (this is also exposed as the <a href="../reference/cmdline.html#cmdoption-odoo-bin--no-database-list" class="internal reference"><code class="std xref std-option">--no-database-list</code></a>
 command-line option)</li><li >Make sure the PostgreSQL user (<a href="../reference/cmdline.html#cmdoption-odoo-bin--db_user" class="internal reference"><code class="std xref std-option">--db_user</code></a>) is <em >not</em> a super-user,
 and that your databases are owned by a different user. For example they could be owned by
 the <code >postgres</code> super-user if you are using a dedicated non-privileged <code >db_user</code>.
-See also <a href="#setup-deploy-odoo" class="internal reference"><em >Configuring Odoo</em></a>.</li><li >Keep installations updated by regularly installing the latest builds,
+See also <a href="#setup-deploy-odoo" class="internal reference"><span class="std std-ref">Configuring Odoo</span></a>.</li><li >Keep installations updated by regularly installing the latest builds,
 either via GitHub or by downloading the latest version from
 <a href="https://www.odoo.com/page/download" class="external reference">https://www.odoo.com/page/download</a> or <a href="http://nightly.odoo.com" class="external reference">http://nightly.odoo.com</a></li><li >Configure your server in multi-process mode with proper limits matching your typical
-usage (memory/CPU/timeouts). See also <a href="#builtin-server" class="internal reference"><em >Builtin server</em></a>.</li><li >Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
+usage (memory/CPU/timeouts). See also <a href="#builtin-server" class="internal reference"><span class="std std-ref">Builtin server</span></a>.</li><li >Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
 in order to prevent eavesdropping on cleartext communications. SSL certificates are
 cheap, and many free options exist.
 Configure the web proxy to limit the size of requests, set appropriate timeouts,
 and then enable the <a href="../reference/cmdline.html#cmdoption-odoo-bin--proxy-mode" class="internal reference"><code class="std xref std-option">proxy mode</code></a> option.
-See also <a href="#https-proxy" class="internal reference"><em >HTTPS</em></a>.</li><li >Whenever possible, host your public-facing demo/test/staging instances on different
+See also <a href="#https-proxy" class="internal reference"><span class="std std-ref">HTTPS</span></a>.</li><li >Whenever possible, host your public-facing demo/test/staging instances on different
 machines than the production ones. And apply the same security precautions as for
 production.</li><li >If you are hosting multiple customers, isolate customer data and files from each other
 using containers or appropriate &quot;jail&quot; techniques.</li><li >Setup daily backups of your databases and filestore data, and copy them to a remote
-archiving server that is not accessible from the server itself.</li></ul></section><section id="database-manager-security"><i id="db-manager-security"></i><h3 >Database Manager Security</h3><p ><a href="#setup-deploy-odoo" class="internal reference"><em >Configuring Odoo</em></a> mentioned <code >admin_passwd</code> in passing.</p><p >This setting is used on all database management screens (to create, delete,
+archiving server that is not accessible from the server itself.</li></ul></section><section id="database-manager-security"><i id="db-manager-security"></i><h3 >Database Manager Security</h3><p ><a href="#setup-deploy-odoo" class="internal reference"><span class="std std-ref">Configuring Odoo</span></a> mentioned <code >admin_passwd</code> in passing.</p><p >This setting is used on all database management screens (to create, delete,
 dump or restore databases).</p><p >If the management screens must not be accessible, or must only be accessible
 from a selected set of machines, use the proxy server's features to block
 access to all routes starting with <code >/web/database</code> except (maybe)

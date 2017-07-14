@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
     <link rel="next" title="Upgrade API" href="upgrade_api.html" />
     <link rel="prev" title="Mixins and Useful Classes" href="mixins.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted ">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -332,7 +332,7 @@ set on the <code >&lt;odoo&gt;</code> tag and do not set a <code >&lt;data&gt;</
 <span class="nt">&lt;/record&gt;</span>
 </pre></div>
 </div>
-<p >Odoo supports custom tags acting as syntactic sugar:</p><ul ><li >menuitem: use it as a shortcut to declare a <code >ir.ui.menu</code></li><li >template: use it to declare a QWeb View requiring only the <code >arch</code> section of the view.</li><li >report: use to declare a <a href="actions.html#reference-actions-report" class="internal reference"><em >report action</em></a></li><li >act_window: use it if the record notation can't do what you want</li></ul><p >The 4 first tags are prefered over the <em >record</em> notation.</p></section><section id="naming-xml-id"><h3 >Naming xml_id</h3></section><section id="security-view-and-action"><h4 >Security, View and Action</h4><p >Use the following pattern :</p><ul ><li >For a menu: <code class="samp"><em >&lt;model_name&gt;</em>_menu</code></li><li >For a view: <code class="samp"><em >&lt;model_name&gt;</em>_view_<em >&lt;view_type&gt;</em></code>, where <em >view_type</em> is
+<p >Odoo supports custom tags acting as syntactic sugar:</p><ul ><li >menuitem: use it as a shortcut to declare a <code >ir.ui.menu</code></li><li >template: use it to declare a QWeb View requiring only the <code >arch</code> section of the view.</li><li >report: use to declare a <a href="actions.html#reference-actions-report" class="internal reference"><span class="std std-ref">report action</span></a></li><li >act_window: use it if the record notation can't do what you want</li></ul><p >The 4 first tags are prefered over the <em >record</em> notation.</p></section><section id="naming-xml-id"><h3 >Naming xml_id</h3></section><section id="security-view-and-action"><h4 >Security, View and Action</h4><p >Use the following pattern :</p><ul ><li >For a menu: <code class="samp"><em >&lt;model_name&gt;</em>_menu</code></li><li >For a view: <code class="samp"><em >&lt;model_name&gt;</em>_view_<em >&lt;view_type&gt;</em></code>, where <em >view_type</em> is
 <code >kanban</code>, <code >form</code>, <code >tree</code>, <code >search</code>, ...</li><li >For an action: the main action respects <code class="samp"><em >&lt;model_name&gt;</em>_action</code>.
 Others are suffixed with <code class="samp">_<em >&lt;detail&gt;</em></code>, where <em >detail</em> is a
 lowercase string briefly explaining the action.

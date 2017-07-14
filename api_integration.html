@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,7 @@
     <link rel="next" title="Setting Up" href="setup.html" />
     <link rel="prev" title="Extendiendo la Interfaz" href="howtos/web.html" /> 
   </head>
-  <body><header class="o_main_header o_has_sub_nav o_inverted has_code_col">
+  <body role="document"><header class="o_main_header o_has_sub_nav o_inverted has_code_col">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -243,7 +243,7 @@
             
   <section id="web-service-api"><p >Odoo is usually extended internally via modules, but many of its features and
 all of its data are also available from the outside for external analysis or
-integration with various tools. Part of the <a href="reference/orm.html#reference-orm-model" class="internal reference"><em >Model Reference</em></a> API is
+integration with various tools. Part of the <a href="reference/orm.html#reference-orm-model" class="internal reference"><span class="std std-ref">Model Reference</span></a> API is
 easily available over <a href="http://en.wikipedia.org/wiki/XML-RPC" class="external reference">XML-RPC</a> and accessible from a variety of languages.</p></section><section id="connection"><h2 >Connection</h2><div class="hidden highlight-python setupcode"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlrpclib</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> \
@@ -301,8 +301,8 @@ parameters</p><div role="alert" class="alert-warning alert"><p class="alert-titl
 <em >local</em> password (as a person you are logged in via the Odoo Online
 authentication system, not by the instance itself). To use XML-RPC on Odoo
 Online instances, you will need to set a password on the user account you
-want to use:</p><ul ><li >Log in your instance with an administrator account</li><li >Go to <em class="menuselection">Settings ‣ Users ‣ Users</em></li><li >Click on the user you want to use for XML-RPC access</li><li >Click the <em class="guilabel">Change Password</em> button</li><li >Set a <em class="guilabel">New Password</em> value then click
-<em class="guilabel">Change Password</em>.</li></ul><p >The <em >server url</em> is the instance's domain (e.g.
+want to use:</p><ul ><li >Log in your instance with an administrator account</li><li >Go to <span class="menuselection">Settings ‣ Users ‣ Users</span></li><li >Click on the user you want to use for XML-RPC access</li><li >Click the <span class="guilabel">Change Password</span> button</li><li >Set a <span class="guilabel">New Password</span> value then click
+<span class="guilabel">Change Password</span>.</li></ul><p >The <em >server url</em> is the instance's domain (e.g.
 <em >https://mycompany.odoo.com</em>), the <em >database name</em> is the name of the
 instance (e.g. <em >mycompany</em>). The <em >username</em> is the configured user's login
 as shown by the <em >Change Password</em> screen.</p></div><div class="doc-aside content-switcher setup"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">server</span> <span class="n">URL</span><span class="o">&gt;</span>
@@ -453,7 +453,7 @@ rather than true/error):</p><div class="content-switcher setup"><ul ><li >Python
 </pre></div>
 </div>
 </div></section><section id="list-records"><h3 >List records</h3><p >Records can be listed and filtered via <a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a>.</p><p ><a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> takes a mandatory
-<a href="reference/orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a> filter (possibly empty), and returns the
+<a href="reference/orm.html#reference-orm-domains" class="internal reference"><span class="std std-ref">domain</span></a> filter (possibly empty), and returns the
 database identifiers of all records matching the filter. To list customer
 companies for instance:</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
@@ -520,7 +520,7 @@ available to only retrieve a subset of all matched records.</p><div class="doc-a
 </div></section><section id="count-records"><h3 >Count records</h3><p >Rather than retrieve a possibly gigantic list of records and count them,
 <a href="reference/orm.html#odoo.models.Model.search_count" class="internal reference" title="odoo.models.Model.search_count"><code class="py py-meth xref">search_count()</code></a> can be used to retrieve
 only the number of records matching the query. It takes the same
-<a href="reference/orm.html#reference-orm-domains" class="internal reference"><em >domain</em></a> filter as
+<a href="reference/orm.html#reference-orm-domains" class="internal reference"><span class="std std-ref">domain</span></a> filter as
 <a href="reference/orm.html#odoo.models.Model.search" class="internal reference" title="odoo.models.Model.search"><code class="py py-meth xref">search()</code></a> and no other parameter.</p><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >Ruby</li><li >PHP</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span>
     <span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="s1">&#39;search_count&#39;</span><span class="p">,</span>
     <span class="p">[[[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]]])</span>
@@ -898,9 +898,9 @@ most model metadata inside a few meta-models which allow both querying the
 system and altering models and fields (with some limitations) on the fly over
 XML-RPC.</p></section><section id="ir-model"><i id="reference-webservice-inspection-models"></i><h4 ><code >ir.model</code></h4><p >Provides information about Odoo models via its various fields</p><dl ><dt ><code >name</code></dt><dd >a human-readable description of the model</dd><dt ><code >model</code></dt><dd >the name of each model in the system</dd><dt ><code >state</code></dt><dd >whether the model was generated in Python code (<code >base</code>) or by creating
 an <code >ir.model</code> record (<code >manual</code>)</dd><dt ><code >field_id</code></dt><dd >list of the model's fields through a <a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to
-<a href="#reference-webservice-inspection-fields" class="internal reference"><em >ir.model.fields</em></a></dd><dt ><code >view_ids</code></dt><dd ><a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to the <a href="reference/views.html#reference-views" class="internal reference"><em >Views</em></a> defined
+<a href="#reference-webservice-inspection-fields" class="internal reference"><span class="std std-ref">ir.model.fields</span></a></dd><dt ><code >view_ids</code></dt><dd ><a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> to the <a href="reference/views.html#reference-views" class="internal reference"><span class="std std-ref">Views</span></a> defined
 for the model</dd><dt ><code >access_ids</code></dt><dd ><a href="reference/orm.html#odoo.fields.One2many" class="internal reference" title="odoo.fields.One2many"><code class="py xref py-class">One2many</code></a> relation to the
-<a href="reference/security.html#reference-security-acl" class="internal reference"><em >Access Control</em></a> set on the model</dd></dl><p ><code >ir.model</code> can be used to</p><ul ><li >query the system for installed models (as a precondition to operations
+<a href="reference/security.html#reference-security-acl" class="internal reference"><span class="std std-ref">Access Control</span></a> set on the model</dd></dl><p ><code >ir.model</code> can be used to</p><ul ><li >query the system for installed models (as a precondition to operations
 on the model or to explore the system's content)</li><li >get information about a specific model (generally by listing the fields
 associated with it)</li><li >create new models dynamically over RPC</li></ul><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><ul ><li >&quot;custom&quot; model names must start with <code >x_</code></li><li >the <code >state</code> must be provided and <code >manual</code>, otherwise the model will
 not be loaded</li><li >it is not possible to add new <em >methods</em> to a custom model, only fields</li></ul></div><div class="doc-aside"><p >a custom model will initially contain only the &quot;built-in&quot; fields available
@@ -1000,10 +1000,10 @@ on all models:</p><div class="content-switcher"><ul ><li >Python</li><li >PHP</l
 </div>
 </div></section><section id="ir-model-fields"><i id="reference-webservice-inspection-fields"></i><h4 ><code >ir.model.fields</code></h4><p >Provides information about the fields of Odoo models and allows adding
 custom fields without using Python code</p><dl ><dt ><code >model_id</code></dt><dd ><a href="reference/orm.html#odoo.fields.Many2one" class="internal reference" title="odoo.fields.Many2one"><code class="py xref py-class">Many2one</code></a> to
-<a href="#reference-webservice-inspection-models" class="internal reference"><em >ir.model</em></a> to which the field belongs</dd><dt ><code >name</code></dt><dd >the field's technical name (used in <code >read</code> or <code >write</code>)</dd><dt ><code >field_description</code></dt><dd >the field's user-readable label (e.g. <code >string</code> in <code >fields_get</code>)</dd><dt ><code >ttype</code></dt><dd >the <a href="reference/orm.html#reference-orm-fields" class="internal reference"><em >type</em></a> of field to create</dd><dt ><code >state</code></dt><dd >whether the field was created via Python code (<code >base</code>) or via
-<code >ir.model.fields</code> (<code >manual</code>)</dd><dt ><code >required</code>, <code >readonly</code>, <code >translate</code></dt><dd >enables the corresponding flag on the field</dd><dt ><code >groups</code></dt><dd ><a href="reference/security.html#reference-security-fields" class="internal reference"><em >field-level access control</em></a>, a
-<a href="reference/orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> to <code >res.groups</code></dd><dt ><code >selection</code>, <code >size</code>, <code >on_delete</code>, <code >relation</code>, <code >relation_field</code>, <code >domain</code></dt><dd >type-specific properties and customizations, see <a href="reference/orm.html#reference-orm-fields" class="internal reference"><em >the fields
-documentation</em></a> for details</dd></dl><p >Like custom models, only new fields created with <code >state=&quot;manual&quot;</code> are
+<a href="#reference-webservice-inspection-models" class="internal reference"><span class="std std-ref">ir.model</span></a> to which the field belongs</dd><dt ><code >name</code></dt><dd >the field's technical name (used in <code >read</code> or <code >write</code>)</dd><dt ><code >field_description</code></dt><dd >the field's user-readable label (e.g. <code >string</code> in <code >fields_get</code>)</dd><dt ><code >ttype</code></dt><dd >the <a href="reference/orm.html#reference-orm-fields" class="internal reference"><span class="std std-ref">type</span></a> of field to create</dd><dt ><code >state</code></dt><dd >whether the field was created via Python code (<code >base</code>) or via
+<code >ir.model.fields</code> (<code >manual</code>)</dd><dt ><code >required</code>, <code >readonly</code>, <code >translate</code></dt><dd >enables the corresponding flag on the field</dd><dt ><code >groups</code></dt><dd ><a href="reference/security.html#reference-security-fields" class="internal reference"><span class="std std-ref">field-level access control</span></a>, a
+<a href="reference/orm.html#odoo.fields.Many2many" class="internal reference" title="odoo.fields.Many2many"><code class="py xref py-class">Many2many</code></a> to <code >res.groups</code></dd><dt ><code >selection</code>, <code >size</code>, <code >on_delete</code>, <code >relation</code>, <code >relation_field</code>, <code >domain</code></dt><dd >type-specific properties and customizations, see <a href="reference/orm.html#reference-orm-fields" class="internal reference"><span class="std std-ref">the fields
+documentation</span></a> for details</dd></dl><p >Like custom models, only new fields created with <code >state=&quot;manual&quot;</code> are
 activated as actual fields on the model.</p><div role="alert" class="alert-warning alert"><p class="alert-title">Advertencia</p><p >computed fields can not be added via <code >ir.model.fields</code>, some
 field meta-information (defaults, onchange) can not be set either</p></div><div class="doc-aside"><div class="content-switcher"><ul ><li >Python</li><li >PHP</li><li >Ruby</li><li >Java</li></ul><div class="tabs"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">execute_kw</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="s1">&#39;ir.model&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Custom Model&quot;</span><span class="p">,</span>
