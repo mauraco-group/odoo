@@ -631,7 +631,59 @@ essentially be that set up by <code class="js-func xref js">init()</code>):</p><
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 </div>
-<p >Plantillas secundarias heredan el contexto de representación de su invocador.</p></section><section id="to-learn-more-about-qweb"><h4 >Para obtener más información acerca de la</h4><p >Para referencias acerca de QWeb, vea <a href="../reference/qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a>.</p></section><section id="exercise"><h4 >Ejercicio</h4><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Uso de QWeb en Widgets</p><p >Crear un widget cuyo constructor toma dos parámetros aparte de <code >padre</code>: <code >product_names</code> y <code >color</code>.</p><ul ><li ><p ><code >product_names</code> debe ser un arreglo de cadenas, cada una el nombre de un producto</p></li><li ><p ><code >color</code> es una cadena que contiene un color en CSS color formato (es decir: <code >#000000</code> para el negro).</p></li></ul><p >El widget debe mostrar los nombres de producto uno bajo el otro, cada uno en una caja aparte con un color de fondo con el valor de <code >color</code> y una frontera. Debe utilizar QWeb para representar el HTML. Cualquier CSS necesario debe estar en <code >oepetstore/static/src/css/petstore.css`</code>.</p><p >Utilice el widget en <code >HomePage</code> con media docena productos.</p></div></section><section id="widget-helpers"><h2 >Ayudantes de widget</h2></section><section id="widget-s-jquery-selector"><h3 >JQuery Selector de <code >Widget</code></h3><p >Seleccionar elementos del DOM en un widget puede realizarse llamando al método  <code >find()</code> en la raíz del DOM del widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;input.my_input&quot;</span><span class="p">)...</span>
+<p >Plantillas secundarias heredan el contexto de representación de su invocador.</p></section><section id="to-learn-more-about-qweb"><h4 >Para obtener más información acerca de la</h4><p >Para referencias acerca de QWeb, vea <a href="../reference/qweb.html#reference-qweb" class="internal reference"><span class="std std-ref">QWeb</span></a>.</p></section><section id="exercise"><h4 >Ejercicio</h4><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Uso de QWeb en Widgets</p><p >Crear un widget cuyo constructor toma dos parámetros aparte de <code >padre</code>: <code >product_names</code> y <code >color</code>.</p><ul ><li ><p ><code >product_names</code> debe ser un arreglo de cadenas, cada una el nombre de un producto</p></li><li ><p ><code >color</code> es una cadena que contiene un color en CSS color formato (es decir: <code >#000000</code> para el negro).</p></li></ul><p >El widget debe mostrar los nombres de producto uno bajo el otro, cada uno en una caja aparte con un color de fondo con el valor de <code >color</code> y una frontera. Debe utilizar QWeb para representar el HTML. Cualquier CSS necesario debe estar en <code >oepetstore/static/src/css/petstore.css`</code>.</p><p >Utilice el widget en <code >HomePage</code> con media docena productos.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_t</span><span class="p">,</span>
+        <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">QWeb</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">;</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">products</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">ProductsWidget</span><span class="p">(</span>
+                <span class="k">this</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span> <span class="s2">&quot;mouse&quot;</span><span class="p">,</span> <span class="s2">&quot;keyboard&quot;</span><span class="p">,</span> <span class="s2">&quot;graphic card&quot;</span><span class="p">,</span> <span class="s2">&quot;screen&quot;</span><span class="p">],</span> <span class="s2">&quot;#00FF00&quot;</span><span class="p">);</span>
+            <span class="nx">products</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">ProductsWidget</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;ProductsWidget&quot;</span><span class="p">,</span>
+        <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">(</span><span class="nx">parent</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">products</span> <span class="o">=</span> <span class="nx">products</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span>
+        <span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;templates</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;ProductsWidget&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;widget.products&quot;</span> <span class="na">t-as=</span><span class="s">&quot;product&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;oe_products_item&quot;</span>
+                      <span class="na">t-attf-style=</span><span class="s">&quot;background-color: {{ widget.color }};&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;product&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;br/&gt;</span>
+            <span class="nt">&lt;/t&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">oe_products_item</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">black</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a href="../_images/qweb.png" class="internal alert-link reference"><img src="../_images/qweb.png" class="img-responsive center-block"></a></div></section><section id="widget-helpers"><h2 >Ayudantes de widget</h2></section><section id="widget-s-jquery-selector"><h3 >JQuery Selector de <code >Widget</code></h3><p >Seleccionar elementos del DOM en un widget puede realizarse llamando al método  <code >find()</code> en la raíz del DOM del widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;input.my_input&quot;</span><span class="p">)...</span>
 </pre></div>
 </div>
 <p >But because it's a common operation, <code class="js-class xref js">Widget()</code> provides an
@@ -739,7 +791,72 @@ the Odoo web application.</p></div></section><section id="properties"><h3 >Propi
 </div>
 <ul ><li ><code class="js-func xref js">set()</code> sets the value of a property and triggers
 <code class="samp">change:<em >propname</em></code> (where <em >propname</em> is the property name passed as
-first parameter to <code class="js-func xref js">set()</code>) and <code >change</code></li><li ><code class="js-func xref js">get()</code> retrieves the value of a property.</li></ul></section><section id="id3"><h3 >Ejercicio</h3><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Eventos y propiedades del widget</p><p >Crea un widget  <code >ColorInputWidget</code> que desplegará 3 <code >&lt;input type=&quot;text&quot;&gt;</code>. Cada uno de dichos <code >&lt;input&gt;</code> es dedicado a un número hexadecimal de 00 a FF. Cuando cualquiera de esos <code >&lt;input&gt;``es modificado por el usuario el widget de consultar el contenido de esos tres ``&lt;input&gt;</code> concatenar sus valores y lograr un código CSS completo (por ejemplo <code >#00FF00</code>) y colocar el resultado en la propiedad llamada <code >color</code>. Considere que el evento jQuery <code >change()</code> puedes enlazarlo a cualquier elemento HTML <code >input()</code> y el método <code >val()</code> puede consultar el valor actual de dichos <code >&lt;input&gt;</code>, esto será útil para el ejercicio.</p><p >A continuación, modificar el widget <code >HomePage</code> para crear una instancia de  <code >ColorInputWidget</code> y mostrarla. El widget  <code >HomePage</code> también debe mostrar un rectángulo vacío. Ese rectángulo debe siempre, en cualquier momento tener el mismo color de fondo que el color en la propiedad de <code >ColorInputWidget</code> de la instancia de  <code >ColorInputWidget</code>.</p><p >Utilizar QWeb para generar todos los HTML.</p></div></section><section id="modify-existing-widgets-and-classes"><h2 >Modificar las clases y los widgets existentes</h2><p >The class system of the Odoo web framework allows direct modification of
+first parameter to <code class="js-func xref js">set()</code>) and <code >change</code></li><li ><code class="js-func xref js">get()</code> retrieves the value of a property.</li></ul></section><section id="id3"><h3 >Ejercicio</h3><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Eventos y propiedades del widget</p><p >Crea un widget  <code >ColorInputWidget</code> que desplegará 3 <code >&lt;input type=&quot;text&quot;&gt;</code>. Cada uno de dichos <code >&lt;input&gt;</code> es dedicado a un número hexadecimal de 00 a FF. Cuando cualquiera de esos <code >&lt;input&gt;``es modificado por el usuario el widget de consultar el contenido de esos tres ``&lt;input&gt;</code> concatenar sus valores y lograr un código CSS completo (por ejemplo <code >#00FF00</code>) y colocar el resultado en la propiedad llamada <code >color</code>. Considere que el evento jQuery <code >change()</code> puedes enlazarlo a cualquier elemento HTML <code >input()</code> y el método <code >val()</code> puede consultar el valor actual de dichos <code >&lt;input&gt;</code>, esto será útil para el ejercicio.</p><p >A continuación, modificar el widget <code >HomePage</code> para crear una instancia de  <code >ColorInputWidget</code> y mostrarla. El widget  <code >HomePage</code> también debe mostrar un rectángulo vacío. Ese rectángulo debe siempre, en cualquier momento tener el mismo color de fondo que el color en la propiedad de <code >ColorInputWidget</code> de la instancia de  <code >ColorInputWidget</code>.</p><p >Utilizar QWeb para generar todos los HTML.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_t</span><span class="p">,</span>
+        <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">QWeb</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">;</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">ColorInputWidget</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;ColorInputWidget&quot;</span><span class="p">,</span>
+        <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;change input&#39;</span><span class="o">:</span> <span class="s1">&#39;input_changed&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">input_changed</span><span class="p">();</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="p">},</span>
+        <span class="nx">input_changed</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;#&quot;</span><span class="p">,</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_color_red&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_color_green&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_color_blue&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+            <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;HomePage&quot;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">colorInput</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">ColorInputWidget</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">colorInput</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change:color&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">color_changed</span><span class="p">);</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">colorInput</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">color_changed</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_color_div&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">colorInput</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">));</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;templates</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;ColorInputWidget&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            Red: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_color_red&quot;</span> <span class="na">value=</span><span class="s">&quot;00&quot;</span><span class="nt">&gt;&lt;/input&gt;&lt;br</span> <span class="nt">/&gt;</span>
+            Green: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_color_green&quot;</span> <span class="na">value=</span><span class="s">&quot;00&quot;</span><span class="nt">&gt;&lt;/input&gt;&lt;br</span> <span class="nt">/&gt;</span>
+            Blue: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_color_blue&quot;</span> <span class="na">value=</span><span class="s">&quot;00&quot;</span><span class="nt">&gt;&lt;/input&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;HomePage&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_color_div&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">oe_color_div</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></section><section id="modify-existing-widgets-and-classes"><h2 >Modificar las clases y los widgets existentes</h2><p >The class system of the Odoo web framework allows direct modification of
 existing classes using the <code class="js-func xref js">include()</code> method:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">TestClass</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">testMethod</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
@@ -879,7 +996,169 @@ so it's possible to use the original and the new version side-by-side. See
 <a href="../reference/javascript.html#odoo.web.Query.all" class="internal reference" title="odoo.web.Query.all"><code class="js-func xref js">all()</code></a> to execute it and return a
 deferred to its result. The result is the same as
 <a href="../reference/orm.html#odoo.models.Model.read" class="internal reference" title="odoo.models.Model.read"><code class="py py-meth xref">read()</code></a>'s, an array of dictionaries where each
-dictionary is a requested record, with each requested field a dictionary key.</p></section><section id="exercises"><h2 >Ejercicios</h2><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Mensaje del día</p><p >Crear un widget <code >MessageOfTheDay</code>  que muestre el último registro del modelo <code >oepetstore.message_of_the_day</code>. El widget debe obtener su registro tan pronto como se muestra.</p><p >Mostrar el widget en la página de la tienda de mascotas.</p></div><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Lista de juguetes para mascotas</p><p >Crear un widget <code >PetToysList</code> mostrando 5 juguetes (usando su nombre y sus imágenes).</p><p >Los juguetes para mascotas no se almacenan en un nuevo modelo, en su lugar se almacenan en la <code >product.product</code> con una categoría especial  <em >Pet Toys</em>. Podrás ver los juguetes previamente generados y añadir nuevos yendo a <span class="menuselection">Pet Store ‣ Pet Store ‣ Pet Toys</span>. Usted probablemente necesitará explorar <code >product.product</code> para crear el dominio adecuado para seleccionar juguetes correctos.</p><p >En Odoo, las imágenes se almacenan generalmente en campos regulares codificados como <a href="http://en.wikipedia.org/wiki/Base64" class="external reference alert-link">base64</a>, HTML soporta mostrar imágenes directamente base64 con <code class="samp">&lt;img src=&quot;data:<em >mime_type</em>;base64,<em >base64_image_data</em>&quot;/&gt;</code></p><p >El widget de  <code >PetToysList</code> debe ser exhibido en la página a la derecha del widget <code >MessageOfTheDay</code>. Usted necesitará hacer algún diseño con CSS para lograrlo.</p></div></section><section id="existing-web-components"><h2 >Componentes de web existentes</h2></section><section id="the-action-manager"><h3 >El director de acción</h3><p >En Odoo, muchas operaciones se inicia desde una <a href="../reference/actions.html#reference-actions" class="internal reference"><span class="std std-ref">acción</span></a>: abrir un elemento de menú (a la vista), imprimir un informe,…</p><p >Las acciones son piezas de información que describen cómo un cliente debe reaccionar a la activación de una pieza de contenido. Las acciones pueden almacenarse (y leer a través de un modelo) o pueden generarse sobre la marcha (localmente en los clientes por código javascript, o remotamente por un método en un modelo).</p><p >En Odoo Web, el componente responsable de manejar y reaccionar a estas acciones es el <em >Action Manager</em>.</p></section><section id="using-the-action-manager"><h4 >Mediante el administrador de la acciones</h4><p >El <em >Action Manager</em> puede ser invocado explícitamente desde código javascript mediante la creación de un diccionario que describe <a href="../reference/actions.html#reference-actions" class="internal reference"><span class="std std-ref">una acción</span></a> del tipo correcto y creando a una instancia <em >Action Manager</em> con el</p><p ><code class="js-func xref js">do_action()</code> is a shortcut of <code class="js-class xref js">Widget()</code>
+dictionary is a requested record, with each requested field a dictionary key.</p></section><section id="exercises"><h2 >Ejercicios</h2><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Mensaje del día</p><p >Crear un widget <code >MessageOfTheDay</code>  que muestre el último registro del modelo <code >oepetstore.message_of_the_day</code>. El widget debe obtener su registro tan pronto como se muestra.</p><p >Mostrar el widget en la página de la tienda de mascotas.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_t</span><span class="p">,</span>
+        <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">QWeb</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">;</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;HomePage&quot;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">MessageOfTheDay</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">MessageOfTheDay</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;MessageOfTheDay&quot;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s2">&quot;oepetstore.message_of_the_day&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+                <span class="p">.</span><span class="nx">order_by</span><span class="p">(</span><span class="s1">&#39;-create_date&#39;</span><span class="p">,</span> <span class="s1">&#39;-id&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">first</span><span class="p">()</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">self</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_mywidget_message_of_the_day&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;templates</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;HomePage&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_homepage&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;MessageOfTheDay&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_motd&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;oe_mywidget_message_of_the_day&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">oe_petstore_motd</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F0EEEE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Lista de juguetes para mascotas</p><p >Crear un widget <code >PetToysList</code> mostrando 5 juguetes (usando su nombre y sus imágenes).</p><p >Los juguetes para mascotas no se almacenan en un nuevo modelo, en su lugar se almacenan en la <code >product.product</code> con una categoría especial  <em >Pet Toys</em>. Podrás ver los juguetes previamente generados y añadir nuevos yendo a <span class="menuselection">Pet Store ‣ Pet Store ‣ Pet Toys</span>. Usted probablemente necesitará explorar <code >product.product</code> para crear el dominio adecuado para seleccionar juguetes correctos.</p><p >En Odoo, las imágenes se almacenan generalmente en campos regulares codificados como <a href="http://en.wikipedia.org/wiki/Base64" class="external reference alert-link">base64</a>, HTML soporta mostrar imágenes directamente base64 con <code class="samp">&lt;img src=&quot;data:<em >mime_type</em>;base64,<em >base64_image_data</em>&quot;/&gt;</code></p><p >El widget de  <code >PetToysList</code> debe ser exhibido en la página a la derecha del widget <code >MessageOfTheDay</code>. Usted necesitará hacer algún diseño con CSS para lograrlo.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_t</span><span class="p">,</span>
+        <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">QWeb</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">;</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;HomePage&quot;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span>
+                <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">PetToysList</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.oe_petstore_homepage_left&#39;</span><span class="p">)),</span>
+                <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">MessageOfTheDay</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.oe_petstore_homepage_right&#39;</span><span class="p">))</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">MessageOfTheDay</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;MessageOfTheDay&#39;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s1">&#39;oepetstore.message_of_the_day&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+                <span class="p">.</span><span class="nx">order_by</span><span class="p">(</span><span class="s1">&#39;-create_date&#39;</span><span class="p">,</span> <span class="s1">&#39;-id&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">first</span><span class="p">()</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">self</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_mywidget_message_of_the_day&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">local</span><span class="p">.</span><span class="nx">PetToysList</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;PetToysList&#39;</span><span class="p">,</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s1">&#39;product.product&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">])</span>
+                <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;categ_id.name&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s2">&quot;Pet Toys&quot;</span><span class="p">]])</span>
+                <span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">all</span><span class="p">()</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">_</span><span class="p">(</span><span class="nx">results</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">self</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">QWeb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;PetToy&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">item</span><span class="o">:</span> <span class="nx">item</span><span class="p">}));</span>
+                    <span class="p">});</span>
+                <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;templates</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;HomePage&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_homepage&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_homepage_left&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_homepage_right&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;MessageOfTheDay&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_motd&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;oe_mywidget_message_of_the_day&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;PetToysList&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_pettoyslist&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;PetToy&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_pettoy&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;item.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">t-att-src=</span><span class="s">&quot;&#39;data:image/jpg;base64,&#39;+item.image&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">oe_petstore_homepage</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">oe_petstore_homepage_left</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table-cell</span><span class="p">;</span>
+    <span class="k">width</span> <span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">oe_petstore_homepage_right</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table-cell</span><span class="p">;</span>
+    <span class="k">width</span> <span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">oe_petstore_motd</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F0EEEE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">oe_petstore_pettoyslist</span> <span class="p">{</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">oe_petstore_pettoy</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F0EEEE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></section><section id="existing-web-components"><h2 >Componentes de web existentes</h2></section><section id="the-action-manager"><h3 >El director de acción</h3><p >En Odoo, muchas operaciones se inicia desde una <a href="../reference/actions.html#reference-actions" class="internal reference"><span class="std std-ref">acción</span></a>: abrir un elemento de menú (a la vista), imprimir un informe,…</p><p >Las acciones son piezas de información que describen cómo un cliente debe reaccionar a la activación de una pieza de contenido. Las acciones pueden almacenarse (y leer a través de un modelo) o pueden generarse sobre la marcha (localmente en los clientes por código javascript, o remotamente por un método en un modelo).</p><p >En Odoo Web, el componente responsable de manejar y reaccionar a estas acciones es el <em >Action Manager</em>.</p></section><section id="using-the-action-manager"><h4 >Mediante el administrador de la acciones</h4><p >El <em >Action Manager</em> puede ser invocado explícitamente desde código javascript mediante la creación de un diccionario que describe <a href="../reference/actions.html#reference-actions" class="internal reference"><span class="std std-ref">una acción</span></a> del tipo correcto y creando a una instancia <em >Action Manager</em> con el</p><p ><code class="js-func xref js">do_action()</code> is a shortcut of <code class="js-class xref js">Widget()</code>
 looking up the &quot;current&quot; action manager and executing the action:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">TestWidget</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">dispatch_to_new_action</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">do_action</span><span class="p">({</span>
@@ -894,7 +1173,44 @@ looking up the &quot;current&quot; action manager and executing the action:</p><
 <span class="p">});</span>
 </pre></div>
 </div>
-<p >El <code >type</code> más común de acción es <code >ir.actions.act_window</code> que proporciona las vistas de un modelo (recordemos que un modelo se muestra de varias maneras), sus atributos más comunes son:</p><dl ><dt ><code >res_model</code></dt><dd ><p >El modelo del que se muestran las vistas</p></dd><dt ><code >res_id</code> (optional)</dt><dd ><p >Vistas de formulario, un registro pre-seleccionado en <code >res_model</code></p></dd><dt ><code >views</code></dt><dd ><p >Muestra las vistas disponibles a través de la acción. Una lista <code >[view_id, view_type]</code>, <code >view_id</code> puede ser el identificador de base de datos de una vista del tipo correcto, o <code >false</code> a utilizar la vista predeterminada para el tipo especificado. Tipos de vista pueden no estar presentes varias veces. La acción abrirá la primera vista de la lista por defecto.</p></dd><dt ><code >target</code></dt><dd ><p >Cualquiera de los dos <code >current</code> (por defecto) que reemplaza el <code >content</code> de la sección del cliente web por la acción, o <code >new</code> para abrir la acción en un cuadro de diálogo.</p></dd><dt ><code >context</code></dt><dd ><p >Datos de contexto adicional para utilizar dentro de la acción.</p></dd></dl><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Ir al producto</p><p >Modificar el componente <code >PetToysList</code> para hacer clic en un juguete y que reemplace la página principal por vista de formulario de juguete.</p></div></section><section id="client-actions"><h3 >Acciones de cliente</h3><p >A lo largo de esta guía, se utilizó un simple widget de <code >HomePage</code> que el cliente web inicia automáticamente cuando selecciona la opción del menú derecho. ¿Pero cómo sabía la Odoo web que tenía que poner este widget? Porque el widget está registrado como una <em >client action</em> (acción del cliente).</p><p >Una acción de cliente es (como su nombre lo indica) un tipo de acción definido casi en su totalidad en el cliente, en javascript para Odoo web. El servidor simplemente envía una etiqueta de acción (un nombre arbitrario) y opcionalmente añade unos pocos parámetros, pero más allá <em >todo</em> es manejado por código personalizado del lado del cliente.</p><p >Nuestro widget está registrada como el controlador de la acción del cliente a través de esto:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
+<p >El <code >type</code> más común de acción es <code >ir.actions.act_window</code> que proporciona las vistas de un modelo (recordemos que un modelo se muestra de varias maneras), sus atributos más comunes son:</p><dl ><dt ><code >res_model</code></dt><dd ><p >El modelo del que se muestran las vistas</p></dd><dt ><code >res_id</code> (optional)</dt><dd ><p >Vistas de formulario, un registro pre-seleccionado en <code >res_model</code></p></dd><dt ><code >views</code></dt><dd ><p >Muestra las vistas disponibles a través de la acción. Una lista <code >[view_id, view_type]</code>, <code >view_id</code> puede ser el identificador de base de datos de una vista del tipo correcto, o <code >false</code> a utilizar la vista predeterminada para el tipo especificado. Tipos de vista pueden no estar presentes varias veces. La acción abrirá la primera vista de la lista por defecto.</p></dd><dt ><code >target</code></dt><dd ><p >Cualquiera de los dos <code >current</code> (por defecto) que reemplaza el <code >content</code> de la sección del cliente web por la acción, o <code >new</code> para abrir la acción en un cuadro de diálogo.</p></dd><dt ><code >context</code></dt><dd ><p >Datos de contexto adicional para utilizar dentro de la acción.</p></dd></dl><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Ir al producto</p><p >Modificar el componente <code >PetToysList</code> para hacer clic en un juguete y que reemplace la página principal por vista de formulario de juguete.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">PetToysList</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;PetToysList&#39;</span><span class="p">,</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click .oe_petstore_pettoy&#39;</span><span class="o">:</span> <span class="s1">&#39;selected_item&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s1">&#39;product.product&#39;</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">])</span>
+            <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;categ_id.name&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s2">&quot;Pet Toys&quot;</span><span class="p">]])</span>
+            <span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">all</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">_</span><span class="p">(</span><span class="nx">results</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">self</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">QWeb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;PetToy&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">item</span><span class="o">:</span> <span class="nx">item</span><span class="p">}));</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="nx">selected_item</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">do_action</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ir.actions.act_window&#39;</span><span class="p">,</span>
+            <span class="nx">res_model</span><span class="o">:</span> <span class="s1">&#39;product.product&#39;</span><span class="p">,</span>
+            <span class="nx">res_id</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
+            <span class="nx">views</span><span class="o">:</span> <span class="p">[[</span><span class="kc">false</span><span class="p">,</span> <span class="s1">&#39;form&#39;</span><span class="p">]],</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;PetToy&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_petstore_pettoy&quot;</span> <span class="na">t-att-data-id=</span><span class="s">&quot;item.id&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;item.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">t-attf-src=</span><span class="s">&quot;data:image/jpg;base64,{{item.image}}&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+</div></section><section id="client-actions"><h3 >Acciones de cliente</h3><p >A lo largo de esta guía, se utilizó un simple widget de <code >HomePage</code> que el cliente web inicia automáticamente cuando selecciona la opción del menú derecho. ¿Pero cómo sabía la Odoo web que tenía que poner este widget? Porque el widget está registrado como una <em >client action</em> (acción del cliente).</p><p >Una acción de cliente es (como su nombre lo indica) un tipo de acción definido casi en su totalidad en el cliente, en javascript para Odoo web. El servidor simplemente envía una etiqueta de acción (un nombre arbitrario) y opcionalmente añade unos pocos parámetros, pero más allá <em >todo</em> es manejado por código personalizado del lado del cliente.</p><p >Nuestro widget está registrada como el controlador de la acción del cliente a través de esto:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">client_actions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;petstore.homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.HomePage&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p ><code >instance.web.client_actions</code> is a <code class="js-class xref js">Registry()</code> in which
@@ -983,7 +1299,60 @@ and display them as email links).</p><p >Para especificar explícitamente de que
 <span class="nt">&lt;/t&gt;</span>
 </pre></div>
 </div>
-<p >En el método <code >start()</code> (el cual es llamado inmediatamente después de que un widget ha sido agregado al DOM), se enlaza el evento <code >change:effective_readonly</code>. Esto nos permite volver a mostrar el campo cada vez que la propiedad del widget <code >effective_readonly``cambia. Éste manejado de evento llamará ``display_field()</code>, el cual es llamado también directamente en <code >start()</code>. El <code >display_field()</code> fué creado específicamente para  éste campo, no es un método definido en <code >AbstractField</code> o cualquier otra clase. Podemos usar éste método para desplegar el contenido del campo en el modo actual.</p><p >De ahora en adelante la concepción de este campo es típica, excepto que hay un montón de comprobaciones para saber el estado de la propiedad <code >effective_readonly</code> :</p><ul ><li ><p >En la plantilla de QWeb usada para mostrar el contenido del widget, se muestra un <code >&lt;input type=&quot;text&quot; /&gt;</code> si estamos en modo de lectura-escritura y nada en particular en modo de sólo lectura.</p></li><li ><p >En el método <code >display_field()</code>, tenemos que enlazar el evento <code >change</code> a el elemento <code >&lt;input type=text/&gt;``para saber cuando el usuario ha cambiado el valor. Cuando esto suceda, llamado a método ``internal_set_value()</code> con el nuevo valor en el campo. Esto es un método conveniente provisto por la clase <code >AbstractField</code>. Dicho método colocará un nuevo valor en la propiedad <code >value``pero no hará una llamada a ``render_value()</code> (la cual no es necesaria ya que <code >&lt;input type=“text”/&gt;</code> contiene el valor correcto)</p></li><li ><p >En <code >render_value()</code>, utilizamos un código totalmente diferente para mostrar el valor del campo en función de si estamos en sólo lectura o en modo de lectura y escritura.</p></li></ul><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Crear un campo de Color</p><p >Crear una clase de <code >FieldColor</code>. El valor de este campo debe ser una cadena que contiene un código de color como los que se usan en CSS (ejemplo: ‘’ #FF0000’’ para el rojo). En modo de sólo lectura, este campo debe mostrar un bloque pequeño cuyo color corresponde al valor del campo. En modo de lectura y escritura, se debe mostrar un <code >&lt;input type=“color”&gt;</code>. Ese tipo de <code >&lt;input&gt;</code> es un componente de HTML5 que no funciona en todos los navegadores pero funciona bien en Google Chrome. Así que está bien para usar como un ejercicio.</p><p >Puede usar este widget en la vista Formulario del modelo <code >message_of_the_day</code> para su campo denominado <code >color</code>. Como un bono, puede cambiar el widget de <code >MessageOfTheDay</code>  en la parte anterior de esta guía para mostrar el mensaje de la jornada con el color de fondo indicado en el campo de <code >color</code>.</p></div></section><section id="the-form-view-custom-widgets"><h3 >Los Widgets personalizados en los formularios</h3><p >Los campos de formulario se utilizan para editar un campo y están intrínsecamente ligados a un campo. Porque esto podría ser una limitante, también es posible crear <em >form widgets</em> que no están tan restringidos y tienen menos vínculos a un ciclo de vida específico.</p><p >Widgets de formulario personalizada se pueden agregar a una vista de formulario a través de la etiqueta de <code >widget</code>:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;widget</span> <span class="na">type=</span><span class="s">&quot;xxx&quot;</span> <span class="nt">/&gt;</span>
+<p >En el método <code >start()</code> (el cual es llamado inmediatamente después de que un widget ha sido agregado al DOM), se enlaza el evento <code >change:effective_readonly</code>. Esto nos permite volver a mostrar el campo cada vez que la propiedad del widget <code >effective_readonly``cambia. Éste manejado de evento llamará ``display_field()</code>, el cual es llamado también directamente en <code >start()</code>. El <code >display_field()</code> fué creado específicamente para  éste campo, no es un método definido en <code >AbstractField</code> o cualquier otra clase. Podemos usar éste método para desplegar el contenido del campo en el modo actual.</p><p >De ahora en adelante la concepción de este campo es típica, excepto que hay un montón de comprobaciones para saber el estado de la propiedad <code >effective_readonly</code> :</p><ul ><li ><p >En la plantilla de QWeb usada para mostrar el contenido del widget, se muestra un <code >&lt;input type=&quot;text&quot; /&gt;</code> si estamos en modo de lectura-escritura y nada en particular en modo de sólo lectura.</p></li><li ><p >En el método <code >display_field()</code>, tenemos que enlazar el evento <code >change</code> a el elemento <code >&lt;input type=text/&gt;``para saber cuando el usuario ha cambiado el valor. Cuando esto suceda, llamado a método ``internal_set_value()</code> con el nuevo valor en el campo. Esto es un método conveniente provisto por la clase <code >AbstractField</code>. Dicho método colocará un nuevo valor en la propiedad <code >value``pero no hará una llamada a ``render_value()</code> (la cual no es necesaria ya que <code >&lt;input type=“text”/&gt;</code> contiene el valor correcto)</p></li><li ><p >En <code >render_value()</code>, utilizamos un código totalmente diferente para mostrar el valor del campo en función de si estamos en sólo lectura o en modo de lectura y escritura.</p></li></ul><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Crear un campo de Color</p><p >Crear una clase de <code >FieldColor</code>. El valor de este campo debe ser una cadena que contiene un código de color como los que se usan en CSS (ejemplo: ‘’ #FF0000’’ para el rojo). En modo de sólo lectura, este campo debe mostrar un bloque pequeño cuyo color corresponde al valor del campo. En modo de lectura y escritura, se debe mostrar un <code >&lt;input type=“color”&gt;</code>. Ese tipo de <code >&lt;input&gt;</code> es un componente de HTML5 que no funciona en todos los navegadores pero funciona bien en Google Chrome. Así que está bien para usar como un ejercicio.</p><p >Puede usar este widget en la vista Formulario del modelo <code >message_of_the_day</code> para su campo denominado <code >color</code>. Como un bono, puede cambiar el widget de <code >MessageOfTheDay</code>  en la parte anterior de esta guía para mostrar el mensaje de la jornada con el color de fondo indicado en el campo de <code >color</code>.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">FieldColor</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">AbstractField</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;change input&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;effective_readonly&#39;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">internal_set_value</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">).</span><span class="nx">val</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change:effective_readonly&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">display_field</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">render_value</span><span class="p">();</span>
+        <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">display_field</span><span class="p">();</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="nx">display_field</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">QWeb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s2">&quot;FieldColor&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">widget</span><span class="o">:</span> <span class="k">this</span><span class="p">}));</span>
+    <span class="p">},</span>
+    <span class="nx">render_value</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;effective_readonly&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.oe_field_color_content&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+<span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.FieldColor&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;FieldColor&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_field_color&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;widget.get(&#39;effective_readonly&#39;)&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_field_color_content&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/t&gt;</span>
+        <span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;! widget.get(&#39;effective_readonly&#39;)&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;color&quot;</span><span class="nt">&gt;&lt;/input&gt;</span>
+        <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">oe_field_color_content</span> <span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">black</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></section><section id="the-form-view-custom-widgets"><h3 >Los Widgets personalizados en los formularios</h3><p >Los campos de formulario se utilizan para editar un campo y están intrínsecamente ligados a un campo. Porque esto podría ser una limitante, también es posible crear <em >form widgets</em> que no están tan restringidos y tienen menos vínculos a un ciclo de vida específico.</p><p >Widgets de formulario personalizada se pueden agregar a una vista de formulario a través de la etiqueta de <code >widget</code>:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;widget</span> <span class="na">type=</span><span class="s">&quot;xxx&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p >Este tipo de widget simplemente creará la vista de formulario durante la creación del HTML según la definición de XML. Tienen propiedades en común con los campos (como la propiedad de <code >effective_readonly</code>) pero que no se les asigna un campo preciso. Y por lo que no tienen métodos como <code >get_value()</code> y <code >set_value()</code>. Debe heredar de la clase abstracta <code >FormWidget</code>.</p><p >Form widgets can interact with form fields by listening for their changes and
@@ -1014,7 +1383,73 @@ field values, takes a mapping of <code >{field_name: value_to_set}</code></li><l
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p >donde <code >XXX</code> debe reemplazarse por la latitud y la <code >YYY</code> por la longitud.</p><p >Mostrar los campos de dos posiciones y un widget de mapa utilizando en una nueva pestaña del notebook en la vista de formulario del producto.</p></div><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Actualizar a la coordenada actual</p><p >Agregar un botón Restablecer coordenadas del producto a la ubicación del usuario, usted puede conseguir estas coordenadas usando el <a href="http://diveintohtml5.info/geolocation.html" class="external reference alert-link">javascript geolocation API</a>.</p><p >Ahora nos gustaría mostrar un botón adicional para configurar automáticamente las coordenadas para la ubicación del usuario actual.</p><p >Para obtener las coordenadas del usuario, una manera fácil es utilizar la API  de geolocalización de JavaScript. <a href="http://www.w3schools.com/html/html5_geolocation.asp" class="external reference alert-link">Ver la documentación online para entender cómo usarla</a>.</p><p >Tenga en cuenta que el usuario no debe poder hacer clic en ese botón cuando la vista de formulario está en modo de sólo lectura. Por lo tanto, este widget personalizado debe manejar correctamente la propiedad  <code >effective_readonly</code> como cualquier campo. Una manera de hacer esto sería hacer el botón desaparece cuando  <code >effective_readonly</code> es [UNKNOWN NODE title_reference].</p></div><div class="footnote" id="id4"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> <p >como un concepto separado de las instancias. En muchos lenguajes las clases son objetos (metaclases) y a su vez tienes instancias de si mismos sin embargo siguen siendo dos jerarquías bastante separadas entre clases e instancias</p></div><div class="footnote" id="dombugs"><span class="footnote-label"><a class="footnote-backref" href="#id2">[2]</a></span> <p >como empapelar sobre las diferencias entre navegadores, aunque esto es menos necesario en el tiempo</p></div></section>
+<p >donde <code >XXX</code> debe reemplazarse por la latitud y la <code >YYY</code> por la longitud.</p><p >Mostrar los campos de dos posiciones y un widget de mapa utilizando en una nueva pestaña del notebook en la vista de formulario del producto.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">WidgetCoordinates</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">FormWidget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;field_changed:provider_latitude&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;field_changed:provider_longitude&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="nx">display_map</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">QWeb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s2">&quot;WidgetCoordinates&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">get_field_value</span><span class="p">(</span><span class="s2">&quot;provider_latitude&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">get_field_value</span><span class="p">(</span><span class="s2">&quot;provider_longitude&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">}));</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">custom_widgets</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;coordinates&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.WidgetCoordinates&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;WidgetCoordinates&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;400&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span>
+        <span class="na">t-attf-src=</span><span class="s">&quot;https://maps.google.com/?ie=UTF8&amp;amp;ll={{latitude}},{{longitude}}&amp;amp;output=embed&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-exercise alert"><p class="alert-title">Exercise</p><p >Actualizar a la coordenada actual</p><p >Agregar un botón Restablecer coordenadas del producto a la ubicación del usuario, usted puede conseguir estas coordenadas usando el <a href="http://diveintohtml5.info/geolocation.html" class="external reference alert-link">javascript geolocation API</a>.</p><p >Ahora nos gustaría mostrar un botón adicional para configurar automáticamente las coordenadas para la ubicación del usuario actual.</p><p >Para obtener las coordenadas del usuario, una manera fácil es utilizar la API  de geolocalización de JavaScript. <a href="http://www.w3schools.com/html/html5_geolocation.asp" class="external reference alert-link">Ver la documentación online para entender cómo usarla</a>.</p><p >Tenga en cuenta que el usuario no debe poder hacer clic en ese botón cuando la vista de formulario está en modo de sólo lectura. Por lo tanto, este widget personalizado debe manejar correctamente la propiedad  <code >effective_readonly</code> como cualquier campo. Una manera de hacer esto sería hacer el botón desaparece cuando  <code >effective_readonly</code> es [UNKNOWN NODE title_reference].</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">WidgetCoordinates</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">FormWidget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click button&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="s1">&#39;received_position&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">sup</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;field_changed:provider_latitude&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;field_changed:provider_longitude&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change:effective_readonly&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">display_map</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">sup</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">display_map</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">QWeb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s2">&quot;WidgetCoordinates&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">get_field_value</span><span class="p">(</span><span class="s2">&quot;provider_latitude&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">get_field_value</span><span class="p">(</span><span class="s2">&quot;provider_longitude&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">}));</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;button&quot;</span><span class="p">).</span><span class="nx">toggle</span><span class="p">(</span><span class="o">!</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;effective_readonly&quot;</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">received_position</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">field_manager</span><span class="p">.</span><span class="nx">set_values</span><span class="p">({</span>
+            <span class="s2">&quot;provider_latitude&quot;</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span>
+            <span class="s2">&quot;provider_longitude&quot;</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">,</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">custom_widgets</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;coordinates&#39;</span><span class="p">,</span> <span class="s1">&#39;instance.oepetstore.WidgetCoordinates&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;WidgetCoordinates&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;400&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span>
+        <span class="na">t-attf-src=</span><span class="s">&quot;https://maps.google.com/?ie=UTF8&amp;amp;ll={{latitude}},{{longitude}}&amp;amp;output=embed&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/iframe&gt;</span>
+    <span class="nt">&lt;button&gt;</span>Get My Current Coordinate<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+</div><div class="footnote" id="id4"><span class="footnote-label"><a class="footnote-backref" href="#id1">[1]</a></span> <p >como un concepto separado de las instancias. En muchos lenguajes las clases son objetos (metaclases) y a su vez tienes instancias de si mismos sin embargo siguen siendo dos jerarquías bastante separadas entre clases e instancias</p></div><div class="footnote" id="dombugs"><span class="footnote-label"><a class="footnote-backref" href="#id2">[2]</a></span> <p >como empapelar sobre las diferencias entre navegadores, aunque esto es menos necesario en el tiempo</p></div></section>
 
           </article>
         </div>
