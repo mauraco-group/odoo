@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-17 21:50-0500\n"
-"PO-Revision-Date: 2017-07-17 21:55-0500\n"
+"PO-Revision-Date: 2017-07-18 14:43-0500\n"
 "Last-Translator: Moisés López <moylop260@vauxoo.com>\n"
 "Language: es\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:7
 msgid "Building a Module"
-msgstr "Construyendo un módulo"
+msgstr "Construyendo un Módulo"
 
 #: ../../howtos/backend.rst:11
 msgid "This tutorial requires :ref:`having installed Odoo <setup/install>`"
@@ -29,11 +29,11 @@ msgstr ""
 "Este tutorial requiere :ref:`haber instalado Odoo <setup/install>`\n"
 "Este tutorial fue traducido al español por Vauxoo [http://www.vauxoo.com] para "
 "sus cursos.\n"
-"Cualquier sugerencia de mejora: enviarla a nhomar en vauxoo dot com."
+"Para cualquier sugerencia de mejora favor de enviarla a nhomar at vauxoo dot com."
 
 #: ../../howtos/backend.rst:14
 msgid "Start/Stop the Odoo server"
-msgstr "Iniciar/Detener el servidor Odoo"
+msgstr "Inicia/Detén el servidor Odoo"
 
 #: ../../howtos/backend.rst:16
 msgid ""
@@ -51,7 +51,7 @@ msgid ""
 msgstr ""
 "La lógica de negocio y sus extensiones se realizan generalmente del lado del "
 "servidor, aunque se apoya en algunas características del cliente (por ejemplo, "
-"una representación de datos como mapas interactivos) que pueden ser añadida al "
+"una representación de datos como mapas interactivos) que pueden ser añadidas al "
 "cliente."
 
 #: ../../howtos/backend.rst:23
@@ -220,7 +220,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:104
 msgid "Module creation"
-msgstr "Construcción de un módulo"
+msgstr "Creación de un módulo"
 
 #: ../../howtos/backend.rst:106
 msgid ""
@@ -236,7 +236,7 @@ msgstr "Ejecuta el comando ``odoo-bin scaffold openacademy addons``."
 
 #: ../../howtos/backend.rst:112
 msgid "Adapt the manifest file to your module."
-msgstr "Adaptar el archivo de manifiesto para su módulo."
+msgstr "Adapta el archivo de manifiesto para su módulo."
 
 #: ../../howtos/backend.rst:113
 msgid "Don't bother about the other files."
@@ -273,7 +273,7 @@ msgid ""
 "minimally complete definition of a model::"
 msgstr ""
 "Módulos pueden ser configurados para establecer un número de atributos en su "
-"definición. El más importante atribute es :attr:`~odoo.models.Model._name` el "
+"definición. El atributo más importante es :attr:`~odoo.models.Model._name` el "
 "cuál es requerido y define el nombre para el modelo en el sistema de Odoo. Aquí "
 "es mínimamente completada la definición de un modelo::"
 
@@ -378,9 +378,9 @@ msgid ""
 "managed by the system and shouldn't be written to. They can be read if useful or "
 "necessary:"
 msgstr ""
-"Odoo crea algunos campos en todos los modelos \\ [#autofields]_. Estos campos "
-"son manejados por el sistema y no deberían ser escritos. Ellos pueden ser leídos "
-"si representan alguna utilidad o son necesarios:"
+"Odoo crea algunos campos en todos los modelos\\ [#autofields]_. Estos campos son "
+"manejados por el sistema y no deberían ser escritos. Ellos pueden ser leídos si "
+"representan alguna utilidad o son necesarios:"
 
 #: ../../howtos/backend.rst:188
 msgid ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
@@ -446,7 +446,7 @@ msgid ""
 "Define a new data model *Course* in the *openacademy* module. A course has a "
 "title and a description. Courses must have a title."
 msgstr ""
-"Definir un nuevo modelo de datos *Curso* en el módulo *openacademy*. Un curso "
+"Define un nuevo modelo de datos *Curso* en el módulo *openacademy*. Un curso "
 "tiene un título y una descripción. Los cursos *deben* tener un título."
 
 #: ../../howtos/backend.rst:213
@@ -487,8 +487,9 @@ msgid ""
 "``id`` is an :term:`external identifier`, it allows referring to the record "
 "(without having to know its in-database identifier)."
 msgstr ""
-"``id`` es un :term:`external identifier`, que permite hacer referencia a un "
-"registro (sin necesidad de conocer su identificador en base de datos)."
+"``id`` es un :term:`external identifier` (identificador único), que permite "
+"hacer referencia a un registro (sin necesidad de conocer su identificador en "
+"base de datos)."
 
 #: ../../howtos/backend.rst:243
 msgid ""
@@ -511,19 +512,19 @@ msgstr ""
 
 #: ../../howtos/backend.rst:250
 msgid "Define demonstration data"
-msgstr "Definir los datos de demostración"
+msgstr "Define los datos de demostración"
 
 #: ../../howtos/backend.rst:252
 msgid ""
 "Create demonstration data filling the *Courses* model with a few demonstration "
 "courses."
 msgstr ""
-"Crear los datos de demostración llenando el model *Courses* con algunos pocos "
+"Crea los datos de demostración llenando el model *Courses* con algunos pocos "
 "cursos."
 
 #: ../../howtos/backend.rst:257
 msgid "Edit the file ``openacademy/demo/demo.xml`` to include some data."
-msgstr "Edite el archivo ``openacademy/demo/demo.xml`` para incluir algunos datos."
+msgstr "Edita el archivo ``openacademy/demo/demo.xml`` para incluir algunos datos."
 
 #: ../../howtos/backend.rst:262
 msgid "Actions and Menus"
@@ -576,14 +577,14 @@ msgstr ""
 
 #: ../../howtos/backend.rst:293
 msgid "Define new menu entries"
-msgstr "Definir nuevas entradas de menú"
+msgstr "Define nuevas entradas de menú"
 
 #: ../../howtos/backend.rst:295
 msgid ""
 "Define new menu entries to access courses under the OpenAcademy menu entry. A "
 "user should be able to :"
 msgstr ""
-"Definir nuevas entradas de menú para acceder a cursos bajo la entrada del menú "
+"Define nuevas entradas de menú para acceder a cursos bajo la entrada del menú "
 "OpenAcademy. Un usuario debería ser capaz de :"
 
 #: ../../howtos/backend.rst:298
@@ -592,19 +593,19 @@ msgstr "ver una lista de todos los cursos"
 
 #: ../../howtos/backend.rst:299
 msgid "create/modify courses"
-msgstr "crear o modificar cursos"
+msgstr "crea/modifica cursos"
 
 #: ../../howtos/backend.rst:303
 msgid ""
 "Create ``openacademy/views/openacademy.xml`` with an action and the menus "
 "triggering the action"
 msgstr ""
-"Crear ``openacademy/views/openacademy.xml`` con una acción y los menús para "
+"Crea ``openacademy/views/openacademy.xml`` con una acción y los menús para "
 "activar la acción"
 
 #: ../../howtos/backend.rst:305
 msgid "Add it to the ``data`` list of ``openacademy/__manifest__.py``"
-msgstr "Añadirlo a la lista de ``data`` de ``openacademy/__manifest__.py``"
+msgstr "Añádelo a la lista de ``data`` de ``openacademy/__manifest__.py``"
 
 #: ../../howtos/backend.rst:310
 msgid "Basic views"
@@ -620,12 +621,12 @@ msgid ""
 "priority view of each type is the default view for that type)."
 msgstr ""
 "Las vistas definen el modo que se muestran los registros de un modelo. Cada tipo "
-"de vista representa un modo de visualización (una lista de registros, un gráfico,"
-"…). Las vistas se pueden solicitar ya sea de manera genérica a través de su tipo "
-"(por ejemplo una *lista de clientes*) o especificando su id. Para solicitudes "
-"genéricas, se utilizará la vista con el tipo y la prioridad más baja (por lo que "
-"la vista de la prioridad más baja de cada tipo es la vista predeterminada para "
-"ese tipo)."
+"de vista representa un modo de visualización (una lista de registros, un "
+"gráfico, …). Las vistas se pueden solicitar ya sea de manera genérica a través "
+"de su tipo (por ejemplo una *lista de clientes*) o especificando su id. Para "
+"solicitudes genéricas, se utilizará la vista con el tipo y la prioridad más baja "
+"(por lo que la vista de la prioridad más baja de cada tipo es la vista "
+"predeterminada para ese tipo)."
 
 #: ../../howtos/backend.rst:320
 msgid ""
@@ -696,19 +697,19 @@ msgstr ""
 
 #: ../../howtos/backend.rst:396
 msgid "Customise form view using XML"
-msgstr "Personalizar vista de formulario usando XML"
+msgstr "Personaliza la vista de formulario usando XML"
 
 #: ../../howtos/backend.rst:398
 msgid ""
 "Create your own form view for the Course object. Data displayed should be: the "
 "name and the description of the course."
 msgstr ""
-"Crear una vista formulario propia para el objeto ``Course``. Los datos mostrados "
-"deben ser: el nombre y la descripción del curso."
+"Crea una vista de formulario propia para el objeto ``Course``. Los datos "
+"mostrados deben ser: el nombre y la descripción del curso."
 
 #: ../../howtos/backend.rst:405
 msgid "Notebooks"
-msgstr "Notebooks"
+msgstr "Cuaderno de Notas (Notebooks)"
 
 #: ../../howtos/backend.rst:407
 msgid ""
@@ -721,7 +722,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:413
 msgid "Modify the Course form view as follows:"
-msgstr "Modificar la vista de formulario de curso como sigue:"
+msgstr "Modifica la vista de formulario de curso como sigue:"
 
 #: ../../howtos/backend.rst:417
 msgid "Form views can also use plain HTML for more flexible layouts:"
@@ -777,7 +778,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:475
 msgid "Create a session model"
-msgstr "Crear un modelo ``Session``"
+msgstr "Crea un modelo ``Session``"
 
 #: ../../howtos/backend.rst:477
 msgid ""
@@ -793,18 +794,18 @@ msgid ""
 "and a number of seats. Add an action and a menu item to display them. Make the "
 "new model visible via a menu item."
 msgstr ""
-"Crear un modelo para *sessions*. Una sesión tiene un nombre, una fecha de "
-"inicio, una duración y un número de asientos. Agregue una acción y un elemento "
-"de menú a los mismos. Visualizar el nuevo modelo a través de un menú."
+"Crea un modelo para *sessions*. Una sesión tiene un nombre, una fecha de inicio, "
+"una duración y un número de asientos. Agrega una acción y un elemento de menú a "
+"los mismos. Visualizar el nuevo modelo a través de un menú."
 
 #: ../../howtos/backend.rst:486
 msgid "Create the class *Session* in ``openacademy/models/models.py``."
-msgstr "Crear la clase *Session* en ``openacademy/models/models.py``."
+msgstr "Crea la clase *Session* en ``openacademy/models/models.py``."
 
 #: ../../howtos/backend.rst:487
 msgid "Add access to the session object in ``openacademy/view/openacademy.xml``."
 msgstr ""
-"Añadir el acceso al objeto *session* en ``openacademy/view/openacademy.xml``."
+"Añade el acceso al objeto *session* en ``openacademy/view/openacademy.xml``."
 
 #: ../../howtos/backend.rst:491
 msgid ""
@@ -845,7 +846,8 @@ msgstr "Un simple enlace a otro objeto::"
 msgid ""
 "`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
 msgstr ""
-"`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
+"`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_ "
+"(llaves foráneas)"
 
 #: ../../howtos/backend.rst:523
 msgid ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
@@ -924,15 +926,15 @@ msgstr ""
 
 #: ../../howtos/backend.rst:544
 msgid "Adapt the views."
-msgstr "Adaptar las vistas."
+msgstr "Adapta las vistas."
 
 #: ../../howtos/backend.rst:548
 msgid "Add the relevant ``Many2one`` fields to the models, and"
-msgstr "Añadir los campos ``Many2one`` correspondientes a los modelos, y"
+msgstr "Añade los campos ``Many2one`` correspondientes a los modelos, y"
 
 #: ../../howtos/backend.rst:549
 msgid "add them in the views."
-msgstr "agregarlos en las vistas."
+msgstr "añádelos en las vistas."
 
 #: ../../howtos/backend.rst:553
 msgid "Inverse one2many relations"
@@ -943,16 +945,16 @@ msgid ""
 "Using the inverse relational field one2many, modify the models to reflect the "
 "relation between courses and sessions."
 msgstr ""
-"Utilizando el campo relacional inverso one2many, modificar los modelos para "
+"Utilizando el campo relacional inverso one2many, modifica los modelos para "
 "reflejar la relación entre los cursos y sesiones."
 
 #: ../../howtos/backend.rst:560
 msgid "Modify the ``Course`` class, and"
-msgstr "Modificar la clase ``Course``, y"
+msgstr "Modifica la clase ``Course``, y"
 
 #: ../../howtos/backend.rst:561
 msgid "add the field in the course form view."
-msgstr "agregar el campo en la vista de formulario del curso."
+msgstr "añade el campo en la vista de formulario del curso."
 
 #: ../../howtos/backend.rst:565
 msgid "Multiple many2many relations"
@@ -965,18 +967,18 @@ msgid ""
 "records, so we will relate to the built-in model ``res.partner``. Adapt the "
 "views accordingly."
 msgstr ""
-"Utilizando el campo relacional Many2Many, modificar el modelo de *Session* para "
+"Utilizando el campo relacional Many2Many, modifica el modelo de *Session* para "
 "relacionar cada sesión a un conjunto de *attendees*. Los asistentes estarán "
 "representados por los registros *partners*, por lo que se relacionan con el "
-"modelo ``res.partner``. Adaptar las vistas en consecuencia."
+"modelo ``res.partner``. Adapta las vistas en consecuencia."
 
 #: ../../howtos/backend.rst:574
 msgid "Modify the ``Session`` class, and"
-msgstr "Modificar la clase `` Session``, y"
+msgstr "Modifica la clase `` Session``, y"
 
 #: ../../howtos/backend.rst:575
 msgid "add the field in the form view."
-msgstr "agregar el campo en la vista de formulario del curso."
+msgstr "agrega el campo en la vista de formulario del curso."
 
 #: ../../howtos/backend.rst:580
 msgid "Inheritance"
@@ -1004,7 +1006,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:591
 msgid "add fields to a model,"
-msgstr "agregar campos a un modelo,"
+msgstr "agrega campos a un modelo,"
 
 #: ../../howtos/backend.rst:592
 msgid "override the definition of fields on a model,"
@@ -1012,11 +1014,11 @@ msgstr "sobrescribir la definición de campos en un modelo,"
 
 #: ../../howtos/backend.rst:593
 msgid "add constraints to a model,"
-msgstr "añadir restricciones a un modelo,"
+msgstr "añade restricciones a un modelo,"
 
 #: ../../howtos/backend.rst:594
 msgid "add methods to a model,"
-msgstr "añadir métodos a un modelo,"
+msgstr "añade métodos a un modelo,"
 
 #: ../../howtos/backend.rst:595
 msgid "override existing methods on a model."
@@ -1154,9 +1156,9 @@ msgid ""
 "``instructor`` boolean field, and a many2many field that corresponds to the "
 "session-partner relation"
 msgstr ""
-"Utilizando el modelo de herencia, modificar el modelo *Partner* y añadir un "
-"campo boolean llamado ``Instructor`` y un campo many2many que correspondería a "
-"la relación de session-partner"
+"Utilizando el modelo de herencia, modifica el modelo *Partner* y añade un campo "
+"boolean llamado ``Instructor`` y un campo many2many que corresponde a la "
+"relación de session-partner"
 
 #: ../../howtos/backend.rst:676
 msgid "Using view inheritance, display this fields in the partner form view"
@@ -1175,13 +1177,13 @@ msgstr ""
 msgid ""
 "Create a file ``openacademy/models/partner.py`` and import it in ``__init__.py``"
 msgstr ""
-"Crear un archivo ``openacademy/models/partner.py`` e importar en ``__init__.py``"
+"Crea un archivo ``openacademy/models/partner.py`` e impórtalo en ``__init__.py``"
 
 #: ../../howtos/backend.rst:688
 msgid ""
 "Create a file ``openacademy/views/partner.xml`` and add it to ``__manifest__.py``"
 msgstr ""
-"Crear un archivo ``openacademy/views/partner.xml`` y agregarlo al ``__manifest__."
+"Crea un archivo ``openacademy/views/partner.xml`` y agrégalo al ``__manifest__."
 "py``"
 
 #: ../../howtos/backend.rst:694
@@ -1194,10 +1196,10 @@ msgid ""
 "records. A domain is a  list of criteria used to select a subset of a model's "
 "records. Each criteria is a triple with a field name, an operator and a value."
 msgstr ""
-"En Odoo, :ref:`reference/orm/domains` son valores que representan condiciones en "
-"los registros. Un dominio es una lista de criterios utilizados para seleccionar "
-"un subconjunto de registros de un modelo. Cada criterio es una tripleta con un "
-"nombre de campo, un operador y un valor."
+"En Odoo, :ref:`reference/orm/domains` (dominios) son valores que representan "
+"condiciones en los registros. Un dominio es una lista de criterios utilizados "
+"para seleccionar un subconjunto de registros de un modelo. Cada criterio es una "
+"tripleta con un nombre de campo, un operador y un valor."
 
 #: ../../howtos/backend.rst:700
 msgid ""
@@ -1263,19 +1265,19 @@ msgid ""
 "Create new partner categories *Teacher / Level 1* and *Teacher / Level 2*. The "
 "instructor for a session can be either an instructor or a teacher (of any level)."
 msgstr ""
-"Crear un par de nuevas categorías *Teacher / Level 1* y *Teacher / Level 2*. El "
+"Crea un par de nuevas categorías *Teacher / Level 1* y *Teacher / Level 2*. El "
 "instructor de una sesión puede ser un *instructor* o un profesor (*de cualquier "
 "nivel*)."
 
 #: ../../howtos/backend.rst:744
 msgid "Modify the *Session* model's domain"
-msgstr "Modificar el dominio del modelo *Session*"
+msgstr "Modifica el dominio del modelo *Session*"
 
 #: ../../howtos/backend.rst:745
 msgid ""
 "Modify ``openacademy/view/partner.xml`` to get access to *Partner categories*:"
 msgstr ""
-"Modificar ``openacademy/view/partner.xml`` para obtener acceso a las categorías "
+"Modifica ``openacademy/view/partner.xml`` para obtener acceso a las categorías "
 "que acabamos de crear:"
 
 #: ../../howtos/backend.rst:751
@@ -1354,23 +1356,23 @@ msgstr "Campos y valores calculados"
 
 #: ../../howtos/backend.rst:815
 msgid "Add the percentage of taken seats to the *Session* model"
-msgstr "Agregar el porcentaje de asientos tomados para el modelo *session*"
+msgstr "Agrega el porcentaje de asientos tomados para el modelo *session*"
 
 #: ../../howtos/backend.rst:816
 msgid "Display that field in the tree and form views"
-msgstr "Mostrar ese campo en la vista de árbol y formulario"
+msgstr "Muestra ese campo en la vista de árbol y formulario"
 
 #: ../../howtos/backend.rst:817
 msgid "Display the field as a progress bar"
-msgstr "Mostrar el campo como una barra de progreso"
+msgstr "Muestra el campo como una barra de progreso"
 
 #: ../../howtos/backend.rst:821
 msgid "Add a computed field to *Session*"
-msgstr "Agregar un campo calculado a una *Session*"
+msgstr "Agrega un campo calculado a una *Session*"
 
 #: ../../howtos/backend.rst:822
 msgid "Show the field in the *Session* view:"
-msgstr "Mostrar el campo en la vista *Session*:"
+msgstr "Muestra el campo en la vista *Session*:"
 
 #: ../../howtos/backend.rst:827
 msgid "Default values"
@@ -1431,7 +1433,7 @@ msgstr "Objetos activos – valores por defecto"
 msgid ""
 "Define the start_date default value as today (see :class:`~odoo.fields.Date`)."
 msgstr ""
-"Definir el valor por defecto de start_date como hoy (ver :class:`~odoo.fields."
+"Define el valor por defecto de start_date como hoy (ver :class:`~odoo.fields."
 "Date`)."
 
 #: ../../howtos/backend.rst:853
@@ -1439,8 +1441,8 @@ msgid ""
 "Add a field ``active`` in the class Session, and set sessions as active by "
 "default."
 msgstr ""
-"Agregue un campo ``active`` en la clase de Session y haga las sesiones activas "
-"por defecto."
+"Agrega un campo ``active`` en la clase de Session y has las sesiones activas por "
+"defecto."
 
 #: ../../howtos/backend.rst:862
 msgid ""
@@ -1487,9 +1489,9 @@ msgid ""
 "the ``taken_seats`` progressbar is automatically updated."
 msgstr ""
 "Para campos calculados, el comportamiento ``onchange`` está incorporado como se "
-"aprecia al jugar con el formulario de una *Sessión*: cambia el número de "
-"asientos o los participantes, y se actualiza automáticamente el progressbar de "
-"``taken_seats``."
+"aprecia trabajando con el formulario de una *Sessión*: cambia el número de "
+"asientos o los participantes, y se actualiza automáticamente la barra de "
+"progreso de ``taken_seats``."
 
 #: ../../howtos/backend.rst:905
 msgid "Warning"
@@ -1500,7 +1502,7 @@ msgid ""
 "Add an explicit onchange to warn about invalid values, like a negative number of "
 "seats, or more participants than seats."
 msgstr ""
-"Añadir un onchange explícito para advertir sobre valores no válidos, como un "
+"Añade un onchange explícito para advertir sobre valores no válidos, como un "
 "número negativo de asientos o más participantes que asientos."
 
 #: ../../howtos/backend.rst:915
@@ -1533,14 +1535,14 @@ msgstr ""
 
 #: ../../howtos/backend.rst:936
 msgid "Add Python constraints"
-msgstr "Agregar restricciones de Python"
+msgstr "Agrega restricciones de Python"
 
 #: ../../howtos/backend.rst:938
 msgid ""
 "Add a constraint that checks that the instructor is not present in the attendees "
 "of his/her own session."
 msgstr ""
-"Agregar una restricción que comprueba que el instructor no está presente en los "
+"Agrega una restricción que comprueba que el instructor no está presente en los "
 "asistentes de su propia sesión."
 
 #: ../../howtos/backend.rst:945
@@ -1559,27 +1561,27 @@ msgstr ""
 
 #: ../../howtos/backend.rst:951
 msgid "Add SQL constraints"
-msgstr "Agregar restricciones SQL"
+msgstr "Agrega restricciones SQL"
 
 #: ../../howtos/backend.rst:953
 msgid ""
 "With the help of `PostgreSQL's documentation`_ , add the following constraints:"
 msgstr ""
-"Con la ayuda de `Documentación de PostgreSQL`_, añadir las siguientes "
+"Con la ayuda de la `Documentación de PostgreSQL`_, añade las siguientes "
 "restricciones:"
 
 #: ../../howtos/backend.rst:956
 msgid "CHECK that the course description and the course title are different"
 msgstr ""
-"Compruebe que la descripción del curso y el título del curso son diferentes"
+"Comprueba que la descripción del curso y el título del curso son diferentes"
 
 #: ../../howtos/backend.rst:957
 msgid "Make the Course's name UNIQUE"
-msgstr "Hacer el nombre del Curso ÚNICO"
+msgstr "Haz el nombre del Curso ÚNICO"
 
 #: ../../howtos/backend.rst:963
 msgid "Exercise 6 - Add a duplicate option"
-msgstr "Ejercicio 6 - Añadir una opción duplicar"
+msgstr "Ejercicio 6 - Añade una opción para duplicar"
 
 #: ../../howtos/backend.rst:965
 msgid ""
@@ -1595,7 +1597,7 @@ msgid ""
 "Re-implement your own \"copy\" method which allows to duplicate the Course "
 "object, changing the original name into \"Copy of [original name]\"."
 msgstr ""
-"Volver a implementar su propio método de \"copy\" que permite duplicar el objeto "
+"Vuelve a implementar su propio método de \"copy\" que permita duplicar el objeto "
 "del curso, cambiando el nombre original por \"Copy of [original name]\"."
 
 #: ../../howtos/backend.rst:977
@@ -1671,13 +1673,13 @@ msgid ""
 "Modify the Session tree view in such a way that sessions lasting less than 5 "
 "days are colored blue, and the ones lasting more than 15 days are colored red."
 msgstr ""
-"Modificar la vista de árbol de una sesión de tal manera que las sesiones que "
-"duran menos de 5 días son de color azul, y los que duran más de 15 días son de "
+"Modifica la vista de árbol de una sesión de tal manera que las sesiones que "
+"duran menos de 5 días sean de color azul, y los que duran más de 15 días sean de "
 "color rojo."
 
 #: ../../howtos/backend.rst:1021
 msgid "Modify the session tree view:"
-msgstr "Modificar la vista de árbol de sesión:"
+msgstr "Modifica la vista de árbol de sesión:"
 
 #: ../../howtos/backend.rst:1026
 msgid "Calendars"
@@ -1739,14 +1741,13 @@ msgid ""
 "Add a Calendar view to the *Session* model enabling the user to view the events "
 "associated to the Open Academy."
 msgstr ""
-"Agregar una vista de calendario al modelo *Session* que permita visualizar los "
+"Agrega una vista de calendario al modelo *Session* que permita visualizar los "
 "eventos asociados a la OpenAcademy."
 
 #: ../../howtos/backend.rst:1056
 msgid "Add an ``end_date`` field computed from ``start_date`` and ``duration``"
 msgstr ""
-"Agregar un campo ``end_date``  calculado a partir de ``start_date`` y "
-"``duration``"
+"Agrega un campo ``end_date`` calculado a partir de ``start_date`` y ``duration``"
 
 #: ../../howtos/backend.rst:1059
 msgid ""
@@ -1758,11 +1759,11 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1062
 msgid "Add a calendar view to the *Session* model"
-msgstr "Agregar una vista de calendario al modelo *Session*"
+msgstr "Agrega una vista de calendario al modelo *Session*"
 
 #: ../../howtos/backend.rst:1063
 msgid "And add the calendar view to the *Session* model's actions"
-msgstr "Y añadir la vista de calendario a la acción del modelo *Session*"
+msgstr "Y añade la vista de calendario a la acción del modelo *Session*"
 
 #: ../../howtos/backend.rst:1070
 msgid ""
@@ -1792,7 +1793,7 @@ msgstr "``domain``"
 
 #: ../../howtos/backend.rst:1079
 msgid "add the given domain to the current search"
-msgstr "añadir el dominio dado a la búsqueda actual"
+msgstr "añade el dominio dado a la búsqueda actual"
 
 #: ../../howtos/backend.rst:1082
 msgid "``context``"
@@ -1803,8 +1804,8 @@ msgid ""
 "add some context to the current search; use the key ``group_by`` to group "
 "results on the given field name"
 msgstr ""
-"añadir algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` "
-"para agrupar los resultados por el campo nombre"
+"añade algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` para "
+"agrupar los resultados por el campo nombre"
 
 #: ../../howtos/backend.rst:1101
 msgid ""
@@ -1824,23 +1825,23 @@ msgid ""
 msgstr ""
 "La acción también puede establecer valores predeterminados para los campos de "
 "búsqueda a través de su campo ``context``: las claves del contexto deben tener "
-"la forma :samp:`search_default_{field_name}` la cual inicializará  *field_name* "
+"la forma :samp:`search_default_{field_name}` la cual inicializará *field_name* "
 "con el valor proporcionado. Filtros de búsqueda deben tener un ``@name`` "
-"opcional para tener un valor por defecto y comportarse como booleanos (que "
-"pueden sólo ser activadas por defecto)."
+"opcional para tener un valor por defecto y comportarse como datos lógicos "
+"(booleans) (que pueden sólo ser activadas por defecto)."
 
 #: ../../howtos/backend.rst:1112
 msgid ""
 "Add a button to filter the courses for which the current user is the responsible "
 "in the course search view. Make it selected by default."
 msgstr ""
-"Añadir un botón en la vista de búsqueda para filtrar los cursos de tal forma que "
+"Añade un botón en la vista de búsqueda para filtrar los cursos de tal forma que "
 "encuentre solo los registros donde el usuario actual sea el responsable del "
 "curso. Y que esté seleccionada por defecto."
 
 #: ../../howtos/backend.rst:1114
 msgid "Add a button to group courses by responsible user."
-msgstr "Agregar un botón para agrupar los cursos por el usuario responsable."
+msgstr "Agrega un botón para agrupar los cursos por el usuario responsable."
 
 #: ../../howtos/backend.rst:1121
 msgid "Gantt"
@@ -1871,21 +1872,21 @@ msgid ""
 "Add a Gantt Chart enabling the user to view the sessions scheduling linked to "
 "the Open Academy module. The sessions should be grouped by instructor."
 msgstr ""
-"Agregar un diagrama de Gantt que permite al usuario ver la programación de las "
+"Agrega un diagrama de Gantt que permite al usuario ver la programación de las "
 "sesiones relacionados con el módulo OpenAcademy. Las sesiones deben agruparse "
 "por instructor."
 
 #: ../../howtos/backend.rst:1146
 msgid "Create a computed field expressing the session's duration in hours"
-msgstr "Crear un campo calculado expresando la duración de la sesión en horas"
+msgstr "Crea un campo calculado expresando la duración de la sesión en horas"
 
 #: ../../howtos/backend.rst:1147
 msgid ""
 "Add the gantt view's definition, and add the gantt view to the *Session* model's "
 "action"
 msgstr ""
-"Agregar la definición de la vista de gantt y agregar la vista de gantt a la "
-"acción del modelo *Session*"
+"Agrega la definición de la vista de gantt y agrega la vista de gantt a la acción "
+"del modelo *Session*"
 
 #: ../../howtos/backend.rst:1153
 msgid "Graph views"
@@ -1997,16 +1998,16 @@ msgid ""
 "Add a Graph view in the Session object that displays, for each course, the "
 "number of attendees under the form of a bar chart."
 msgstr ""
-"Agregar una vista de gráfico en el objeto Session que muestre, para cada curso, "
+"Agrega una vista de gráfico en el objeto Session que muestre, para cada curso, "
 "el número de participantes bajo la forma de un gráfico de barras."
 
 #: ../../howtos/backend.rst:1205
 msgid "Add the number of attendees as a stored computed field"
-msgstr "Agregar el número de asistentes como un campo calculado almacenado"
+msgstr "Agrega el número de asistentes como un campo calculado almacenado"
 
 #: ../../howtos/backend.rst:1206
 msgid "Then add the relevant view"
-msgstr "Luego añadir la vista relevante"
+msgstr "Luego añade la vista relevante"
 
 #: ../../howtos/backend.rst:1211
 msgid "Kanban"
@@ -2054,16 +2055,16 @@ msgid ""
 "Add a Kanban view that displays sessions grouped by course (columns are thus "
 "courses)."
 msgstr ""
-"Agregar una vista de Kanban que muestre sesiones agrupadas por curso (las "
+"Agrega una vista de Kanban que muestre sesiones agrupadas por curso (las "
 "columnas son cursos)."
 
 #: ../../howtos/backend.rst:1232
 msgid "Add an integer ``color`` field to the *Session* model"
-msgstr "Agregar un campo entero de ``color`` al modelo *Session*"
+msgstr "Agrega un campo entero de ``color`` al modelo *Session*"
 
 #: ../../howtos/backend.rst:1233
 msgid "Add the kanban view and update the action"
-msgstr "Añadir la opción de kanban y actualizar la acción"
+msgstr "Añade la opción de kanban y actualiza la acción"
 
 #: ../../howtos/backend.rst:1238
 msgid "Security"
@@ -2074,8 +2075,8 @@ msgid ""
 "Access control mechanisms must be configured to achieve a coherent security "
 "policy."
 msgstr ""
-"Mecanismos de control de acceso deben ser configurados para lograr una política "
-"coherente de seguridad."
+"Los mecanismos de control de acceso deben ser configurados para lograr una "
+"política coherente de seguridad."
 
 #: ../../howtos/backend.rst:1244
 msgid "Group-based access control mechanisms"
@@ -2118,15 +2119,15 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1268
 msgid "Add access control through the Odoo interface"
-msgstr "Añadir control de acceso mediante la interfaz de Odoo"
+msgstr "Añade control de acceso mediante la interfaz de Odoo"
 
 #: ../../howtos/backend.rst:1270
 msgid ""
 "Create a new user \"John Smith\". Then create a group \"OpenAcademy / Session "
 "Read\" with read access to the *Session* model."
 msgstr ""
-"Crea un nuevo usuario “John Smith”. Crear un grupo \"OpenAcademy / Session Read"
-"\" con acceso de lectura al modelo *Session*."
+"Crea un nuevo usuario “John Smith”. Crea un grupo \"OpenAcademy / Session Read\" "
+"con acceso de lectura al modelo *Session*."
 
 #: ../../howtos/backend.rst:1275
 msgid ""
@@ -2141,13 +2142,13 @@ msgid ""
 "Create a new group ``session_read`` through :menuselection:`Settings --> Users --"
 "> Groups`, it should have read access on the *Session* model"
 msgstr ""
-"Crear un nuevo grupo llamado ``session_read`` a través del menú :menuselection:"
+"Crea un nuevo grupo llamado ``session_read`` a través del menú :menuselection:"
 "`Settings --> Users --> Groups`, que debe tener acceso de lectura sobre el "
 "modelo *Session*"
 
 #: ../../howtos/backend.rst:1280
 msgid "Edit *John Smith* to make them a member of ``session_read``"
-msgstr "Editar *John Smith* para que sea un miembro de ``session_read``"
+msgstr "Edita *John Smith* para que sea un miembro de ``session_read``"
 
 #: ../../howtos/backend.rst:1281
 msgid "Log in as *John Smith* to check the access rights are correct"
@@ -2157,11 +2158,11 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1283
 msgid "Add access control through data files in your module"
-msgstr "Añadir el control de acceso a través de los archivos de datos en el módulo"
+msgstr "Añade el control de acceso a través de los archivos de datos en el módulo"
 
 #: ../../howtos/backend.rst:1285
 msgid "Using data files,"
-msgstr "El uso de archivos de datos,"
+msgstr "Usando archivos de datos,"
 
 #: ../../howtos/backend.rst:1287
 msgid ""
@@ -2179,7 +2180,7 @@ msgid ""
 "Create a new file ``openacademy/security/security.xml`` to hold the OpenAcademy "
 "Manager group"
 msgstr ""
-"Crear un nuevo archivo ``openacademy/security/security.xml`` que tenga el grupo "
+"Crea un nuevo archivo ``openacademy/security/security.xml`` que tenga el grupo "
 "OpenAcademy Manager en él"
 
 #: ../../howtos/backend.rst:1295
@@ -2187,14 +2188,14 @@ msgid ""
 "Edit the file ``openacademy/security/ir.model.access.csv`` with the access "
 "rights to the models"
 msgstr ""
-"Editar el archivo ``openacademy/security/ir.model.access.csv`` con los derechos "
+"Edita el archivo ``openacademy/security/ir.model.access.csv`` con los derechos "
 "de acceso a los modelos"
 
 #: ../../howtos/backend.rst:1297
 msgid ""
 "Finally update ``openacademy/__manifest__.py`` to add the new data files to it"
 msgstr ""
-"Finalmente actualizar ``openacademy/__manifest__.py`` para añadir los nuevos "
+"Finalmente actualiza ``openacademy/__manifest__.py`` para añadir los nuevos "
 "archivos de datos en él"
 
 #: ../../howtos/backend.rst:1303
@@ -2212,7 +2213,7 @@ msgstr ""
 "Una regla de registro restringe los derechos de acceso a un subconjunto de "
 "registros de un modelo dado. Una regla es un registro del modelo ``ir.rule``, y "
 "se asocia a un modelo, un número de grupos (campo Many2Many), los permisos a los "
-"que se aplicarán, y un dominio. El dominio especifica a cuales registros los "
+"que se aplicarán, y un dominio. El dominio especifica a cuáles registros los "
 "derechos de acceso serán limitados."
 
 #: ../../howtos/backend.rst:1311
@@ -2236,14 +2237,14 @@ msgid ""
 "that restricts ``write`` and ``unlink`` accesses to the responsible of a course. "
 "If a course has no responsible, all users of the group must be able to modify it."
 msgstr ""
-"Agregar una regla de registro para el modelo *Course* y el grupo \"OpenAcademy / "
-"Manager\", que restringe el ``write`` y  ``unlink`` al responsable de un curso. "
+"Agrega una regla de registro para el modelo *Course* y el grupo \"OpenAcademy / "
+"Manager\", que restringe el ``write`` y ``unlink`` al responsable de un curso. "
 "Si un curso no tiene responsable, todos los usuarios del grupo deben ser capaces "
 "de modificarlo."
 
 #: ../../howtos/backend.rst:1337
 msgid "Create a new rule in ``openacademy/security/security.xml``:"
-msgstr "Crear una nueva regla en ``openacademy/security/security.xml``:"
+msgstr "Crea una nueva regla en ``openacademy/security/security.xml``:"
 
 #: ../../howtos/backend.rst:1342
 msgid "Wizards"
@@ -2257,12 +2258,12 @@ msgid ""
 "`~odoo.models.TransientModel` extends :class:`~odoo.models.Model` and reuse all "
 "its existing mechanisms, with the following particularities:"
 msgstr ""
-"Asistentes describen sesiones interactivas con el usuario (o cajas de diálogos) "
-"a través de formularios dinámicos. Un asistente es simplemente un modelo que "
-"extiende la clase :class:`~odoo.models.TransientModel` en vez de :class:`~odoo."
-"models.Model`. La clase :class:`~odoo.models.TransientModel` extiende :class:"
-"`~odoo.models.Model` y re-usa todos sus mecanismos existentes, con las "
-"siguientes particularidades:"
+"Los asistentes describen sesiones interactivas con el usuario (o cajas de "
+"diálogos) a través de formularios dinámicos. Un asistente es simplemente un "
+"modelo que extiende la clase :class:`~odoo.models.TransientModel` en vez de :"
+"class:`~odoo.models.Model`. La clase :class:`~odoo.models.TransientModel` "
+"extiende :class:`~odoo.models.Model` y re-usa todos sus mecanismos existentes, "
+"con las siguientes particularidades:"
 
 #: ../../howtos/backend.rst:1351
 msgid ""
@@ -2289,15 +2290,15 @@ msgid ""
 msgstr ""
 "Los registros de un asistente pueden referirse a registros normales a través de "
 "la definición de campos many2one, pero los registros regulares *no* se pueden "
-"referir a los registros de un asistentes a través de campos many2one."
+"referir a los registros de un asistente a través de campos many2one."
 
 #: ../../howtos/backend.rst:1360
 msgid ""
 "We want to create a wizard that allow users to create attendees for a particular "
 "session, or for a list of sessions at once."
 msgstr ""
-"Queremos crear un asistente que permite a los usuarios crear a *attendees* para "
-"una determinada sesión, o para una lista de sesiones a la vez."
+"Queremos crear un asistente que permite a los usuarios crear a *attendees* "
+"(asistentes) para una determinada sesión, o para una lista de sesiones a la vez."
 
 #: ../../howtos/backend.rst:1363
 msgid "Define the wizard"
@@ -2308,12 +2309,12 @@ msgid ""
 "Create a wizard model with a many2one relationship with the *Session* model and "
 "a many2many relationship with the *Partner* model."
 msgstr ""
-"Crear un modelo asistente con una relación many2one al modelo *Session* y una "
+"Crea un modelo asistente con una relación many2one al modelo *Session* y una "
 "relación many2many con el modelo *Partner*."
 
 #: ../../howtos/backend.rst:1370
 msgid "Add a new file ``openacademy/wizard.py``:"
-msgstr "Agregue un nuevo archivo ``openacademy/wizard.py``:"
+msgstr "Agrega un nuevo archivo ``openacademy/wizard.py``:"
 
 #: ../../howtos/backend.rst:1375
 msgid "Launching wizards"
@@ -2355,22 +2356,22 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1400
 msgid "Launch the wizard"
-msgstr "Iniciar al asistente"
+msgstr "Inicia el asistente"
 
 #: ../../howtos/backend.rst:1402
 msgid "Define a form view for the wizard."
-msgstr "Definir una vista de formulario para el asistente."
+msgstr "Define una vista de formulario para el asistente."
 
 #: ../../howtos/backend.rst:1403
 msgid "Add the action to launch it in the context of the *Session* model."
-msgstr "Añadir la acción para ejecutar en el contexto del modelo *Session*."
+msgstr "Añade la acción para ejecutar en el contexto del modelo *Session*."
 
 #: ../../howtos/backend.rst:1404
 msgid ""
 "Define a default value for the session field in the wizard; use the context "
 "parameter ``self._context`` to retrieve the current session."
 msgstr ""
-"Definir un valor predeterminado para el campo de sesión en el asistente; Utilice "
+"Define un valor predeterminado para el campo de sesión en el asistente; Utilice "
 "el parámetro de ``self._context`` para recuperar la sesión actual."
 
 #: ../../howtos/backend.rst:1411
@@ -2382,8 +2383,8 @@ msgid ""
 "Add buttons to the wizard, and implement the corresponding method for adding the "
 "attendees to the given session."
 msgstr ""
-"Añadir botones al asistente e implementar el método correspondiente para agregar "
-"a los asistentes a la sesión dada."
+"Añade botones al asistente e implementa el método correspondiente para agregar a "
+"los asistentes a la sesión dada."
 
 #: ../../howtos/backend.rst:1420
 msgid "Register attendees to multiple sessions"
@@ -2393,8 +2394,8 @@ msgstr "Registro de asistentes a las sesiones múltiples"
 msgid ""
 "Modify the wizard model so that attendees can be registered to multiple sessions."
 msgstr ""
-"Modificar el modelo de asistente (wizard) para que los asistentes puedan "
-"registrarse para varias sesiones."
+"Modifica el modelo de asistente (wizard) para que los asistentes puedan "
+"registrarse a varias sesiones."
 
 #: ../../howtos/backend.rst:1430
 msgid "Internationalization"
@@ -2423,7 +2424,7 @@ msgstr ""
 "(:menuselection:`Settings --> Translations --> Import/Export --> Export "
 "Translation` sin especificar un lenguaje) para crear el archivo plantilla POT "
 "del modulo, y entonces usarlo para crear las traducciones derivadas las cuales "
-"serían archivos PO. Varios IDEs tienen plugins o modos de edición y merge de "
+"serían archivos PO. Varios IDEs tienen plugins o modos de edición y unión de "
 "archivos PO/POT, por ejemplo ``poEdit``."
 
 #: ../../howtos/backend.rst:1443
@@ -2432,7 +2433,7 @@ msgid ""
 "www.transifex.com/odoo/public/>`__, making it easy to translate the software."
 msgstr ""
 "Los archivos del Objeto Potable generados por Odoo son publicados en `Transifex "
-"<https://www.transifex.com/odoo/public/>`__, haciendo fácil para traducir el "
+"<https://www.transifex.com/odoo/public/>`__, haciendo fácil la traducción del "
 "programa."
 
 #: ../../howtos/backend.rst:1458
@@ -2455,19 +2456,19 @@ msgid ""
 "Choose a second language for your Odoo installation. Translate your module using "
 "the facilities provided by Odoo."
 msgstr ""
-"Elegir un segundo idioma para la instalación de Odoo. Traducir su módulo "
+"Elige un segundo idioma para la instalación de Odoo. Traduce su módulo "
 "utilizando los servicios proporcionados por Odoo."
 
 #: ../../howtos/backend.rst:1470
 msgid "Create a directory ``openacademy/i18n/``"
-msgstr "Crear un directorio ``openacademy/i18n/``"
+msgstr "Crea un directorio ``openacademy/i18n/``"
 
 #: ../../howtos/backend.rst:1471
 msgid ""
 "Install whichever language you want ( :menuselection:`Administration --> "
 "Translations --> Load an Official Translation`)"
 msgstr ""
-"Instalar cualquier idioma que desee ( :menuselection:`Administration --> "
+"Instala cualquier idioma que desee ( :menuselection:`Administration --> "
 "Translations --> Load an Official Translation`)"
 
 #: ../../howtos/backend.rst:1474
@@ -2475,8 +2476,8 @@ msgid ""
 "Synchronize translatable terms (:menuselection:`Administration --> Translations "
 "--> Application Terms --> Synchronize Translations`)"
 msgstr ""
-"Sincronizar términos traducibles  (:menuselection:`Administration --> "
-"Translations --> Application Terms --> Synchronize Translations`)"
+"Sincroniza términos traducibles (:menuselection:`Administration --> Translations "
+"--> Application Terms --> Synchronize Translations`)"
 
 #: ../../howtos/backend.rst:1476
 msgid ""
@@ -2484,7 +2485,7 @@ msgid ""
 "--> Translations -> Import/Export --> Export Translation`) without specifying a "
 "language, save in ``openacademy/i18n/``"
 msgstr ""
-"Crear un archivo de plantilla de traducción por exportación ( :menuselection:"
+"Crea un archivo de plantilla de traducción por exportación ( :menuselection:"
 "`Administration --> Translations -> Import/Export --> Export Translation`) sin "
 "especificar un idioma, guardar en ``openacademy/i18n/``"
 
@@ -2494,7 +2495,7 @@ msgid ""
 "Translations --> Import/Export --> Export Translation`) and specifying a "
 "language. Save it in ``openacademy/i18n/``"
 msgstr ""
-"Crear un archivo de traducción mediante la exportación ( :menuselection:"
+"Crea un archivo de traducción mediante la exportación ( :menuselection:"
 "`Administration --> Translations --> Import/Export --> Export Translation`) "
 "especificaca un idioma. Guardarlo en ``openacademy/i18n/``"
 
@@ -2503,7 +2504,7 @@ msgid ""
 "Open the exported translation file (with a basic text editor or a dedicated PO-"
 "file editor e.g. POEdit_ and translate the missing terms"
 msgstr ""
-"Abra el archivo exportado de la traducción (con un editor de texto básico o un "
+"Abre el archivo exportado de la traducción (con un editor de texto básico o un "
 "editor de fichero PO dedicado por ejemplo POEdit_) y traduce los términos que "
 "faltan"
 
@@ -2512,8 +2513,8 @@ msgid ""
 "In ``models.py``, add an import statement for the function ``odoo._`` and mark "
 "missing strings as translatable"
 msgstr ""
-"En ``models.py``, agregue una instrucción import para la función ``odoo._`` y "
-"marca que faltan cadenas como traducible"
+"En ``models.py``, agrega una instrucción import para la función ``odoo._`` y "
+"marca las cadenas restantes como traducibles"
 
 #: ../../howtos/backend.rst:1491
 msgid "Repeat steps 3-6"
@@ -2566,7 +2567,7 @@ msgstr ""
 "de una URL y los parámetros de salida pueden ser manipulados a través de esta "
 "URL, por ejemplo la versión HTML de la *factura* está disponible a través de "
 "http://localhost:8069/report/html/account.report_invoice/1 (si está instalado "
-"‘’account’’) y la versión en PDF a través de http://localhost:8069/report/pdf/"
+"``account``) y la versión en PDF a través de http://localhost:8069/report/pdf/"
 "account.report_invoice/1."
 
 #: ../../howtos/backend.rst:1561
@@ -2596,8 +2597,8 @@ msgid ""
 "kind of proxy, that could not be reachable. You can fix this by adding one of "
 "these system parameters:"
 msgstr ""
-"El proceso de wkhtmltopdf_ utiliza el parámetro de sistema de ``web.base.url`` "
-"como la *root path* a archivos todos los ``links``, pero este parámetro se "
+"El proceso de wkhtmltopdf_ utiliza el parámetro del sistema ``web.base.url`` "
+"como la *root path* a archivos de todos los ``links``, pero este parámetro se "
 "actualiza automáticamente cada vez que el administrador ha iniciado sesión. Si "
 "su servidor se encuentra detrás de algún tipo de proxy, no podrá llegar. Puede "
 "solucionar esto mediante la adición de uno de estos parámetros del sistema:"
@@ -2622,7 +2623,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1581
 msgid "Create a report for the Session model"
-msgstr "Crear un informe para el modelo de sesión"
+msgstr "Crea un informe para el modelo de sesión"
 
 #: ../../howtos/backend.rst:1583
 msgid ""
@@ -2638,7 +2639,7 @@ msgstr "Paneles de control"
 
 #: ../../howtos/backend.rst:1593
 msgid "Define a Dashboard"
-msgstr "Definir un panel de control"
+msgstr "Define un panel de control"
 
 #: ../../howtos/backend.rst:1595
 msgid ""
@@ -2647,11 +2648,11 @@ msgid ""
 "should be available through a menuitem in the menu, and automatically displayed "
 "in the web client when the OpenAcademy main menu is selected."
 msgstr ""
-"Definir un tablero que contiene la vista gráfico que creó, la vista de "
-"calendario de sesiones y una vista de lista de los cursos (conmutables a una "
-"vista de formulario). Este panel debe estar disponible a través de un menuitem "
-"en el menú y aparecerá automáticamente en el cliente web cuando se selecciona el "
-"menú principal de OpenAcademy."
+"Define un tablero que contiene la vista gráfico que creó, la vista de calendario "
+"de sesiones y una vista de lista de los cursos (conmutables a una vista de "
+"formulario). Este panel debe estar disponible a través de un menuitem en el menú "
+"y aparecerá automáticamente en el cliente web cuando se selecciona el menú "
+"principal de OpenAcademy."
 
 #: ../../howtos/backend.rst:1603
 msgid ""
@@ -2659,7 +2660,7 @@ msgid ""
 "board view, the actions referenced in that view, an action to open the dashboard "
 "and a re-definition of the main menu item to add the dashboard action"
 msgstr ""
-"Crear un archivo ``openacademy/views/session_board.xml``. Que debe contener la "
+"Crea un archivo ``openacademy/views/session_board.xml``. Este debe contener la "
 "vista de tablero, las acciones referenciadas en dicha vista, una acción para "
 "abrir el tablero y una nueva definición de la opción del menú principal para "
 "agregar la acción del tablero"
@@ -2674,8 +2675,8 @@ msgstr ""
 #: ../../howtos/backend.rst:1611
 msgid "Update ``openacademy/__manifest__.py`` to reference the new data file"
 msgstr ""
-"Actualizar ``openacademy/__manifest__.py`` para hacer referencia al nuevo "
-"archivo de datos"
+"Actualiza ``openacademy/__manifest__.py`` para hacer referencia al nuevo archivo "
+"de datos"
 
 #: ../../howtos/backend.rst:1617
 msgid "WebServices"
@@ -2726,7 +2727,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:1653
 msgid "Add a new service to the client"
-msgstr "Añadir un nuevo servicio al cliente"
+msgstr "Añade un nuevo servicio al cliente"
 
 #: ../../howtos/backend.rst:1655
 msgid ""
@@ -2735,7 +2736,7 @@ msgid ""
 "their corresponding number of seats. It should also create a new session for one "
 "of the courses."
 msgstr ""
-"Escribir un programa de Python capaz de enviar peticiones XML-RPC a un PC Odoo "
+"Escribe un programa de Python capaz de enviar peticiones XML-RPC a un PC Odoo "
 "(tuyo o de tu instructor). Este programa debe mostrar todas las sesiones y su "
 "correspondiente número de asientos. También debe crear una nueva sesión para uno "
 "de los cursos."
@@ -2812,8 +2813,8 @@ msgid ""
 "writing raw SQL queries is possible, but requires care as it bypasses all Odoo "
 "authentication and security mechanisms."
 msgstr ""
-"escribir consultas SQL directas es totalmente posible, pero requiere muchísimo "
-"cuidado, ya que ignora todos los mecanismos de seguridad y autenticación de Odoo."
+"escribir consultas SQL directas es totalmente posible, pero requiere cuidado, ya "
+"que ignora todos los mecanismos de autenticación y seguridad y de Odoo."
 
 #~ msgid ""
 #~ "Models can be configured by setting a number of attributes at their "
