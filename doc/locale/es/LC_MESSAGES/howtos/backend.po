@@ -2297,7 +2297,7 @@ msgid ""
 "We want to create a wizard that allow users to create attendees for a particular "
 "session, or for a list of sessions at once."
 msgstr ""
-"Queremos crear un asistente que permita a los usuarios crear a *attendees* "
+"Queremos crear un asistente que permita a los usuarios crear *attendees* "
 "(asistentes) para una determinada sesión, o para una lista de sesiones a la vez."
 
 #: ../../howtos/backend.rst:1363
