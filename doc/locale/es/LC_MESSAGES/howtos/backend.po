@@ -1986,7 +1986,7 @@ msgid ""
 "Graph views perform aggregations on database values, they do not work with non-"
 "stored computed fields."
 msgstr ""
-"Las vistas de gráfico realizan inserciones en valores de la base de datos, "
+"Las vistas de gráfico suma valores de la base de datos, "
 "no funcionan con campos calculados que no estén almacenados."
 
 #: ../../howtos/backend.rst:1198
