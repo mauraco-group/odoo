@@ -235,6 +235,7 @@ var StatementModel = BasicModel.extend({
         return $.when(partner && this._changePartner(handle, partner.id))
                 .then(function() {
                     line.reconciliation_proposition = [];
+                    self._computeLine(line);
                     return self.changeMode(handle, 'match');
                 })
                 .then(function () {
@@ -1073,7 +1074,7 @@ var ManualModel = StatementModel.extend({
                     return self._rpc({
                             model: 'account.move.line',
                             method: 'get_data_for_manual_reconciliation',
-                            args: ['account', model.account_ids || self.account_ids],
+                            args: ['account', context.account_ids || self.account_ids],
                             context: context,
                         })
                         .then(function (result) {

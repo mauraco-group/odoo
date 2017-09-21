@@ -116,7 +116,7 @@ class AccountInvoice(models.Model):
     def _get_outstanding_info_JSON(self):
         self.outstanding_credits_debits_widget = json.dumps(False)
         if self.state == 'open':
-            domain = [('account_id', '=', self.account_id.id), ('partner_id', '=', self.env['res.partner']._find_accounting_partner(self.partner_id).id), ('reconciled', '=', False), ('amount_residual', '!=', 0.0)]
+            domain = [('account_id', '=', self.account_id.id), ('partner_id', '=', self.env['res.partner']._find_accounting_partner(self.partner_id).id), ('reconciled', '=', False), '|', ('amount_residual', '!=', 0.0), ('amount_residual_currency', '!=', 0.0)]
             if self.type in ('out_invoice', 'in_refund'):
                 domain.extend([('credit', '>', 0), ('debit', '=', 0)])
                 type_payment = _('Outstanding credits')
@@ -600,6 +600,7 @@ class AccountInvoice(models.Model):
 
         self.account_id = account_id
         self.payment_term_id = payment_term_id
+        self.date_due = False
         self.fiscal_position_id = fiscal_position
 
         if type in ('in_invoice', 'out_refund'):
@@ -1228,7 +1229,7 @@ class AccountInvoice(models.Model):
         if self.origin:
             communication = '%s (%s)' % (communication, self.origin)
 
-        payment = self.env['account.payment'].create({
+        payment_vals = {
             'invoice_ids': [(6, 0, self.ids)],
             'amount': pay_amount or self.residual,
             'payment_date': date or fields.Date.context_today(self),
@@ -1240,7 +1241,11 @@ class AccountInvoice(models.Model):
             'payment_method_id': payment_method.id,
             'payment_difference_handling': writeoff_acc and 'reconcile' or 'open',
             'writeoff_account_id': writeoff_acc and writeoff_acc.id or False,
-        })
+        }
+        if self.env.context.get('tx_currency_id'):
+            payment_vals['currency_id'] = self.env.context.get('tx_currency_id')
+
+        payment = self.env['account.payment'].create(payment_vals)
         payment.post()
 
         return True
