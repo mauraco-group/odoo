@@ -16,6 +16,7 @@
 # Monica Parvanova <monicaparvanova@gmail.com>, 2016
 # Giovanni Perteghella <giovanni@perteghella.org>, 2016
 # Giuliano Lotta <giuliano.lotta@gmail.com>, 2016
+# Simone Rubino <simone.rubino@agilebg.com>, 2018
 # Luigi Di Naro <gigidn@gmail.com>, 2018
 # maiolif <maiolif@mgftools.com>, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2018
@@ -81,7 +82,7 @@ msgstr ""
 "% set access_action = object.with_context(force_website=True).get_access_action()\n"
 "% set doc_name = 'offerta' if object.state in ('draft', 'sent') else 'conferma ordine'\n"
 "% set is_online = access_action and access_action['type'] == 'ir.actions.act_url'\n"
-"% set access_name = is_online and object.template_id and doc_name == 'offerta' and 'Accetta e paga %s online' % doc_name oppure 'Visualizza %s' % doc_name\n"
+"% set access_name = is_online and object.template_id and doc_name == 'offerta' and 'Accetta e paga %s online' % doc_name or 'Visualizza %s' % doc_name\n"
 "% set access_url = is_online and access_action['url'] or None\n"
 "\n"
 "% if object.partner_id.parent_id:\n"
@@ -102,7 +103,7 @@ msgstr ""
 "    <center>\n"
 "        <a href=\"${access_url}\" style=\"background-color: #1abc9c; padding: 20px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;\" class=\"o_default_snippet_text\">${access_name}</a>\n"
 "        <br/><br/>\n"
-"        <span style=\"color:#888888\">(oppure vedi il PDF allegato)</span>\n"
+"        <span style=\"color:#888888\">(oppure visualizza il PDF allegato)</span>\n"
 "    </center>\n"
 "    <br/>\n"
 "% endif\n"
@@ -2215,14 +2216,37 @@ msgid "Terms and conditions"
 msgstr "Termini e Condizioni"
 
 #. module: sale
-#: code:addons/sale/models/sale_analytic.py:84
+#: code:addons/sale/models/sale_analytic.py:117
 #, python-format
 msgid ""
-"The Sale Order %s linked to the Analytic Account must be validated before "
-"registering expenses."
+"The Sales Order %s linked to the Analytic Account %s is cancelled. You "
+"cannot register an expense on a cancelled Sales Order."
 msgstr ""
-"L'ordine di vendita %s associato al conto analitico deve essere convalidato "
-"prima di registrare il costo"
+"L'ordine di vendita %s collegato al conto analitico %s è cancellato. Non è "
+"possibile registrare una spesa su un ordine di vendita cancellato."
+
+#. module: sale
+#: code:addons/sale/models/sale_analytic.py:112
+#, python-format
+msgid ""
+"The Sales Order %s linked to the Analytic Account %s must be validated "
+"before registering expenses."
+msgstr ""
+"L'ordine di vendita %s collegato al conto analitico deve essere convalidato "
+"prima di registrare le spese."
+
+#. module: sale
+#: code:addons/sale/models/sale_analytic.py:115
+#, python-format
+msgid ""
+"The Sales Order %s linked to the Analytic Account %s is currently locked. "
+"You cannot register an expense on a locked Sales Order. Please create a new "
+"SO linked to this Analytic Account."
+msgstr ""
+"L'ordine di vendita %s collegato al conto analitico %s è attualmente "
+"bloccato. Non è possibile registrare una spesa su un ordine di vendita "
+"bloccato. Crea un nuovo ordine di vendita collegato a questo conto "
+"analitico."
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_advance_payment_inv_amount
