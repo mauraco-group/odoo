@@ -12,21 +12,22 @@
 # William Surya Permana <zarambie_game@yahoo.com>, 2019
 # Martin Trigaux, 2019
 # Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2019
-# oon arfiandwi (OonID) <oon.arfiandwi@gmail.com>, 2019
+# oon arfiandwi <oon.arfiandwi@gmail.com>, 2019
 # Bonny Useful <bonny.useful@gmail.com>, 2019
 # Deddy Ddr <deddy.ddr@gmail.com>, 2019
+# Adam Damara <lorenzrenz@gmail.com>, 2019
 # Ryanto The <ry.the77@gmail.com>, 2019
 # Ikhsanul Wirsa <iwirsa02@outlook.co.id>, 2019
-# Adam Damara <lorenzrenz@gmail.com>, 2019
-# Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2019
+# PAS IRVANUS <ipankbiz@gmail.com>, 2019
+# Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:32+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
-"Last-Translator: Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2019\n"
+"Last-Translator: Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,12 +47,8 @@ msgstr ""
 
 #. module: sale
 #: model:mail.template,report_name:sale.email_template_edi_sale
-msgid ""
-"${(object.name or '').replace('/','_')}${object.state == 'draft' and "
-"'_draft' or ''}"
-msgstr ""
-"${(object.name or '').replace('/','_')}${object.state == 'draft' and "
-"'_draft' or ''}"
+msgid "${(object.name or '').replace('/','_')}"
+msgstr "${(object.name or '').replace('/','_')}"
 
 #. module: sale
 #: model:mail.template,subject:sale.email_template_edi_sale
@@ -75,6 +72,7 @@ msgstr "&amp;nbsp;"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content_totals_table
 msgid "&amp;nbsp;<span>on</span>&amp;nbsp;"
 msgstr "&amp;nbsp;<span>pada</span>&amp;nbsp;"
 
@@ -288,7 +286,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 msgid "<span>Disc.(%)</span>"
-msgstr ""
+msgstr "<span>Disk.(%)</span>"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
@@ -317,11 +315,6 @@ msgstr ""
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
-msgid "<strong class=\"d-block mb-1\">Invoicing Address</strong>"
-msgstr ""
-
-#. module: sale
-#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "<strong class=\"d-block mb-1\">Shipping Address</strong>"
 msgstr ""
 
@@ -329,12 +322,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "<strong class=\"mr16\">Subtotal</strong>"
-msgstr ""
+msgstr "<strong class=\"mr16\">Subtotal</strong>"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid "<strong class=\"text-muted\">Your Contact</strong>"
-msgstr ""
+msgstr "<strong class=\"text-muted\">Kontak Anda</strong>"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
@@ -386,6 +379,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content_totals_table
 msgid "<strong>Subtotal</strong>"
 msgstr "<strong>Subtotal</strong>"
 
@@ -417,6 +411,7 @@ msgstr "<strong>Total:</strong>"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content_totals_table
 msgid "<strong>Total</strong>"
 msgstr "<strong>Total</strong>"
 
@@ -484,9 +479,14 @@ msgid "Accept &amp; Pay"
 msgstr ""
 
 #. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Accept and sign online"
+msgstr ""
+
+#. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Peringatan akses"
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order_line__qty_delivered_method
@@ -537,7 +537,7 @@ msgstr "Tambahkan"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 msgid "Add a note"
-msgstr ""
+msgstr "Tambahkan catatan"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -547,7 +547,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 msgid "Add a section"
-msgstr ""
+msgstr "Add a section"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.product_configurator_configure
@@ -596,6 +596,12 @@ msgstr "Jumlah"
 #: model:ir.model.fields,field_description:sale.field_sale_order__amount_undiscounted
 msgid "Amount Before Discount"
 msgstr "Jumlah sebelum DISKON"
+
+#. module: sale
+#: code:addons/sale/models/payment.py:90
+#, python-format
+msgid "Amount Mismatch (%s)"
+msgstr "Ketidakcocokan Jumlah (%s)"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team__quotations_amount
@@ -656,7 +662,7 @@ msgstr "Pada modal"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Attachment Count"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_product_attribute_custom_value__attribute_value_id
@@ -875,7 +881,7 @@ msgstr "Hitung ongkos pengiriman pada order"
 #. module: sale
 #: model:ir.model,name:sale.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Config Settings"
 
 #. module: sale
 #: model:ir.ui.menu,name:sale.menu_sale_config
@@ -892,12 +898,12 @@ msgstr "Atur"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 msgid "Configure a product"
-msgstr ""
+msgstr "Konfigurasikan sebuah produk"
 
 #. module: sale
 #: model:ir.actions.act_window,name:sale.action_open_sale_onboarding_quotation_layout
 msgid "Configure your document layout"
-msgstr ""
+msgstr "Konfigurasikan tata letak dokumen Anda"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -1049,7 +1055,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "Customer Portal URL"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__client_order_ref
@@ -1280,7 +1286,7 @@ msgstr "Nama Tampilan"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Display Type"
 
 #. module: sale
 #: selection:res.company,sale_onboarding_order_confirmation_state:0
@@ -1356,6 +1362,7 @@ msgid "Expected Date"
 msgstr "Tanggal Perkiraan"
 
 #. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__expense_policy
 #: model:ir.model.fields,help:sale.field_product_template__expense_policy
 msgid ""
 "Expenses and vendor bills can be re-invoiced to a customer.With this option,"
@@ -1471,6 +1478,7 @@ msgid ""
 msgstr ""
 
 #. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__hide_expense_policy
 #: model:ir.model.fields,field_description:sale.field_product_template__hide_expense_policy
 msgid "Hide Expense Policy"
 msgstr ""
@@ -1506,7 +1514,7 @@ msgstr "Jika dicentang pesan-pesan baru membutuhkan penanganan lebih lanjut."
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "If checked, some messages have a delivery error."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -1737,6 +1745,12 @@ msgid "Invoicing"
 msgstr "Penagihan"
 
 #. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Invoicing Address"
+msgstr "Alamat Faktur"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__invoice_policy
 #: model:ir.model.fields,field_description:sale.field_product_template__invoice_policy
 #: model:ir.model.fields,field_description:sale.field_res_config_settings__default_invoice_policy
 msgid "Invoicing Policy"
@@ -1816,7 +1830,7 @@ msgstr ""
 #: selection:res.company,sale_onboarding_sample_quotation_state:0
 #: selection:res.company,sale_quotation_onboarding_state:0
 msgid "Just done"
-msgstr ""
+msgstr "Just done"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_all_channels_sales_view_search
@@ -1893,12 +1907,12 @@ msgstr "Dikunci"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.onboarding_quotation_layout_step
 msgid "Looks great!"
-msgstr ""
+msgstr "Looks great!"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Main Attachment"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -1926,6 +1940,7 @@ msgid "Manually set quantities on order"
 msgstr "Stel manual jumlah pada order"
 
 #. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__service_type
 #: model:ir.model.fields,help:sale.field_product_template__service_type
 msgid ""
 "Manually set quantities on order: Invoice based on the manually entered quantity, without creating an analytic account.\n"
@@ -1944,14 +1959,16 @@ msgstr "Margin"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Message Delivery error"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_partner__sale_warn_msg
+#: model:ir.model.fields,field_description:sale.field_res_users__sale_warn_msg
 msgid "Message for Sales Order"
 msgstr "Pesan untuk Order penjualan"
 
 #. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__sale_line_warn_msg
 #: model:ir.model.fields,field_description:sale.field_product_template__sale_line_warn_msg
 msgid "Message for Sales Order Line"
 msgstr "Pesan untuk Detail Order Penjualan"
@@ -2071,7 +2088,7 @@ msgstr ""
 #: selection:res.company,sale_onboarding_sample_quotation_state:0
 #: selection:res.company,sale_quotation_onboarding_state:0
 msgid "Not done"
-msgstr ""
+msgstr "Not done"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -2111,7 +2128,7 @@ msgstr "Jumlah pesan yang butuh tindakan"
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Number of messages with delivery error"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team__quotations_count
@@ -2185,11 +2202,13 @@ msgid "Option not available"
 msgstr ""
 
 #. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__optional_product_ids
 #: model:ir.model.fields,field_description:sale.field_product_template__optional_product_ids
 msgid "Optional Products"
 msgstr "Pilihan produk"
 
 #. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__optional_product_ids
 #: model:ir.model.fields,help:sale.field_product_template__optional_product_ids
 msgid ""
 "Optional Products are suggested whenever the customer hits *Add to Cart* "
@@ -2292,6 +2311,7 @@ msgid "Ordered Quantity"
 msgstr "Jumlah Pesanan"
 
 #. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__invoice_policy
 #: model:ir.model.fields,help:sale.field_product_template__invoice_policy
 msgid ""
 "Ordered Quantity: Invoice quantities ordered by the customer.\n"
@@ -2380,6 +2400,11 @@ msgstr "Bayar sekarang"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid "Pay now"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Pay online"
 msgstr ""
 
 #. module: sale
@@ -2487,7 +2512,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "Portal Access URL"
 
 #. module: sale
 #: selection:sale.report,state:0
@@ -2818,6 +2843,7 @@ msgid "Radio"
 msgstr "Radio"
 
 #. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__expense_policy
 #: model:ir.model.fields,field_description:sale.field_product_template__expense_policy
 msgid "Re-Invoice Policy"
 msgstr ""
@@ -2899,6 +2925,7 @@ msgstr "Order Penjualan"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_partner__sale_order_count
+#: model:ir.model.fields,field_description:sale.field_res_users__sale_order_count
 msgid "Sale Order Count"
 msgstr ""
 
@@ -2977,8 +3004,9 @@ msgid "Sales Information"
 msgstr "Informasi penjualan"
 
 #. module: sale
-#: code:addons/sale/models/sale.py:262
+#: code:addons/sale/models/sale.py:271
 #: model:ir.model.fields,field_description:sale.field_res_partner__sale_order_ids
+#: model:ir.model.fields,field_description:sale.field_res_users__sale_order_ids
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 #: model_terms:ir.ui.view,arch_db:sale.view_sales_order_filter
 #: selection:sale.order,state:0 selection:sale.report,state:0
@@ -3000,6 +3028,7 @@ msgstr ""
 
 #. module: sale
 #: model:ir.model,name:sale.model_sale_order_line
+#: model:ir.model.fields,field_description:sale.field_product_product__sale_line_warn
 #: model:ir.model.fields,field_description:sale.field_product_template__sale_line_warn
 msgid "Sales Order Line"
 msgstr "Detail Order Penjualan"
@@ -3071,6 +3100,7 @@ msgstr "Penjualan Tim"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_partner__sale_warn
+#: model:ir.model.fields,field_description:sale.field_res_users__sale_warn
 msgid "Sales Warnings"
 msgstr ""
 
@@ -3163,8 +3193,10 @@ msgid "Select a product, or create a new one on the fly."
 msgstr ""
 
 #. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__sale_line_warn
 #: model:ir.model.fields,help:sale.field_product_template__sale_line_warn
 #: model:ir.model.fields,help:sale.field_res_partner__sale_warn
+#: model:ir.model.fields,help:sale.field_res_users__sale_warn
 msgid ""
 "Selecting the \"Warning\" option will notify user with the message, "
 "Selecting \"Blocking Message\" will throw an exception with the message and "
@@ -3191,8 +3223,8 @@ msgstr "Kirim Faktur Proforma"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
-msgid "Send a product-specific email once the invoice is paid"
-msgstr "Kirim email produk tertentu setelah faktur lunas"
+msgid "Send a product-specific email once the invoice is validated"
+msgstr ""
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_onboarding_sample_quotation_step
@@ -3212,7 +3244,7 @@ msgstr "Kirim sebagai Email"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_onboarding_sample_quotation_step
 msgid "Send sample"
-msgstr ""
+msgstr "Send sample"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -3312,6 +3344,11 @@ msgstr "Tampilkan harga jual dan diskon pada pelanggan"
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Show standard terms &amp; conditions on orders"
 msgstr "Tampilkan syarat &amp; ketentuan standar di order penjualan"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Sign and pay online"
+msgstr ""
 
 #. module: sale
 #: selection:res.company,sale_onboarding_payment_method:0
@@ -3448,7 +3485,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__amount_by_group
 msgid "Tax amount by group"
-msgstr ""
+msgstr "Tax amount by group"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__amount_tax
@@ -3466,7 +3503,7 @@ msgstr "Pajak yang digunakan untuk setoran"
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order_line__display_type
 msgid "Technical field for UX purpose."
-msgstr ""
+msgstr "Technical field for UX purpose."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
@@ -3570,6 +3607,14 @@ msgid ""
 msgstr ""
 "Margin dihitung berdasarkan jumlah penjualan produk dikurangi harga modal "
 "yang distel pada produk."
+
+#. module: sale
+#: code:addons/sale/models/payment.py:97
+#, python-format
+msgid ""
+"The order was not confirmed despite response from the acquirer (%s): order "
+"total is %r but acquirer replied with %r."
+msgstr ""
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__reference
@@ -3815,6 +3860,7 @@ msgid "Total Tax Included"
 msgstr "Total Termasuk Pajak"
 
 #. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__service_type
 #: model:ir.model.fields,field_description:sale.field_product_template__service_type
 msgid "Track Service"
 msgstr "Telusuri Jasa"
@@ -3832,7 +3878,7 @@ msgstr "Jenis"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__type_name
 msgid "Type Name"
-msgstr ""
+msgstr "Type Name"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_config_settings__module_delivery_ups
@@ -4091,6 +4137,14 @@ msgid ""
 "You can set here the communication type that will appear on sales orders.The"
 " communication will be given to the customer when they choose the payment "
 "method."
+msgstr ""
+
+#. module: sale
+#: code:addons/sale/models/sale.py:1115
+#, python-format
+msgid ""
+"You cannot change the type of a sale order line. Instead you should delete "
+"the current line and create a new line of the proper type."
 msgstr ""
 
 #. module: sale

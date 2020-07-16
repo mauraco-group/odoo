@@ -128,6 +128,8 @@ var FormRenderer = BasicRenderer.extend({
                 }));
             if (this.$('.o_form_statusbar').length) {
                 this.$('.o_form_statusbar').after($notification);
+            } else if (this.$('.o_form_sheet_bg').length) {
+                this.$('.o_form_sheet_bg').prepend($notification);
             } else {
                 this.$el.prepend($notification);
             }
@@ -176,8 +178,11 @@ var FormRenderer = BasicRenderer.extend({
      * field.
      */
     focusLastActivatedWidget: function () {
-        this._activateNextFieldWidget(this.state, this.lastActivatedFieldIndex - 1,
-            { noAutomaticCreate: true });
+        if (this.lastActivatedFieldIndex !== -1) {
+            return this._activateNextFieldWidget(this.state, this.lastActivatedFieldIndex - 1,
+                { noAutomaticCreate: true });
+        }
+        return false;
     },
     /**
      * returns the active tab pages for each notebook
@@ -320,6 +325,11 @@ var FormRenderer = BasicRenderer.extend({
      */
     _enableSwipe: function () {
         var self = this;
+
+        if (!$.fn.swipe) {
+            return;
+        }
+
         this.$('.o_form_sheet').swipe({
             swipeLeft: function () {
                 this.css({
@@ -384,7 +394,7 @@ var FormRenderer = BasicRenderer.extend({
         var visible_buttons = buttons_partition[1];
 
         // Get the unfolded buttons according to window size
-        var nb_buttons = [2, 2, 4, 6][config.device.size_class] || 7;
+        var nb_buttons = this._renderButtonBoxNbButtons();
         var unfolded_buttons = visible_buttons.slice(0, nb_buttons).concat(invisible_buttons);
 
         // Get the folded buttons
@@ -423,6 +433,13 @@ var FormRenderer = BasicRenderer.extend({
         this._handleAttributes($result, node);
         this._registerModifiers(node, this.state, $result);
         return $result;
+    },
+    /**
+    * @private
+    * @returns {integer}
+    */
+    _renderButtonBoxNbButtons: function () {
+        return [2, 2, 2, 4][config.device.size_class] || 7;
     },
     /**
      * @private

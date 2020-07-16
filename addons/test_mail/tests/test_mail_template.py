@@ -72,6 +72,46 @@ class TestMailTemplate(BaseFunctionalTest, MockEmails, TestRecipients):
             body_content=self.test_record.email_from,
             attachments=[('first.txt', b'My first attachment', 'text/plain'), ('second.txt', b'My second attachment', 'text/plain')])
 
+    def test_composer_template_onchange_attachments(self):
+        """Tests that all attachments are added to the composer,
+        static attachments are not duplicated and while reports are re-generated,
+        and that intermediary attachments are dropped."""
+
+        composer = self.env['mail.compose.message'].with_context(default_attachment_ids=[]).create({})
+        report_template = self.env.ref('web.action_report_externalpreview')
+        template_1 = self.email_template.copy({
+            'report_template': report_template.id,
+        })
+        template_2 = self.email_template.copy({
+            'attachment_ids': False,
+            'report_template': report_template.id,
+        })
+
+        onchange_templates = [template_1, template_2, template_1, False]
+        attachments_onchange = [composer.attachment_ids]
+        # template_1 has two static attachments and one dynamically generated report,
+        # template_2 only has the report, so we should get 3, 1, 3 attachments
+        attachment_numbers = [0, 3, 1, 3, 0]
+
+        with self.env.do_in_onchange():
+            for template in onchange_templates:
+                onchange = composer.onchange_template_id(
+                    template.id if template else False, 'comment', self.test_record._name, self.test_record.id
+                )
+                values = composer._convert_to_record(composer._convert_to_cache(onchange['value']))
+                attachments_onchange.append(values['attachment_ids'])
+                composer.update(onchange['value'])
+
+        self.assertEqual(
+            [len(attachments) for attachments in attachments_onchange],
+            attachment_numbers,
+        )
+
+        self.assertTrue(
+            len(attachments_onchange[1] & attachments_onchange[3]) == 2,
+            "The two static attachments on the template should be common to the two onchanges"
+        )
+
     @mute_logger('odoo.addons.mail.models.mail_mail')
     def test_post_post_w_template(self):
         self.test_record.sudo(self.user_employee).message_post_with_template(self.email_template.id, composition_mode='comment')
@@ -164,6 +204,46 @@ class TestMailTemplate(BaseFunctionalTest, MockEmails, TestRecipients):
         self.assertEqual(action.name, 'Send Mail (%s)' % self.email_template.name)
         self.assertEqual(action.binding_model_id.model, 'mail.test.simple')
 
+    def test_template_send_email_translations_with_notif_layout(self):
+        self.env['res.lang'].load_lang('fr_FR')
+        self.test_record = self.env['mail.test.full'].with_context(self._test_context).create({
+            'name': 'Test',
+            'email_from': 'ignasse@example.com',
+            'customer_id': self.partner_2.id,
+        })
+        self.email_template = self.env['mail.template'].create({
+            'model_id': self.env['ir.model']._get('mail.test.full').id,
+            'name': 'TestTemplate',
+            'subject': 'About ${object.name}',
+            'body_html': '<p>Hello ${object.name}</p>',
+            'user_signature': False,
+            'partner_to': '%s' % self.partner_2.id,
+            'email_to': '%s' % self.partner_2.email,
+            'lang': '${object.customer_id.lang}',
+        })
+        ARCH = '<t t-name="test_mail.test_notification_template">%s</t>'
+        TEXT_EN = "Notification Template"
+        TEXT_FR = u"Template de notification"
+        view = self.env['ir.ui.view']._load_records([dict(xml_id='test_mail.test_notification_template', values={
+            'name': 'test_notification_template',
+            'arch': ARCH % TEXT_EN,
+            'inherit_id': False,
+            'type': 'qweb',
+        })])
+        self.env['ir.translation'].create({
+            'type': 'model_terms',
+            'name': 'ir.ui.view,arch_db',
+            'res_id': view.id,
+            'lang': 'fr_FR',
+            'src': TEXT_EN,
+            'value': TEXT_FR,
+        })
+        self.partner_2.lang = 'fr_FR'
+
+        mail_id = self.email_template.send_mail(self.test_record.id, False, False, None, 'test_mail.test_notification_template')
+        mail = self.env['mail.mail'].browse(mail_id)
+        self.assertEqual(mail.body_html, TEXT_FR)
+
     # def test_template_scheduled_date(self):
     #     from unittest.mock import patch
 
@@ -236,3 +316,44 @@ class TestMailTemplate(BaseFunctionalTest, MockEmails, TestRecipients):
         new_partner = Partner.search([('email', '=', email_new_partner)])
         self.assertTrue(new_partner)
         self.assertEqual(new_partner.company_id, company1)
+
+    def test_composer_template_onchange_attachments(self):
+        """Tests that all attachments are added to the composer,
+        static attachments are not duplicated and while reports are re-generated,
+        and that intermediary attachments are dropped."""
+
+        composer = self.env['mail.compose.message'].with_context(default_attachment_ids=[]).create({})
+        report_template = self.env.ref('web.action_report_externalpreview')
+        template_1 = self.email_template.copy({
+            'report_template': report_template.id,
+        })
+        template_2 = self.email_template.copy({
+            'attachment_ids': False,
+            'report_template': report_template.id,
+        })
+
+        onchange_templates = [template_1, template_2, template_1, False]
+        attachments_onchange = [composer.attachment_ids]
+        # template_1 has two static attachments and one dynamically generated report,
+        # template_2 only has the report, so we should get 3, 1, 3 attachments
+        # and when there is no template, no attachments
+        attachment_numbers = [0, 3, 1, 3, 0]
+
+        with self.env.do_in_onchange():
+            for template in onchange_templates:
+                onchange = composer.onchange_template_id(
+                    template.id if template else False, 'comment', 'mail.test.simple', self.test_record.id
+                )
+                values = composer._convert_to_record(composer._convert_to_cache(onchange['value']))
+                attachments_onchange.append(values['attachment_ids'])
+                composer.update(onchange['value'])
+
+        self.assertEqual(
+            [len(attachments) for attachments in attachments_onchange],
+            attachment_numbers,
+        )
+
+        self.assertTrue(
+            len(attachments_onchange[1] & attachments_onchange[3]) == 2,
+            "The two static attachments on the template should be common to the two onchanges"
+        )

@@ -21,6 +21,7 @@ from docutils.core import publish_string
 from docutils.transforms import Transform, writer_aux
 from docutils.writers.html4css1 import Writer
 import lxml.html
+import psycopg2
 
 import odoo
 from odoo import api, fields, models, modules, tools, _
@@ -457,7 +458,6 @@ class Module(models.Model):
         tables, columns, constraints, etc.
         """
         modules_to_remove = self.mapped('name')
-        self._remove_copied_views()
         self.env['ir.model.data']._module_data_uninstall(modules_to_remove)
         # we deactivate prefetching to not try to read a column that has been deleted
         self.with_context(prefetch_fields=False).write({'state': 'uninstalled', 'latest_version': False})
@@ -546,6 +546,14 @@ class Module(models.Model):
 
     @api.multi
     def _button_immediate_function(self, function):
+        try:
+            # This is done because the installation/uninstallation/upgrade can modify a currently
+            # running cron job and prevent it from finishing, and since the ir_cron table is locked
+            # during execution, the lock won't be released until timeout.
+            self._cr.execute("SELECT * FROM ir_cron FOR UPDATE NOWAIT")
+        except psycopg2.OperationalError:
+            raise UserError(_("The server is busy right now, module operations are not possible at"
+                              " this time, please try again later."))
         function(self)
 
         self._cr.commit()
@@ -582,6 +590,11 @@ class Module(models.Model):
     def button_uninstall(self):
         if 'base' in self.mapped('name'):
             raise UserError(_("The `base` module cannot be uninstalled"))
+        if not all(state in ('installed', 'to upgrade') for state in self.mapped('state')):
+            raise UserError(_(
+                "One or more of the selected modules have already been uninstalled, if you "
+                "believe this to be an error, you may try again later or contact support."
+            ))
         deps = self.downstream_dependencies()
         (self + deps).write({'state': 'to remove'})
         return dict(ACTION_DICT, name=_('Uninstall'))

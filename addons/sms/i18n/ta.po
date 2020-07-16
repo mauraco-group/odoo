@@ -5,6 +5,7 @@
 # Translators:
 # Bagavathikumar Ramakrishnan <bagavathikumar@gmail.com>, 2019
 # Abul Hassan M I <miabulhassan@gmail.com>, 2019
+# Alagappan Karthikeyan <me@karthik.sg>, 2019
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-21 13:17+0000\n"
 "PO-Revision-Date: 2018-08-24 09:25+0000\n"
-"Last-Translator: Abul Hassan M I <miabulhassan@gmail.com>, 2019\n"
+"Last-Translator: Alagappan Karthikeyan <me@karthik.sg>, 2019\n"
 "Language-Team: Tamil (https://www.transifex.com/odoo/teams/41243/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +26,14 @@ msgstr ""
 #: code:addons/sms/static/src/js/sms_widget.js:93
 #, python-format
 msgid "%s chars, fits in %s SMS (%s) "
+msgstr ""
+
+#. module: sms
+#: model_terms:ir.ui.view,arch_db:sms.send_sms_view_form
+msgid ""
+"<strong>\n"
+"                                    A sms will be sent to all the records matching your current search filter, not only the ids selected in the list view.\n"
+"                                </strong>"
 msgstr ""
 
 #. module: sms
@@ -89,7 +98,7 @@ msgstr "கடைசியாக புதுப்பிக்கப்பட�
 #. module: sms
 #: model:ir.model.fields,field_description:sms.field_sms_send_sms__message
 msgid "Message"
-msgstr ""
+msgstr "செய்தி"
 
 #. module: sms
 #: code:addons/sms/wizard/send_sms.py:82
@@ -129,7 +138,7 @@ msgstr ""
 #. module: sms
 #: model_terms:ir.ui.view,arch_db:sms.send_sms_view_form
 msgid "Send"
-msgstr ""
+msgstr "அனுப்புக"
 
 #. module: sms
 #: model:ir.actions.act_window,name:sms.send_sms_action

@@ -3,7 +3,7 @@
 # * web
 # 
 # Translators:
-# Thiago MACÊDO <thiago95macedo@gmail.com>, 2018
+# Thiago Macêdo <thiago95macedo@gmail.com>, 2018
 # Marcos Abreu <marcoos.abreu@gmail.com>, 2018
 # Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2018
 # Adriel Kotviski <kotviski@gmail.com>, 2018
@@ -22,6 +22,10 @@
 # Rafael H L Moretti <rafael.moretti@gmail.com>, 2018
 # Marcelo Costa <marcelo@comdesk.com.br>, 2018
 # Martin Trigaux, 2019
+# Mateus Pinheiro <smateusbp@gmail.com>, 2019
+# Marcel Savegnago <marcel.savegnago@gmail.com>, 2020
+# Luiz Fernando <lfpsgs@outlook.com>, 2020
+# Fernando Colus <fcolus1@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -29,7 +33,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-13 07:03+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
-"Last-Translator: Martin Trigaux, 2019\n"
+"Last-Translator: Fernando Colus <fcolus1@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +53,7 @@ msgstr " [EU]"
 #: code:addons/web/static/src/js/views/search/search_filters.js:231
 #, python-format
 msgid " and "
-msgstr ""
+msgstr "e"
 
 #. module: web
 #. openerp-web
@@ -1255,7 +1259,7 @@ msgstr "Baixar xls"
 #: code:addons/web/static/src/xml/base.xml:1556
 #, python-format
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menu dropdown"
 
 #. module: web
 #. openerp-web
@@ -1434,7 +1438,7 @@ msgstr "ID Externo"
 #: code:addons/web/static/src/xml/base.xml:826
 #, python-format
 msgid "External link"
-msgstr ""
+msgstr "Link externo"
 
 #. module: web
 #. openerp-web
@@ -1818,14 +1822,14 @@ msgstr "Idiomas"
 #: code:addons/web/static/src/js/views/search/time_range_menu_options.js:9
 #, python-format
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Últimos 30 Dias"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search/time_range_menu_options.js:10
 #, python-format
 msgid "Last 365 Days"
-msgstr ""
+msgstr "Últimos 365 dias"
 
 #. module: web
 #. openerp-web
@@ -2391,6 +2395,12 @@ msgid "Only Integer Value should be valid."
 msgstr "Apenas valores inteiros são válidos."
 
 #. module: web
+#: code:addons/web/static/src/js/fields/basic_fields.js:1982
+#, python-format
+msgid "Only Integer or Float Value should be valid."
+msgstr ""
+
+#. module: web
 #: code:addons/web/controllers/main.py:502
 #, python-format
 msgid ""
@@ -2625,10 +2635,11 @@ msgstr ""
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:741
+#: code:addons/web/static/src/xml/base.xml:1505
 #: code:addons/web/static/src/xml/web_calendar.xml:75
 #, python-format
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #. module: web
 #. openerp-web
@@ -3315,14 +3326,14 @@ msgstr "Esta é uma amostra de um relatório interno."
 #: code:addons/web/static/src/js/views/search/time_range_menu.js:128
 #, python-format
 msgid "Time Range"
-msgstr ""
+msgstr "Intervalo de Tempo"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1139
 #, python-format
 msgid "Time Ranges"
-msgstr ""
+msgstr "Intervalos de Tempo"
 
 #. module: web
 #. openerp-web
@@ -3648,7 +3659,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:1383
 #, python-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "O que você quer fazer?"
 
 #. module: web
 #. openerp-web

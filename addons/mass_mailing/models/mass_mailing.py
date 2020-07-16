@@ -4,10 +4,12 @@
 import hashlib
 import hmac
 import logging
+import lxml
 import random
 import re
 import threading
 from ast import literal_eval
+from base64 import b64encode
 
 from odoo import api, fields, models, tools, _, SUPERUSER_ID
 from odoo.exceptions import UserError
@@ -25,6 +27,10 @@ MASS_MAILING_BUSINESS_MODELS = [
     'mail.mass_mailing.list',
 ]
 EMAIL_PATTERN = '([^ ,;<@]+@[^> ,;]+)'
+
+# Syntax of the data URL Scheme: https://tools.ietf.org/html/rfc2397#section-3
+# Used to find inline images
+image_re = re.compile(r"data:(image/[A-Za-z]+);base64,(.*)")
 
 
 class MassMailingTag(models.Model):
@@ -126,6 +132,20 @@ class MassMailingList(models.Model):
         data = dict(self.env.cr.fetchall())
         for mailing_list in self:
             mailing_list.contact_nbr = data.get(mailing_list.id, 0)
+
+    @api.multi
+    def write(self, vals):
+        # Prevent archiving used mailing list
+        if 'active' in vals and not vals.get('active'):
+            mass_mailings = self.env['mail.mass_mailing'].search_count([
+                ('state', '!=', 'done'),
+                ('contact_list_ids', 'in', self.ids),
+            ])
+
+            if mass_mailings > 0:
+                raise UserError(_("At least one of the mailing list you are trying to archive is used in an ongoing mailing campaign."))
+
+        return super(MassMailingList, self).write(vals)
 
     @api.multi
     def name_get(self):
@@ -246,7 +266,7 @@ class MassMailingContact(models.Model):
             contacts = self.env['mail.mass_mailing.list_contact_rel'].search([('list_id', '=', active_list_id)])
             return [('id', 'in', [record.contact_id.id for record in contacts if record.opt_out == value])]
         else:
-            raise UserError('Search opt out cannot be executed without a unique and valid active mailing list context.')
+            raise UserError(_('Search opt out cannot be executed without a unique and valid active mailing list context.'))
 
     @api.depends('subscription_list_ids')
     def _compute_opt_out(self):
@@ -311,9 +331,9 @@ class MassMailingCampaign(models.Model):
     campaign_id = fields.Many2one('utm.campaign', 'campaign_id',
         required=True, ondelete='cascade',  help="This name helps you tracking your different campaign efforts, e.g. Fall_Drive, Christmas_Special")
     source_id = fields.Many2one('utm.source', string='Source',
-            help="This is the link source, e.g. Search Engine, another domain,or name of email list", default=lambda self: self.env.ref('utm.utm_source_newsletter'))
+            help="This is the link source, e.g. Search Engine, another domain,or name of email list", default=lambda self: self.env.ref('utm.utm_source_newsletter', False))
     medium_id = fields.Many2one('utm.medium', string='Medium',
-            help="This is the delivery method, e.g. Postcard, Email, or Banner Ad", default=lambda self: self.env.ref('utm.utm_medium_email'))
+            help="This is the delivery method, e.g. Postcard, Email, or Banner Ad", default=lambda self: self.env.ref('utm.utm_medium_email', False))
     tag_ids = fields.Many2many(
         'mail.mass_mailing.tag', 'mail_mass_mailing_tag_rel',
         'tag_id', 'campaign_id', string='Tags')
@@ -635,9 +655,16 @@ class MassMailing(models.Model):
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
         self.ensure_one()
+        # Cleaning archived contact_list_ids
         default = dict(default or {},
-                       name=_('%s (copy)') % self.name)
-        return super(MassMailing, self).copy(default=default)
+                       name=_('%s (copy)') % self.name,
+                       contact_list_ids=self.contact_list_ids.ids)
+        res = super(MassMailing, self).copy(default=default)
+        # Re-evaluating the domain
+        body_html = res.body_html
+        res._onchange_model_and_list()
+        res.body_html = body_html
+        return res
 
     def _group_expand_states(self, states, domain, order):
         return [key for key, val in type(self).state.selection]
@@ -660,6 +687,53 @@ class MassMailing(models.Model):
                 record_lists = opt_out_records.filtered(lambda rec: rec.contact_id.id == record.id)
                 if len(record_lists) > 0:
                     record.sudo().message_post(body=_(message % ', '.join(str(list.name) for list in record_lists.mapped('list_id'))))
+
+    @api.model
+    def create(self, values):
+        if values.get('body_html'):
+            values['body_html'] = self._convert_inline_images_to_urls(values['body_html'])
+        return super(MassMailing, self).create(values)
+
+    def write(self, values):
+        if values.get('body_html'):
+            values['body_html'] = self._convert_inline_images_to_urls(values['body_html'])
+        return super(MassMailing, self).write(values)
+
+    def _convert_inline_images_to_urls(self, body_html):
+        """
+        Find inline base64 encoded images, make an attachement out of
+        them and replace the inline image with an url to the attachement.
+        """
+
+        def _image_to_url(b64image: bytes):
+            """Store an image in an attachement and returns an url"""
+            attachment = self.env['ir.attachment'].create({
+                'name': "cropped_image",
+                'datas': b64image,
+                'datas_fname': "cropped_image_mailing_{}".format(self.id),
+                'type': 'binary',})
+
+            attachment.generate_access_token()
+
+            return '/web/image/%s?access_token=%s' % (
+                attachment.id, attachment.access_token)
+
+
+        modified = False
+        root = lxml.html.fromstring(body_html)
+        for node in root.iter('img'):
+            match = image_re.match(node.attrib.get('src', ''))
+            if match:
+                mime = match.group(1)  # unsed
+                image = match.group(2).encode()  # base64 image as bytes
+
+                node.attrib['src'] = _image_to_url(image)
+                modified = True
+
+        if modified:
+            return lxml.html.tostring(root)
+
+        return body_html
 
     #------------------------------------------------------
     # Views & Actions

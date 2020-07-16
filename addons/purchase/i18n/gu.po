@@ -9,15 +9,15 @@
 # Falguni Rana <kankurana@gmail.com>, 2018
 # Dharmraj Jhala <dja@openerp.com>, 2018
 # Divya Pandya <dia@odoo.com>, 2018
-# Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2018
+# Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:31+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:23+0000\n"
-"Last-Translator: Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2018\n"
+"Last-Translator: Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2020\n"
 "Language-Team: Gujarati (https://www.transifex.com/odoo/teams/41243/gu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,11 +96,7 @@ msgid ""
 "        <br/><br/>\n"
 "        Best regards,\n"
 "    </p>\n"
-"</div><p style=\"color:#888888;\">\n"
-"% if object.sudo().create_uid and object.sudo().create_uid.signature:\n"
-"    ${object.sudo().create_uid.signature | safe}\n"
-"% endif\n"
-"</p>\n"
+"</div>"
 msgstr ""
 
 #. module: purchase
@@ -142,8 +138,8 @@ msgstr ""
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid ""
-"<span class=\"o_form_label\" string=\"Request for Quotation \" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\"/>\n"
-"                        <span class=\"o_form_label\" string=\"Purchase Order \" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\"/>"
+"<span class=\"o_form_label\" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\">Request for Quotation </span>\n"
+"                        <span class=\"o_form_label\" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\">Purchase Order </span>"
 msgstr ""
 
 #. module: purchase
@@ -268,7 +264,7 @@ msgstr ""
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "ક્રિયા આવશ્યક છે"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_ids
@@ -1713,6 +1709,11 @@ msgstr "પેટાસરવાળો"
 #: model:ir.model.fields,field_description:purchase.field_res_partner__property_purchase_currency_id
 #: model:ir.model.fields,field_description:purchase.field_res_users__property_purchase_currency_id
 msgid "Supplier Currency"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_product_supplierinfo
+msgid "Supplier Pricelist"
 msgstr ""
 
 #. module: purchase

@@ -333,9 +333,10 @@ class MailTemplate(models.Model):
             variables['object'] = record
             try:
                 render_result = template.render(variables)
-            except Exception:
+            except Exception as e:
                 _logger.info("Failed to render template %r using values %r" % (template, variables), exc_info=True)
-                raise UserError(_("Failed to render template %r using values %r")% (template, variables))
+                raise UserError(_("Failed to render template %r using values %r") % (template, variables) +
+                                "\n\n%s: %s" % (type(e).__name__, str(e)))
             if render_result == u"False":
                 render_result = u""
             results[res_id] = render_result
@@ -388,7 +389,7 @@ class MailTemplate(models.Model):
         records_company = None
         if self._context.get('tpl_partners_only') and self.model and results and 'company_id' in self.env[self.model]._fields:
             records = self.env[self.model].browse(results.keys()).read(['company_id'])
-            records_company = {rec['id']: rec['company_id'][0] for rec in records}
+            records_company = {rec['id']: (rec['company_id'][0] if rec['company_id'] else None) for rec in records}
 
         for res_id, values in results.items():
             partner_ids = values.get('partner_ids', list())
@@ -477,9 +478,13 @@ class MailTemplate(models.Model):
                     report = template.report_template
                     report_service = report.report_name
 
-                    if report.report_type not in ['qweb-html', 'qweb-pdf']:
-                        raise UserError(_('Unsupported report type %s found.') % report.report_type)
-                    result, format = report.render_qweb_pdf([res_id])
+                    if report.report_type in ['qweb-html', 'qweb-pdf']:
+                        result, format = report.render_qweb_pdf([res_id])
+                    else:
+                        res = report.render([res_id])
+                        if not res:
+                            raise UserError(_('Unsupported report type %s found.') % report.report_type)
+                        result, format = res
 
                     # TODO in trunk, change return format to binary to match message_post expected format
                     result = base64.b64encode(result)
@@ -527,10 +532,16 @@ class MailTemplate(models.Model):
                 _logger.warning('QWeb template %s not found when sending template %s. Sending without layouting.' % (notif_layout, self.name))
             else:
                 record = self.env[self.model].browse(res_id)
+                lang = self._render_template(self.lang, self.model, res_id)
+                model = self.env['ir.model']._get(record._name)
+                if lang:
+                    template = template.with_context(lang=lang)
+                    model = model.with_context(lang=lang)
                 template_ctx = {
                     'message': self.env['mail.message'].sudo().new(dict(body=values['body_html'], record_name=record.display_name)),
-                    'model_description': self.env['ir.model']._get(record._name).display_name,
+                    'model_description': model.display_name,
                     'company': 'company_id' in record and record['company_id'] or self.env.user.company_id,
+                    'record': record,
                 }
                 body = template.render(template_ctx, engine='ir.qweb', minimal_qcontext=True)
                 values['body_html'] = self.env['mail.thread']._replace_local_links(body)

@@ -367,7 +367,7 @@ msgstr "Projektai"
 #: model_terms:ir.actions.act_window,help:hr_timesheet.timesheet_action_report_by_project
 #: model_terms:ir.actions.act_window,help:hr_timesheet.timesheet_action_report_by_task
 msgid "Record a new activity"
-msgstr "Įrašyti naują veiklą"
+msgstr "Įrašykite naują veiklą"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_task__remaining_hours
@@ -622,6 +622,14 @@ msgstr ""
 "Galite registruoti ir sekti savo projekto darbo valandas kasdien.\n"
 "Visas laikas, praleistas prie projekto, taps kaštais, už kuriuos galima pateikti\n"
 "sąskaitą klientams, jei to reikia."
+
+#. module: hr_timesheet
+#: code:addons/hr_timesheet/models/analytic_account.py:53
+#, python-format
+msgid ""
+"You cannot change the company of an analytical account if it is related to a"
+" project."
+msgstr ""
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_employee_view_form_inherit_timesheet

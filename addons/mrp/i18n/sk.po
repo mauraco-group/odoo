@@ -10,14 +10,16 @@
 # gebri <gebri@inmail.sk>, 2018
 # Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2018
 # Jan Prokop, 2019
+# Damian brencic <brencicdamian12313@gmail.com>, 2020
+# Alexandra Brencicova <alexandra.brencicova@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:31+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Jan Prokop, 2019\n"
+"Last-Translator: Alexandra Brencicova <alexandra.brencicova@gmail.com>, 2020\n"
 "Language-Team: Slovak (https://www.transifex.com/odoo/teams/41243/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -179,6 +181,11 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"o_stat_text\">Work Orders</span>"
+msgstr ""
+
+#. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.label_production_view_pdf
+msgid "<span>1.0</span>"
 msgstr ""
 
 #. module: mrp
@@ -465,6 +472,7 @@ msgid "Avatar"
 msgstr "Avatar"
 
 #. module: mrp
+#: model:ir.model.fields,help:mrp.field_product_product__produce_delay
 #: model:ir.model.fields,help:mrp.field_product_template__produce_delay
 msgid ""
 "Average lead time in days to manufacture this product. In the case of multi-"
@@ -493,6 +501,7 @@ msgid "BOM lines of the referred bom"
 msgstr "Riadku Kusovníka referovaného kusovníka"
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.label_production_view_pdf
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Barcode"
 msgstr "Čiarový kód"
@@ -523,6 +532,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.product_open_bom
 #: model:ir.actions.act_window,name:mrp.template_open_bom
+#: model:ir.model.fields,field_description:mrp.field_product_product__bom_ids
 #: model:ir.model.fields,field_description:mrp.field_product_template__bom_ids
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_tree_view
 #: model_terms:ir.ui.view,arch_db:mrp.product_product_form_view_bom_button
@@ -557,7 +567,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_block_wizard_form
 msgid "Block"
-msgstr ""
+msgstr "Blok"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.act_mrp_block_workcenter
@@ -1233,6 +1243,11 @@ msgid "Finished Product"
 msgstr ""
 
 #. module: mrp
+#: model:ir.actions.report,name:mrp.action_report_finished_product
+msgid "Finished Product Label (PDF)"
+msgstr ""
+
+#. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__move_finished_ids
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Finished Products"
@@ -1555,6 +1570,11 @@ msgid "Is the Current User Working"
 msgstr ""
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__is_first_wo
+msgid "Is the first WO to produce"
+msgstr ""
+
+#. module: mrp
 #: code:addons/mrp/models/mrp_workcenter.py:163
 #, python-format
 msgid "It has already been unblocked."
@@ -1844,6 +1864,7 @@ msgid "Manufacturing"
 msgstr "Výroba"
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_product_product__produce_delay
 #: model:ir.model.fields,field_description:mrp.field_product_template__produce_delay
 #: model:ir.model.fields,field_description:mrp.field_res_company__manufacturing_lead
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings__manufacturing_lead
@@ -2508,6 +2529,7 @@ msgid "Processed Disassembly Lines"
 msgstr ""
 
 #. module: mrp
+#: model:ir.model,name:mrp.model_procurement_group
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__procurement_group_id
 msgid "Procurement Group"
 msgstr "Skupina obstarávania"
@@ -2630,7 +2652,6 @@ msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__production_location_id
-#: model:ir.model.fields,field_description:mrp.field_mrp_routing__location_id
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_search_view
 msgid "Production Location"
 msgstr "Lokácia produktu"
@@ -2788,6 +2809,7 @@ msgstr ""
 #. module: mrp
 #. openerp-web
 #: code:addons/mrp/static/src/xml/mrp.xml:10
+#: model_terms:ir.ui.view,arch_db:mrp.label_production_view_pdf
 #, python-format
 msgid "Quantity:"
 msgstr "Množstvo:"
@@ -2804,6 +2826,7 @@ msgstr "Suroviny"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__location_src_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing__location_id
 msgid "Raw Materials Location"
 msgstr "Umiestnenie surových materiálov"
 
@@ -2900,7 +2923,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__res_model_name
 msgid "Res Model Name"
-msgstr ""
+msgstr "Názov Modelu Res"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_product_produce_line__qty_reserved
@@ -3346,6 +3369,11 @@ msgid ""
 msgstr ""
 
 #. module: mrp
+#: model:ir.model.fields,help:mrp.field_mrp_bom_line__valid_product_attribute_value_ids
+msgid "Technical compute"
+msgstr "Technický prepočet"
+
+#. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workorder__is_user_working
 msgid "Technical field indicating whether the current user is working. "
 msgstr ""
@@ -3366,6 +3394,8 @@ msgid ""
 "Technical field used to resolve multiple attachments in a multi-website "
 "environment."
 msgstr ""
+"Technická oblasť použitá na riešenie viacerých príloh v prostredí viacerých "
+"webových stránok."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__consumed_less_than_planned
@@ -3891,6 +3921,11 @@ msgid ""
 msgstr ""
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom_line__valid_product_attribute_value_ids
+msgid "Valid Product Attribute Values"
+msgstr "Platné hodnoty atribútu produktu"
+
+#. module: mrp
 #. openerp-web
 #: code:addons/mrp/static/src/xml/mrp.xml:21
 #, python-format
@@ -4301,9 +4336,21 @@ msgid ""
 msgstr ""
 
 #. module: mrp
+#: code:addons/mrp/models/mrp_bom.py:109
+#, python-format
+msgid "You cannot create a new Bill of Material from here."
+msgstr ""
+
+#. module: mrp
 #: code:addons/mrp/models/mrp_unbuild.py:88
 #, python-format
 msgid "You cannot delete an unbuild order if the state is 'Done'."
+msgstr ""
+
+#. module: mrp
+#: code:addons/mrp/models/mrp_production.py:533
+#, python-format
+msgid "You cannot produce a MO with a bom kit product."
 msgstr ""
 
 #. module: mrp

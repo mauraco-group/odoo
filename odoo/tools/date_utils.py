@@ -4,8 +4,9 @@ import calendar
 from datetime import date, datetime, time
 import pytz
 from dateutil.relativedelta import relativedelta
-from . import ustr
 
+from . import ustr
+from .func import lazy
 
 def get_month(date):
     ''' Compute the month dates range on which the 'date' parameter belongs to.
@@ -73,6 +74,10 @@ def get_fiscal_year(date, day=31, month=12):
         date_from = date_to + relativedelta(days=1)
         max_day = calendar.monthrange(date_to.year + 1, date_to.month)[1]
         date_to = type(date)(date.year + 1, month, min(day, max_day))
+
+        # Force at 29 February instead of 28 in case of leap year.
+        if date_to.month == 2 and date_to.day == 28 and max_day == 29:
+            date_to += relativedelta(days=1)
     return date_from, date_to
 
 
@@ -177,16 +182,17 @@ def subtract(value, *args, **kwargs):
     """
     return value - relativedelta(*args, **kwargs)
 
-
 def json_default(obj):
     """
     Properly serializes date and datetime objects.
     """
     from odoo import fields
+    if isinstance(obj, datetime):
+        return fields.Datetime.to_string(obj)
     if isinstance(obj, date):
-        if isinstance(obj, datetime):
-            return fields.Datetime.to_string(obj)
         return fields.Date.to_string(obj)
+    if isinstance(obj, lazy):
+        return obj._value
     return ustr(obj)
 
 def date_range(start, end, step=relativedelta(months=1)):
